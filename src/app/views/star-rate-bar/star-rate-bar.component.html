@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-lg-12 col-sm-12">
+        <span *ngFor="let item of ratedata">
+        
+            <i *ngIf="item.filled" class="bi bi-star-fill"  [ngStyle]="fillStyle()" ></i>
+            <i  *ngIf="!item.filled" class="bi bi-star"  [ngStyle]="fillStyle()"></i>
+        </span>
+        <span style="padding-left: 10px; font-size: medium;">
+            {{label}}
+        </span>
+    </div>
+</div>

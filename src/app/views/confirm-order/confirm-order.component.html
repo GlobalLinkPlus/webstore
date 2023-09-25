@@ -1,0 +1,143 @@
+<header>
+  <app-header></app-header>
+  </header>
+  <main>
+    <div class="container-fluid vstack gap-2 main-div">
+    
+      <div class="cart-items-wrapper mb-5 pb-5">
+        <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2">
+         
+          
+        </div>
+        
+        <div class="card main-content" style="border: none;">
+          <div class="card-body">
+            <div class="row form-info">
+        
+              <div class="col-lg-12 col-sm-12 col-12">
+                <div class="card summary-card">
+                  <div class="card-body">
+                    <div class="row form-info">
+        
+                      <div class="col-lg-6 col-sm-6 col-12">
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span >
+                              <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                
+                                <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" fill="#f68b1e"/> </g>
+                                
+                                </svg>
+                            </span>
+                            <span  style="padding-top:10px;padding-left: 10px;font-size: xx-large;font-weight: 600;"> Order Confirmed</span>
+                            <span style="padding-left: 10px;"> <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                              
+                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                              
+                              <g id="SVGRepo_iconCarrier"> <path d="M7 18H6.2C5.0799 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V10.2C3 9.0799 3 8.51984 3.21799 8.09202C3.40973 7.71569 3.71569 7.40973 4.09202 7.21799C4.51984 7 5.0799 7 6.2 7H7M17 18H17.8C18.9201 18 19.4802 18 19.908 17.782C20.2843 17.5903 20.5903 17.2843 20.782 16.908C21 16.4802 21 15.9201 21 14.8V10.2C21 9.07989 21 8.51984 20.782 8.09202C20.5903 7.71569 20.2843 7.40973 19.908 7.21799C19.4802 7 18.9201 7 17.8 7H17M7 11H7.01M17 7V5.4V4.6C17 4.03995 17 3.75992 16.891 3.54601C16.7951 3.35785 16.6422 3.20487 16.454 3.10899C16.2401 3 15.9601 3 15.4 3H8.6C8.03995 3 7.75992 3 7.54601 3.10899C7.35785 3.20487 7.20487 3.35785 7.10899 3.54601C7 3.75992 7 4.03995 7 4.6V5.4V7M17 7H7M8.6 21H15.4C15.9601 21 16.2401 21 16.454 20.891C16.6422 20.7951 16.7951 20.6422 16.891 20.454C17 20.2401 17 19.9601 17 19.4V16.6C17 16.0399 17 15.7599 16.891 15.546C16.7951 15.3578 16.6422 15.2049 16.454 15.109C16.2401 15 15.9601 15 15.4 15H8.6C8.03995 15 7.75992 15 7.54601 15.109C7.35785 15.2049 7.20487 15.3578 7.10899 15.546C7 15.7599 7 16.0399 7 16.6V19.4C7 19.9601 7 20.2401 7.10899 20.454C7.20487 20.6422 7.35785 20.7951 7.54601 20.891C7.75992 21 8.03995 21 8.6 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                              
+                              </svg></span>
+                          </div>	
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span style="font-weight: 600;font-size: larger;"> Order Number:</span>
+                            <span  style="font-weight: 600;font-size: larger;">{{order_detail.order_no}}</span>
+                          </div>	
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span style="font-weight: 600;font-size: larger;"> Order Summary</span>
+                          </div>	
+                        </div>
+                        <div class="row" style="margin-top: 5px;" *ngFor="let p of cartItems">
+                          <div class="col-lg-7 col-sm-7 col-12">
+                            {{p.name}}
+                          </div>
+                          <div class="col-lg-3 col-sm-3 col-12">
+                            {{p.sku}}
+                          </div>
+                          <div class="col-lg-2 col-sm-2 col-12">
+                            {{p.product_count}}
+                          </div>
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span style="font-weight: 400;">Your Order has been sent to your email on file! Look forward to working with you again soon</span>
+                          </div>	
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-12">
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span  style="font-size: larger;font-weight: 600;"> Payment Summary</span>
+                          </div>	
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span  style="font-size: medium;font-weight: 300;"> {{cartItems.length}} Items</span>
+                          </div>	
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div class="line"></div>
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div style=" display:inline-block">
+                            <span > Order Subtotal</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal}}</span>
+                          </div>	
+                        </div>
+                        <div class="row">
+                          <div style=" display:inline-block">
+                            <span > Freight Cost</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.freight_cost}}</span>
+                          </div>
+                          
+                        </div>
+                        <div class="row">
+                          <div style=" display:inline-block">
+                            <span > Estimated Tax</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax}}</span>
+                          </div>
+                          
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                          <div class="line"></div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                          <div style=" display:inline-block">
+                            <span >Total</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost}}</span>
+                          </div>
+                          
+                        </div>
+                      
+                      </div>
+                    </div>
+                      
+                  
+                  </div>
+                </div>
+      
+                <!-- <div class="row" style="margin-top: 50px;">
+                  <span><u>Add Gift Card/Promo Code</u></span>
+                </div> -->
+              </div>
+            </div>
+          </div>          
+    
+        </div>
+      </div>
+    </div>   
+ 
+  </main>
+  <footer style="padding-top: 20px;">
+  
+    <app-footer></app-footer>
+  </footer>

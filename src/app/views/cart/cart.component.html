@@ -1,0 +1,132 @@
+<header>
+  <app-header></app-header>
+  </header>
+  <main>
+    <div class="container-fluid vstack gap-2 main-div">
+    
+      <div class="cart-items-wrapper mb-5 pb-5">
+        <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2">
+         
+          <div class="row">
+            <span class="page-title">My cart </span> 
+          </div>
+        </div>
+        
+        <div class="card main-content" style="border: none;">
+          <div class="card-body">
+            <div class="row form-info">
+              <div class="col-lg-8 col-sm-8 col-12 col-cart" >
+                <div class="row" *ngIf="cartItems.length==0">
+                  <span class="page-title">No Items </span> 
+                </div>
+                <div *ngFor="let item of cartItems"  class="item-cart" [ngStyle]="item.id==cartItems[0].id?{'margin-top':'0px'}:{'margin-top':'30px'}">
+                  <div class="row">
+                    <div class="col-sm-3 col-lg-3" style="overflow:hidden;">
+                      <a  [routerLink]="['/product',item.id]" ><img [src]="item.images[0].image" width="200px" height="200px"/></a>
+                    </div>
+                    <div class="col-sm-6 col-lg-6">
+                      <div class="row">
+                        <span style="font-weight: 400;font-size: large;"><a  [routerLink]="['/product',item.id]" style="text-decoration: none; font-size: x-large;">{{item.name}}</a></span>
+                      </div>
+                      <div class="row">
+                        <app-star-rate-bar [rate]=item.rating  [label]="item.reviews" [size]=24></app-star-rate-bar>
+                      
+                      </div>
+                      <div class="row">
+                        <span style="font-weight: 400;font-size: large;">Size: Queen Duvet Cover + 2 Shams</span>
+                      </div>
+                      <div class="row">
+                        <span style="font-weight: 400;font-size: large;">Color: White</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                      <div class="row item-price">
+                        <span style="font-size: xx-large;font-weight: 400;">$ {{item.pricing.first_cost}}</span>
+                      </div>
+                      <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-12 col-lg-12">
+                          <div class="item-count" style="border: 2px solid rgb(90, 90, 90); border-radius:30px;width: fit-content;padding:0px;display: flex;height: 35px;">
+                            <span style="padding-left: 15px;padding-right: 10px;padding-top: 3px;padding-bottom: 3px; font-size: medium;" (click)="reduceProductCount(item)"><i class="fa fa-minus" style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
+                            <span style="padding-left: 10px;padding-right: 10px;padding-top: 3px;padding-bottom: 3px; font-weight: 500; font-size: large;border-right:2px solid rgb(90, 90, 90); border-left:2px solid black;width:50px;text-align: center;">{{item.product_count}}</span>
+                            <span style="padding-left: 10px;padding-right: 15px;padding-top: 3px;padding-bottom: 3px; font-size: medium;" (click)="increaseProductCount(item)"> <i class="fa fa-plus" style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" style="margin-top: 20px;">                      
+                          <div class="row save-latter" >
+                            <div class="col-sm-12">
+                              <span style="padding:0px" ><u>Save for later</u></span>
+                            </div>
+                          </div>
+                          <div class="row remove" style="margin-top: 10px;">
+                            <div class="col-sm-12">
+                              <span style="padding:0px" ><u><i class="fa fa-trash" style=" font-family: 'Font Awesome 6 Free' !important;" (click)="removeItem(item)"></i> Remove</u></span>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 20px;">
+                    <!-- <div class="line"></div> -->
+                  </div>
+                </div>
+      
+        
+              
+              </div>
+              <div class="col-lg-4 col-sm-4 col-12 col-summary">
+                <div class="card summary-card">
+                  <div class="card-body">
+      
+                    <div class="row" style="margin-top: 15px;">
+                      <div style=" display:inline-block">
+                        <span > Order Subtotal</span>
+                        <span style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal}}</span>
+                      </div>	
+                    </div>
+                    <div class="row">
+                      <div style=" display:inline-block">
+                        <span > Freight Cost</span>
+                        <span style="float: right;">{{cart_summary.currency}}{{cart_summary.freight_cost}}</span>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div style=" display:inline-block">
+                        <span > Estimated Tax</span>
+                        <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax}}</span>
+                      </div>
+                      
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                      <div class="line"></div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                      <div style=" display:inline-block">
+                        <span >Total</span>
+                        <span style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost}}</span>
+                      </div>
+                      
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                      <button   class="btn  submit-now-button" [ngStyle]="{'background-color': bizService.get_background_color()}" (click)="checkout()">Proceed to Checkout</button>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="row" style="margin-top: 50px;">
+                  <span><u>Add Gift Card/Promo Code</u></span>
+                </div>
+              </div>
+            </div>
+          </div>          
+    
+        </div>
+      </div>
+    </div>   
+ 
+  </main>
+  <footer style="padding-top: 20px;">
+  
+    <app-footer></app-footer>
+  </footer>

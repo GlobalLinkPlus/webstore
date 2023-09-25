@@ -1,0 +1,599 @@
+<header>
+    <nav class="navbar navbar-expand fixed-top bg-white shadow">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <button class="btn" routerLink="/"><i class="bi bi-chevron-left"></i></button>
+          <ul class="navbar-nav ms-auto me-3 gap-2 align-items-center">
+            <li class="nav-item">
+              <button class="btn"><i class="bi bi-heart"></i></button>
+              <button class="btn"><i class="bi bi-share"></i></button>
+            </li>
+            <li class="nav-item ">
+              <button type="button" class="nav-link btn position-relative">
+                <i class="bi bi-bag fs-5"></i>
+                <span class="position-absolute top-0 start-100 translate-middle mt-2 badge bg-danger">
+                  1
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="items-gallery" class="items-gallery container-fluid">
+      <div class="mySlides">
+        <div class="numbertext">1 / 6</div>
+        <img
+          src="https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="jacket 1">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
+        <img
+          src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="jacket 2">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">3 / 6</div>
+        <img
+          src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="jacket 3">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">4 / 6</div>
+        <img
+          src="https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="jacket 4">
+      </div>
+      <!--    <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img
+              src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="jacket 5">
+          </div>
+          <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <imghref
+              src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+              alt="jacket 6">
+          </div>-->
+  
+      <!--    <button class="prev btn" (click)="plusSlides(-1)">❮</button>-->
+      <!--    <button class="next btn" (click)="plusSlides(1)">❯</button>-->
+  
+      <div class="row">
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            (click)="currentSlide(1)" alt="The Woods">
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            (click)="currentSlide(2)" alt="Cinque Terre">
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            (click)="currentSlide(3)"
+            alt="Mountains and fjords">
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            (click)="currentSlide(4)"
+            alt="Northern Lights">
+        </div>
+        <!--      <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                  (click)="currentSlide(5)"
+                  alt="Nature and sunrise">
+              </div>
+              <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                  (click)="currentSlide(6)"
+                  alt="Snowy Mountains">
+              </div>-->
+      </div>
+    </div>
+    <div class="container-fluid mb-5 pb-5">
+      <div class="card mt-3 border-0">
+        <div class="card-body px-0">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-shop"></i>
+            <p class="mb-0 small text-muted text-capitalize">tokobaju.id</p>
+          </div>
+          <p class="fw-bold h5 my-3">Fashion Jacket Men Bomber Jacket Coat Two Side Double Side</p>
+          <div class="d-flex align-items-center justify-content-evenly">
+            <div class="d-flex gap-1">
+              <i class="bi bi-star-fill text-warning"></i>
+              <p class="mb-0 text-muted">4.9 ratings</p>
+            </div>
+            <span class="mb-2">.</span>
+            <p class="mb-0 text-muted">2.3k+ Reviews</p>
+            <span class="mb-2">.</span>
+            <p class="mb-0 text-muted">2.9k+ Sold</p>
+          </div>
+        </div>
+      </div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                  type="button" role="tab" aria-controls="about-tab-pane" aria-selected="true">About Item
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+                  role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content pt-3" id="item-tab-content">
+        <div class="tab-pane fade show active" id="about-tab-pane" role="tabpanel" aria-labelledby="about-tab"
+             tabindex="0">
+          <div class="row g-3">
+            <div class="col-6 d-flex gap-1">
+              <p class="mb-0">Brand:</p>
+              <p class="mb-0 fw-bold">Checkers</p>
+            </div>
+            <div class="col-6 d-flex gap-1">
+              <p class="mb-0">Color:</p>
+              <p class="mb-0 fw-bold">Aprikot</p>
+            </div>
+            <div class="col-6 d-flex gap-1">
+              <p class="mb-0">Category:</p>
+              <p class="mb-0 fw-bold">Casual</p>
+            </div>
+            <div class="col-6 d-flex gap-1">
+              <p class="mb-0">Material:</p>
+              <p class="mb-0 fw-bold">Polyester</p>
+            </div>
+            <div class="col-6 d-flex gap-1">
+              <p class="mb-0">Condition:</p>
+              <p class="mb-0 fw-bold">New</p>
+            </div>
+            <div class="col-6 d-flex gap-1">
+              <p class="mb-0">Heavy:</p>
+              <p class="mb-0 fw-bold">200g</p>
+            </div>
+          </div>
+          <div class="collapse show" id="description">
+            <hr class="divider">
+            <p class="fw-bold">Description:</p>
+            <ul>
+              <li class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et
+                dolore magna aliqua.
+              </li>
+              <li class="small">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+              </li>
+              <li class="small">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
+              </li>
+              <li class="small">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
+              </li>
+            </ul>
+            <p>Bibendum ut tristique et egestas quis ipsum. Eget egestas purus viverra accumsan in nisl nisi
+              scelerisque.</p>
+          </div>
+          <button class="btn btn-sm btn-light mt-3" data-bs-toggle="collapse" href="#description" role="button"
+                  aria-expanded="true" aria-controls="description">show less<i class="bi bi-chevron-up ms-2"></i></button>
+          <hr class="divider">
+          <div>
+            <p class="fw-bold">Shipping information:</p>
+            <div class="d-flex gap-2">
+              <p class="mb-0">Delivery:</p>
+              <p class="mb-0 fw-bold">Shipping from Jakarta, Indonesia.</p>
+            </div>
+            <div class="d-flex mt-2 gap-2">
+              <p class="mb-0">Shipping:</p>
+              <p class="mb-0 fw-bold">Free international shipping</p>
+            </div>
+            <div class="d-flex mt-2 gap-2">
+              <p class="mb-0">Delivery date:</p>
+              <p class="mb-0 fw-bold">25/04/2023</p>
+            </div>
+          </div>
+          <hr class="divider">
+          <div>
+            <p class="fw-bold">Seller information:</p>
+            <div class="d-flex align-items-center gap-3">
+              <img
+                src="https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                alt="seller title" height="72" width="72" class="object-fit-cover rounded-circle">
+              <div class="vstack align-items-start gap-2">
+                <p class="fw-bold mb-0">Thrift Shop</p>
+                <button class="btn btn-sm btn-primary"><i class="bi bi-box-arrow-up-right me-2"></i>Visit store</button>
+              </div>
+            </div>
+          </div>
+          <hr class="divider">
+          <div>
+            <p class="fw-bold">Reviews & Ratings</p>
+            <div class="row align-items-center">
+              <div class="col-4 text-center">
+                <div>
+                  <span class="display-3 fw-normal">4.9</span>
+                  <span>/ 5.0</span>
+                </div>
+                <div class="d-flex mt-2 justify-content-center gap-1">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                </div>
+                <p class="mb-0 mt-2 small text-muted">2.3k+ reviews</p>
+              </div>
+              <div class="col-8 vstack gap-1">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <p class="mb-0">5</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75"
+                       aria-valuemin="0"
+                       aria-valuemax="100" style="height: .65rem; width: 100%; max-width: 136px;">
+                    <div class="progress-bar" style="width: 75%"></div>
+                  </div>
+                  <p class="mb-0">1.45k</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <p class="mb-0">4</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="40"
+                       aria-valuemin="0"
+                       aria-valuemax="100" style="height: .65rem; width: 100%; max-width: 136px;">
+                    <div class="progress-bar" style="width: 40%"></div>
+                  </div>
+                  <p class="mb-0">710</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <p class="mb-0">3</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25"
+                       aria-valuemin="0"
+                       aria-valuemax="100" style="height: .65rem; width: 100%; max-width: 136px;">
+                    <div class="progress-bar" style="width: 25%"></div>
+                  </div>
+                  <p class="mb-0">410</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <p class="mb-0">2</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="20"
+                       aria-valuemin="0"
+                       aria-valuemax="100" style="height: .65rem; width: 100%; max-width: 136px;">
+                    <div class="progress-bar" style="width: 20%"></div>
+                  </div>
+                  <p class="mb-0">10</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <p class="mb-0">1</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="2"
+                       aria-valuemin="0"
+                       aria-valuemax="100" style="height: .65rem; width: 100%; max-width: 136px;">
+                    <div class="progress-bar" style="width: 2%"></div>
+                  </div>
+                  <p class="mb-0">4</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="divider">
+          <div>
+            <p class="fw-bold">Reviews with images and videos</p>
+            <div class="d-flex justify-content-between align-items-center gap-2">
+              <img
+                src="https://images.unsplash.com/photo-1548126032-079a0fb0099d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                alt="" height="72" width="72" class="object-fit-cover rounded-3">
+              <img
+                src="https://images.unsplash.com/photo-1525457136159-8878648a7ad0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                alt="" height="72" width="72" class="object-fit-cover rounded-3">
+              <img
+                src="https://images.unsplash.com/photo-1493568000180-ca2fb70ddcba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                alt="" height="72" width="72" class="object-fit-cover rounded-3">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1608063615781-e2ef8c73d114?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                  alt="" height="72" width="72" class="object-fit-cover rounded-3">
+                <div class="img-overlay">
+                  <p class="centered text-white fw-bold text-white">132+</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="divider">
+          <div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <p class="fw-bold mb-1">Top Reviews</p>
+                <p class="small mb-0">Show 3 out of 2.3k+ reviews</p>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                  Popular
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Recent</a></li>
+                  <li><a class="dropdown-item" href="#">Relevant</a></li>
+                  <li><a class="dropdown-item" href="#">A-Z</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="list-group list-group-flush mt-3">
+              <div class="list-group-item list-group-item-action px-0">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1557418669-db3f781a58c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                      alt="" height="36" width="36" class="object-fit-cover rounded-circle">
+                    <span class="fw-bold">John Doe</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <span class="fw-bold">5.0</span>
+                    </span>
+                    <button class="btn btn-sm"><i class="bi bi-three-dots"></i></button>
+                  </div>
+                </div>
+                <div class="d-flex gap-2 tag mb-2">
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                </div>
+                <p class="small my-3">Dolor sit amet consectetur adipiscing elit. Eget est lorem ipsum dolor sit amet
+                  consectetur adipiscing elit. Sit amet dictum sit amet justo donec enim diam vulputate.</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button class="btn btn-light btn-sm"><i class="bi bi-hand-thumbs-up me-2"></i>Helpful?</button>
+                  <p class="mb-0 small">Yesterday</p>
+                </div>
+              </div>
+              <div class="list-group-item list-group-item-action px-0">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1557418669-db3f781a58c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                      alt="" height="36" width="36" class="object-fit-cover rounded-circle">
+                    <span class="fw-bold">John Doe</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <span class="fw-bold">5.0</span>
+                    </span>
+                    <button class="btn btn-sm"><i class="bi bi-three-dots"></i></button>
+                  </div>
+                </div>
+                <div class="d-flex gap-2 tag mb-2">
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                </div>
+                <p class="small my-3">Dolor sit amet consectetur adipiscing elit. Eget est lorem ipsum dolor sit amet
+                  consectetur adipiscing elit. Sit amet dictum sit amet justo donec enim diam vulputate.</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button class="btn btn-light btn-sm"><i class="bi bi-hand-thumbs-up me-2"></i>Helpful?</button>
+                  <p class="mb-0 small">Yesterday</p>
+                </div>
+              </div>
+              <div class="list-group-item list-group-item-action px-0">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1557418669-db3f781a58c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                      alt="" height="36" width="36" class="object-fit-cover rounded-circle">
+                    <span class="fw-bold">John Doe</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <span class="fw-bold">5.0</span>
+                    </span>
+                    <button class="btn btn-sm"><i class="bi bi-three-dots"></i></button>
+                  </div>
+                </div>
+                <div class="d-flex gap-2 tag mb-2">
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                  <button class="btn btn-sm btn-outline-dark rounded-pill">Tag 1</button>
+                </div>
+                <p class="small my-3">Dolor sit amet consectetur adipiscing elit. Eget est lorem ipsum dolor sit amet
+                  consectetur adipiscing elit. Sit amet dictum sit amet justo donec enim diam vulputate.</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button class="btn btn-light btn-sm"><i class="bi bi-hand-thumbs-up me-2"></i>Helpful?</button>
+                  <p class="mb-0 small">Yesterday</p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between mt-3">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <button class="btn btn-light">load more<i class="bi bi-three-dots ms-2"></i></button>
+            </div>
+          </div>
+          <hr class="divider">
+          <div class="cart-items-wrapper">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <p class="mb-0 h5 fw-bold">Recommended</p>
+              <button class="btn text-success text-capitalize">see more</button>
+            </div>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col">
+                <div class="card h-100 border-0 cart-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                    class="card-img-top object-fit-cover"
+                    height="136"
+                    alt="item image">
+                  <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  <div class="card-body px-2">
+                    <p class="small text-muted mb-1">Shirt</p>
+                    <p class="fw-normal mb-2 small fw-bold">Fashion Jacket Coat-Men Bomber Jacket</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="ratings">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <small class="text-muted">4.9 | 2912</small>
+                      </div>
+                      <p class="h5 text-success mb-0 fw-bold">$12.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 border-0 cart-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                    class="card-img-top object-fit-cover"
+                    height="136"
+                    alt="item image">
+                  <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  <div class="card-body px-2">
+                    <p class="small text-muted mb-1">Shirt</p>
+                    <p class="fw-normal mb-2 small fw-bold">Fashion Jacket Coat-Men Bomber Jacket</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="ratings">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <small class="text-muted">4.9 | 2912</small>
+                      </div>
+                      <p class="h5 text-success mb-0 fw-bold">$12.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 border-0 cart-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                    class="card-img-top object-fit-cover"
+                    height="136"
+                    alt="item image">
+                  <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  <div class="card-body px-2">
+                    <p class="small text-muted mb-1">Shirt</p>
+                    <p class="fw-normal mb-2 small fw-bold">Fashion Jacket Coat-Men Bomber Jacket</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="ratings">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <small class="text-muted">4.9 | 2912</small>
+                      </div>
+                      <p class="h5 text-success mb-0 fw-bold">$12.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 border-0 cart-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                    class="card-img-top object-fit-cover"
+                    height="136"
+                    alt="item image">
+                  <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  <div class="card-body px-2">
+                    <p class="small text-muted mb-1">Shirt</p>
+                    <p class="fw-normal mb-2 small fw-bold">Fashion Jacket Coat-Men Bomber Jacket</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="ratings">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <small class="text-muted">4.9 | 2912</small>
+                      </div>
+                      <p class="h5 text-success mb-0 fw-bold">$12.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 border-0 cart-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                    class="card-img-top object-fit-cover"
+                    height="136"
+                    alt="item image">
+                  <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  <div class="card-body px-2">
+                    <p class="small text-muted mb-1">Shirt</p>
+                    <p class="fw-normal mb-2 small fw-bold">Fashion Jacket Coat-Men Bomber Jacket</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="ratings">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <small class="text-muted">4.9 | 2912</small>
+                      </div>
+                      <p class="h5 text-success mb-0 fw-bold">$12.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 border-0 cart-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                    class="card-img-top object-fit-cover"
+                    height="136"
+                    alt="item image">
+                  <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  <div class="card-body px-2">
+                    <p class="small text-muted mb-1">Shirt</p>
+                    <p class="fw-normal mb-2 small fw-bold">Fashion Jacket Coat-Men Bomber Jacket</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="ratings">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <small class="text-muted">4.9 | 2912</small>
+                      </div>
+                      <p class="h5 text-success mb-0 fw-bold">$12.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">...
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="bottom-nav container-fluid">
+      <div>
+        <p class="mb-1">Total price</p>
+        <p class="h4 mb-0 fw-bold">$18.00</p>
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary btn-lg">
+          <i class="bi bi-bag"></i>
+          <span class="fs-5 ms-1">1</span>
+        </button>
+        <button type="button" class="btn btn-dark btn-lg">Buy Now</button>
+      </div>
+    </div>
+  </footer>

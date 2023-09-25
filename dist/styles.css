@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  src: url('sofia_reg.woff2') format("woff2"), url('sofia_reg.woff') format("woff");
+  font-display: swap;
+  font-family: sofia;
+}
+@font-face {
+  src: url('sofia_reg_subset.woff2') format("woff2"), url('sofia_reg_subset.woff') format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-family: sofia;
+}
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  src: url('sofia_bold.woff2') format("woff2"), url('sofia_bold.woff') format("woff");
+  font-display: swap;
+  font-family: sofia;
+}
+@font-face {
+  src: url('sofia_bold_subset.woff2') format("woff2"), url('sofia_bold_subset.woff') format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-family: sofia;
+}
+@font-face {
+  src: local(Arial);
+  ascent-override: 109.08203%;
+  descent-override: 27.05078%;
+  line-gap-override: 0;
+  font-family: sofiaFallback;
+}
+
+/*# sourceMappingURL=styles.css.map*/

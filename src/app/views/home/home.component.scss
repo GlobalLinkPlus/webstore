@@ -1,0 +1,170 @@
+
+*{
+  font-family: 'sofia' !important;
+}
+
+
+ .bottom-card{    
+    border-radius: 20px;
+    width: 100%;
+    min-height: 400px;
+   
+}
+.card-text{
+    text-align: center;
+    height: 400px;
+    background: 
+    -webkit-linear-gradient(rgba(0, 255, 2, 0), rgba(0, 255, 2, 0.0) 0%),
+   -webkit-linear-gradient(-20deg, rgba(4, 0, 255, 0) 50%, rgba(255, 255, 235, 0.7) 0%);
+}
+
+
+.txt{
+    height: 400px;
+    display: table-cell;
+    vertical-align: middle;
+    width: inherit;
+    
+}
+.txt2{
+    display: grid;
+}
+
+
+.w-100 {
+    width: 100%!important;
+  }
+
+  
+.brands-div {
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+  
+
+
+  @media (min-width: 500px) {
+    .brands-cards {
+      width: calc(100% - 80px);
+      overflow: hidden;
+      height: 200px;
+    }
+  }
+
+  
+    
+  @media  (max-width: 499px){
+    .brands-cards {
+      width: 100%;
+      overflow: hidden;
+      height: 200px;
+    }
+  }
+  
+  .overflow {
+    position: relative;
+    transition: left 0.5s ease-in-out;
+  }
+  
+  .brand-card {
+    height: 200px;
+    background-color: #e0e1e2;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 40px;
+    position: relative;
+  }
+  
+  .no-right-margin {
+    margin-right: 0px;
+  }
+  
+  .brand-card span {
+    font-size:48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .left,
+  .right {
+    height: 30px;
+    width: 30px;
+    color: black;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  @media  (min-width: 992px)  {
+    .left {
+      margin-left: 50px;
+      left: 0;
+    }
+    
+    .right {
+      right: 0;
+      margin-right: 50px;
+    }
+  }
+
+
+
+
+@media (max-width: 991px) {
+  .left {
+    margin-left: 0px;
+    left: 0;
+  }
+  
+  .right {
+    right: 0;
+    margin-right: 0px;
+  }
+}
+
+  .left.disabled, .right.disabled {
+    color:#CCC;
+  }
+  
+
+  
+@media  (min-width: 992px){
+  .carousel-item{
+    img{
+      height: 700px;
+    }
+  }
+}
+
+@media  (min-width: 600px) and (max-width: 991px) {
+  .carousel-item{
+    img{
+      height: 400px;
+    }
+  }
+}
+
+@media  (min-width: 400px) and (max-width: 599px) {
+  .carousel-item{
+    img{
+      height: 300px;
+    }
+  }
+}
+
+
+@media (max-width: 399px) {
+  .carousel-item{
+    img{
+      height: 200px;
+    }
+  }
+}
+
+
