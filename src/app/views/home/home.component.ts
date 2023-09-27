@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getHomeSectionItems(this.bizService.get_company_id()).subscribe(res=>{
       this.loading=false;    
       this.section_one=res.section_one;
-        this.section_two=res.section_one;
+        this.section_two=res.section_two;
         },err=>{
           this.loading=false; 
           console.log("[ERROR]>>>",err);
