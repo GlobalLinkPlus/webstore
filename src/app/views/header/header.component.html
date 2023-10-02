@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand shadow fixed-top" [ngClass]="isSticky ? 'navbar-sticky':'navbar'">
-  <div class="container-fluid" style="position: absolute;top:0">
+<nav style="height: 150px; padding-top: 40px;" class="navbar navbar-expand shadow fixed-top" [ngClass]="isSticky ? 'navbar-sticky':'navbar'">
+  <div class="container-fluid" style="position: absolute; top:0; padding-top: 40px;">
     <div class="navbar-brand" style="min-width: 280px;z-index: 1040;">
       <!-- <span class="app-title" style="padding-left: 40px;" >
          <a href="" style="text-decoration: none;color: black;">.<span style="color:#f68b1e">ts</span>marketing.</a>
         </span>  -->
       <a class="logo" routerLink="/{{bizService.getBizId()}}">
-        <img src="{{bizService.get_company_logo()}}" style="height:60px" />
+        <img src="{{bizService.get_company_logo()}}" style="height:50px" />
       </a>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: relative;">
