@@ -26,7 +26,7 @@
 
           <span hoverActivatedNavMenu style="display: block;width: fit-content;">
 
-            <a routerLink="/{{bizService.getBizId()}}/products/{{cat.name}}" class="TopNav_topNavLink_13"
+            <a style="text-decoration: none;" routerLink="/{{bizService.getBizId()}}/products/{{cat.name}}" class="TopNav_topNavLink_13"
               [ngStyle]="getTopMenuHoverStyle(cat.id)">{{navbarCategoryFormat(cat.name)}}</a>
             <div
               style="max-width: 976px; min-width: 976px; animation-delay: 0ms;background-color:white; left: calc((100% - 976px) / 2);"
