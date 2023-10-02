@@ -13,7 +13,7 @@
         [formGroup]="searchForm">
         <div class="input-group">
           
-          <input style="padding-left:20px;" formControlName="search" type="text" class="form-control bg-transparent search-bar-input rounded-pill"
+          <input style="padding-left:20px; border-color: #C1C7D6; border-left: 1px solid #C1C7D6;" formControlName="search" type="text" class="form-control bg-transparent search-bar-input rounded-pill"
             placeholder="Search ..." aria-label="search" aria-describedby="basic-addon1"
             (keydown.enter)="searchClick()">
             <span style="margin-left: -70px; border: none;" class="input-group-text bg-transparent  search-bar-icon rounded-pill" id="basic-addon1" (click)="searchClick()"><i
@@ -71,6 +71,7 @@
           <button type="button" class="nav-link btn position-relative">
             <a routerLink="/{{bizService.getBizId()}}/cart">
               <span class="unhovered">
+                <!-- <i class="bi bi-cart" style="color: black; font-size: 32px; font-weight: 600;"></i> -->
                 <!-- <i class="fa-solid fa-cart-shopping" style="color: #555;font-size: 24px; font-family: 'Font Awesome 6 Free';"></i> -->
                 <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
