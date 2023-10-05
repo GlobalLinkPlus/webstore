@@ -1,9 +1,9 @@
 
 <div class="toolbar" role="banner" [ngStyle]="{'background-color': bizService.get_background_color()}" >
 
-    <a class="promotion-text" target="_blank" href="https://{{bizService.get_left_link()}}" *ngIf="bizService.get_left_header()!=null">{{bizService.get_left_header()}}</a>
+    <a class="promotion-text" target="_blank" href="{{bizService.get_left_link()}}" *ngIf="bizService.get_left_header()!=null">{{bizService.get_left_header()}}</a>
       <div class="spacer"></div>
-      <a class="promotion-text-right"  target="_blank" href="https://{{bizService.get_right_link()}}"  *ngIf="bizService.get_right_header()!=null">{{bizService.get_right_header()}}</a>
+      <a class="promotion-text-right"  target="_blank" href="{{bizService.get_right_link()}}"  *ngIf="bizService.get_right_header()!=null">{{bizService.get_right_header()}}</a>
 
   </div>
 <router-outlet></router-outlet>
