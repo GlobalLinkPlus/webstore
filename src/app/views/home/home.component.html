@@ -132,7 +132,7 @@
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
     
-        <div class="row row-cols-2 row-cols-md-4 g-2">
+        <div class="row row-cols-2 row-cols-md-4">
         
           
         
@@ -148,7 +148,7 @@
                   class="card-img-top object-fit-cover"
                   style="height:136px"></div>
                 <button *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
-                <div class="card-body px-2">
+                <div style="padding-top: 15px;" class="card-body px-2">
                   <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
                   <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                     <i class="bi bi-star-fill text-warning"></i>
@@ -212,7 +212,7 @@
           [ngClass]="{'disabled':currentPage === totalPages}"><i  class="fa-solid fa-angle-right" style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i></div>
   </div>  -->
   
-  <div class="row row-cols-2 row-cols-md-4 g-2" style="padding-left:27px;padding-right:27px;">
+  <div class="row row-cols-2 row-cols-md-4" style="padding-left:27px;padding-right:27px;">
         
           
         
@@ -228,7 +228,7 @@
           class="card-img-top object-fit-cover"
           style="height:136px"></div>
         <button *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
-        <div class="card-body px-2">
+        <div style="padding-top: 15px;" class="card-body px-2">
           <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
           <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
             <i class="bi bi-star-fill text-warning"></i>
