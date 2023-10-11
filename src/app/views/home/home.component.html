@@ -140,6 +140,7 @@
               <div class="">
                 <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
                   [src]="item.product.images[0].image"
+                  style="border-radius: 10%;"
                   class="card-img-top object-fit-cover"
                   alt="item image">
                   <div
@@ -220,7 +221,7 @@
         <img appDynamicSize  *ngIf="item.product.images.length>0 && item.product.images[0].image"
           [src]="item.product.images[0].image"
           class="card-img-top object-fit-cover"
-          
+          style="border-radius: 10%;"
           alt="item image">
           <div
           *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
