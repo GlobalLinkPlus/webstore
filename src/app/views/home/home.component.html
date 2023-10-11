@@ -138,10 +138,9 @@
         
             <div class="col"  *ngFor="let item of section_one.products" routerLink="product/{{item.id}}">
               <div class="">
-                <img  *ngIf="item.product.images.length>0 && item.product.images[0].image"
+                <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
                   [src]="item.product.images[0].image"
                   class="card-img-top object-fit-cover"
-                  height="136"
                   alt="item image">
                   <div
                   *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
@@ -218,10 +217,10 @@
         
     <div class="col"  *ngFor="let item of section_two.products" routerLink="product/{{item.id}}">
       <div class="">
-        <img  *ngIf="item.product.images.length>0 && item.product.images[0].image"
+        <img appDynamicSize  *ngIf="item.product.images.length>0 && item.product.images[0].image"
           [src]="item.product.images[0].image"
           class="card-img-top object-fit-cover"
-          height="136"
+          
           alt="item image">
           <div
           *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
