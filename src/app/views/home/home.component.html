@@ -2,7 +2,7 @@
   <app-header></app-header>
 </header>
 <main class="container-fluid">
-  <div style="padding-top: 80px;">
+  <div style="padding-top: 80px; margin-bottom: 40px;">
 
     <div id="hero-carousel" class="carousel slide pb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -253,9 +253,7 @@
       </div>
       <div class="right" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
           [ngClass]="{'disabled':currentPage === totalPages}"><i  class="fa-solid fa-angle-right" style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i></div>
-  </div>  -->
-
-
+    </div>  -->
   </div>
 </main>
 <footer style="padding-top: 20px;">
