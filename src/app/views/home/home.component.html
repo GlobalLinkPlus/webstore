@@ -137,7 +137,7 @@
           
         
             <div class="col"  *ngFor="let item of section_one.products" routerLink="product/{{item.id}}">
-              <div class="card h-100 border-0 cart-item">
+              <div class="">
                 <img  *ngIf="item.product.images.length>0 && item.product.images[0].image"
                   [src]="item.product.images[0].image"
                   class="card-img-top object-fit-cover"
@@ -217,7 +217,7 @@
           
         
     <div class="col"  *ngFor="let item of section_two.products" routerLink="product/{{item.id}}">
-      <div class="card h-100 border-0 cart-item">
+      <div class="">
         <img  *ngIf="item.product.images.length>0 && item.product.images[0].image"
           [src]="item.product.images[0].image"
           class="card-img-top object-fit-cover"
