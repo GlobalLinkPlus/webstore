@@ -1,27 +1,27 @@
 <header>
   <app-header></app-header>
-  </header>
-  <main class="container-fluid" >
-    <div style="padding-top: 80px;">
+</header>
+<main class="container-fluid">
+  <div style="padding-top: 80px;">
 
     <div id="hero-carousel" class="carousel slide pb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <ng-container *ngFor="let item of sliders; let i=index;">
-          <div class="carousel-item active" data-bs-interval="5000" style="padding-top: 0px;" >
+          <div class="carousel-item active" data-bs-interval="5000" style="padding-top: 0px;">
             <div class="card border-0 rounded-0">
               <div class="card-body" style="padding-left:0px;padding-right:0px">
                 <div class="row align-items-start">
 
                   <div class="col-12" style="padding-left:0px;padding-right:0px">
-                    <img src="{{item.image}}" alt=""  class="w-100 object-fit-cover rounded-3">
+                    <img src="{{item.image}}" alt="" class="w-100 object-fit-cover rounded-3">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-      </ng-container>
-        
-         <!-- <div class="carousel-item  bg-body-tertiary bg-opacity-10" data-bs-interval="5000" style="padding-top: 0px;">
+        </ng-container>
+
+        <!-- <div class="carousel-item  bg-body-tertiary bg-opacity-10" data-bs-interval="5000" style="padding-top: 0px;">
           <div class="card border-0 rounded-0">
             <div class="card-body" style="padding-left:0px;padding-right:0px">
               <div class="row align-items-start">
@@ -47,13 +47,11 @@
         </div>  -->
 
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel"
-              data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
         <i class="bi bi-chevron-left"></i>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel"
-              data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
@@ -126,79 +124,124 @@
         </div>
       </div> -->
       <div class="cart-items-wrapper mb-5 pb-5">
-        <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2" style="padding-left:0px;">
+        <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
+          style="padding-left:0px;">
           <p class="mb-0 h5 fw-bold">{{section_one.name}}</p>
-          <a  routerLink="search/" class="btn text-capitalize btn-sm text-success">see more</a>
+          <a routerLink="search/" class="btn text-capitalize btn-sm text-success">see more</a>
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
-    
+
         <div class="row row-cols-2 row-cols-md-4">
-        
-          
-        
-            <div class="col"  *ngFor="let item of section_one.products" routerLink="product/{{item.id}}">
-              <div class="">
-                <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
-                  [src]="item.product.images[0].image"
-                  style="border-radius: 10%;"
-                  class="card-img-top object-fit-cover"
-                  alt="item image">
-                  <div
-                  *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
-                  class="card-img-top object-fit-cover"
-                  style="height:136px"></div>
-                <button *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
-                <div style="padding-top: 15px;" class="card-body px-2">
-                  <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
-                  <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span style="padding-left: 10px;">reviews</span></small>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between">
+
+
+
+          <div class="col" *ngFor="let item of section_one.products" routerLink="product/{{item.id}}">
+            <div class="position-relative">
+              <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
+                [src]="item.product.images[0].image" style="border-radius: 10%;" class="card-img-top object-fit-cover scale-up"
+                alt="item image">
+              <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
+                class="card-img-top object-fit-cover" style="height:136px"></div>
+              <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i
+                  class="bi bi-heart"></i></button>
+              <div style="padding-top: 15px;" class="card-body px-2">
+                <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
+                <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
+                      style="padding-left: 10px;">reviews</span></small>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
                   <div class="">
-                    <small *ngIf="!userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u style="color: black;">Login for Pricing</u></a></small>
+                    <small *ngIf="!userInfoService.isLoggedIn()"
+                      style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u
+                          style="color: black;">Login for Pricing</u></a></small>
                     <!-- mid_banner_image -->
-                    <small *ngIf="userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small> 
-                    </div>
-                    <!-- *ngIf="userInfoService.isLoggedIn()" -->
-                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()" >{{item.currency}}{{item.first_cost}}</p>
+                    <small *ngIf="userInfoService.isLoggedIn()"
+                      style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small>
                   </div>
+                  <!-- *ngIf="userInfoService.isLoggedIn()" -->
+                  <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>
                 </div>
               </div>
             </div>
-
           </div>
+
+        </div>
       </div>
-    </div>   
+    </div>
     <div class="row" style="padding-left:15px;padding-right:15px;margin-left:0px;margin-right:0px;">
       <div class="col-sm-12 col-lg-12">
-          <div class="bottom-card" [ngStyle]="{'background-image': formatImageUrlToCss(bizService.get_mid_banner_image())}">
-              <div class="card-text">
-                  <div class="row">
-                      <div class="col-sm-6">
+        <div class="bottom-card" 
+          [ngStyle]="{'background-image': formatImageUrlToCss(bizService.get_mid_banner_image())}">
+          <div class="card-text">
+            <div class="row">
+              <div class="col-sm-6">
 
-                      </div>
-                      <div class="col-sm-6">
-                          <div class="txt">
-                              <div class="txt2">
-                                  <span style="font-size: xx-large; font-weight: 600;">{{bizService.get_mid_banner_second_line()}}</span>
-                                  <!-- <span style="font-size: x-large; font-weight: 500;"> {{bizService.get_mid_banner_second_line()}}</span> -->
-                              </div>
-                          </div>
-                      </div>
-
-                  </div>
-              
               </div>
+              <div class="col-sm-6">
+                <div class="txt">
+                  <div class="txt2">
+                    <span
+                      style="font-size: xx-large; font-weight: 600;">{{bizService.get_mid_banner_second_line()}}</span>
+                    <!-- <span style="font-size: x-large; font-weight: 500;"> {{bizService.get_mid_banner_second_line()}}</span> -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
+        </div>
       </div>
-  </div>
-  <div class="row" style="margin-top:20px">
-      <div class="col-sm-12 col-lg-12" style="text-align: center;">
-          <span style="font-size: xx-large;font-weight: 700;color: rgb(49, 46, 46);">{{section_two.name}}</span>
+    </div>
+    <div class="container vstack gap-2" style="margin-top:20px">
+      <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
+        style="padding-left:0px;">
+        <p class="mb-0 h5 fw-bold">{{section_two.name}}</p>
+        <a routerLink="search/" class="btn text-capitalize btn-sm text-success">see more</a>
       </div>
-  </div>
-  <!-- <div class="brands-div container" #container>
+      <app-spin-loader *ngIf="loading"></app-spin-loader>
+      <div class="row row-cols-2 row-cols-md-4" style="padding-left:27px;padding-right:27px;">
+
+
+
+        <div class="col" *ngFor="let item of section_two.products" routerLink="product/{{item.id}}">
+          <div class="position-relative">
+            <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
+              [src]="item.product.images[0].image" class="card-img-top object-fit-cover scale-up" style="border-radius: 10%;"
+              alt="item image">
+            <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
+              class="card-img-top object-fit-cover" style="height:136px"></div>
+            <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute top-0 end-0"><i
+                class="bi bi-heart"></i></button>
+            <div style="padding-top: 15px;" class="card-body px-2">
+              <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
+              <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
+                <i class="bi bi-star-fill text-warning"></i>
+                <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
+                    style="padding-left: 10px;">reviews</span></small>
+              </div>
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="">
+                  <small *ngIf="!userInfoService.isLoggedIn()"
+                    style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u
+                        style="color: black;">Login for Pricing</u></a></small>
+                  <!-- mid_banner_image -->
+                  <small *ngIf="userInfoService.isLoggedIn()"
+                    style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small>
+                </div>
+                <!-- *ngIf="userInfoService.isLoggedIn()" -->
+                <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <div class="brands-div container" #container>
       <div class="left" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)" [ngClass]="{'disabled':currentPage === 1}"><i  class="fa-solid fa-angle-left" style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i></div>
       <div class="brands-cards" [ngClass]="{'w-100': totalPages === 1}">
           <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
@@ -211,46 +254,11 @@
       <div class="right" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
           [ngClass]="{'disabled':currentPage === totalPages}"><i  class="fa-solid fa-angle-right" style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i></div>
   </div>  -->
-  
-  <div class="row row-cols-2 row-cols-md-4" style="padding-left:27px;padding-right:27px;">
-        
-          
-        
-    <div class="col"  *ngFor="let item of section_two.products" routerLink="product/{{item.id}}">
-      <div class="">
-        <img appDynamicSize  *ngIf="item.product.images.length>0 && item.product.images[0].image"
-          [src]="item.product.images[0].image"
-          class="card-img-top object-fit-cover"
-          style="border-radius: 10%;"
-          alt="item image">
-          <div
-          *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
-          class="card-img-top object-fit-cover"
-          style="height:136px"></div>
-        <button *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
-        <div style="padding-top: 15px;" class="card-body px-2">
-          <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
-          <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
-            <i class="bi bi-star-fill text-warning"></i>
-            <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span style="padding-left: 10px;">reviews</span></small>
-          </div>
-          <div class="d-flex align-items-center justify-content-between">
-          <div class="">
-            <small *ngIf="!userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u style="color: black;">Login for Pricing</u></a></small>
-            <!-- mid_banner_image -->
-            <small *ngIf="userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small> 
-            </div>
-            <!-- *ngIf="userInfoService.isLoggedIn()" -->
-            <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()"  >{{item.currency}}{{item.first_cost}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
   </div>
-</div>
-  </main>
-  <footer style="padding-top: 20px;">
-  
-    <app-footer></app-footer>
-  </footer>
+</main>
+<footer style="padding-top: 20px;">
+
+  <app-footer></app-footer>
+</footer>
