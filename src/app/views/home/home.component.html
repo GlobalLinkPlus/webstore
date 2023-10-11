@@ -147,21 +147,21 @@
                   *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
                   class="card-img-top object-fit-cover"
                   style="height:136px"></div>
-                <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                <button *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
                 <div class="card-body px-2">
                   <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
-                  <div class="ratings">
+                  <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                     <i class="bi bi-star-fill text-warning"></i>
                     <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span style="padding-left: 10px;">reviews</span></small>
                   </div>
                   <div class="d-flex align-items-center justify-content-between">
                   <div class="">
-                    <!-- <small *ngIf="!userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u>Login for Pricing</u></a></small> -->
+                    <small *ngIf="!userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u style="color: black;">Login for Pricing</u></a></small>
                     <!-- mid_banner_image -->
-                    <small style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small> 
+                    <small *ngIf="userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small> 
                     </div>
                     <!-- *ngIf="userInfoService.isLoggedIn()" -->
-                    <p class="h5 mb-0"  >{{item.currency}}{{item.first_cost}}</p>
+                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()" >{{item.currency}}{{item.first_cost}}</p>
                   </div>
                 </div>
               </div>
