@@ -18,7 +18,13 @@
    -webkit-linear-gradient(-20deg, rgba(4, 0, 255, 0) 50%, rgba(255, 255, 235, 0.7) 0%);
 }
 
+.scale-up {
+  transition: transform 0.3s; 
+}
 
+.scale-up:hover {
+  transform: scale(1.03);
+}
 
 .txt{
     height: 400px;

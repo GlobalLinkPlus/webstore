@@ -21,7 +21,7 @@
         </div>
       </form>
       <div class="top-menu" style="padding-top: 70px;">
-        <div class="top-menu-item" (mouseenter)="onMouseEnterTopMenu(cat.id)" (mouseleave)="onMouseLeaveTopMenu()"
+        <div class="top-menu-item" hoverActivatedNavMenu (mouseenter)="onMouseEnterTopMenu(cat.id)" (mouseleave)="onMouseLeaveTopMenu()"
           *ngFor="let cat of categories; let i=index;">
 
           <span hoverActivatedNavMenu style="display: block;width: fit-content;">

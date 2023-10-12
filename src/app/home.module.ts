@@ -17,6 +17,7 @@ import { AccountComponent } from './views/account/account.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { StarRateBarComponent } from './views/star-rate-bar/star-rate-bar.component';
 import { HoverActivatedAccordionDirective } from './directives/hover-activated-accordion.directive';
+import { DynamicSizeDirective } from './directives/dynamic-size.directive';
 import { HoverActivatedNavMenuDirective } from './directives/hover-activated-navmenu.directive';
 import { MouseOutHideNavMenuDirective } from './directives/mouse-out-hide-navmenu.directive';
 import { HttpClientModule } from '@angular/common/http';
@@ -48,6 +49,7 @@ import { TitleCasePipe } from './pipe/title-case.pipe';
     HoverActivatedAccordionDirective,
     HoverActivatedNavMenuDirective,
     MouseOutHideNavMenuDirective,
+    DynamicSizeDirective,
     SpinLoaderComponent
      ],
   imports: [

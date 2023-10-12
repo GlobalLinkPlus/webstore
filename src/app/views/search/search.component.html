@@ -1,272 +1,336 @@
 <header>
   <app-header></app-header>
-  </header>
-
-  
-  <main class="container-fluid">   
-
-            <div class="row  search-content">
-              <div class="col-sm-2 col-lg-2 mt-4" >
-                <div class="modal-side-nav right-side-nav fade-side-nav" id="rightModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog-side-nav" role="document">
-                    <div class="modal-content-side-nav" style="background-color: white;">
-                      <div class="modal-header-side-nav" style="text-align: center;justify-content: center; font-weight: 700;padding-top: 20px;font-size: large;background-color: white;"> 
-                        <span style="width:100%;">Filters</span> 
-                        <span style="margin-right: 20px;">      
-                          <button type="button" style="background-color: white;border: none;" data-dismiss="modal">
-                         X
-                        </button></span></div>
-                      
-                      <div class="modal-body-side-nav">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                          <div class="accordion-item" hoverActivatedAccordion>
-                            <h2 class="accordion-header" id="flush-headingOne">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-trigger="hover" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Categories
-                              </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">
-                                <ul style="max-height: 200px; overflow-y: scroll;">              
-                                  <li *ngFor="let item of  categories" style="margin-bottom: 15px;">
-                                     <a routerLink="products/{{item.name}}" style="text-transform: lowercase;">{{item.name}}</a>
-                                  </li>
-                                  
-                                
-                                </ul>
+</header>
 
 
-                          </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item" hoverActivatedAccordion>
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-trigger="hover" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Collections
-                              </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">
-                                <ul>
-                                  <li *ngFor="let item of  collections">
-                                    <a routerLink="collections/{{item.name}}" style="text-transform: lowercase;">{{item.name}}</a>
-                                  </li>
-                              
+<main class="container-fluid">
 
-                                </ul>
-                              
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item" hoverActivatedAccordion>
-                            <h2 class="accordion-header" id="flush-headingThree">
-                              <button class="accordion-button collapsed"  data-trigger="hover" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Color
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">
-                                <ul id="colorList" class="facetGroup_facets__bE9U9" style="height: 200px;overflow-y: scroll;">
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="" rel="noopener noreferrer" data-e2e="Color-0">
-                                      <div class="cl-form-checkbox" id="color-Grey">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83ai4i" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83ai4i">
-                                          <span class="facet_facetLabel__9qyC5">Grey </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Brown,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-1">
-                                      <div class="cl-form-checkbox" id="color-Brown">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83bia3" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83bia3">
-                                          <span class="facet_facetLabel__9qyC5">Brown </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Black,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-2">
-                                      <div class="cl-form-checkbox" id="color-Black">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83cfh1" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83cfh1">
-                                          <span class="facet_facetLabel__9qyC5">Black </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/White,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-3">
-                                      <div class="cl-form-checkbox" id="color-White">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83chcb" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83chcb">
-                                          <span class="facet_facetLabel__9qyC5">White </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Blue,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-4">
-                                      <div class="cl-form-checkbox" id="color-Blue">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83dg1a" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83dg1a">
-                                          <span class="facet_facetLabel__9qyC5">Blue </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Beige,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-5">
-                                      <div class="cl-form-checkbox" id="color-Beige">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83d10e2" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83d10e2">
-                                          <span class="facet_facetLabel__9qyC5">Beige </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Green,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-6">
-                                      <div class="cl-form-checkbox" id="color-Green">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83e113j" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83e113j">
-                                          <span class="facet_facetLabel__9qyC5">Green </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Pink,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-7">
-                                      <div class="cl-form-checkbox" id="color-Pink">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83e1217" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83e1217">
-                                          <span class="facet_facetLabel__9qyC5">Pink </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Yellow,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-8">
-                                      <div class="cl-form-checkbox" id="color-Yellow">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83f2j5" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83f2j5">
-                                          <span class="facet_facetLabel__9qyC5">Yellow </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Gold,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-9">
-                                      <div class="cl-form-checkbox" id="color-Gold">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83f95f" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83f95f">
-                                          <span class="facet_facetLabel__9qyC5">Gold </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Red,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-10">
-                                      <div class="cl-form-checkbox" id="color-Red">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83f12k7" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83f12k7">
-                                          <span class="facet_facetLabel__9qyC5">Red </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Orange,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-11">
-                                      <div class="cl-form-checkbox" id="color-Orange">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83g79e" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83g79e">
-                                          <span class="facet_facetLabel__9qyC5">Orange </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Silver,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-12">
-                                      <div class="cl-form-checkbox" id="color-Silver">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83g3bi" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83g3bi">
-                                          <span class="facet_facetLabel__9qyC5">Silver </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Cream,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-13">
-                                      <div class="cl-form-checkbox" id="color-Cream">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83hi0i" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83hi0i">
-                                          <span class="facet_facetLabel__9qyC5">Cream </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <li class="facet_facet__IMsMJ">
-                                    <a class="facet_facetLink__VcUM4" href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Purple,/color,/713/cat.html" rel="noopener noreferrer" data-e2e="Color-14">
-                                      <div class="cl-form-checkbox" id="color-Purple">
-                                        <input class="cl-form-checkbox-input" id="f8gghb83hbe6" name="color" type="checkbox" animation="" value="on">
-                                        <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83hbe6">
-                                          <span class="facet_facetLabel__9qyC5">Purple </span>
-                                        </label>
-                                      </div>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
+  <div class="row  search-content">
+    <div class="col-sm-2 col-lg-2 mt-4">
+      <div class="modal-side-nav right-side-nav fade-side-nav" id="rightModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog-side-nav" role="document">
+          <div class="modal-content-side-nav" style="background-color: white;">
+            <div class="modal-header-side-nav"
+              style="text-align: center;justify-content: center; font-weight: 700;padding-top: 20px;font-size: large;background-color: white;">
+              <span style="width:100%;">Filters</span>
+              <span style="margin-right: 20px;">
+                <button type="button" style="background-color: white;border: none;" data-dismiss="modal">
+                  X
+                </button></span>
+            </div>
 
-                          <div class="accordion-item" hoverActivatedAccordion>
-                            <h2 class="accordion-header" id="flush-headingThree">
-                              <button class="accordion-button collapsed"  data-trigger="hover" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Material
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">
-                                
-                              </div>
-                            </div>
-                          </div>
+            <div class="modal-body-side-nav">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item" hoverActivatedAccordion>
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-trigger="hover" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                      aria-controls="flush-collapseOne">
+                      Categories
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      <ul style="max-height: 200px; overflow-y: scroll;">
+                        <li *ngFor="let item of  categories" style="margin-bottom: 15px;">
+                          <a routerLink="products/{{item.name}}" style="text-transform: lowercase;">{{item.name}}</a>
+                        </li>
 
-                          <div class="accordion-item" hoverActivatedAccordion>
-                            <h2 class="accordion-header" id="flush-headingThree">
-                              <button class="accordion-button collapsed"  data-trigger="hover" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Shipping Type
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">
-                                
-                              </div>
-                            </div>
-                          </div>
 
-                          <div class="accordion-item" hoverActivatedAccordion>
-                            <h2 class="accordion-header" id="flush-headingThree">
-                              <button class="accordion-button collapsed"  data-trigger="hover" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Price Per Item
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      </ul>
 
-                      </div>
+
                     </div>
                   </div>
-                </div>  
-                <!-- <ul class="sidebar-nav" >
+                </div>
+                <div class="accordion-item" hoverActivatedAccordion>
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-trigger="hover"
+                      data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                      aria-controls="flush-collapseTwo">
+                      Collections
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      <ul>
+                        <li *ngFor="let item of  collections">
+                          <a routerLink="collections/{{item.name}}" style="text-transform: lowercase;">{{item.name}}</a>
+                        </li>
+
+
+                      </ul>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item" hoverActivatedAccordion>
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" data-trigger="hover" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                      aria-controls="flush-collapseThree">
+                      Color
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      <ul id="colorList" class="facetGroup_facets__bE9U9" style="height: 200px;overflow-y: scroll;">
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4" href="" rel="noopener noreferrer" data-e2e="Color-0">
+                            <div class="cl-form-checkbox" id="color-Grey">
+                              <input class="cl-form-checkbox-input" id="f8gghb83ai4i" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83ai4i">
+                                <span class="facet_facetLabel__9qyC5">Grey </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Brown,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-1">
+                            <div class="cl-form-checkbox" id="color-Brown">
+                              <input class="cl-form-checkbox-input" id="f8gghb83bia3" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83bia3">
+                                <span class="facet_facetLabel__9qyC5">Brown </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Black,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-2">
+                            <div class="cl-form-checkbox" id="color-Black">
+                              <input class="cl-form-checkbox-input" id="f8gghb83cfh1" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83cfh1">
+                                <span class="facet_facetLabel__9qyC5">Black </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/White,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-3">
+                            <div class="cl-form-checkbox" id="color-White">
+                              <input class="cl-form-checkbox-input" id="f8gghb83chcb" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83chcb">
+                                <span class="facet_facetLabel__9qyC5">White </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Blue,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-4">
+                            <div class="cl-form-checkbox" id="color-Blue">
+                              <input class="cl-form-checkbox-input" id="f8gghb83dg1a" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83dg1a">
+                                <span class="facet_facetLabel__9qyC5">Blue </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Beige,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-5">
+                            <div class="cl-form-checkbox" id="color-Beige">
+                              <input class="cl-form-checkbox-input" id="f8gghb83d10e2" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83d10e2">
+                                <span class="facet_facetLabel__9qyC5">Beige </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Green,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-6">
+                            <div class="cl-form-checkbox" id="color-Green">
+                              <input class="cl-form-checkbox-input" id="f8gghb83e113j" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83e113j">
+                                <span class="facet_facetLabel__9qyC5">Green </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Pink,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-7">
+                            <div class="cl-form-checkbox" id="color-Pink">
+                              <input class="cl-form-checkbox-input" id="f8gghb83e1217" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83e1217">
+                                <span class="facet_facetLabel__9qyC5">Pink </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Yellow,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-8">
+                            <div class="cl-form-checkbox" id="color-Yellow">
+                              <input class="cl-form-checkbox-input" id="f8gghb83f2j5" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83f2j5">
+                                <span class="facet_facetLabel__9qyC5">Yellow </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Gold,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-9">
+                            <div class="cl-form-checkbox" id="color-Gold">
+                              <input class="cl-form-checkbox-input" id="f8gghb83f95f" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83f95f">
+                                <span class="facet_facetLabel__9qyC5">Gold </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Red,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-10">
+                            <div class="cl-form-checkbox" id="color-Red">
+                              <input class="cl-form-checkbox-input" id="f8gghb83f12k7" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83f12k7">
+                                <span class="facet_facetLabel__9qyC5">Red </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Orange,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-11">
+                            <div class="cl-form-checkbox" id="color-Orange">
+                              <input class="cl-form-checkbox-input" id="f8gghb83g79e" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83g79e">
+                                <span class="facet_facetLabel__9qyC5">Orange </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Silver,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-12">
+                            <div class="cl-form-checkbox" id="color-Silver">
+                              <input class="cl-form-checkbox-input" id="f8gghb83g3bi" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83g3bi">
+                                <span class="facet_facetLabel__9qyC5">Silver </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Cream,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-13">
+                            <div class="cl-form-checkbox" id="color-Cream">
+                              <input class="cl-form-checkbox-input" id="f8gghb83hi0i" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83hi0i">
+                                <span class="facet_facetLabel__9qyC5">Cream </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="facet_facet__IMsMJ">
+                          <a class="facet_facetLink__VcUM4"
+                            href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Purple,/color,/713/cat.html"
+                            rel="noopener noreferrer" data-e2e="Color-14">
+                            <div class="cl-form-checkbox" id="color-Purple">
+                              <input class="cl-form-checkbox-input" id="f8gghb83hbe6" name="color" type="checkbox"
+                                animation="" value="on">
+                              <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83hbe6">
+                                <span class="facet_facetLabel__9qyC5">Purple </span>
+                              </label>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item" hoverActivatedAccordion>
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" data-trigger="hover" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                      aria-controls="flush-collapseThree">
+                      Material
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item" hoverActivatedAccordion>
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" data-trigger="hover" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                      aria-controls="flush-collapseThree">
+                      Shipping Type
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item" hoverActivatedAccordion>
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" data-trigger="hover" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                      aria-controls="flush-collapseThree">
+                      Price Per Item
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <ul class="sidebar-nav" >
                   <li class="menu">
                       <a href="#">Categories <span style="float: right;padding-right: 10px;"><i class="fa fa-minus"></i></span></a>
                       <ul style=" list-style-type: none;" class="submenu">
@@ -336,75 +400,77 @@
                   </li>
                 
               </ul> -->
-              </div>
-              <div class="col-sm-10 col-lg-10">  
-                <div class="container-fluid vstack gap-2">
-                  <div class="row btn-show-filter">
-                    <button type="button" style="width: fit-content;border-radius: 20px;" class="btn btn-primary" data-toggle="modal" data-target="#rightModal">
-                      Sort & Filter
-                    </button>            
+    </div>
+    <div class="col-sm-10 col-lg-10">
+      <div class="container-fluid vstack gap-2">
+        <div class="row btn-show-filter">
+          <button type="button" style="width: fit-content;border-radius: 20px;" class="btn btn-primary"
+            data-toggle="modal" data-target="#rightModal">
+            Sort & Filter
+          </button>
 
-                </div>
-              
-                  <div class="cart-items-wrapper mb-5 pb-5">
-                    <div class="d-flex align-items-center justify-content-between cart-items-header  mb-3 px-2">
-                      <p class="mb-0 h5 " *ngIf="sub_category==''"> <a href="/{{bizService.getBizId()}}/products/{{category}}" >{{category | titleCase}}</a></p>
-                      <p class="mb-0 h5 " *ngIf="sub_category!=''"> <a href="/{{bizService.getBizId()}}/products/{{category}}" >{{category | titleCase}}</a> > <a href="/{{bizService.getBizId()}}/products/{{category}}/{{sub_category}}">{{sub_category | titleCase}}</a></p>
-                      <button class="btn text-capitalize btn-sm text-success">see more</button>
-                    </div>
-                  
-                    <div class="row row-cols-2 row-cols-md-4 g-2">
-                    
+        </div>
 
-                      <div class="col"  *ngFor="let item of products" routerLink="/{{bizService.getBizId()}}/product/{{item.id}}">
-                        <div class="card h-100 border-0 cart-item">
-                          <!-- <img
-                            [src]="item.product.images[0].image"
-                            class="card-img-top object-fit-cover"
-                            height="136"
-                            alt="item image"> -->
-                            <img  *ngIf="item.product.images.length>0 && item.product.images[0].image"
-                            [src]="item.product.images[0].image"
-                            class="card-img-top object-fit-cover"
-                            height="136"
-                            alt="item image">
-                            <div
-                            *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
-                            class="card-img-top object-fit-cover"
-                            style="height:136px"></div>
-                          <button class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
-                          <div class="card-body px-2">
-                            <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
-                            <div class="ratings">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span style="padding-left: 10px;">reviews</span></small>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                            <div class="">
-                              <!-- <small *ngIf="!userInfoService.isLoggedIn()" style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u>Login for Pricing</u></a></small> -->
-                              <!-- *ngIf="userInfoService.isLoggedIn()" -->
-                              <small  style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small> 
-                              </div>
-                              <!-- *ngIf="userInfoService.isLoggedIn()"  -->
-                              <p class="h5 mb-0" >{{item.currency}}{{item.first_cost}}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+        <div class="cart-items-wrapper mb-5 pb-5">
+          <div class="d-flex align-items-center justify-content-between cart-items-header  mb-3 px-2">
+            <p class="mb-0 h5 " *ngIf="sub_category==''"> <a
+                href="/{{bizService.getBizId()}}/products/{{category}}">{{category | titleCase}}</a></p>
+            <p class="mb-0 h5 " *ngIf="sub_category!=''"> <a
+                href="/{{bizService.getBizId()}}/products/{{category}}">{{category | titleCase}}</a> > <a
+                href="/{{bizService.getBizId()}}/products/{{category}}/{{sub_category}}">{{sub_category |
+                titleCase}}</a></p>
+            <button class="btn text-capitalize btn-sm text-success">see more</button>
+          </div>
 
-                    </div>
+          <!-- <app-spin-loader *ngIf="loading"></app-spin-loader> -->
+
+          <div class="row row-cols-2 row-cols-md-4">
+
+
+
+            <div class="col" *ngFor="let item of products" style="margin-bottom: 40px;">
+              <div class="position-relative">
+                <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
+                  routerLink="product/{{item.id}}" [src]="item.product.images[0].image"
+                  style="border-radius: 10%; cursor: pointer;" class="card-img-top object-fit-cover scale-up"
+                  alt="item image">
+                <div appDynamicSize *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
+                  class="card-img-top object-fit-cover scale-up"></div>
+                <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
+                  class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                <div style="padding-top: 15px;" class="card-body px-2">
+                  <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">
+                    {{item.product.name}}</p>
+                  <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
+                        style="padding-left: 10px;">reviews</span></small>
                   </div>
-                </div> 
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="">
+                      <small *ngIf="!userInfoService.isLoggedIn()"
+                        style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
+                            style="color: black;">Login for Pricing</u></a></small>
+                      <!-- mid_banner_image -->
+                      <small *ngIf="userInfoService.isLoggedIn()"
+                        style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small>
+                    </div>
+                    <!-- *ngIf="userInfoService.isLoggedIn()" -->
+                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>
+                  </div>
+                </div>
               </div>
             </div>
-   
-    
 
-  </main>
-  <footer style="padding-top: 20px;">
-    <app-footer></app-footer>
-  </footer>
-
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
- 
+
+</main>
+<footer style="padding-top: 20px;">
+  <app-footer></app-footer>
+</footer>
