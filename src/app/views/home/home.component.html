@@ -135,9 +135,9 @@
 
 
 
-          <div class="col" *ngFor="let item of section_one.products" routerLink="product/{{item.id}}">
+          <div class="col" *ngFor="let item of section_one.products">
             <div class="position-relative">
-              <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
+              <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image" routerLink="product/{{item.id}}"
                 [src]="item.product.images[0].image" style="border-radius: 10%;" class="card-img-top object-fit-cover scale-up"
                 alt="item image">
               <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
@@ -145,7 +145,7 @@
               <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i
                   class="bi bi-heart"></i></button>
               <div style="padding-top: 15px;" class="card-body px-2">
-                <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
+                <p class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">{{item.product.name}}</p>
                 <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                   <i class="bi bi-star-fill text-warning"></i>
                   <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
@@ -154,7 +154,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="">
                     <small *ngIf="!userInfoService.isLoggedIn()"
-                      style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u
+                      style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
                           style="color: black;">Login for Pricing</u></a></small>
                     <!-- mid_banner_image -->
                     <small *ngIf="userInfoService.isLoggedIn()"
@@ -206,9 +206,9 @@
 
 
 
-        <div class="col" *ngFor="let item of section_two.products" routerLink="product/{{item.id}}">
+        <div class="col" *ngFor="let item of section_two.products" >
           <div class="position-relative">
-            <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
+            <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image" routerLink="product/{{item.id}}"
               [src]="item.product.images[0].image" class="card-img-top object-fit-cover scale-up" style="border-radius: 10%;"
               alt="item image">
             <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
@@ -216,7 +216,7 @@
             <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute top-0 end-0"><i
                 class="bi bi-heart"></i></button>
             <div style="padding-top: 15px;" class="card-body px-2">
-              <p class="fw-normal mb-2 small fw-bold">{{item.product.name}}</p>
+              <p class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">{{item.product.name}}</p>
               <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                 <i class="bi bi-star-fill text-warning"></i>
                 <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
@@ -225,7 +225,7 @@
               <div class="d-flex align-items-center justify-content-between">
                 <div class="">
                   <small *ngIf="!userInfoService.isLoggedIn()"
-                    style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="/login"><u
+                    style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
                         style="color: black;">Login for Pricing</u></a></small>
                   <!-- mid_banner_image -->
                   <small *ngIf="userInfoService.isLoggedIn()"
