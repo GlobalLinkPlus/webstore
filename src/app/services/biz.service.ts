@@ -34,6 +34,7 @@ export class BizService {
     sessionStorage.setItem("meta_description", data.meta_description);
     sessionStorage.setItem("mid_banner_image", data.mid_banner_image);
     sessionStorage.setItem("mid_banner_link", data.mid_banner_link);
+    sessionStorage.setItem("mid_banner_first_line", data.mid_banner_first_line);
     sessionStorage.setItem("mid_banner_second_line", data.mid_banner_second_line);
     sessionStorage.setItem("name", data.name);
     sessionStorage.setItem("favicon_image", data.favicon_image);
@@ -100,6 +101,10 @@ export class BizService {
   }
   public get_mid_banner_second_line(): string {
     return sessionStorage.getItem("mid_banner_second_line");
+
+  }
+  public get_mid_banner_first_line(): string {
+    return sessionStorage.getItem("mid_banner_first_line");
 
   }
   public get_name(): string {
