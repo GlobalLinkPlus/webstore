@@ -127,7 +127,7 @@
         <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
           style="padding-left:0px;">
           <p class="mb-0 h5 fw-bold">{{section_one.name}}</p>
-          <a routerLink="search/" class="btn text-capitalize btn-sm text-success">see more</a>
+          <a routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
 
@@ -184,7 +184,7 @@
               <div class="col-sm-6">
                 <div class="txt">
                   <div class="txt2">
-                    <a href="{{bizService.get_mid_banner_link()}}" target="_blank" style="text-decoration: none; color: black;">
+                    <a href="{{bizService.get_mid_banner_link()}}" target="_blank" style="text-decoration: none; color: #525252;">
                       <span style="font-size: xx-large; font-weight: 600;">{{bizService.get_mid_banner_first_line()}}</span>
                       <br>
                       <span style="font-size: x-large; font-weight: 500;"> {{bizService.get_mid_banner_second_line()}}</span>
@@ -203,7 +203,7 @@
       <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
         style="padding-left:0px;">
         <p class="mb-0 h5 fw-bold">{{section_two.name}}</p>
-        <a routerLink="search/" class="btn text-capitalize btn-sm text-success">see more</a>
+        <a routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
       <div class="row row-cols-2 row-cols-md-4" style="padding-left:27px;padding-right:27px;">
