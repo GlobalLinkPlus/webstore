@@ -38,7 +38,7 @@ import { UserInfoService } from './services/user-info.service';
       width:100%;
       height: 50px;
       background: #f68b1e;
-      border-color:#f68b1e !important;
+      border-color: grey !important;
       color: #fff;
       font-size: large;
       padding: auto;
