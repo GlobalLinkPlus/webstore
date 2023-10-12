@@ -138,14 +138,14 @@
           <div class="col" *ngFor="let item of section_one.products">
             <div class="position-relative">
               <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image" routerLink="product/{{item.id}}"
-                [src]="item.product.images[0].image" style="border-radius: 10%;" class="card-img-top object-fit-cover scale-up"
+                [src]="item.product.images[0].image" style="border-radius: 10%; cursor: pointer;" class="card-img-top object-fit-cover scale-up"
                 alt="item image">
               <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
                 class="card-img-top object-fit-cover" style="height:136px"></div>
               <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute end-0"><i
                   class="bi bi-heart"></i></button>
               <div style="padding-top: 15px;" class="card-body px-2">
-                <p class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">{{item.product.name}}</p>
+                <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">{{item.product.name}}</p>
                 <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                   <i class="bi bi-star-fill text-warning"></i>
                   <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
@@ -209,14 +209,14 @@
         <div class="col" *ngFor="let item of section_two.products" >
           <div class="position-relative">
             <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image" routerLink="product/{{item.id}}"
-              [src]="item.product.images[0].image" class="card-img-top object-fit-cover scale-up" style="border-radius: 10%;"
+              [src]="item.product.images[0].image" class="card-img-top object-fit-cover scale-up" style="border-radius: 10%; cursor: pointer;"
               alt="item image">
             <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
               class="card-img-top object-fit-cover" style="height:136px"></div>
             <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()" class="btn btn-light position-absolute top-0 end-0"><i
                 class="bi bi-heart"></i></button>
             <div style="padding-top: 15px;" class="card-body px-2">
-              <p class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">{{item.product.name}}</p>
+              <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">{{item.product.name}}</p>
               <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                 <i class="bi bi-star-fill text-warning"></i>
                 <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
