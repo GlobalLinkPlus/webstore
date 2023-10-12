@@ -109,6 +109,7 @@ class BizService {
         sessionStorage.setItem("meta_description", data.meta_description);
         sessionStorage.setItem("mid_banner_image", data.mid_banner_image);
         sessionStorage.setItem("mid_banner_link", data.mid_banner_link);
+        sessionStorage.setItem("mid_banner_first_line", data.mid_banner_first_line);
         sessionStorage.setItem("mid_banner_second_line", data.mid_banner_second_line);
         sessionStorage.setItem("name", data.name);
         sessionStorage.setItem("favicon_image", data.favicon_image);
@@ -158,6 +159,9 @@ class BizService {
     }
     get_mid_banner_second_line() {
         return sessionStorage.getItem("mid_banner_second_line");
+    }
+    get_mid_banner_first_line() {
+        return sessionStorage.getItem("mid_banner_first_line");
     }
     get_name() {
         return sessionStorage.getItem("name");
@@ -734,7 +738,7 @@ HomeRoutingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", ctx.submitted ? _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](10, _c1, ctx.bizService.get_background_color()) : _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](12, _c1, ctx.bizService.get_background_color()));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](14, _c0, ctx.bizService.get_background_color()));
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgStyle"]], styles: [".show[_ngcontent-%COMP%]{\n    display:block;\n    display: flex !important;\n    align-items: center;\n    justify-content: center;\n  }\n  .modal[_ngcontent-%COMP%]{\n    z-index:1072;\n    \n    \n  }\n  .form-group[_ngcontent-%COMP%]   .round-input[_ngcontent-%COMP%]{\n        border-radius: 10px !important;\n        height: 50px;\n        padding-left: 20px;\n        border: 1px solid grey;\n    \n  }\n  \n  .form-group[_ngcontent-%COMP%]{\n    display: grid;\n  }\n  \n  .login-button[_ngcontent-%COMP%]{\n      width:100%;\n      height: 50px;\n      background: #f68b1e;\n      border-color:#f68b1e !important;\n      color: #fff;\n      font-size: large;\n      padding: auto;\n      font-weight: 500;\n      border-radius: 10px;\n  \n  \n  }\n  label[_ngcontent-%COMP%]{\n    font-weight: 600;\n  }\n\n\n  .modal-backdrop[_ngcontent-%COMP%] {\n    z-index: 1071;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    display:none;\n    height: 100vh;\n    background-color: #000;\n  }\n  .fade[_ngcontent-%COMP%] {\n    transition: opacity .15s linear;\n  }\n  .modal-backprop-show[_ngcontent-%COMP%]{\n    opacity: .5;\n    display:block;\n  }\n  .modal-backdrop.fade[_ngcontent-%COMP%] {\n    opacity: 0;\n  }"] });
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgStyle"]], styles: [".show[_ngcontent-%COMP%]{\n    display:block;\n    display: flex !important;\n    align-items: center;\n    justify-content: center;\n  }\n  .modal[_ngcontent-%COMP%]{\n    z-index:1072;\n    \n    \n  }\n  .form-group[_ngcontent-%COMP%]   .round-input[_ngcontent-%COMP%]{\n        border-radius: 10px !important;\n        height: 50px;\n        padding-left: 20px;\n        border: 1px solid grey;\n    \n  }\n  \n  .form-group[_ngcontent-%COMP%]{\n    display: grid;\n  }\n  \n  .login-button[_ngcontent-%COMP%]{\n      width:100%;\n      height: 50px;\n      background: #f68b1e;\n      border-color: grey !important;\n      color: #fff;\n      font-size: large;\n      padding: auto;\n      font-weight: 500;\n      border-radius: 10px;\n  \n  \n  }\n  label[_ngcontent-%COMP%]{\n    font-weight: 600;\n  }\n\n\n  .modal-backdrop[_ngcontent-%COMP%] {\n    z-index: 1071;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    display:none;\n    height: 100vh;\n    background-color: #000;\n  }\n  .fade[_ngcontent-%COMP%] {\n    transition: opacity .15s linear;\n  }\n  .modal-backprop-show[_ngcontent-%COMP%]{\n    opacity: .5;\n    display:block;\n  }\n  .modal-backdrop.fade[_ngcontent-%COMP%] {\n    opacity: 0;\n  }"] });
 
 
 /***/ }),
