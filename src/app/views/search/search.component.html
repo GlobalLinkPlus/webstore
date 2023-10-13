@@ -432,7 +432,7 @@
               <div class="position-relative">
                 <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
                   routerLink="product/{{item.id}}" [src]="item.product.images[0].image"
-                  style="border-radius: 10%; cursor: pointer;" class="card-img-top object-fit-cover scale-up"
+                  style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;" class="card-img-top object-fit-cover scale-up"
                   alt="item image">
                 <div appDynamicSize *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
                   class="card-img-top object-fit-cover scale-up"></div>

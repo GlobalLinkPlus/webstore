@@ -139,7 +139,7 @@
             <div class="position-relative">
               <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
                 routerLink="product/{{item.id}}" [src]="item.product.images[0].image"
-                style="border-radius: 10%; cursor: pointer;" class="card-img-top object-fit-cover scale-up"
+                style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;" class="card-img-top object-fit-cover scale-up"
                 alt="item image">
               <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
                 class="card-img-top object-fit-cover" style="height:136px"></div>
@@ -206,7 +206,7 @@
         <a routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
-      <div class="row row-cols-2 row-cols-md-4" style="padding-left:27px;padding-right:27px;">
+      <div class="row row-cols-2 row-cols-md-4">
 
 
 
@@ -214,7 +214,7 @@
           <div class="position-relative">
             <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
               routerLink="product/{{item.id}}" [src]="item.product.images[0].image"
-              class="card-img-top object-fit-cover scale-up" style="border-radius: 10%; cursor: pointer;"
+              class="card-img-top object-fit-cover scale-up" style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;"
               alt="item image">
             <div *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
               class="card-img-top object-fit-cover" style="height:136px"></div>
