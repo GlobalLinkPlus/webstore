@@ -36,3 +36,24 @@
     line-gap-override:0;
     font-family:sofiaFallback
   }
+
+  /* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #525252;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #525252;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
+}
