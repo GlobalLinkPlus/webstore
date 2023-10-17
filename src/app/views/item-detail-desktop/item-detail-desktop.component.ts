@@ -45,6 +45,7 @@ export class ItemDetailDesktopComponent implements OnInit {
       weight_class:''
     }
   }
+  msrp="";
 
 
   channel_detail={
@@ -135,7 +136,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
     this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(res=>{
       this.product=res.product;
-   
+      this.msrp=res.msrp;
       this.item_detail=res;
       this.product["product_count"]=1;
       this.totalCards= 14;

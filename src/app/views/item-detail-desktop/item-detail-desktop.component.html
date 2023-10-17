@@ -8,12 +8,12 @@
                 <div class="row">
                     <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2">
                         <p class="mb-0 h5 " *ngIf="(subcategory=='' || subcategory==null) && (category!='' || category!=null)"> <a href="/{{bizService.getBizId()}}/products/{{category}}" style="text-decoration: none;" class="text-color-inherit">{{category| titleCase}}</a></p>
-                        <p class="mb-0 h5 " *ngIf="(subcategory!='' && subcategory!=null)  && (category!='' || category!=null)"> <a href="/{{bizService.getBizId()}}/products/{{category}}" style="text-decoration: none;" class="text-color-inherit">{{category | titleCase}}</a> > <a href="/{{bizService.getBizId()}}/products/{{category}}/{{subcategory}}" style="text-decoration: none;" class="text-color-inherit">{{subcategory | titleCase}}</a></p>
+                        <p class="mb-0 h5 " *ngIf="(subcategory!='' && subcategory!=null)  && (category!='' || category!=null)"> <a href="/{{bizService.getBizId()}}/products/{{category}}" style="text-decoration: none;" class="text-color-inherit">{{category | titleCase}}</a> / <a href="/{{bizService.getBizId()}}/products/{{category}}/{{subcategory}}" style="text-decoration: none;" class="text-color-inherit">{{subcategory | titleCase}}</a></p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-7 col-lg-7">
-                        <div class="row" >
+                    <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
+                        <div class="row">
                             <div style="width:100%; height: fit-content; object-fit: contain;" [ngStyle]="getImageContainerStyle()" #imageContainer>
                                 <img [src]="current_image" width="100%"  id="main-image" class="large-product-image" />
                             </div>
@@ -45,16 +45,15 @@
                         </div>
                     </div>
                     <div class="col-sm-5 col-lg-5">
-                       
-                        <div class="row">
-                            <span class="product-name">{{product.name}}</span>
-                        </div>
                         <div class="row">
                             <div class="col-sm-12 col-lg-12">                  
                                 <span class="text-muted">
                                     SKU:{{product.sku}}
                                 </span>
                             </div>
+                        </div>
+                        <div class="row" >
+                            <span class="product-name">{{product.name}}</span>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-lg-12">
@@ -66,9 +65,15 @@
                         </div>
                         
                         <div class="row">
-                            <div class="product-price">
+                            <div class="" style="color: red;">
+                               MSRP: $ {{msrp}}
+                            </div>
+                            <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
                                 $ {{item_detail.first_cost}}
                             </div>
+                            <small *ngIf="!userInfoService.isLoggedIn()"
+                      style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
+                          style="color: black;">Login for Pricing</u></a></small>
                         </div>
                         <div class="row" >
                             <div class="col-sm-12" style="margin-top: 30px !important;">
