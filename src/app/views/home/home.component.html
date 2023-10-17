@@ -154,13 +154,13 @@
                       style="padding-left: 10px;">reviews</span></small>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                  <div class="">
+                  <div class="" style="width: 100%; display: flex; justify-content: space-between;">
                     <small *ngIf="!userInfoService.isLoggedIn()"
                       style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
                           style="color: black;">Login for Pricing</u></a></small>
                     <!-- mid_banner_image -->
-                    <small *ngIf="userInfoService.isLoggedIn()"
-                      style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small>
+                    <small
+                      style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
                   </div>
                   <!-- *ngIf="userInfoService.isLoggedIn()" -->
                   <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>
@@ -229,13 +229,13 @@
                     style="padding-left: 10px;">reviews</span></small>
               </div>
               <div class="d-flex align-items-center justify-content-between">
-                <div class="">
+                <div class="" style="width: 100%; display: flex; justify-content: space-between;">
                   <small *ngIf="!userInfoService.isLoggedIn()"
                     style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
                         style="color: black;">Login for Pricing</u></a></small>
                   <!-- mid_banner_image -->
-                  <small *ngIf="userInfoService.isLoggedIn()"
-                    style="font-size: 15px;font-weight: 500;text-decoration: underline;"><u>MSRP</u></small>
+                  <small
+                    style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
                 </div>
                 <!-- *ngIf="userInfoService.isLoggedIn()" -->
                 <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>
