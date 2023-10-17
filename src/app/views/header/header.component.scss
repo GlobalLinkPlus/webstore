@@ -10,12 +10,12 @@
 @media (max-width: 991.98px) {
     .navbar {
         background-color: white;
+        height: 70px !important;
     }
 
     .container-fluid {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background-color: white;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
     }
 
 }

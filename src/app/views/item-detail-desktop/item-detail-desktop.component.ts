@@ -106,8 +106,8 @@ export class ItemDetailDesktopComponent implements OnInit {
       const aspectRatio = naturalWidth / naturalHeight;
       const newWidth = 600 * aspectRatio;
 
-      imgElement.style.width = `${newWidth}px`;
-      imgElement.style.height = '600px';
+      // imgElement.style.width = `${newWidth}px`;
+      // imgElement.style.height = '600px';
       var imageContainerStyle_padding=(width-newWidth)/2
       this.imageContainerStyle={
         "padding-left":`${imageContainerStyle_padding}px`,
