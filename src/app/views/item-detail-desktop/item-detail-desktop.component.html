@@ -55,7 +55,7 @@
                         <div class="row" >
                             <span class="product-name">{{product.name}}</span>
                         </div>
-                        <div class="row">
+                        <div class="row" style="padding-top: 30px;">
                             <div class="col-sm-12 col-lg-12">
                                 <span style="font-size: large;">See more by <a><u>{{channel_detail.name}}</u></a></span>
                                 <div class="product-rating">
@@ -65,7 +65,7 @@
                         </div>
                         
                         <div class="row">
-                            <div class="" style="color: red;">
+                            <div class="" style="color: red; padding-top: 30px;">
                                MSRP: $ {{msrp}}
                             </div>
                             <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
@@ -164,7 +164,7 @@
                     <div style="font-weight:600;font-size: large;">
                         Data
                     </div>
-                    <span style="position: absolute;right:0;width: fit-content;margin-top: 5px;"><i class="fa fa-minus"></i></span>
+                    <span style="position: absolute;right:0;width: fit-content;margin-top: 5px;"><i class="bi- bi-dash" style="font-size: 24px; font-weight: bold;"></i></span>
                 </div> 
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-12 ">
@@ -178,6 +178,7 @@
                                         <th style="border-bottom: 1px solid grey ;">Metric</th>
                                         <th style="border-bottom: 1px solid grey ;">Weight</th>
                                         <th style="border-bottom: 1px solid grey ;">Metric</th>
+                                        <th *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" style="border-bottom: 1px solid grey ;">Brand</th>
                                         
                                     </tr>
                                 </thead>

@@ -29,6 +29,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   variations=[];
   product= {
+    brand:"",
     id:'1',
     name: "",
     images: [],
