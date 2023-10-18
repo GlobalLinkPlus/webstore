@@ -3,6 +3,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -70,11 +71,29 @@ export class HomeComponent implements OnInit {
 
 
   sliders: any[]
+  // images=[];
+  images = [
+
+    "https://picsum.photos/id/700/900/500",
+
+    "https://picsum.photos/id/1011/900/500",
+
+    "https://picsum.photos/id/984/900/500"
+
+  ];
+
   constructor(
     private apiService: ApiService,
     public userInfoService: UserInfoService,
-    public bizService: BizService
-    ) { }
+    public bizService: BizService,
+    config: NgbCarouselConfig
+    ) { 
+      config.interval = 2000;
+
+    config.keyboard = true;
+
+    config.pauseOnHover = true;
+    }
 
   ngOnInit(): void {
     // this.cardsPerPage = this.getCardsPerPage();
@@ -85,6 +104,10 @@ export class HomeComponent implements OnInit {
 
     this.getHomeSectionItems();
     this.sliders=this.bizService.get_sliders()
+
+    // this.sliders.forEach(item => {
+    //   this.images.push(item.image);
+    // });
   }
   getHomeSectionItems(){
     this.loading=true;

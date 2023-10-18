@@ -5,7 +5,14 @@
   <div style="padding-top: 80px; margin-bottom: 40px;">
 
     <div id="hero-carousel" class="carousel slide pb-2" data-bs-ride="carousel">
-      <div class="carousel-inner">
+      <ngb-carousel>
+        <ng-template *ngFor="let image of images" ngbSlide>
+          <div class="wrapper">
+            <img [src]="image" alt="Random first slide">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <!-- <div class="carousel-inner">
         <ng-container *ngFor="let item of sliders; let i=index;">
           <div class="carousel-item active" data-bs-interval="5000" style="padding-top: 0px;">
             <div class="card border-0 rounded-0">
@@ -19,7 +26,7 @@
               </div>
             </div>
           </div>
-        </ng-container>
+        </ng-container> -->
 
         <!-- <div class="carousel-item  bg-body-tertiary bg-opacity-10" data-bs-interval="5000" style="padding-top: 0px;">
           <div class="card border-0 rounded-0">
@@ -46,7 +53,7 @@
           </div>
         </div>  -->
 
-      </div>
+      <!-- </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
         <i class="bi bi-chevron-left"></i>
         <span class="visually-hidden">Previous</span>
@@ -54,7 +61,7 @@
       <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-      </button>
+      </button> -->
     </div>
     <div class="container vstack gap-2">
       <!-- <div class="card border-0 rounded-0 shadow-sm">
