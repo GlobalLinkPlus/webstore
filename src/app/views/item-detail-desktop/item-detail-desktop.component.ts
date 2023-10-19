@@ -18,6 +18,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   category;
   subcategory;
+  show_features = false;
 
   
   item_detail={
@@ -95,6 +96,15 @@ export class ItemDetailDesktopComponent implements OnInit {
     ){
 
   }
+
+  setShowFeatures(){
+    if(this.show_features === false ){
+      this.show_features = true;
+    } else {
+      this.show_features = false;
+    }
+  }
+
   getImageContainerStyle(){
     return this.imageContainerStyle;
   }

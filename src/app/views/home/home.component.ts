@@ -90,8 +90,8 @@ export class HomeComponent implements OnInit {
   ) {
     config.interval = 2000;
     config.keyboard = true;
-    config.pauseOnHover = true;
-    config.wrap=false;
+    config.pauseOnHover = false;
+    // config.wrap=false;
   }
 
   ngOnInit(): void {
