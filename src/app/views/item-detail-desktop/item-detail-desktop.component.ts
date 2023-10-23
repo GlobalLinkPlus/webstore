@@ -5,11 +5,13 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-item-detail-desktop',
   templateUrl: './item-detail-desktop.component.html',
-  styleUrls: ['./item-detail-desktop.component.scss']
+  styleUrls: ['./item-detail-desktop.component.scss'],
+  providers: [NgbRatingConfig]
 })
 export class ItemDetailDesktopComponent implements OnInit {
   
@@ -95,8 +97,10 @@ export class ItemDetailDesktopComponent implements OnInit {
     private apiService: ApiService,
     public bizService: BizService,
     public userInfoService: UserInfoService,
+    public rateConfig:NgbRatingConfig
     ){
-
+      rateConfig.max=5
+      rateConfig.readonly=!userInfoService.isLoggedIn()
   }
 
   setShowFeatures(){
