@@ -45,9 +45,11 @@ export class ItemDetailDesktopComponent implements OnInit {
     weights:{
       weight:'',
       weight_class:''
-    }
+    },
+    features: {}
   }
   msrp="";
+  featuresArray = [];
 
 
   channel_detail={
@@ -129,10 +131,6 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   }
   ngOnInit() {
-    
-
-
- 
    
     this.cardsPerPage = this.getCardsPerPage();
     this.initializeSlider();
@@ -152,6 +150,7 @@ export class ItemDetailDesktopComponent implements OnInit {
       this.product["product_count"]=1;
       this.totalCards= 14;
       this.current_image=this.product.images[0].image;
+      this.featuresArray=Object.values(res.product.features);
    
 
       this.apiService.getVariations("?product="+this.product.id).subscribe(
