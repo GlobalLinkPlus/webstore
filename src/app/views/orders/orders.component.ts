@@ -39,6 +39,10 @@ export class OrdersComponent implements OnInit {
     },err=>{});
   }
 
+  getProductsTotalPrice(price,quantity){
+    return Math.round((parseFloat(price))*(parseFloat(quantity))).toFixed(2)
+  }
+
 
   changeBorderColor(){
     

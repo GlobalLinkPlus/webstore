@@ -26,7 +26,7 @@ import { ConfirmOrderComponent } from './views/confirm-order/confirm-order.compo
 import { LoginModalService } from './services/login-modal.service';
 import { SpinLoaderComponent } from './views/spin-loader/spin-loader.component';
 import { TitleCasePipe } from './pipe/title-case.pipe';
-
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [  
@@ -58,7 +58,7 @@ import { TitleCasePipe } from './pipe/title-case.pipe';
     ReactiveFormsModule,
     HttpClientModule,     
     HomeRoutingModule,
-
+    NgbModule,
 
   ],
   exports:[

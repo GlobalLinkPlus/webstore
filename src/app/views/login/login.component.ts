@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private userInfoService: UserInfoService,
-    public bizService: BizService
+    public bizService: BizService,
+    private location: Location
     ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,8 @@ export class LoginComponent implements OnInit {
       this.submitted=false;
       if(res.token){
         this.userInfoService.saveUserInfo(res);
-        this.router.navigateByUrl(this.bizService.getBizId())
+        // this.router.navigateByUrl(this.bizService.getBizId())
+        this.location.back();
 
       }
     },err=>{

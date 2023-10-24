@@ -1,443 +1,675 @@
 <header>
     <app-header></app-header>
-    </header>
+</header>
 
-    <main class="container-fluid">
-        <div class="row main-content" >
-           
-            <div class="card order-card" style="border: none;">
-                <div class="card-body" style="padding-top: 100px;">
-                    <div class="row info-title-section">
-                        <div class="col-lg-12 col-sm-12 col-12">
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-12 col-12">
-                                    <div class="info-title">My Orders</div>
-                                    <div class="dash" style="float: right;margin-top: -15px;"></div>
-                            
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="line"></div>
-                            </div>
-                            <div class="row" *ngIf="ordersPending.length>0">
-                                <div class="col-lg-12 col-sm-12 col-12">
-                                    <div class="table-responsive">
-                                        <table  class="table datanew">
-                                            <thead>
-                                                <tr>
-                                                    <!-- <th>
-                                                        <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
-                                                            <input type="checkbox" [(ngModel)]="initChecked">
-                                                            <span class="checkmarks"></span>
-                                                        </label>
-                                                    </th> -->
-                                                    <th>Order Number</th>
-                                                    <th>Amount</th>
-                                                    <th>Items</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <ng-container *ngFor="let item of ordersPending; let i = index">
-                                                    <tr class="order-item" (click)="selectItem(item.id)">
-                                                        <!-- <td>
-                                                            <label class="checkboxs">
-                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
-                                                                <span class="checkmarks"></span>
-                                                            </label>
-                                                        </td> -->
-                                                    
-                                                        <td class="text-bolds">{{item.order_no}}</td>
-                                                        <td>{{item.amount}}</td>
-                                                        <td>{{shippingItemsFormat(item.products)}}</td>
-                                                        <td>{{item.created| date:'dd-MM-yyyy'}}</td>                                                  
-                                                    </tr>
-                                                    <tr *ngIf="selected_item==item.id">
-                                                        
-                                                        <td colspan="5">
-                                                            <div class="card" style="border: 1px solid  {{ bizService.get_background_color()}};">
-                                                                <div class="row form-info">
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Order Number</label>
-                                                                                <input disabled  type="text" [value]="item.order_no" placeholder="GLP7001-0001" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Contact Name</label>
-                                                                                <input disabled type="text" [value]="item.shipping.contact"  placeholder="Troy Speirs" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Phone Number</label>
-                                                                                <input disabled type="text" [value]="item.shipping.phone" placeholder="1-999-999-9999" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Company Name</label>
-                                                                                <input disabled type="text"  [value]="item.company" placeholder="Company Name" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Address</label>
-                                                                                <input disabled type="text" [value]="item.shipping.address"  placeholder="33453 Administrative Avenue " class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Secondary Address</label>
-                                                                                <input disabled type="text"  [value]="item.shipping.address_2" placeholder="Suite 320" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Unit Amount</label>
-                                                                                <input disabled type="text" [value]="item.amount"  placeholder="$7876" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>State</label>
-                                                                                <input disabled type="text" [value]="item.shipping.state"  *ngIf="item.shipping.state" placeholder="Utah" class="round-input" >
-                                                                                <input disabled type="text"  *ngIf="!item.shipping.state" placeholder="" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Zip Code</label>
-                                                                                <input disabled type="text" *ngIf="item.shipping.state" [value]="item.shipping.postal_code"  placeholder="8788" class="round-input" >
-                                                                                <input disabled type="text" *ngIf="!item.shipping.state"  class="round-input">
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row" style="text-align: center;font-size: x-large; margin-top: 30px;">
-                                                                            <span>Order Amount</span>
-                                                                        </div>
-                                                                        <div class="row" style="text-align: center;font-size: x-large;">
-                                                                            <span>{{item.amount}}</span>
-                                                                        </div>
-                                                                        <div class="row" style="text-align: center;font-size: x-large;">
-                                                                            <span><a><u>Reorder Now</u></a></span>
-                                                                        </div>
-                                                                    </div>					
-                                                                </div>			
-                                                                
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </ng-container>
-                    
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+<main class="container-fluid">
+    <div class="row main-content">
+
+        <div class="card order-card" style="border: none;">
+            <div class="card-body" style="padding-top: 100px;">
+                <div class="row info-title-section">
+                    <div class="col-lg-12 col-sm-12 col-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="info-title">My Orders</div>
+                                <div class="dash" style="float: right;margin-top: -15px;"></div>
+
                             </div>
                         </div>
-                    </div>
-               
-                    <div class="row info-title-section">
-                        <div class="col-lg-12 col-sm-12 col-12">
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-12 col-12">
-                                    <div class="info-title">In Progress</div>
-                                    <div class="dash" style="float: right;margin-top: -15px;"></div>
-                            
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="line"></div>
-                            </div>
-                            <div class="row" *ngIf="ordersProgress.length>0">
-                                <div class="col-lg-12 col-sm-12 col-12">
-                                    <div class="table-responsive">
-                                        <table  class="table datanew">
-                                            <thead>
-                                                <tr>
-                                                    <!-- <th>
-                                                        <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
-                                                            <input type="checkbox" [(ngModel)]="initChecked">
-                                                            <span class="checkmarks"></span>
-                                                        </label>
-                                                    </th> -->
-                                                    <th>Order Number</th>
-                                                    <th>Amount</th>
-                                                    <th>Items</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <ng-container *ngFor="let item of ordersProgress; let i = index">
-                                                    <tr class="order-item" (click)="selectItem(item.id)">
-                                                        <!-- <td>
-                                                            <label class="checkboxs">
-                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
-                                                                <span class="checkmarks"></span>
-                                                            </label>
-                                                        </td> -->
-                                                    
-                                                        <td class="text-bolds">{{item.order_no}}</td>
-                                                        <td>{{item.amount}}</td>
-                                                        <td>{{shippingItemsFormat(item.products)}}</td>
-                                                        <td>{{item.created| date:'dd-MM-yyyy'}}</td>                                                  
-                                                    </tr>
-                                                    <tr *ngIf="selected_item==item.id">
-                                                        
-                                                        <td colspan="5">
-                                                            <div class="card" style="border: 1px solid {{ bizService.get_background_color()}};">
-                                                                <div class="row form-info">
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Order Number</label>
-                                                                                <input disabled  type="text" [value]="item.order_no" placeholder="GLP7001-0001" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Contact Name</label>
-                                                                                <input disabled type="text" [value]="item.shipping.contact"  placeholder="Troy Speirs" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Phone Number</label>
-                                                                                <input disabled type="text" [value]="item.shipping.phone" placeholder="1-999-999-9999" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Company Name</label>
-                                                                                <input disabled type="text"  [value]="item.company" placeholder="Company Name" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Address</label>
-                                                                                <input disabled type="text" [value]="item.shipping.address"  placeholder="33453 Administrative Avenue " class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Secondary Address</label>
-                                                                                <input disabled type="text"  [value]="item.shipping.address_2" placeholder="Suite 320" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Unit Amount</label>
-                                                                                <input disabled type="text" [value]="item.amount"  placeholder="$7876" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>State</label>
-                                                                                <input disabled type="text" [value]="item.shipping.state"  *ngIf="item.shipping.state" placeholder="Utah" class="round-input" >
-                                                                                <input disabled type="text"  *ngIf="!item.shipping.state" placeholder="" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Zip Code</label>
-                                                                                <input disabled type="text" *ngIf="item.shipping.state" [value]="item.shipping.postal_code"  placeholder="8788" class="round-input" >
-                                                                                <input disabled type="text" *ngIf="!item.shipping.state"  class="round-input">
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row" style="text-align: center;font-size: x-large; margin-top: 30px;">
-                                                                            <span>Order Amount</span>
-                                                                        </div>
-                                                                        <div class="row" style="text-align: center;font-size: x-large;">
-                                                                            <span>{{item.amount}}</span>
-                                                                        </div>
-                                                                        <div class="row" style="text-align: center;font-size: x-large;">
-                                                                            <span><a><u>Reorder Now</u></a></span>
-                                                                        </div>
-                                                                    </div>					
-                                                                </div>			
-                                                                
-                                                            </div>
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                </ng-container>
-                    
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row">
+                            <div class="line"></div>
                         </div>
-                    </div>
-
-                    <div class="row info-title-section">
-                        <div class="col-lg-12 col-sm-12 col-12">
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-12 col-12">
-                                    <div class="info-title">Completed</div>
-                                    <div class="dash" style="float: right;margin-top: -15px;"></div>
-                            
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="line"></div>
-                            </div>
-                            <div class="row" *ngIf="ordersCompleted.length>0">
-                                <div class="col-lg-12 col-sm-12 col-12">
-                                    <div class="table-responsive">
-                                        <table  class="table datanew">
-                                            <thead>
-                                                <tr>
-                                                    <!-- <th>
+                        <div class="row" *ngIf="ordersPending.length>0">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="table-responsive">
+                                    <table class="table datanew">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th>
                                                         <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
                                                             <input type="checkbox" [(ngModel)]="initChecked">
                                                             <span class="checkmarks"></span>
                                                         </label>
                                                     </th> -->
-                                                    <th>Order Number</th>
-                                                    <th>Amount</th>
-                                                    <th>Items</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <ng-container *ngFor="let item of ordersCompleted; let i = index">
-                                                    <tr class="order-item" (click)="selectItem(item.id)">
-                                                        <!-- <td>
+                                                <th>Order Number</th>
+                                                <th>Amount</th>
+                                                <th>Items</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngFor="let item of ordersPending; let i = index">
+                                                <tr class="order-item" (click)="selectItem(item.id)">
+                                                    <!-- <td>
                                                             <label class="checkboxs">
                                                                 <input type="checkbox" [(ngModel)]="item.isSelected">
                                                                 <span class="checkmarks"></span>
                                                             </label>
                                                         </td> -->
-                                                    
-                                                        <td class="text-bolds">{{item.order_no}}</td>
-                                                        <td>{{item.amount}}</td>
-                                                        <td>{{shippingItemsFormat(item.products)}}</td>
-                                                        <td>{{item.created| date:'dd-MM-yyyy'}}</td>                                                  
-                                                    </tr>
-                                                    <tr *ngIf="selected_item==item.id">
-                                                        
-                                                        <td colspan="5">
-                                                            <div class="card" style="border: 1px solid  {{ bizService.get_background_color()}};">
-                                                                <div class="row form-info">
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Order Number</label>
-                                                                                <input disabled  type="text" [value]="item.order_no" placeholder="GLP7001-0001" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Contact Name</label>
-                                                                                <input disabled type="text" [value]="item.shipping.contact"  placeholder="Troy Speirs" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Phone Number</label>
-                                                                                <input disabled type="text" [value]="item.shipping.phone" placeholder="1-999-999-9999" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Company Name</label>
-                                                                                <input disabled type="text"  [value]="item.company" placeholder="Company Name" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Address</label>
-                                                                                <input disabled type="text" [value]="item.shipping.address"  placeholder="33453 Administrative Avenue " class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Secondary Address</label>
-                                                                                <input disabled type="text"  [value]="item.shipping.address_2" placeholder="Suite 320" class="round-input" >
-                                                                            </div>
+
+                                                    <td class="text-bolds">{{item.order_no}}</td>
+                                                    <td>{{item.amount}}</td>
+                                                    <td>{{shippingItemsFormat(item.products)}}</td>
+                                                    <td>{{item.created| date:'dd-MM-yyyy'}}</td>
+                                                </tr>
+                                                <tr *ngIf="selected_item==item.id">
+
+                                                    <td colspan="5">
+                                                        <div class="card"
+                                                            style="border: 1px solid  {{ bizService.get_background_color()}};">
+                                                            <div class="row form-info">
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Order Number</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.order_no"
+                                                                                placeholder="GLP7001-0001"
+                                                                                class="round-input">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Unit Amount</label>
-                                                                                <input disabled type="text" [value]="item.amount"  placeholder="$7876" class="round-input" >
-                                                                            </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Contact Name</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.contact"
+                                                                                placeholder="Troy Speirs"
+                                                                                class="round-input">
                                                                         </div>
-                                                                
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>State</label>
-                                                                                <input disabled type="text" [value]="item.shipping.state"  *ngIf="item.shipping.state" placeholder="Utah" class="round-input" >
-                                                                                <input disabled type="text"  *ngIf="!item.shipping.state" placeholder="" class="round-input" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="form-group">
-                                                                                <label>Zip Code</label>
-                                                                                <input disabled type="text" *ngIf="item.shipping.state" [value]="item.shipping.postal_code"  placeholder="8788" class="round-input" >
-                                                                                <input disabled type="text" *ngIf="!item.shipping.state"  class="round-input">
-                                                                            </div>
-                                                                        </div>
-                                                                        
                                                                     </div>
-                                                                    <div class="col-lg-3 col-sm-3 col-12">
-                                                                        <div class="row" style="text-align: center;font-size: x-large; margin-top: 30px;">
-                                                                            <span>Order Amount</span>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Phone Number</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.phone"
+                                                                                placeholder="1-999-999-9999"
+                                                                                class="round-input">
                                                                         </div>
-                                                                        <div class="row" style="text-align: center;font-size: x-large;">
-                                                                            <span>{{item.amount}}</span>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Company Name</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.company"
+                                                                                placeholder="Company Name"
+                                                                                class="round-input">
                                                                         </div>
-                                                                        <div class="row" style="text-align: center;font-size: x-large;">
-                                                                            <span><a><u>Reorder Now</u></a></span>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Address</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.address"
+                                                                                placeholder="33453 Administrative Avenue "
+                                                                                class="round-input">
                                                                         </div>
-                                                                    </div>					
-                                                                </div>			
-                                                                
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Secondary Address</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.address_2"
+                                                                                placeholder="Suite 320"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Unit Amount</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.amount"
+                                                                                placeholder="$7876" class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.state"
+                                                                                *ngIf="item.shipping.state"
+                                                                                placeholder="Utah" class="round-input">
+                                                                            <input disabled type="text"
+                                                                                *ngIf="!item.shipping.state"
+                                                                                placeholder="" class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Zip Code</label>
+                                                                            <input disabled type="text"
+                                                                                *ngIf="item.shipping.state"
+                                                                                [value]="item.shipping.postal_code"
+                                                                                placeholder="8788" class="round-input">
+                                                                            <input disabled type="text"
+                                                                                *ngIf="!item.shipping.state"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large; margin-top: 30px;">
+                                                                        <span>Order Amount</span>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large;">
+                                                                        <span>{{item.amount}}</span>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large;">
+                                                                        <span><a><u>Reorder Now</u></a></span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                </ng-container>
-                    
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                            <div class="row form-info">
+                                                                <div class="col-lg-9 col-sm-9 col-12">
+                                                                    <div class="table-responsive"
+                                                                        style="margin-top: 30px;">
+                                                                        <table class="table datanew">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <!-- <th>
+                                                                                            <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
+                                                                                                <input type="checkbox" [(ngModel)]="initChecked">
+                                                                                                <span class="checkmarks"></span>
+                                                                                            </label>
+                                                                                        </th> -->
+                                                                                    <th>Product Name</th>
+                                                                                    <th>SKU</th>
+                                                                                    <th>Quantity</th>
+                                                                                    <th>Value</th>
+                                                                                    <th>Total</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr class="order-item"
+                                                                                    *ngFor="let item of item.products">
+                                                                                    <!-- <td>
+                                                                                            <label class="checkboxs">
+                                                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
+                                                                                                <span class="checkmarks"></span>
+                                                                                            </label>
+                                                                                        </td> -->
+
+                                                                                    <td class="text-bolds">
+                                                                                        {{item.product}}</td>
+                                                                                    <td></td>
+                                                                                    <td>{{item.quantity}}</td>
+                                                                                    <td>{{item.price}}</td>
+                                                                                    <td>{{getProductsTotalPrice(item.price,item.quantity)}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- This column spans the first three columns -->
+                                                            <div class="col-lg-3 col-sm-3 col-12"></div>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+
+                <div class="row info-title-section">
+                    <div class="col-lg-12 col-sm-12 col-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="info-title">In Progress</div>
+                                <div class="dash" style="float: right;margin-top: -15px;"></div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="line"></div>
+                        </div>
+                        <div class="row" *ngIf="ordersProgress.length>0">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="table-responsive">
+                                    <table class="table datanew">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th>
+                                                        <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
+                                                            <input type="checkbox" [(ngModel)]="initChecked">
+                                                            <span class="checkmarks"></span>
+                                                        </label>
+                                                    </th> -->
+                                                <th>Order Number</th>
+                                                <th>Amount</th>
+                                                <th>Items</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngFor="let item of ordersProgress; let i = index">
+                                                <tr class="order-item" (click)="selectItem(item.id)">
+                                                    <!-- <td>
+                                                            <label class="checkboxs">
+                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
+                                                                <span class="checkmarks"></span>
+                                                            </label>
+                                                        </td> -->
+
+                                                    <td class="text-bolds">{{item.order_no}}</td>
+                                                    <td>{{item.amount}}</td>
+                                                    <td>{{shippingItemsFormat(item.products)}}</td>
+                                                    <td>{{item.created| date:'dd-MM-yyyy'}}</td>
+                                                </tr>
+                                                <tr *ngIf="selected_item==item.id">
+
+                                                    <td colspan="5">
+                                                        <div class="card"
+                                                            style="border: 1px solid {{ bizService.get_background_color()}};">
+                                                            <div class="row form-info">
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Order Number</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.order_no"
+                                                                                placeholder="GLP7001-0001"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Contact Name</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.contact"
+                                                                                placeholder="Troy Speirs"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Phone Number</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.phone"
+                                                                                placeholder="1-999-999-9999"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Company Name</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.company"
+                                                                                placeholder="Company Name"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Address</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.address"
+                                                                                placeholder="33453 Administrative Avenue "
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Secondary Address</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.address_2"
+                                                                                placeholder="Suite 320"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Unit Amount</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.amount"
+                                                                                placeholder="$7876" class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.state"
+                                                                                *ngIf="item.shipping.state"
+                                                                                placeholder="Utah" class="round-input">
+                                                                            <input disabled type="text"
+                                                                                *ngIf="!item.shipping.state"
+                                                                                placeholder="" class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Zip Code</label>
+                                                                            <input disabled type="text"
+                                                                                *ngIf="item.shipping.state"
+                                                                                [value]="item.shipping.postal_code"
+                                                                                placeholder="8788" class="round-input">
+                                                                            <input disabled type="text"
+                                                                                *ngIf="!item.shipping.state"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large; margin-top: 30px;">
+                                                                        <span>Order Amount</span>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large;">
+                                                                        <span>{{item.amount}}</span>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large;">
+                                                                        <span><a><u>Reorder Now</u></a></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-info">
+                                                                <div class="col-lg-9 col-sm-9 col-12">
+                                                                    <div class="table-responsive"
+                                                                        style="margin-top: 30px;">
+                                                                        <table class="table datanew">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <!-- <th>
+                                                                                            <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
+                                                                                                <input type="checkbox" [(ngModel)]="initChecked">
+                                                                                                <span class="checkmarks"></span>
+                                                                                            </label>
+                                                                                        </th> -->
+                                                                                    <th>Product Name</th>
+                                                                                    <th>SKU</th>
+                                                                                    <th>Quantity</th>
+                                                                                    <th>Value</th>
+                                                                                    <th>Total</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr class="order-item"
+                                                                                    *ngFor="let item of item.products">
+                                                                                    <!-- <td>
+                                                                                            <label class="checkboxs">
+                                                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
+                                                                                                <span class="checkmarks"></span>
+                                                                                            </label>
+                                                                                        </td> -->
+
+                                                                                    <td class="text-bolds">
+                                                                                        {{item.product}}</td>
+                                                                                    <td></td>
+                                                                                    <td>{{item.quantity}}</td>
+                                                                                    <td>{{item.price}}</td>
+                                                                                    <td>{{getProductsTotalPrice(item.price,item.quantity)}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- This column spans the first three columns -->
+                                                            <div class="col-lg-3 col-sm-3 col-12"></div>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </ng-container>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row info-title-section">
+                    <div class="col-lg-12 col-sm-12 col-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="info-title">Completed</div>
+                                <div class="dash" style="float: right;margin-top: -15px;"></div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="line"></div>
+                        </div>
+                        <div class="row" *ngIf="ordersCompleted.length>0">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="table-responsive">
+                                    <table class="table datanew">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th>
+                                                        <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
+                                                            <input type="checkbox" [(ngModel)]="initChecked">
+                                                            <span class="checkmarks"></span>
+                                                        </label>
+                                                    </th> -->
+                                                <th>Order Number</th>
+                                                <th>Amount</th>
+                                                <th>Items</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngFor="let item of ordersCompleted; let i = index">
+                                                <tr class="order-item" (click)="selectItem(item.id)">
+                                                    <!-- <td>
+                                                            <label class="checkboxs">
+                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
+                                                                <span class="checkmarks"></span>
+                                                            </label>
+                                                        </td> -->
+
+                                                    <td class="text-bolds">{{item.order_no}}</td>
+                                                    <td>{{item.amount}}</td>
+                                                    <td>{{shippingItemsFormat(item.products)}}</td>
+                                                    <td>{{item.created| date:'dd-MM-yyyy'}}</td>
+                                                </tr>
+                                                <tr *ngIf="selected_item==item.id">
+
+                                                    <td colspan="5">
+                                                        <div class="card"
+                                                            style="border: 1px solid  {{ bizService.get_background_color()}};">
+                                                            <div class="row form-info">
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Order Number</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.order_no"
+                                                                                placeholder="GLP7001-0001"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Contact Name</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.contact"
+                                                                                placeholder="Troy Speirs"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Phone Number</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.phone"
+                                                                                placeholder="1-999-999-9999"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Company Name</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.company"
+                                                                                placeholder="Company Name"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Address</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.address"
+                                                                                placeholder="33453 Administrative Avenue "
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Secondary Address</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.address_2"
+                                                                                placeholder="Suite 320"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Unit Amount</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.amount"
+                                                                                placeholder="$7876" class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <input disabled type="text"
+                                                                                [value]="item.shipping.state"
+                                                                                *ngIf="item.shipping.state"
+                                                                                placeholder="Utah" class="round-input">
+                                                                            <input disabled type="text"
+                                                                                *ngIf="!item.shipping.state"
+                                                                                placeholder="" class="round-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group">
+                                                                            <label>Zip Code</label>
+                                                                            <input disabled type="text"
+                                                                                *ngIf="item.shipping.state"
+                                                                                [value]="item.shipping.postal_code"
+                                                                                placeholder="8788" class="round-input">
+                                                                            <input disabled type="text"
+                                                                                *ngIf="!item.shipping.state"
+                                                                                class="round-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-3 col-sm-3 col-12">
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large; margin-top: 30px;">
+                                                                        <span>Order Amount</span>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large;">
+                                                                        <span>{{item.amount}}</span>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="text-align: center;font-size: x-large;">
+                                                                        <span><a><u>Reorder Now</u></a></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-info">
+                                                                <div class="col-lg-9 col-sm-9 col-12">
+                                                                    <div class="table-responsive"
+                                                                        style="margin-top: 30px;">
+                                                                        <table class="table datanew">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <!-- <th>
+                                                                                            <label class="checkboxs" (click)="selectAll(initChecked,ordersCompleted)">
+                                                                                                <input type="checkbox" [(ngModel)]="initChecked">
+                                                                                                <span class="checkmarks"></span>
+                                                                                            </label>
+                                                                                        </th> -->
+                                                                                    <th>Product Name</th>
+                                                                                    <th>SKU</th>
+                                                                                    <th>Quantity</th>
+                                                                                    <th>Value</th>
+                                                                                    <th>Total</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr class="order-item"
+                                                                                    *ngFor="let item of item.products">
+                                                                                    <!-- <td>
+                                                                                            <label class="checkboxs">
+                                                                                                <input type="checkbox" [(ngModel)]="item.isSelected">
+                                                                                                <span class="checkmarks"></span>
+                                                                                            </label>
+                                                                                        </td> -->
+
+                                                                                    <td class="text-bolds">
+                                                                                        {{item.product}}</td>
+                                                                                    <td></td>
+                                                                                    <td>{{item.quantity}}</td>
+                                                                                    <td>{{item.price}}</td>
+                                                                                    <td>{{getProductsTotalPrice(item.price,item.quantity)}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- This column spans the first three columns -->
+                                                            <div class="col-lg-3 col-sm-3 col-12"></div>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </ng-container>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-      </div>
-    </main>
-    <footer style="padding-top: 20px;">
-    
-      <app-footer></app-footer>
-    </footer>
+        </div>
+
+    </div>
+</main>
+<footer style="padding-top: 20px;">
+
+    <app-footer></app-footer>
+</footer>

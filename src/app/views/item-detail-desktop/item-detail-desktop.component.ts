@@ -5,11 +5,13 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-item-detail-desktop',
   templateUrl: './item-detail-desktop.component.html',
-  styleUrls: ['./item-detail-desktop.component.scss']
+  styleUrls: ['./item-detail-desktop.component.scss'],
+  providers: [NgbRatingConfig]
 })
 export class ItemDetailDesktopComponent implements OnInit {
   
@@ -18,6 +20,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   category;
   subcategory;
+  show_features = false;
 
   
   item_detail={
@@ -29,6 +32,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   variations=[];
   product= {
+    brand:"",
     id:'1',
     name: "",
     images: [],
@@ -43,8 +47,11 @@ export class ItemDetailDesktopComponent implements OnInit {
     weights:{
       weight:'',
       weight_class:''
-    }
+    },
+    features: {}
   }
+  msrp="";
+  featuresArray = [];
 
 
   channel_detail={
@@ -90,9 +97,20 @@ export class ItemDetailDesktopComponent implements OnInit {
     private apiService: ApiService,
     public bizService: BizService,
     public userInfoService: UserInfoService,
+    public rateConfig:NgbRatingConfig
     ){
-
+      rateConfig.max=5
+      rateConfig.readonly=!userInfoService.isLoggedIn()
   }
+
+  setShowFeatures(){
+    if(this.show_features === false ){
+      this.show_features = true;
+    } else {
+      this.show_features = false;
+    }
+  }
+
   getImageContainerStyle(){
     return this.imageContainerStyle;
   }
@@ -106,8 +124,8 @@ export class ItemDetailDesktopComponent implements OnInit {
       const aspectRatio = naturalWidth / naturalHeight;
       const newWidth = 600 * aspectRatio;
 
-      imgElement.style.width = `${newWidth}px`;
-      imgElement.style.height = '600px';
+      // imgElement.style.width = `${newWidth}px`;
+      // imgElement.style.height = '600px';
       var imageContainerStyle_padding=(width-newWidth)/2
       this.imageContainerStyle={
         "padding-left":`${imageContainerStyle_padding}px`,
@@ -117,10 +135,6 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   }
   ngOnInit() {
-    
-
-
- 
    
     this.cardsPerPage = this.getCardsPerPage();
     this.initializeSlider();
@@ -135,11 +149,12 @@ export class ItemDetailDesktopComponent implements OnInit {
 
     this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(res=>{
       this.product=res.product;
-   
+      this.msrp=res.msrp;
       this.item_detail=res;
       this.product["product_count"]=1;
       this.totalCards= 14;
       this.current_image=this.product.images[0].image;
+      this.featuresArray=Object.values(res.product.features);
    
 
       this.apiService.getVariations("?product="+this.product.id).subscribe(

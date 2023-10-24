@@ -1,83 +1,119 @@
 <header>
-  <app-header></app-header>
-  </header>
-  <main class="container-fluid">
-      <div class="row main-content" >
+    <app-header></app-header>
+</header>
+<main class="container-fluid" style="margin-bottom: 200px;">
+    <div class="row main-content">
         <div class="col-sm-12 col-lg-12">
-            <div class="main-card" style="padding:10px;">
+            <div class="main-card" style="padding:20px;">
                 <div class="row">
                     <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2">
-                        <p class="mb-0 h5 " *ngIf="(subcategory=='' || subcategory==null) && (category!='' || category!=null)"> <a href="/{{bizService.getBizId()}}/products/{{category}}" style="text-decoration: none;" class="text-color-inherit">{{category| titleCase}}</a></p>
-                        <p class="mb-0 h5 " *ngIf="(subcategory!='' && subcategory!=null)  && (category!='' || category!=null)"> <a href="/{{bizService.getBizId()}}/products/{{category}}" style="text-decoration: none;" class="text-color-inherit">{{category | titleCase}}</a> > <a href="/{{bizService.getBizId()}}/products/{{category}}/{{subcategory}}" style="text-decoration: none;" class="text-color-inherit">{{subcategory | titleCase}}</a></p>
+                        <p class="mb-0 h5 "
+                            *ngIf="(subcategory=='' || subcategory==null) && (category!='' || category!=null)"> <a
+                                href="/{{bizService.getBizId()}}/products/{{category}}"
+                                style="text-decoration: none; font-size: 16px;" class="text-color-inherit">{{category|
+                                titleCase}}</a></p>
+                        <p style="font-size: 16px;" class="mb-0 h5 "
+                            *ngIf="(subcategory!='' && subcategory!=null)  && (category!='' || category!=null)"> <a
+                                href="/{{bizService.getBizId()}}/products/{{category}}"
+                                style="text-decoration: none; font-size: 16px;" class="text-color-inherit">{{category |
+                                titleCase}}</a> / <a
+                                href="/{{bizService.getBizId()}}/products/{{category}}/{{subcategory}}"
+                                style="text-decoration: none; font-size: 16px;" class="text-color-inherit">{{subcategory
+                                | titleCase}}</a></p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-7 col-lg-7">
-                        <div class="row" >
-                            <div style="width:100%" [ngStyle]="getImageContainerStyle()" #imageContainer>
-                                <img [src]="current_image"  id="main-image" class="large-product-image" (load)="onImageLoad($event)"/>
+                    <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
+                        <div class="row">
+                            <div style="width:100%; height: fit-content; object-fit: contain;"
+                                [ngStyle]="getImageContainerStyle()" #imageContainer>
+                                <img [src]="current_image" width="100%" id="main-image" class="large-product-image" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="container" #container>
-                                <div class="left" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)" [ngClass]="{'disabled':currentPage === 1}"><i  class="fa-solid fa-angle-left" style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i></div>
+                                <div class="left" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)"
+                                    [ngClass]="{'disabled':currentPage === 1}"><i class="fa-solid fa-angle-left"
+                                        style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i>
+                                </div>
                                 <div class="cards" [ngClass]="{'w-100': totalPages === 1}">
                                     <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
-                                        <div class="small-card" *ngFor="let img of product.images; let index = index" [ngStyle]="{'width': cardWidth}" (click)="imageClicked(img,index)">
-                                            <div class="small-img" [ngStyle]="{'background-image':'url(&quot;' + img.image + '&quot;)'}"  [ngClass]="current_image_index==index?'small-card-selected':'small-card-not-selected'"></div>
+                                        <div class="small-card" *ngFor="let img of product.images; let index = index"
+                                            [ngStyle]="{'width': cardWidth}" (click)="imageClicked(img,index)">
+                                            <div class="small-img"
+                                                [ngStyle]="{'background-image':'url(&quot;' + img.image + '&quot;)'}"
+                                                [ngClass]="current_image_index==index?'small-card-selected':'small-card-not-selected'">
+                                            </div>
                                         </div>
-                                        <div class="small-card" style="width: 3px;background-color: black; margin-left: 10px;">
-                                           
+                                        <div class="small-card"
+                                            style="width: 3px;background-color: black; margin-left: 10px;">
+
                                         </div>
-                                        <div class="small-card"  style="position: relative;"  *ngFor="let vid of videos; let index = index" [ngStyle]="{'width': cardWidth}" (click)="imageClicked(image,index)" >
-                                            <div class="small-img" style="opacity: 0.3;" [ngStyle]="{'background-image':'url(&quot;' + vid.video + '&quot;)'}"  [ngClass]="current_image_index==index?'small-card-selected':'small-card-not-selected'">
+                                        <div class="small-card" style="position: relative;"
+                                            *ngFor="let vid of videos; let index = index"
+                                            [ngStyle]="{'width': cardWidth}" (click)="imageClicked(image,index)">
+                                            <div class="small-img" style="opacity: 0.3;"
+                                                [ngStyle]="{'background-image':'url(&quot;' + vid.video + '&quot;)'}"
+                                                [ngClass]="current_image_index==index?'small-card-selected':'small-card-not-selected'">
                                                 <!-- <img src="assets/img/video-play.svg" height="100%"/> -->
                                             </div>
                                             <div class="small-img" style="position: absolute;top:0">
-                                                 <img src="assets/img/video-play.svg" height="100%"/> 
+                                                <img src="assets/img/video-play.svg" height="100%" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="right" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
-                                    [ngClass]="{'disabled':currentPage === totalPages}"><i  class="fa-solid fa-angle-right" style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i></div>
+                                <div class="right" *ngIf="totalPages > 1"
+                                    (click)="currentPage != totalPages && changePage(+1)"
+                                    [ngClass]="{'disabled':currentPage === totalPages}"><i
+                                        class="fa-solid fa-angle-right"
+                                        style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-5 col-lg-5">
-                       
                         <div class="row">
-                            <span class="product-name">{{product.name}}</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-12">                  
+                            <div class="col-sm-12 col-lg-12">
                                 <span class="text-muted">
                                     SKU:{{product.sku}}
                                 </span>
                             </div>
                         </div>
                         <div class="row">
+                            <span class="product-name">{{product.name}}</span>
+                        </div>
+                        <div class="row" style="padding-top: 20px;">
                             <div class="col-sm-12 col-lg-12">
-                                <span style="font-size: large;">See more by <a><u>{{channel_detail.name}}</u></a></span>
+                                <!-- <span style="font-size: large;">See more by <a><u>{{channel_detail.name}}</u></a></span> -->
                                 <div class="product-rating">
-                                    <app-star-rate-bar [rate]=product.rating  [label]="product.reviews" [size]=24></app-star-rate-bar>
+                                    <!-- <app-star-rate-bar [rate]=product.rating [label]="product.reviews"
+                                        [size]=24></app-star-rate-bar> -->
+                                        <ngb-rating [(rate)]="product.rating"></ngb-rating>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
-                            <div class="product-price">
+                            <div class="" style="color: red; padding-top: 10px;">
+                                MSRP: $ {{msrp}}
+                            </div>
+                            <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
                                 $ {{item_detail.first_cost}}
                             </div>
+                            <small *ngIf="!userInfoService.isLoggedIn()"
+                                style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a
+                                    routerLink="login"><u style="color: black;">Login for Pricing</u></a></small>
                         </div>
-                        <div class="row" >
+                        <div class="row">
                             <div class="col-sm-12" style="margin-top: 30px !important;">
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <span style="font-weight:700;">Select Variation</span>
                                     </div>
                                     <div class="col-sm-4" style="text-align: right;">
-                                        <i class="fa-solid fa-plus" style="font-family: fontAwesome;font-size: larger;"></i>
+                                        <i class="fa-solid fa-plus"
+                                            style="font-family: fontAwesome;font-size: larger;"></i>
                                     </div>
                                     <!-- <div class="col-sm-12">
                                         <select>
@@ -91,27 +127,47 @@
                                         <div class="col-sm-12 col-lg-12">
                                             <div class="cart-buttons">
 
-                                             
-                                                <div class="item-count" style="border: 2px solid rgb(90, 90, 90); border-radius:30px;width: fit-content;padding:0px;display: flex;height: 35px;">
-                                                    <span style="padding-left: 15px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-size: medium;" (click)="reduceProductCount()"><i class="fa fa-minus" style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
-                                                    <span style="padding-left: 10px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-weight: 500; font-size: large;border-right:2px solid rgb(90, 90, 90); border-left:2px solid black;width:50px;text-align: center;">{{product.product_count}}</span>
-                                                    <span style="padding-left: 10px;padding-right: 15px;display: flex;align-items: center;justify-content: center; font-size: medium;" (click)="increaseProductCount()"> <i class="fa fa-plus" style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
-                                                  </div>
-                                                
-                                                <button *ngIf="!userInfoService.isItemInCart(product)" class="btn  buy-now-button"  [ngStyle]="{'background-color': bizService.get_background_color()}" (click)="addItemToCart()"><i class="fa-solid fa-plus" style=" font-family: 'Font Awesome 6 Free' !important;"></i><span style="padding-left: 10px;">Add to Cart</span></button>
+
+                                                <div class="item-count"
+                                                    style="border: 2px solid rgb(90, 90, 90); border-radius:30px;width: fit-content;padding:0px;display: flex;height: 35px;">
+                                                    <span
+                                                        style="padding-left: 15px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-size: medium;"
+                                                        (click)="reduceProductCount()"><i class="fa fa-minus"
+                                                            style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
+                                                    <span
+                                                        style="padding-left: 10px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-weight: 500; font-size: large;border-right:2px solid rgb(90, 90, 90); border-left:2px solid black;width:50px;text-align: center;">{{product.product_count}}</span>
+                                                    <span
+                                                        style="padding-left: 10px;padding-right: 15px;display: flex;align-items: center;justify-content: center; font-size: medium;"
+                                                        (click)="increaseProductCount()"> <i class="fa fa-plus"
+                                                            style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
+                                                </div>
+
+                                                <button *ngIf="!userInfoService.isItemInCart(product)"
+                                                    class="btn  buy-now-button"
+                                                    [ngStyle]="{'background-color': bizService.get_background_color()}"
+                                                    (click)="addItemToCart()"><i class="fa-solid fa-plus"
+                                                        style=" font-family: 'Font Awesome 6 Free' !important;"></i><span
+                                                        style="padding-left: 10px;">Add to Cart</span></button>
                                                 <!-- <div class="row">
                                                     <div class="col-sm-12"> -->
-                                                        <button *ngIf="userInfoService.isItemInCart(product)" class="btn  checkout-button" [ngStyle]="{'background-color': bizService.get_background_color()}"  (click)="checkout()">Proceed to Checkout</button>
-                                                    <!-- </div>
+                                                <button *ngIf="userInfoService.isItemInCart(product)"
+                                                    class="btn  checkout-button"
+                                                    [ngStyle]="{'background-color': bizService.get_background_color()}"
+                                                    (click)="checkout()">Proceed to Checkout</button>
+                                                <!-- </div>
                                                     <div class="col-sm-12"> -->
-                                                     
-                                                    <!-- </div>   
+
+                                                <!-- </div>   
                                                 </div> -->
-                                            </div>                             
-                                        </div>  
+                                            </div>
+                                        </div>
                                         <div class="col-sm-12 col-lg-12">
-                                            <button *ngIf="userInfoService.isItemInCart(product)" class="btn  remove-button" style="margin-top: 10px;" (click)="removeItemToCart()"><i class="fa fa-trash" style=" font-family: 'Font Awesome 6 Free' !important;"></i><span style="padding-left: 10px;">Remove</span></button>
-                                        </div> 
+                                            <button *ngIf="userInfoService.isItemInCart(product)"
+                                                class="btn  remove-button" style="margin-top: 10px;"
+                                                (click)="removeItemToCart()"><i class="fa fa-trash"
+                                                    style=" font-family: 'Font Awesome 6 Free' !important;"></i><span
+                                                    style="padding-left: 10px;">Remove</span></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,10 +177,10 @@
                                     <div class="col-sm-12">
                                         <span style="font-weight:700;">Description</span>
                                     </div>
-                                    
-                                  
+
+
                                     <div class="col-sm-12">
-                                        {{product.description}}  
+                                        {{product.description}}
                                     </div>
                                 </div>
                             </div>
@@ -132,58 +188,70 @@
                             <div class="col-sm-12 mt-3">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                    <span style="font-weight:700;">Feature</span>
+                                        <span style="font-weight:700;">Feature</span>
                                     </div>
-                                    <div class="col-sm-4" style="text-align: right;">
-                                        <i class="fa-solid fa-plus" style="font-family: fontAwesome;font-size: larger;"></i>
+                                    <div (click)="setShowFeatures()" class="col-sm-4" style="text-align: right;">
+                                        <i *ngIf="show_features===false" class="fa-solid fa-plus"
+                                            style="font-family: fontAwesome;font-size: larger;"></i>
+                                        <i *ngIf="show_features===true" class="fa-solid fa-minus"
+                                            style="font-family: fontAwesome;font-size: larger;"></i>
                                     </div>
                                     <div class="col-sm-12">
                                         <hr>
                                     </div>
                                     <div class="col-sm-12">
+                                        <ul style="padding-right: 12px;" *ngIf="show_features===true">
+                                            <li *ngFor="let item of featuresArray" style="color: #525252;">{{item}}</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
 
 
 
-                        
+
                         </div>
-                       
-                       
-                       
+
+
+
                     </div>
                 </div>
-                
+
                 <div class="row" style="position: relative;margin-top: 20px;">
                     <div style="font-weight:600;font-size: large;">
                         Data
                     </div>
-                    <span style="position: absolute;right:0;width: fit-content;margin-top: 5px;"><i class="fa fa-minus"></i></span>
-                </div> 
+                    <span style="position: absolute;right:0;width: fit-content;margin-top: 5px;"><i
+                            class="fa-solid fa-minus" style="font-family: fontAwesome;font-size: larger;"></i></span>
+                </div>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-12 ">
-                    
+
                         <div class="table-responsive">
-                            <table datatable class="table table-borderless" id="printTable" >
+                            <table datatable class="table table-borderless" id="printTable">
                                 <thead style="background: white;">
                                     <tr>
-                                    
-                                        <th *ngFor="let  spec of product.dimensions" style="border-bottom: 1px solid grey ;">{{spec.name}}</th>
+
+                                        <th *ngFor="let  spec of product.dimensions"
+                                            style="border-bottom: 1px solid grey ;">{{spec.name}}</th>
                                         <th style="border-bottom: 1px solid grey ;">Metric</th>
                                         <th style="border-bottom: 1px solid grey ;">Weight</th>
                                         <th style="border-bottom: 1px solid grey ;">Metric</th>
-                                        
+                                        <th *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
+                                            style="border-bottom: 1px solid grey ;">Brand</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                
+
                                         <td *ngFor="let  spec of product.dimensions" style="font-size:large;">
                                             {{spec.value}}
                                         </td>
                                         <td style="font-size:large;">
-                                           <span *ngIf="product.dimensions.length>0 && product.dimensions[0].dimension_class"> {{product.dimensions[0].dimension_class}}</span>
+                                            <span
+                                                *ngIf="product.dimensions.length>0 && product.dimensions[0].dimension_class">
+                                                {{product.dimensions[0].dimension_class}}</span>
                                         </td>
                                         <td style="font-size:large;">
                                             {{product.weights.weight}}
@@ -191,19 +259,19 @@
                                         <td style="font-size:large;">
                                             {{product.weights.weight_class}}
                                         </td>
-                                    
+
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                </div>               
+                </div>
             </div>
         </div>
-      
+
     </div>
-  </main>
-  <footer style="padding-top: 20px;">
-  
+</main>
+<footer style="padding-top: 20px; position: fixed; bottom: 0; width: 100%;">
+
     <app-footer></app-footer>
-  </footer>
+</footer>
