@@ -27,6 +27,7 @@ import { LoginModalService } from './services/login-modal.service';
 import { SpinLoaderComponent } from './views/spin-loader/spin-loader.component';
 import { TitleCasePipe } from './pipe/title-case.pipe';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { GalleriaModule } from 'primeng/galleria';
 
 @NgModule({
   declarations: [  
@@ -59,7 +60,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     HttpClientModule,     
     HomeRoutingModule,
     NgbModule,
-
+    GalleriaModule
   ],
   exports:[
     SpinLoaderComponent
