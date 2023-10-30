@@ -28,6 +28,7 @@ import { SpinLoaderComponent } from './views/spin-loader/spin-loader.component';
 import { TitleCasePipe } from './pipe/title-case.pipe';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { GalleriaModule } from 'primeng/galleria';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [  
@@ -60,7 +61,8 @@ import { GalleriaModule } from 'primeng/galleria';
     HttpClientModule,     
     HomeRoutingModule,
     NgbModule,
-    GalleriaModule
+    GalleriaModule,
+    CarouselModule
   ],
   exports:[
     SpinLoaderComponent
