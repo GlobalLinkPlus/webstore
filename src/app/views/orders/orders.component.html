@@ -12,14 +12,19 @@
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-12">
                                 <div class="info-title">My Orders</div>
-                                <div class="dash" style="float: right;margin-top: -15px;"></div>
-
+                                <!-- <div class="dash" style="float: right;margin-top: -15px;"></div> -->
+                                <div (click)="setShowPendingOrders()" style="float: right;margin-top: -15px;">
+                                    <i *ngIf="show_pending_orders===false" class="fa-solid fa-plus"
+                                        style="font-family: fontAwesome;font-size: larger;"></i>
+                                    <i *ngIf="show_pending_orders===true" class="fa-solid fa-minus"
+                                        style="font-family: fontAwesome;font-size: larger;"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="line"></div>
                         </div>
-                        <div class="row" *ngIf="ordersPending.length>0">
+                        <div class="row" *ngIf="ordersPending.length>0 && show_pending_orders===true">
                             <div class="col-lg-12 col-sm-12 col-12">
                                 <div class="table-responsive">
                                     <table class="table datanew">
@@ -231,14 +236,19 @@
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-12">
                                 <div class="info-title">In Progress</div>
-                                <div class="dash" style="float: right;margin-top: -15px;"></div>
-
+                                <!-- <div class="dash" style="float: right;margin-top: -15px;"></div> -->
+                                <div (click)="setShowProgressOrders()" style="float: right;margin-top: -15px;">
+                                    <i *ngIf="show_progress_orders===false" class="fa-solid fa-plus"
+                                        style="font-family: fontAwesome;font-size: larger;"></i>
+                                    <i *ngIf="show_progress_orders===true" class="fa-solid fa-minus"
+                                        style="font-family: fontAwesome;font-size: larger;"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="line"></div>
                         </div>
-                        <div class="row" *ngIf="ordersProgress.length>0">
+                        <div class="row" *ngIf="ordersProgress.length>0 && show_progress_orders===true">
                             <div class="col-lg-12 col-sm-12 col-12">
                                 <div class="table-responsive">
                                     <table class="table datanew">
@@ -450,14 +460,19 @@
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-12">
                                 <div class="info-title">Completed</div>
-                                <div class="dash" style="float: right;margin-top: -15px;"></div>
-
+                                <!-- <div class="dash" style="float: right;margin-top: -15px;"></div> -->
+                                <div (click)="setShowCompletedOrders()" style="float: right;margin-top: -15px;">
+                                    <i *ngIf="show_completed_orders===false" class="fa-solid fa-plus"
+                                        style="font-family: fontAwesome;font-size: larger;"></i>
+                                    <i *ngIf="show_completed_orders===true" class="fa-solid fa-minus"
+                                        style="font-family: fontAwesome;font-size: larger;"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="line"></div>
                         </div>
-                        <div class="row" *ngIf="ordersCompleted.length>0">
+                        <div class="row" *ngIf="ordersCompleted.length>0 && show_completed_orders===true">
                             <div class="col-lg-12 col-sm-12 col-12">
                                 <div class="table-responsive">
                                     <table class="table datanew">

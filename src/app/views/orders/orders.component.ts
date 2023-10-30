@@ -17,6 +17,11 @@ export class OrdersComponent implements OnInit {
   initChecked=false;
 
   selected_item;
+  show_pending_orders = false;
+  show_progress_orders = false;
+  show_completed_orders = false;
+
+
 
   constructor(
     private apiService: ApiService,
@@ -41,6 +46,30 @@ export class OrdersComponent implements OnInit {
 
   getProductsTotalPrice(price,quantity){
     return Math.round((parseFloat(price))*(parseFloat(quantity))).toFixed(2)
+  }
+
+  setShowPendingOrders(){
+    if(this.show_pending_orders === false ){
+      this.show_pending_orders = true;
+    } else {
+      this.show_pending_orders = false;
+    }
+  }
+
+  setShowProgressOrders(){
+    if(this.show_progress_orders === false ){
+      this.show_progress_orders = true;
+    } else {
+      this.show_progress_orders = false;
+    }
+  }
+
+  setShowCompletedOrders(){
+    if(this.show_completed_orders === false ){
+      this.show_completed_orders = true;
+    } else {
+      this.show_completed_orders = false;
+    }
   }
 
 
