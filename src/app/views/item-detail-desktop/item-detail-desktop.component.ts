@@ -14,7 +14,7 @@ import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbRatingConfig]
 })
 export class ItemDetailDesktopComponent implements OnInit {
-  
+
 
 
 
@@ -22,45 +22,46 @@ export class ItemDetailDesktopComponent implements OnInit {
   subcategory;
   show_features = false;
 
-  
-  item_detail={
-    retail_cost:'',
-    first_cost:''
+
+  item_detail = {
+    retail_cost: '',
+    first_cost: ''
   }
 
-  videos=[];
+  videos = [];
 
-  variations=[];
-  product= {
-    brand:"",
-    id:'1',
+  variations = [];
+  product = {
+    brand: "",
+    id: '1',
     name: "",
     images: [],
     price: "",
     rating: "",
     reviews: "",
-    sku:"",
-    stock_status:"",
-    product_count:1,
-    description:"",
-    dimensions:[],
-    weights:{
-      weight:'',
-      weight_class:''
+    sku: "",
+    stock_status: "",
+    product_count: 1,
+    description: "",
+    dimensions: [],
+    weights: {
+      weight: '',
+      weight_class: ''
     },
     features: {}
   }
-  msrp="";
+  msrp = "";
   featuresArray = [];
+  images: any[];
 
 
-  channel_detail={
-      name:'',
-      id:''
+  channel_detail = {
+    name: '',
+    id: ''
   };
-  
-  current_image: string="";
-  current_image_index: Number=0;
+
+  current_image: string = "";
+  current_image_index: Number = 0;
   totalCards: number = 14;
   currentPage: number = 1;
   pagePosition: string = "0%";
@@ -86,9 +87,34 @@ export class ItemDetailDesktopComponent implements OnInit {
     }
   }
 
-  imageContainerStyle={
-    "padding-left":'0px',
-    "padding-right":'0px'
+  images1 = [
+
+    "https://picsum.photos/id/700/900/500",
+
+    "https://picsum.photos/id/1011/900/500",
+
+    "https://picsum.photos/id/984/900/500"
+
+  ];
+
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
+ß
+  imageContainerStyle = {
+    "padding-left": '0px',
+    "padding-right": '0px'
   }
 
   constructor(
@@ -97,134 +123,135 @@ export class ItemDetailDesktopComponent implements OnInit {
     private apiService: ApiService,
     public bizService: BizService,
     public userInfoService: UserInfoService,
-    public rateConfig:NgbRatingConfig
-    ){
-      rateConfig.max=5
-      rateConfig.readonly=!userInfoService.isLoggedIn()
+    public rateConfig: NgbRatingConfig
+  ) {
+    rateConfig.max = 5
+    rateConfig.readonly = !userInfoService.isLoggedIn()
   }
 
-  setShowFeatures(){
-    if(this.show_features === false ){
+  setShowFeatures() {
+    if (this.show_features === false) {
       this.show_features = true;
     } else {
       this.show_features = false;
     }
   }
 
-  getImageContainerStyle(){
+  getImageContainerStyle() {
     return this.imageContainerStyle;
   }
-  
+
   onImageLoad(event: Event) {
     const imgElement = event.target as HTMLImageElement;
     const naturalWidth = imgElement.naturalWidth;
     const naturalHeight = imgElement.naturalHeight;
-    var width= this.imageContainer.nativeElement.offsetWidth;
-   
-      const aspectRatio = naturalWidth / naturalHeight;
-      const newWidth = 600 * aspectRatio;
+    var width = this.imageContainer.nativeElement.offsetWidth;
 
-      // imgElement.style.width = `${newWidth}px`;
-      // imgElement.style.height = '600px';
-      var imageContainerStyle_padding=(width-newWidth)/2
-      this.imageContainerStyle={
-        "padding-left":`${imageContainerStyle_padding}px`,
-        "padding-right":`${imageContainerStyle_padding}px`
-      }
-    
+    const aspectRatio = naturalWidth / naturalHeight;
+    const newWidth = 600 * aspectRatio;
+
+    // imgElement.style.width = `${newWidth}px`;
+    // imgElement.style.height = '600px';
+    var imageContainerStyle_padding = (width - newWidth) / 2
+    this.imageContainerStyle = {
+      "padding-left": `${imageContainerStyle_padding}px`,
+      "padding-right": `${imageContainerStyle_padding}px`
+    }
+
 
   }
   ngOnInit() {
-   
+
     this.cardsPerPage = this.getCardsPerPage();
     this.initializeSlider();
-   
+
     this.apiService.getChannelsDetails(this.route.snapshot.params.id).subscribe(
-      res=>{
-        this.channel_detail=res[0];
+      res => {
+        this.channel_detail = res[0];
       },
-      err=>{}
+      err => { }
 
     )
 
-    this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(res=>{
-      this.product=res.product;
-      this.msrp=res.msrp;
-      this.item_detail=res;
-      this.product["product_count"]=1;
-      this.totalCards= 14;
-      this.current_image=this.product.images[0].image;
-      this.featuresArray=Object.values(res.product.features);
-   
+    this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(res => {
+      this.product = res.product;
+      this.msrp = res.msrp;
+      this.item_detail = res;
+      this.images = res.product.images;
+      this.product["product_count"] = 1;
+      this.totalCards = 14;
+      this.current_image = this.product.images[0].image;
+      this.featuresArray = Object.values(res.product.features);
 
-      this.apiService.getVariations("?product="+this.product.id).subscribe(
-        res=>{
-          this.variations=res;
+
+      this.apiService.getVariations("?product=" + this.product.id).subscribe(
+        res => {
+          this.variations = res;
         },
-        err=>{}
+        err => { }
 
       )
 
-      this.apiService.getProductVideo("?product="+this.product.id).subscribe(
-        res=>{
-          this.videos=res;
+      this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
+        res => {
+          this.videos = res;
         },
-        err=>{}
+        err => { }
 
       )
 
 
-      try{
-        let p: any=this.product;
-          this.category=p.category_details.name;
-      }catch(err){}
-      try{
-        let p: any=this.product;
-        this.subcategory=p.sub_category_details.name;
-    }catch(err){}
+      try {
+        let p: any = this.product;
+        this.category = p.category_details.name;
+      } catch (err) { }
+      try {
+        let p: any = this.product;
+        this.subcategory = p.sub_category_details.name;
+      } catch (err) { }
 
-    },err=>{
-      console.log("[ERROR]>>>",err);
+    }, err => {
+      console.log("[ERROR]>>>", err);
 
     });
-    
 
-  
-    
+
+
+
   }
 
-  checkout(){
-    this.router.navigateByUrl("/"+this.bizService.getBizId()+"/cart");
+  checkout() {
+    this.router.navigateByUrl("/" + this.bizService.getBizId() + "/cart");
   }
-  addItemToCart(){
-    var p=this.product;
-    var pricing=this.item_detail;
-    pricing["product"]=p.id
-    p["pricing"]=pricing;
-    this.userInfoService.addItemCart(p);       
+  addItemToCart() {
+    var p = this.product;
+    var pricing = this.item_detail;
+    pricing["product"] = p.id
+    p["pricing"] = pricing;
+    this.userInfoService.addItemCart(p);
   }
-  removeItemToCart(){
-    this.userInfoService.removeItemCart(this.product);  
+  removeItemToCart() {
+    this.userInfoService.removeItemCart(this.product);
   }
-  reduceProductCount(){
-    if(this.product.product_count>1){
-      this.product.product_count=this.product.product_count-1;
-      if(this.userInfoService.isItemInCart(this.product)){
+  reduceProductCount() {
+    if (this.product.product_count > 1) {
+      this.product.product_count = this.product.product_count - 1;
+      if (this.userInfoService.isItemInCart(this.product)) {
         this.userInfoService.updateItemCart(this.product);
       }
     }
   }
-  increaseProductCount(){
-      this.product.product_count=this.product.product_count+1;
-      if(this.userInfoService.isItemInCart(this.product)){
-        this.userInfoService.updateItemCart(this.product);
-      }
+  increaseProductCount() {
+    this.product.product_count = this.product.product_count + 1;
+    if (this.userInfoService.isItemInCart(this.product)) {
+      this.userInfoService.updateItemCart(this.product);
+    }
   }
-  imageClicked(img: any,index: Number){  
+  imageClicked(img: any, index: Number) {
 
-    this.current_image=img.image;
-    
-    this.current_image_index=index;
+    this.current_image = img.image;
+
+    this.current_image_index = index;
   }
   initializeSlider() {
     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
@@ -247,5 +274,5 @@ export class ItemDetailDesktopComponent implements OnInit {
     this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${10 *
       (this.currentPage - 1)}px)`;
   }
-    
+
 }

@@ -1,7 +1,7 @@
 <header>
     <app-header></app-header>
 </header>
-<main class="container-fluid" >
+<main class="container-fluid">
     <div class="row main-content">
         <div class="col-sm-12 col-lg-12">
             <div class="main-card" style="padding:20px;">
@@ -24,7 +24,19 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
-                        <div class="row">
+                        <p-galleria [(value)]="images1" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
+                            [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1" [showIndicators]="false"
+                            [containerStyle]="{ 'max-width': '640px' }">
+                            <ng-template pTemplate="item" let-item>
+                                <img [src]="item" style="width: 100%;" />
+                            </ng-template>
+                            <ng-template pTemplate="thumbnail" let-item>
+                                <div class="grid grid-nogutter justify-content-center">
+                                    <img [src]="item" style="display: block; height: 50px;" />
+                                </div>
+                            </ng-template>
+                        </p-galleria>
+                        <!-- <div class="row">
                             <div style="width:100%; height: fit-content; object-fit: contain;"
                                 [ngStyle]="getImageContainerStyle()" #imageContainer>
                                 <img [src]="current_image" width="100%" id="main-image" class="large-product-image" />
@@ -55,7 +67,7 @@
                                             <div class="small-img" style="opacity: 0.3;"
                                                 [ngStyle]="{'background-image':'url(&quot;' + vid.video + '&quot;)'}"
                                                 [ngClass]="current_image_index==index?'small-card-selected':'small-card-not-selected'">
-                                                <!-- <img src="assets/img/video-play.svg" height="100%"/> -->
+                                                <img src="assets/img/video-play.svg" height="100%"/>
                                             </div>
                                             <div class="small-img" style="position: absolute;top:0">
                                                 <img src="assets/img/video-play.svg" height="100%" />
@@ -70,7 +82,7 @@
                                         style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-sm-5 col-lg-5">
                         <div class="row">
@@ -89,7 +101,7 @@
                                 <div class="product-rating">
                                     <!-- <app-star-rate-bar [rate]=product.rating [label]="product.reviews"
                                         [size]=24></app-star-rate-bar> -->
-                                        <ngb-rating [(rate)]="product.rating"></ngb-rating>
+                                    <ngb-rating [(rate)]="product.rating"></ngb-rating>
                                 </div>
                             </div>
                         </div>
