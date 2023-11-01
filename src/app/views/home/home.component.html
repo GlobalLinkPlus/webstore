@@ -146,7 +146,7 @@
 
         <div class="row">
 
-          <p-carousel [value]="sectionOneProducts" [numVisible]="5" [numScroll]="5" [circular]="true"
+          <p-carousel [value]="sectionOneProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
             [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000">
             <ng-template let-sectionOneProduct pTemplate="item">
               <div style="width: 100%; display: flex; justify-content: center;">
@@ -156,8 +156,8 @@
                     routerLink="product/{{sectionOneProduct.id}}" [src]="sectionOneProduct.product.images[0].image"
                     style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;"
                     class="card-img-top object-fit-cover scale-up" alt="item image">
-                  <div *ngIf="sectionOneProduct.product.images.length==0 ||  !sectionOneProduct.product.images[0].image"
-                    class="card-img-top object-fit-cover" style="height:136px"></div>
+                  <div appDynamicSize *ngIf="sectionOneProduct.product.images.length==0 ||  !sectionOneProduct.product.images[0].image"
+                    class="card-img-top object-fit-cover"></div>
                   <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
                     class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
                   <div style="padding-top: 15px;" class="card-body px-2">
@@ -279,7 +279,7 @@
       <app-spin-loader *ngIf="loading"></app-spin-loader>
       <div class="row">
 
-        <p-carousel [value]="sectionTwoProducts" [numVisible]="5" [numScroll]="5" [circular]="true"
+        <p-carousel [value]="sectionTwoProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
           [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000">
           <ng-template let-sectionTwoProduct pTemplate="item">
             <div style="width: 100%; display: flex; justify-content: center;">
@@ -289,8 +289,8 @@
                   routerLink="product/{{sectionTwoProduct.id}}" [src]="sectionTwoProduct.product.images[0].image"
                   style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;"
                   class="card-img-top object-fit-cover scale-up" alt="item image">
-                <div *ngIf="sectionTwoProduct.product.images.length==0 ||  !sectionTwoProduct.product.images[0].image"
-                  class="card-img-top object-fit-cover" style="height:136px"></div>
+                <div appDynamicSize *ngIf="sectionTwoProduct.product.images.length==0 ||  !sectionTwoProduct.product.images[0].image"
+                  class="card-img-top object-fit-cover"></div>
                 <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
                   class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
                 <div style="padding-top: 15px;" class="card-body px-2">
