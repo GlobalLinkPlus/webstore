@@ -87,8 +87,9 @@ export class HeaderComponent implements OnInit {
   }
 
   navbarCategoryFormat(title: string){
-    title=title.toLowerCase()
-    return title
+    // return title.toLowerCase().replace(/(^|\s)\S/g,(firstLetter)=>firstLetter.toUpperCase())
+    // console.log(title.charAt(0).toUpperCase() + title.slice(1).toLowerCase());
+    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
     // if(title.length<10){
     //   return title
     // }else{

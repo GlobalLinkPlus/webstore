@@ -7,6 +7,28 @@ import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
+interface Dimension {
+  name: string;
+  value: string;
+  dimension_class: string;
+}
+
+interface Weight {
+  weight: string;
+  weight_class: string;
+}
+
+interface Product {
+  dimensions: Dimension[];
+  weights: Weight;
+  brand: string;
+  origin: string | null;
+  MOQ: string | null;
+  color: string | null;
+  material: string | null;
+  style: string | null;
+}
+
 @Component({
   selector: 'app-item-detail-desktop',
   templateUrl: './item-detail-desktop.component.html',
@@ -72,6 +94,7 @@ export class ItemDetailDesktopComponent implements OnInit {
   containerWidth: number;
   @ViewChild("imageContainer", { static: true, read: ElementRef })
   imageContainer: ElementRef;
+  attributeArray;
 
   @ViewChild("container", { static: true, read: ElementRef })
   container: ElementRef;
@@ -111,7 +134,7 @@ export class ItemDetailDesktopComponent implements OnInit {
       numVisible: 1
     }
   ];
-ß
+  ß
   imageContainerStyle = {
     "padding-left": '0px',
     "padding-right": '0px'
@@ -162,8 +185,8 @@ export class ItemDetailDesktopComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.cardsPerPage = this.getCardsPerPage();
-    this.initializeSlider();
+    // this.cardsPerPage = this.getCardsPerPage();
+    // this.initializeSlider();
 
     this.apiService.getChannelsDetails(this.route.snapshot.params.id).subscribe(
       res => {
@@ -182,6 +205,7 @@ export class ItemDetailDesktopComponent implements OnInit {
       this.totalCards = 14;
       this.current_image = this.product.images[0].image;
       this.featuresArray = Object.values(res.product.features);
+      this.attributeArray = this.generateAttributeArray(res.product);
 
 
       this.apiService.getVariations("?product=" + this.product.id).subscribe(
@@ -219,6 +243,23 @@ export class ItemDetailDesktopComponent implements OnInit {
 
 
   }
+
+  generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
+    const attributes = [
+        { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
+        { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
+        { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
+        { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
+        { name: 'Brand', value: product.brand },
+        { name: 'Origin', value: product.origin || '' },
+        { name: 'MOQ', value: product.MOQ || '' },
+        { name: 'Color', value: product.color || '' },
+        { name: 'Material', value: product.material || '' },
+        { name: 'Style', value: product.style || '' }
+    ];
+
+    return attributes;
+}
 
   checkout() {
     this.router.navigateByUrl("/" + this.bizService.getBizId() + "/cart");

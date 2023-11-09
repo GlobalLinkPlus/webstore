@@ -199,14 +199,14 @@
 
                             <div class="col-sm-12 mt-3">
                                 <div class="row">
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-8" (click)="setShowFeatures()" style="cursor: pointer;">
                                         <span style="font-weight:700;">Feature</span>
                                     </div>
-                                    <div (click)="setShowFeatures()" class="col-sm-4" style="text-align: right;">
+                                    <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4" style="text-align: right;">
                                         <i *ngIf="show_features===false" class="fa-solid fa-plus"
-                                            style="font-family: fontAwesome;font-size: larger;"></i>
+                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
                                         <i *ngIf="show_features===true" class="fa-solid fa-minus"
-                                            style="font-family: fontAwesome;font-size: larger;"></i>
+                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
                                     </div>
                                     <div class="col-sm-12">
                                         <hr>
@@ -244,32 +244,16 @@
                                 <thead style="background: white;">
                                     <tr>
 
-                                        <th *ngFor="let  spec of product.dimensions"
+                                        <th *ngFor="let  spec of attributeArray"
                                             style="border-bottom: 1px solid grey ;">{{spec.name}}</th>
-                                        <th style="border-bottom: 1px solid grey ;">Metric</th>
-                                        <th style="border-bottom: 1px solid grey ;">Weight</th>
-                                        <th style="border-bottom: 1px solid grey ;">Metric</th>
-                                        <th *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
-                                            style="border-bottom: 1px solid grey ;">Brand</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
 
-                                        <td *ngFor="let  spec of product.dimensions" style="font-size:large;">
-                                            {{spec.value}}
-                                        </td>
-                                        <td style="font-size:large;">
-                                            <span
-                                                *ngIf="product.dimensions.length>0 && product.dimensions[0].dimension_class">
-                                                {{product.dimensions[0].dimension_class}}</span>
-                                        </td>
-                                        <td style="font-size:large;">
-                                            {{product.weights.weight}}
-                                        </td>
-                                        <td style="font-size:large;">
-                                            {{product.weights.weight_class}}
+                                        <td *ngFor="let  spec of attributeArray" style="font-size:large;">
+                                            {{spec.value}}{{spec?.unit}}
                                         </td>
 
                                     </tr>
