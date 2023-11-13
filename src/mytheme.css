@@ -4980,7 +4980,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 }
 .p-galleria .p-galleria-item-nav {
   background: transparent;
-  color: #efefef;
+  color: #6c757d;
   width: 4rem;
   height: 4rem;
   transition: box-shadow 0.15s;
@@ -4993,7 +4993,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 }
 .p-galleria .p-galleria-item-nav:not(.p-disabled):hover {
   background: rgba(255, 255, 255, 0.1);
-  color: #efefef;
+  color: #6c757d;
 }
 .p-galleria .p-galleria-caption {
   background: rgba(0, 0, 0, 0.5);
@@ -5008,7 +5008,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
   width: 1rem;
   height: 1rem;
   transition: box-shadow 0.15s;
-  border-radius: 4px;
+  border-radius: 50%;
 }
 .p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {
   background: #dee2e6;
