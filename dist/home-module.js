@@ -9900,7 +9900,7 @@ class ShippingDetailComponent {
             customer: this.userInfoService.getCustomerId(),
             products: [],
             new_customer: "No",
-            order_channel: "Api",
+            order_channel: "Webstore",
             customer_location_id: "",
             channel: this.cartItems[0].channel,
             "shipping": Object.assign({
