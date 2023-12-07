@@ -140,7 +140,7 @@
         <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
           style="padding-left:0px; position: static;">
           <p class="mb-0 h5 fw-bold">{{section_one.name}}</p>
-          <a routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
+          <a *ngIf="sectionOneProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
 
@@ -274,7 +274,7 @@
       <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
         style="padding-left:0px;">
         <p class="mb-0 h5 fw-bold">{{section_two.name}}</p>
-        <a routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
+        <a *ngIf="sectionTwoProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
       <div class="row">

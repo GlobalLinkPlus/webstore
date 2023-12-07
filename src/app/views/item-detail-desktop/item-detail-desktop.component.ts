@@ -134,7 +134,7 @@ export class ItemDetailDesktopComponent implements OnInit {
       numVisible: 1
     }
   ];
-  ß
+
   imageContainerStyle = {
     "padding-left": '0px',
     "padding-right": '0px'
