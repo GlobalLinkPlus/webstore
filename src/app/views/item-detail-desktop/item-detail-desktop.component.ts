@@ -7,6 +7,32 @@ import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
+// interface Dimension {
+//   name: string;
+//   value: string;
+//   dimension_class: string;
+// }
+
+// interface Weight {
+//   weight: string;
+//   weight_class: string;
+// }
+
+interface Material {
+  primary_material: string;
+}
+
+// interface Product {
+//   dimensions: Dimension[];
+//   weights: Weight;
+//   brand: string;
+//   origin: string | null;
+//   MOQ: string | null;
+//   color: string | null;
+//   material: Material | null;
+//   style: string | null;
+// }
+
 interface Dimension {
   name: string;
   value: string;
@@ -18,15 +44,42 @@ interface Weight {
   weight_class: string;
 }
 
+interface ShippingRow {
+  cube: string;
+  girth: string;
+  width: string;
+  height: string;
+  length: string;
+  weight: string;
+  quantity: string;
+  freight_Class: string;
+  dollar_per_cube: string;
+}
+
 interface Product {
-  dimensions: Dimension[];
-  weights: Weight;
-  brand: string;
   origin: string | null;
   MOQ: string | null;
   color: string | null;
-  material: string | null;
   style: string | null;
+  id: string;
+  name: string;
+  sku: string;
+  upc: string;
+  brand: string;
+  quantity: string;
+  category: string;
+  sub_category: string;
+  date_added: string;
+  dimensions: Dimension[];
+  weights: Weight;
+  rating: number;
+  material: Material | null;
+  reviews: number;
+  tax: string;
+  collection: string | null;
+  shipping: {
+      rows: ShippingRow[];
+  };
 }
 
 @Component({
@@ -246,6 +299,17 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
     const attributes = [
+        // { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
+        // { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
+        // { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
+        // { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
+        // { name: 'Brand', value: product.brand },
+        // { name: 'Origin', value: product.origin || '' },
+        // { name: 'MOQ', value: product.MOQ || '' },
+        // { name: 'Color', value: product.color || '' },
+        // { name: 'Material', value: product.material.primary_material || '' },
+        // { name: 'Style', value: product.style || '' }
+
         { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
         { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
         { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
@@ -254,8 +318,21 @@ export class ItemDetailDesktopComponent implements OnInit {
         { name: 'Origin', value: product.origin || '' },
         { name: 'MOQ', value: product.MOQ || '' },
         { name: 'Color', value: product.color || '' },
-        { name: 'Material', value: product.material || '' },
-        { name: 'Style', value: product.style || '' }
+        { name: 'Material', value: product.material.primary_material || '' },
+        { name: 'Style', value: product.style || '' },
+        { name: 'Name', value: product.name },
+        { name: 'SKU', value: product.sku },
+        { name: 'UPC', value: product.upc },
+        { name: 'Quantity', value: product.quantity },
+        { name: 'Partner', value: '' }, // Add partner information if available
+        { name: 'Country', value: '' }, // Add country information if available
+        { name: 'Category', value: product.category },
+        { name: 'Sub Category', value: product.sub_category },
+        { name: 'Rating', value: product.rating.toString() },
+        { name: 'Reviews', value: product.reviews.toString() },
+        { name: 'Tax', value: product.tax },
+        { name: 'Date Added', value: product.date_added },
+        { name: 'Collection', value: product.collection || '' }
     ];
 
     return attributes;
