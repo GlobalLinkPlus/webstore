@@ -29,6 +29,8 @@ import { TitleCasePipe } from './pipe/title-case.pipe';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './views/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [  
@@ -52,7 +54,9 @@ import { CarouselModule } from 'primeng/carousel';
     HoverActivatedNavMenuDirective,
     MouseOutHideNavMenuDirective,
     DynamicSizeDirective,
-    SpinLoaderComponent
+    SpinLoaderComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
      ],
   imports: [
     CommonModule,

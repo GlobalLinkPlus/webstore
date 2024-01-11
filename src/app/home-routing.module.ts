@@ -11,6 +11,8 @@ import { OrdersComponent } from './views/orders/orders.component';
 import { PaymentMethodComponent } from './views/payment-method/payment-method.component';
 import { SearchComponent } from './views/search/search.component';
 import { ShippingDetailComponent } from './views/shipping-detail/shipping-detail.component';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './views/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,14 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
+  },
+  {
+    path:'forgotpassword',
+    component:ForgotPasswordComponent
+  },
+  {
+    path:'resetpassword',
+    component:ResetPasswordComponent
   },
   {
     path:'payment-method/:order_id',

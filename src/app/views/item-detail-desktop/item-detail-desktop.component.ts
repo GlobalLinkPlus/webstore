@@ -56,6 +56,12 @@ interface ShippingRow {
   dollar_per_cube: string;
 }
 
+interface Collection {
+  name: string;
+  status: string;
+  id: string;
+}
+
 interface Product {
   origin: string | null;
   MOQ: string | null;
@@ -76,7 +82,7 @@ interface Product {
   material: Material | null;
   reviews: number;
   tax: string;
-  collection: string | null;
+  collection: Collection;
   shipping: {
       rows: ShippingRow[];
   };
@@ -332,7 +338,7 @@ export class ItemDetailDesktopComponent implements OnInit {
         { name: 'Reviews', value: product.reviews.toString() },
         { name: 'Tax', value: product.tax },
         { name: 'Date Added', value: product.date_added },
-        { name: 'Collection', value: product.collection || '' }
+        { name: 'Collection', value: product.collection.name || '' }
     ];
 
     return attributes;
