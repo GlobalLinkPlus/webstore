@@ -58,7 +58,8 @@ export class HeaderComponent implements OnInit {
     });
 
     this.apiService.getProductCategory('').subscribe(res=>{
-      this.categories=res;
+      if(res)
+      this.categories=res.splice(0,7);
     },err=>{});
     this.apiService.getProductSubCategory('').subscribe(res=>{
       this.sub_categories=res;

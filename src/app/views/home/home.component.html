@@ -15,7 +15,7 @@
       <p-galleria [(value)]="sliders" [showIndicators]="false" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [autoPlay]="true"
         [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }">
         <ng-template pTemplate="item" let-item>
-          <img [src]="item.image" style="width: 100%; display: block;" />
+          <img [src]="item.url" style="width: 100%; display: block;" />
         </ng-template>
       </p-galleria>
       <!-- <div class="carousel-inner">
@@ -144,7 +144,7 @@
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
 
-        <div class="row">
+        <div class="row" *ngIf="sectionOneProducts.length>0">
 
           <p-carousel [value]="sectionOneProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
             [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000">
@@ -277,7 +277,7 @@
         <a *ngIf="sectionTwoProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
-      <div class="row">
+      <div class="row" *ngIf="sectionTwoProducts.length>0">
 
         <p-carousel [value]="sectionTwoProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
           [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000">

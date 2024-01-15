@@ -12,7 +12,6 @@ import { PaymentMethodComponent } from './views/payment-method/payment-method.co
 import { SearchComponent } from './views/search/search.component';
 import { ShippingDetailComponent } from './views/shipping-detail/shipping-detail.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './views/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -48,12 +47,8 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
-    path:'forgotpassword',
+    path:'resetpassword/:section_no',
     component:ForgotPasswordComponent
-  },
-  {
-    path:'resetpassword',
-    component:ResetPasswordComponent
   },
   {
     path:'payment-method/:order_id',

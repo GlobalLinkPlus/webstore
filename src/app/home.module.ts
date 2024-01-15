@@ -30,7 +30,6 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './views/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [  
@@ -56,7 +55,6 @@ import { ResetPasswordComponent } from './views/reset-password/reset-password.co
     DynamicSizeDirective,
     SpinLoaderComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
      ],
   imports: [
     CommonModule,

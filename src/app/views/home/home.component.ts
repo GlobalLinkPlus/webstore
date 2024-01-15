@@ -121,7 +121,8 @@ export class HomeComponent implements OnInit {
     // this.getTopProducts();
 
     this.getHomeSectionItems();
-    this.sliders = this.bizService.get_sliders()
+    this.sliders = JSON.parse(this.bizService.get_sliders());
+    console.log(this.sliders)
 
     this.sectionCarouselResponsiveOptions = [
       {
