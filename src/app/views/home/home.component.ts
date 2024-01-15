@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
   overflowWidth: string;
   cardWidth: string;
   containerWidth: number;
+  primarySliderIndex: number;
   // @ViewChild("container", { static: true, read: ElementRef })
   // container: ElementRef;
   // @HostListener("window:resize") windowResize() {
@@ -122,7 +123,7 @@ export class HomeComponent implements OnInit {
 
     this.getHomeSectionItems();
     this.sliders = JSON.parse(this.bizService.get_sliders());
-    console.log(this.sliders)
+    this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
 
     this.sectionCarouselResponsiveOptions = [
       {
