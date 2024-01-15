@@ -47,7 +47,15 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
+    path:'resetpassword',
+    component:ForgotPasswordComponent
+  },
+  {
     path:'resetpassword/:section_no',
+    component:ForgotPasswordComponent
+  },
+  {
+    path:'resetpassword/:section_no/:activation_code',
     component:ForgotPasswordComponent
   },
   {

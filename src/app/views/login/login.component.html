@@ -30,7 +30,7 @@
               </form>
               <div class="row" style="margin-top: 20px; display: block;">
                 <span ><i class="fa-regular fa-circle" [ngStyle]="{'color': bizService.get_background_color()}"></i><span style="padding-left:10px;">Remember Me</span></span>
-                <span style="float: right; width: fit-content;" [ngStyle]="{'color': bizService.get_background_color()}">Forgot Password?</span>
+                <span style="float: right; width: fit-content; cursor: pointer;" routerLink="/{{bizService.getBizName()}}/resetpassword/1" [ngStyle]="{'color': bizService.get_background_color()}">Forgot Password?</span>
               </div>
               <div class="row" style="margin-top: 30px; padding-left: 10px;padding-right: 10px;">
                   <button class="btn  login-button" (click)="submitLogin()" [ngStyle]="{'background-color': bizService.get_background_color()}" >Login</button>

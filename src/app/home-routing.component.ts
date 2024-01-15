@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { BizService } from './services/biz.service';
 import { LoginModalService } from './services/login-modal.service';
@@ -113,7 +113,7 @@ import { UserInfoService } from './services/user-info.service';
               </form>
               <div class="row" style="margin-top: 20px; display: block;">
                 <span style="cursor:pointer;" ><i class="fa-regular fa-circle" [ngStyle]="{'color': bizService.get_background_color()}"></i><span style="padding-left:10px;">Remember Me</span></span>
-                <span style="float: right; width: fit-content;cursor:pointer;" [ngStyle]="{'color': bizService.get_background_color()}">Forgot Password?</span>
+                <span style="float: right; width: fit-content; cursor: pointer;" (click)="forgotPassword()" [ngStyle]="{'color': bizService.get_background_color()}">Forgot Password?</span>
               </div>
               <div class="row" style="margin-top: 30px; padding-left: 10px;padding-right: 10px;">
                   <button class="btn  login-button" (click)="submitLogin()" [ngStyle]="submitted?{'background-color': bizService.get_background_color()}:{'background-color': bizService.get_background_color()}" >Login</button>
@@ -146,7 +146,8 @@ export class HomeRoutingComponent implements OnInit {
     private apiService: ApiService,
     private userInfoService: UserInfoService,
     private renderer: Renderer2 ,
-    private loginModalService: LoginModalService
+    private loginModalService: LoginModalService,
+    private router: Router,
     ){
    
   }
@@ -225,6 +226,11 @@ export class HomeRoutingComponent implements OnInit {
       // Show the modal
       document.body.style.overflow = ''; // Prevent body scrolling
     }
+  }
+
+  forgotPassword() {
+    this.router.navigateByUrl("/"+this.bizService.getBizName()+"/resetpassword/1")
+    this.closeModal()
   }
 
   submitLogin(){

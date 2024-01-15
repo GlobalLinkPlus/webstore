@@ -35,6 +35,7 @@ export class ForgotPasswordComponent implements OnInit {
   passwordForm: FormGroup;
   submitted: boolean = false;
   displaySection: number;
+  activationCode: string;
   successResponse: number = 0;
   constructor(
     private apiService: ApiService,
@@ -63,7 +64,8 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.displaySection = +params.section_no;
+        this.displaySection = params.section_no ? +params.section_no : 1;
+        this.activationCode = params.activation_code;
       }
     )
     this.loginForm = this.formBuilder.group({
@@ -73,13 +75,13 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   resetPassword() {
-    if (!this.passwordForm.get('password').hasError('minlength',) && 
-    !this.passwordForm.get('password').hasError('uppercase') && 
-    !this.passwordForm.get('password').hasError('specialCharacter') && 
-    !this.passwordForm.get('password').hasError('number') &&
-    !this.passwordForm.get('confirmPassword').hasError('passwordMismatch')
+    if (!this.passwordForm.get('password').hasError('minlength',) &&
+      !this.passwordForm.get('password').hasError('uppercase') &&
+      !this.passwordForm.get('password').hasError('specialCharacter') &&
+      !this.passwordForm.get('password').hasError('number') &&
+      !this.passwordForm.get('confirmPassword').hasError('passwordMismatch')
     ) {
-      console.log('send to backend')
+      this.nextSection();
     }
   }
 
@@ -116,10 +118,6 @@ export class ForgotPasswordComponent implements OnInit {
   nextSection() {
     if (this.displaySection < 3)
       this.displaySection++;
-  }
-
-  login() {
-    
   }
 
   submitLogin() {
