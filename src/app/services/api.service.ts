@@ -5,7 +5,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 
 
 // export const BASE_URL='https://testapi.io/api/antonymwangig/'
-  // export const BASE_URL='https://81c7-3-87-245-245.ngrok.io/api/';
+// export const BASE_URL='https://81c7-3-87-245-245.ngrok.io/api/';
 export const BASE_URL = 'https://backend.globallinkplus.com/api/'
 @Injectable({
   providedIn: 'root'
@@ -13,13 +13,13 @@ export const BASE_URL = 'https://backend.globallinkplus.com/api/'
 
 export class ApiService {
 
-  constructor(private http: HttpClient,public backend: HttpBackend) {
+  constructor(private http: HttpClient, public backend: HttpBackend) {
   }
   private extractData(res: any) {
-    const  body = res;
-    return body || { };
+    const body = res;
+    return body || {};
   }
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       console.log(`${operation} failed: ${error.message}`);
@@ -29,129 +29,137 @@ export class ApiService {
 
 
   getBizInfo(name): Observable<any> {
-    return this.http.get(BASE_URL+'webstore/?name='+name);
+    return this.http.get(BASE_URL + 'webstore/?name=' + name);
   }
 
+  validateCustomerEmail(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(
+      map(this.extractData));
+  }
 
+  resetPassword(data: any): Observable<any> {
+    return this.http.put(BASE_URL + 'webstore/password/reset', data).pipe(
+      map(this.extractData));
+  }
 
   getHomeSectionItems(id): Observable<any> {
-    return this.http.post(BASE_URL+'webstore_sections/',{'id':id});
+    return this.http.post(BASE_URL + 'webstore_sections/', { 'id': id });
   }
 
 
   login(data: any): Observable<any> {
-    return this.http.post(BASE_URL+'login/',data).pipe(
+    return this.http.post(BASE_URL + 'login/', data).pipe(
       map(this.extractData));
   }
 
 
   getCustomerDetail(id): Observable<any> {
-    return this.http.post(BASE_URL+'customer_detail/',{id:id}).pipe(
+    return this.http.post(BASE_URL + 'customer_detail/', { id: id }).pipe(
       map(this.extractData));
   }
   getProductCategory(search): Observable<any> {
-    return this.http.get(BASE_URL+'category/'+search).pipe(
+    return this.http.get(BASE_URL + 'category/' + search).pipe(
       map(this.extractData));
   }
 
   getProductSubCategory(search): Observable<any> {
-    return this.http.get(BASE_URL+'subcategory/'+search).pipe(
+    return this.http.get(BASE_URL + 'subcategory/' + search).pipe(
       map(this.extractData));
   }
   getProducts(search): Observable<any> {
-    return this.http.get(BASE_URL+'channel_products/'+search).pipe(
+    return this.http.get(BASE_URL + 'channel_products/' + search).pipe(
       map(this.extractData));
   }
 
   getProductDetail(id: any): Observable<any> {
-    return this.http.get(BASE_URL+'channel_products/'+id+"/").pipe(
+    return this.http.get(BASE_URL + 'channel_products/' + id + "/").pipe(
       map(this.extractData));
   }
 
   getProductVideo(search): Observable<any> {
-    return this.http.get(BASE_URL+'product/video/'+search).pipe(
+    return this.http.get(BASE_URL + 'product/video/' + search).pipe(
       map(this.extractData));
   }
 
-  getPartnerDetails(id:string): Observable<any> {
-    return this.http.get(BASE_URL+'partner/'+id+'/').pipe(
+  getPartnerDetails(id: string): Observable<any> {
+    return this.http.get(BASE_URL + 'partner/' + id + '/').pipe(
       map(this.extractData));
   }
-  getPartners(search:string): Observable<any> {
-    return this.http.get(BASE_URL+'partner/'+search).pipe(
+  getPartners(search: string): Observable<any> {
+    return this.http.get(BASE_URL + 'partner/' + search).pipe(
       map(this.extractData));
   }
   getChannels(search): Observable<any> {
-    return this.http.get(BASE_URL+'channels/'+search).pipe(
+    return this.http.get(BASE_URL + 'channels/' + search).pipe(
       map(this.extractData));
   }
-  getChannelsDetails(id:string): Observable<any> {
-    return this.http.get(BASE_URL+'product/channels/'+id+'/').pipe(
+  getChannelsDetails(id: string): Observable<any> {
+    return this.http.get(BASE_URL + 'product/channels/' + id + '/').pipe(
       map(this.extractData));
   }
   getCollections(search): Observable<any> {
-    return this.http.get(BASE_URL+'collections/'+search).pipe(
+    return this.http.get(BASE_URL + 'collections/' + search).pipe(
       map(this.extractData));
   }
   addCustomerLocation(data): Observable<any> {
-    return this.http.post(BASE_URL+'customer/location/',data).pipe(
+    return this.http.post(BASE_URL + 'customer/location/', data).pipe(
       map(this.extractData));
   }
 
   getTopSellers(): Observable<any> {
-    return this.http.get(BASE_URL+'channels/').pipe(
+    return this.http.get(BASE_URL + 'channels/').pipe(
       map(this.extractData));
   }
- 
+
   getTopProducts(): Observable<any> {
-    return this.http.get(BASE_URL+'channel_products/').pipe(
+    return this.http.get(BASE_URL + 'channel_products/').pipe(
       map(this.extractData));
   }
   getProductPricing(search): Observable<any> {
-    return this.http.get(BASE_URL+'product/pricing/'+search).pipe(
+    return this.http.get(BASE_URL + 'product/pricing/' + search).pipe(
       map(this.extractData));
   }
   getVariations(search): Observable<any> {
-    return this.http.get(BASE_URL+'variations/'+search).pipe(
+    return this.http.get(BASE_URL + 'variations/' + search).pipe(
       map(this.extractData));
   }
   calculateCartCosts(data: any): Observable<any> {
-    return this.http.post(BASE_URL+'cart-calculation/',data).pipe(
+    return this.http.post(BASE_URL + 'cart-calculation/', data).pipe(
       map(this.extractData));
   }
   createNewOrder(data: any): Observable<any> {
-    return this.http.post(BASE_URL+'orders/',data).pipe(
+    return this.http.post(BASE_URL + 'orders/', data).pipe(
       map(this.extractData));
   }
   getOrderInfo(data): Observable<any> {
-    return this.http.post(BASE_URL+'order_details/',data).pipe(
+    return this.http.post(BASE_URL + 'order_details/', data).pipe(
       map(this.extractData));
   }
   getOrders(data): Observable<any> {
-    return this.http.post(BASE_URL+'customers_order/',data).pipe(
+    return this.http.post(BASE_URL + 'customers_order/', data).pipe(
       map(this.extractData));
   }
-  
+
   addOrderShippingDetails(data: any): Observable<any> {
-    return this.http.post(BASE_URL+'order-shipping-detail/',data).pipe(
+    return this.http.post(BASE_URL + 'order-shipping-detail/', data).pipe(
       map(this.extractData));
   }
-    
+
   addOrderPaymentMethod(data: any): Observable<any> {
-    return this.http.post(BASE_URL+'order_payment/',data).pipe(
+    return this.http.post(BASE_URL + 'order_payment/', data).pipe(
       map(this.extractData));
   }
-  
+
   getPaymentMethods(): Observable<any> {
-    return this.http.get(BASE_URL+'payment_methods/').pipe(
+    return this.http.get(BASE_URL + 'payment_methods/').pipe(
       map(this.extractData));
   }
   getCreditCardTypes(): Observable<any> {
-    return this.http.get(BASE_URL+'payment_methods/').pipe(
+    return this.http.get(BASE_URL + 'payment_methods/').pipe(
       map(this.extractData));
   }
   getTemplateLocation(): Observable<any> {
-    return this.http.get(BASE_URL+ 'template-location').pipe(
+    return this.http.get(BASE_URL + 'template-location').pipe(
       map(this.extractData));
   }
 

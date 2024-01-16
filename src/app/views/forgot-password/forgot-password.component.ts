@@ -33,6 +33,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   loginForm: FormGroup;
   passwordForm: FormGroup;
+  validateEmailForm: FormGroup;
   submitted: boolean = false;
   displaySection: number;
   activationCode: string;
@@ -48,14 +49,19 @@ export class ForgotPasswordComponent implements OnInit {
   ) {
     this.passwordForm = this.formBuilder.group({
       password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
+      confirm_password: ['', [Validators.required]],
+      activation_token: ['', [Validators.required]]
     });
+
+    this.validateEmailForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
+    })
 
     this.passwordForm.get('password').valueChanges.subscribe(() => {
       this.validatePassword();
     });
 
-    this.passwordForm.get('confirmPassword').valueChanges.subscribe(() => {
+    this.passwordForm.get('confirm_password').valueChanges.subscribe(() => {
       this.validatePassword();
     });
 
@@ -75,23 +81,26 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   resetPassword() {
-    if (!this.passwordForm.get('password').hasError('minlength',) &&
-      !this.passwordForm.get('password').hasError('uppercase') &&
-      !this.passwordForm.get('password').hasError('specialCharacter') &&
-      !this.passwordForm.get('password').hasError('number') &&
-      !this.passwordForm.get('confirmPassword').hasError('passwordMismatch')
-    ) {
-      this.nextSection();
+    this.passwordForm.get('activation_token').setValue(this.activationCode);
+    if(this.passwordForm.valid){
+      this.apiService.resetPassword(this.passwordForm.value).subscribe(res => {
+        if(res){
+          console.log(res)
+          this.nextSection();
+        }
+      }, err =>{
+        console.log(err)
+      })
     }
   }
 
   validatePassword() {
     const password = this.passwordForm.get('password').value;
-    const confirmPassword = this.passwordForm.get('confirmPassword').value;
+    const confirmPassword = this.passwordForm.get('confirm_password').value;
 
     // Reset errors
     this.passwordForm.get('password').setErrors(null);
-    this.passwordForm.get('confirmPassword').setErrors(null);
+    this.passwordForm.get('confirm_password').setErrors(null);
 
     // Check rules and set errors accordingly
     if (!PasswordValidator.hasMinimumLength(password)) {
@@ -107,12 +116,23 @@ export class ForgotPasswordComponent implements OnInit {
       this.passwordForm.get('password').setErrors({ number: true });
     }
     if (password !== confirmPassword) {
-      this.passwordForm.get('confirmPassword').setErrors({ passwordMismatch: true });
+      this.passwordForm.get('confirm_password').setErrors({ passwordMismatch: true });
     }
   }
 
   submitEmail() {
-    this.successResponse = 1
+    console.log(this.validateEmailForm.value)
+    if(this.validateEmailForm.valid){
+      this.apiService.validateCustomerEmail(this.validateEmailForm.value).subscribe(res => {
+        if(res){
+          console.log(res)
+          this.successResponse = 1;
+        }
+      }, err =>{
+        console.log(err)
+        this.successResponse = 2
+      })
+    }
   }
 
   nextSection() {
