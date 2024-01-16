@@ -226,6 +226,12 @@ class ApiService {
     getBizInfo(name) {
         return this.http.get(BASE_URL + 'webstore/?name=' + name);
     }
+    validateCustomerEmail(data) {
+        return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+    }
+    resetPassword(data) {
+        return this.http.put(BASE_URL + 'webstore/password/reset', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+    }
     getHomeSectionItems(id) {
         return this.http.post(BASE_URL + 'webstore_sections/', { 'id': id });
     }
@@ -593,7 +599,7 @@ __webpack_require__.r(__webpack_exports__);
 const _c0 = function (a0) { return { "color": a0 }; };
 const _c1 = function (a0) { return { "background-color": a0 }; };
 class HomeRoutingComponent {
-    constructor(formBuilder, route, bizService, apiService, userInfoService, renderer, loginModalService) {
+    constructor(formBuilder, route, bizService, apiService, userInfoService, renderer, loginModalService, router) {
         this.formBuilder = formBuilder;
         this.route = route;
         this.bizService = bizService;
@@ -601,6 +607,7 @@ class HomeRoutingComponent {
         this.userInfoService = userInfoService;
         this.renderer = renderer;
         this.loginModalService = loginModalService;
+        this.router = router;
         this.submitted = false;
     }
     ngOnInit() {
@@ -666,6 +673,10 @@ class HomeRoutingComponent {
             document.body.style.overflow = ''; // Prevent body scrolling
         }
     }
+    forgotPassword() {
+        this.router.navigateByUrl("/" + this.bizService.getBizName() + "/resetpassword/1");
+        this.closeModal();
+    }
     submitLogin() {
         this.submitted = true;
         this.apiService.login(this.loginForm.value).subscribe(res => {
@@ -679,8 +690,8 @@ class HomeRoutingComponent {
         });
     }
 }
-HomeRoutingComponent.ɵfac = function HomeRoutingComponent_Factory(t) { return new (t || HomeRoutingComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_biz_service__WEBPACK_IMPORTED_MODULE_3__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_api_service__WEBPACK_IMPORTED_MODULE_4__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_user_info_service__WEBPACK_IMPORTED_MODULE_5__["UserInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_login_modal_service__WEBPACK_IMPORTED_MODULE_6__["LoginModalService"])); };
-HomeRoutingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: HomeRoutingComponent, selectors: [["app-root"]], decls: 39, vars: 16, consts: [["id", "loginModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "exampleModalLabel", "aria-hidden", "true", 1, "modal", "fade", 3, "click"], ["role", "document", 1, "modal-dialog"], [1, "modal-content", 3, "click"], [1, "modal-body"], [2, "padding", "0px"], [1, "row", 2, "justify-content", "center", "margin-top", "30px !important"], [2, "max-width", "500px"], [1, "card", 2, "width", "100%", "border", "none"], ["href", "javascript:void(0);", 1, "logo", 2, "text-align", "center"], ["height", "60px", 3, "src"], [1, "card-body"], [3, "formGroup"], [1, "row", 2, "margin-top", "20px"], [1, "form-group"], ["formControlName", "email", "type", "email", "placeholder", "Email Address", 1, "round-input"], ["formControlName", "password", "type", "password", "placeholder", "Enter your password", 1, "round-input"], [1, "row", 2, "margin-top", "20px", "display", "block"], [2, "cursor", "pointer"], [1, "fa-regular", "fa-circle", 3, "ngStyle"], [2, "padding-left", "10px"], [2, "float", "right", "width", "fit-content", "cursor", "pointer", 3, "ngStyle"], [1, "row", 2, "margin-top", "30px", "padding-left", "10px", "padding-right", "10px"], [1, "btn", "login-button", 3, "ngStyle", "click"], [2, "float", "right", "width", "fit-content", 3, "ngStyle"], ["id", "backprop", 1, "modal-backdrop", "fade"]], template: function HomeRoutingComponent_Template(rf, ctx) { if (rf & 1) {
+HomeRoutingComponent.ɵfac = function HomeRoutingComponent_Factory(t) { return new (t || HomeRoutingComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_biz_service__WEBPACK_IMPORTED_MODULE_3__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_api_service__WEBPACK_IMPORTED_MODULE_4__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_user_info_service__WEBPACK_IMPORTED_MODULE_5__["UserInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_login_modal_service__WEBPACK_IMPORTED_MODULE_6__["LoginModalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
+HomeRoutingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: HomeRoutingComponent, selectors: [["app-root"]], decls: 39, vars: 16, consts: [["id", "loginModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "exampleModalLabel", "aria-hidden", "true", 1, "modal", "fade", 3, "click"], ["role", "document", 1, "modal-dialog"], [1, "modal-content", 3, "click"], [1, "modal-body"], [2, "padding", "0px"], [1, "row", 2, "justify-content", "center", "margin-top", "30px !important"], [2, "max-width", "500px"], [1, "card", 2, "width", "100%", "border", "none"], ["href", "javascript:void(0);", 1, "logo", 2, "text-align", "center"], ["height", "60px", 3, "src"], [1, "card-body"], [3, "formGroup"], [1, "row", 2, "margin-top", "20px"], [1, "form-group"], ["formControlName", "email", "type", "email", "placeholder", "Email Address", 1, "round-input"], ["formControlName", "password", "type", "password", "placeholder", "Enter your password", 1, "round-input"], [1, "row", 2, "margin-top", "20px", "display", "block"], [2, "cursor", "pointer"], [1, "fa-regular", "fa-circle", 3, "ngStyle"], [2, "padding-left", "10px"], [2, "float", "right", "width", "fit-content", "cursor", "pointer", 3, "ngStyle", "click"], [1, "row", 2, "margin-top", "30px", "padding-left", "10px", "padding-right", "10px"], [1, "btn", "login-button", 3, "ngStyle", "click"], [2, "float", "right", "width", "fit-content", 3, "ngStyle"], ["id", "backprop", 1, "modal-backdrop", "fade"]], template: function HomeRoutingComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "router-outlet");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function HomeRoutingComponent_Template_div_click_1_listener($event) { return ctx.closeModalClicked($event); });
@@ -722,6 +733,7 @@ HomeRoutingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "span", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function HomeRoutingComponent_Template_span_click_28_listener() { return ctx.forgotPassword(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](29, "Forgot Password?");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
