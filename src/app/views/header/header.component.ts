@@ -58,7 +58,8 @@ export class HeaderComponent implements OnInit {
     });
 
     this.apiService.getProductCategory('').subscribe(res=>{
-      this.categories=res;
+      if(res)
+      this.categories=res.splice(0,7);
     },err=>{});
     this.apiService.getProductSubCategory('').subscribe(res=>{
       this.sub_categories=res;
@@ -87,8 +88,9 @@ export class HeaderComponent implements OnInit {
   }
 
   navbarCategoryFormat(title: string){
-    title=title.toLowerCase()
-    return title
+    // return title.toLowerCase().replace(/(^|\s)\S/g,(firstLetter)=>firstLetter.toUpperCase())
+    // console.log(title.charAt(0).toUpperCase() + title.slice(1).toLowerCase());
+    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
     // if(title.length<10){
     //   return title
     // }else{

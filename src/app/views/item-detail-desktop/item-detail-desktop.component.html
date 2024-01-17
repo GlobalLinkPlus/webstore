@@ -1,7 +1,7 @@
 <header>
     <app-header></app-header>
 </header>
-<main class="container-fluid" style="margin-bottom: 200px;">
+<main class="container-fluid">
     <div class="row main-content">
         <div class="col-sm-12 col-lg-12">
             <div class="main-card" style="padding:20px;">
@@ -24,7 +24,19 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
-                        <div class="row">
+                        <p-galleria [(value)]="images" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
+                            [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1" [showIndicators]="false"
+                            [containerStyle]="{ 'max-width': '640px' }">
+                            <ng-template pTemplate="item" let-item>
+                                <img [src]="item.image" style="width: 100%;" />
+                            </ng-template>
+                            <ng-template pTemplate="thumbnail" let-item>
+                                <div class="grid grid-nogutter justify-content-center">
+                                    <img [src]="item.image" style="display: block; height: 50px; width: 75px;" />
+                                </div>
+                            </ng-template>
+                        </p-galleria>
+                        <!-- <div class="row">
                             <div style="width:100%; height: fit-content; object-fit: contain;"
                                 [ngStyle]="getImageContainerStyle()" #imageContainer>
                                 <img [src]="current_image" width="100%" id="main-image" class="large-product-image" />
@@ -55,7 +67,7 @@
                                             <div class="small-img" style="opacity: 0.3;"
                                                 [ngStyle]="{'background-image':'url(&quot;' + vid.video + '&quot;)'}"
                                                 [ngClass]="current_image_index==index?'small-card-selected':'small-card-not-selected'">
-                                                <!-- <img src="assets/img/video-play.svg" height="100%"/> -->
+                                                <img src="assets/img/video-play.svg" height="100%"/>
                                             </div>
                                             <div class="small-img" style="position: absolute;top:0">
                                                 <img src="assets/img/video-play.svg" height="100%" />
@@ -70,7 +82,7 @@
                                         style="font-size: xx-large;font-family: 'Font Awesome 6 Free' !important;"></i>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-sm-5 col-lg-5">
                         <div class="row">
@@ -89,7 +101,7 @@
                                 <div class="product-rating">
                                     <!-- <app-star-rate-bar [rate]=product.rating [label]="product.reviews"
                                         [size]=24></app-star-rate-bar> -->
-                                        <ngb-rating [(rate)]="product.rating"></ngb-rating>
+                                    <ngb-rating [(rate)]="product.rating"></ngb-rating>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +115,7 @@
                             </div>
                             <small *ngIf="!userInfoService.isLoggedIn()"
                                 style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a
-                                    routerLink="login"><u style="color: black;">Login for Pricing</u></a></small>
+                                    routerLink="/{{bizService.getBizName()}}/login"><u style="color: black;">Login for Pricing</u></a></small>
                         </div>
                         <div class="row">
                             <div class="col-sm-12" style="margin-top: 30px !important;">
@@ -187,14 +199,14 @@
 
                             <div class="col-sm-12 mt-3">
                                 <div class="row">
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-8" (click)="setShowFeatures()" style="cursor: pointer;">
                                         <span style="font-weight:700;">Feature</span>
                                     </div>
-                                    <div (click)="setShowFeatures()" class="col-sm-4" style="text-align: right;">
+                                    <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4" style="text-align: right;">
                                         <i *ngIf="show_features===false" class="fa-solid fa-plus"
-                                            style="font-family: fontAwesome;font-size: larger;"></i>
+                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
                                         <i *ngIf="show_features===true" class="fa-solid fa-minus"
-                                            style="font-family: fontAwesome;font-size: larger;"></i>
+                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
                                     </div>
                                     <div class="col-sm-12">
                                         <hr>
@@ -232,32 +244,16 @@
                                 <thead style="background: white;">
                                     <tr>
 
-                                        <th *ngFor="let  spec of product.dimensions"
-                                            style="border-bottom: 1px solid grey ;">{{spec.name}}</th>
-                                        <th style="border-bottom: 1px solid grey ;">Metric</th>
-                                        <th style="border-bottom: 1px solid grey ;">Weight</th>
-                                        <th style="border-bottom: 1px solid grey ;">Metric</th>
-                                        <th *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
-                                            style="border-bottom: 1px solid grey ;">Brand</th>
+                                        <th *ngFor="let  spec of attributeArray"
+                                            style="border-bottom: 1px solid grey ; white-space: nowrap;">{{spec.name}}</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
 
-                                        <td *ngFor="let  spec of product.dimensions" style="font-size:large;">
-                                            {{spec.value}}
-                                        </td>
-                                        <td style="font-size:large;">
-                                            <span
-                                                *ngIf="product.dimensions.length>0 && product.dimensions[0].dimension_class">
-                                                {{product.dimensions[0].dimension_class}}</span>
-                                        </td>
-                                        <td style="font-size:large;">
-                                            {{product.weights.weight}}
-                                        </td>
-                                        <td style="font-size:large;">
-                                            {{product.weights.weight_class}}
+                                        <td *ngFor="let  spec of attributeArray" style="font-size:large; white-space: nowrap;">
+                                            {{spec.value}}{{spec?.unit}}
                                         </td>
 
                                     </tr>
@@ -271,7 +267,7 @@
 
     </div>
 </main>
-<footer style="padding-top: 20px; position: fixed; bottom: 0; width: 100%;">
+<footer style="padding-top: 20px; bottom: 0; width: 100%;">
 
     <app-footer></app-footer>
 </footer>

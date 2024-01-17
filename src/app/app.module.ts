@@ -12,6 +12,7 @@ import { TokenInterceptor } from './services/interceptor';
 import { BizInfoResolver } from './services/biz-info-resolver';
 import { LoginModalService } from './services/login-modal.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

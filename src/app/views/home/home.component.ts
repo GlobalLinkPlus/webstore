@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
   overflowWidth: string;
   cardWidth: string;
   containerWidth: number;
+  primarySliderIndex: number;
   // @ViewChild("container", { static: true, read: ElementRef })
   // container: ElementRef;
   // @HostListener("window:resize") windowResize() {
@@ -82,6 +83,25 @@ export class HomeComponent implements OnInit {
 
   ];
 
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
+
+  sectionCarouselResponsiveOptions: any[];
+  sectionOneProducts: any[];
+  sectionTwoProducts: any[];
+
   constructor(
     private apiService: ApiService,
     public userInfoService: UserInfoService,
@@ -102,7 +122,31 @@ export class HomeComponent implements OnInit {
     // this.getTopProducts();
 
     this.getHomeSectionItems();
-    this.sliders = this.bizService.get_sliders()
+    this.sliders = JSON.parse(this.bizService.get_sliders());
+    this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
+
+    this.sectionCarouselResponsiveOptions = [
+      {
+        breakpoint: '1199px',
+        numVisible: 5,
+        numScroll: 5
+      },
+      {
+        breakpoint: '991px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '550px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
 
     // this.sliders.forEach(item => {
     //   this.images.push(item.image);
@@ -114,6 +158,8 @@ export class HomeComponent implements OnInit {
       this.loading = false;
       this.section_one = res.section_one;
       this.section_two = res.section_two;
+      this.sectionOneProducts = res.section_one.products
+      this.sectionTwoProducts = res.section_two.products
     }, err => {
       this.loading = false;
       console.log("[ERROR]>>>", err);

@@ -27,6 +27,9 @@ import { LoginModalService } from './services/login-modal.service';
 import { SpinLoaderComponent } from './views/spin-loader/spin-loader.component';
 import { TitleCasePipe } from './pipe/title-case.pipe';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { GalleriaModule } from 'primeng/galleria';
+import { CarouselModule } from 'primeng/carousel';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [  
@@ -50,7 +53,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     HoverActivatedNavMenuDirective,
     MouseOutHideNavMenuDirective,
     DynamicSizeDirective,
-    SpinLoaderComponent
+    SpinLoaderComponent,
+    ForgotPasswordComponent,
      ],
   imports: [
     CommonModule,
@@ -59,7 +63,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     HttpClientModule,     
     HomeRoutingModule,
     NgbModule,
-
+    GalleriaModule,
+    CarouselModule
   ],
   exports:[
     SpinLoaderComponent

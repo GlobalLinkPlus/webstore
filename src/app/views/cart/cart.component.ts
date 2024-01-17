@@ -73,6 +73,9 @@ export class CartComponent implements OnInit {
     // },err=>{});
   }
   checkout(){
+    if(this.cartItems.length<1)
+    return
+  
     if(this.userInfoService.isLoggedIn()){
       this.router.navigateByUrl("/"+this.bizService.getBizId()+"/shipping-detail")
     }else{
