@@ -34,8 +34,9 @@
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <ul style="max-height: 200px; overflow-y: scroll;">
-                        <li *ngFor="let item of  categories" style="margin-bottom: 15px;">
-                          <a routerLink="products/{{item.name}}" style="text-transform: lowercase;">{{item.name}}</a>
+                        <li *ngFor="let item of  categories" (click)="changeCategory(item.name)"
+                          style="margin-bottom: 15px; cursor: pointer;">
+                          <a>{{item.name}}</a>
                         </li>
 
 
@@ -79,18 +80,19 @@
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <ul id="colorList" class="facetGroup_facets__bE9U9" style="height: 200px;overflow-y: scroll;">
-                        <li class="facet_facet__IMsMJ">
+                        <li class="facet_facet__IMsMJ" *ngFor="let option of colors">
                           <a class="facet_facetLink__VcUM4" href="" rel="noopener noreferrer" data-e2e="Color-0">
                             <div class="cl-form-checkbox" id="color-Grey">
-                              <input class="cl-form-checkbox-input" id="f8gghb83ai4i" name="color" type="checkbox"
+                              <input class="cl-form-checkbox-input" [(ngModel)]="option.selected" id="f8gghb83ai4i" name="color"
+                                [value]="option.value" (change)="setColor(option)" type="checkbox"
                                 animation="" value="on">
                               <label class="cl-form-checkbox-label cl-form-checkbox--animation" for="f8gghb83ai4i">
-                                <span class="facet_facetLabel__9qyC5">Grey </span>
+                                <span class="facet_facetLabel__9qyC5">{{ option.label }} </span>
                               </label>
                             </div>
                           </a>
                         </li>
-                        <li class="facet_facet__IMsMJ">
+                        <!-- <li class="facet_facet__IMsMJ">
                           <a class="facet_facetLink__VcUM4"
                             href="https://www.bedbathandbeyond.com/Home-Garden/Living-Room-Furniture/Brown,/color,/713/cat.html"
                             rel="noopener noreferrer" data-e2e="Color-1">
@@ -271,7 +273,7 @@
                               </label>
                             </div>
                           </a>
-                        </li>
+                        </li> -->
                       </ul>
                     </div>
                   </div>
@@ -419,7 +421,7 @@
                 href="/{{bizService.getBizId()}}/products/{{category}}">{{category | titleCase}}</a> > <a
                 href="/{{bizService.getBizId()}}/products/{{category}}/{{sub_category}}">{{sub_category |
                 titleCase}}</a></p>
-            <button class="btn text-capitalize btn-sm text-success">see more</button>
+            <!-- <button class="btn text-capitalize btn-sm text-success">see more</button> -->
           </div>
 
           <!-- <app-spin-loader *ngIf="loading"></app-spin-loader> -->
@@ -431,15 +433,15 @@
             <div class="col" *ngFor="let item of products" style="margin-bottom: 40px;">
               <div class="position-relative">
                 <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
-                  routerLink="product/{{item.id}}" [src]="item.product.images[0].image"
-                  style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;" class="card-img-top object-fit-cover scale-up"
-                  alt="item image">
+                (click)="selectProduct(item.id)" [src]="item.product.images[0].image"
+                  style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;"
+                  class="card-img-top object-fit-cover scale-up" alt="item image">
                 <div appDynamicSize *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
                   class="card-img-top object-fit-cover scale-up"></div>
                 <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
                   class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
                 <div style="padding-top: 15px;" class="card-body px-2">
-                  <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold" routerLink="product/{{item.id}}">
+                  <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold" (click)="selectProduct(item.id)">
                     {{item.product.name}}</p>
                   <div *ngIf="userInfoService.isLoggedIn()" class="ratings">
                     <i class="bi bi-star-fill text-warning"></i>
@@ -452,8 +454,7 @@
                         style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a routerLink="login"><u
                             style="color: black;">Login for Pricing</u></a></small>
                       <!-- mid_banner_image -->
-                      <small
-                        style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
+                      <small style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
                     </div>
                     <!-- *ngIf="userInfoService.isLoggedIn()" -->
                     <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>

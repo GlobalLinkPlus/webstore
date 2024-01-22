@@ -618,7 +618,8 @@ class HomeRoutingComponent {
         });
         this.loginForm = this.formBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
-            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]]
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
+            webstore: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]
         });
         this.loginModalService.loginModalEmitter.subscribe(res => {
             console.log("emitted", res);
@@ -678,6 +679,7 @@ class HomeRoutingComponent {
         this.closeModal();
     }
     submitLogin() {
+        this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
         this.submitted = true;
         this.apiService.login(this.loginForm.value).subscribe(res => {
             this.submitted = false;

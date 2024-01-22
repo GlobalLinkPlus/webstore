@@ -1,10 +1,11 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { SearchBarService } from 'src/app/services/search-bar.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { UserInfoService } from 'src/app/services/user-info.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild(SearchComponent) searchComponent: SearchComponent;
   searchForm: FormGroup;
   categories: any[]=[];
   sub_categories: any[]=[];
@@ -65,6 +67,15 @@ export class HeaderComponent implements OnInit {
       this.sub_categories=res;
     },err=>{});
 
+  }
+
+  changeCategory(category) {
+    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/products/" + category)
+    this.searchComponent.color = ''
+    // this.ngAfterViewInit();
+    // if(this.searchComponent){
+    //   this.searchComponent.ngAfterViewInit();
+    // }
   }
   
 

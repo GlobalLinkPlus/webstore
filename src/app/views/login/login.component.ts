@@ -26,11 +26,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
       email:['',[Validators.required]],
-      password:['',[Validators.required]]
-
+      password:['',[Validators.required]],
+      webstore: ['', Validators.required]
     });
   }
   submitLogin(){
+    this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
     this.submitted=true;
     this.apiService.login(this.loginForm.value).subscribe(res=>{
       this.submitted=false;

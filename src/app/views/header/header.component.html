@@ -4,7 +4,7 @@
       <!-- <span class="app-title" style="padding-left: 40px;" >
          <a href="" style="text-decoration: none;color: black;">.<span style="color:#f68b1e">ts</span>marketing.</a>
         </span>  -->
-      <a class="logo" routerLink="/{{bizService.getBizId()}}">
+      <a class="logo" routerLink="/{{bizService.getBizName()}}">
         <img src="{{bizService.get_company_logo()}}" style="height:50px" />
       </a>
     </div>
@@ -26,8 +26,8 @@
 
           <span hoverActivatedNavMenu style="display: block;width: fit-content;">
 
-            <a style="text-decoration: none;" routerLink="/{{bizService.getBizId()}}/products/{{cat.name}}" class="TopNav_topNavLink_13"
-              [ngStyle]="getTopMenuHoverStyle(cat.id)">{{navbarCategoryFormat(cat.name)}}</a>
+            <div (click)="changeCategory(cat.name)" style="cursor: pointer;"> <a style="text-decoration: none;" class="TopNav_topNavLink_13"
+              [ngStyle]="getTopMenuHoverStyle(cat.id)">{{navbarCategoryFormat(cat.name)}}</a></div>
             <div
               style="max-width: 976px; min-width: 976px; animation-delay: 0ms;background-color:white;box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2); left: calc((100% - 976px) / 2); border-radius: 10px;"
               class="TopNav_dropDown_5f" hoverActivatedNavMenu>
