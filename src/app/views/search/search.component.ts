@@ -84,19 +84,19 @@ export class SearchComponent implements OnInit, OnDestroy {
     if (subcategory != null) {
       this.sub_category = subcategory;
       this.category = category;
-      this.searchProducts("?product__sub_category__name=" + subcategory)
+      this.searchProducts("product__sub_category__name=" + subcategory)
     } else if (category != null) {
       this.sub_category = '';
       this.category = category;
-      this.searchProducts("?product__category__name=" + category)
+      this.searchProducts("product__category__name=" + category)
     } else if (partner_id != null) {
       this.sub_category = '';
       this.category = '';
-      this.searchProducts("?partner=" + partner_id)
+      this.searchProducts("partner=" + partner_id)
     } else if (collection != null) {
       this.sub_category = '';
       this.category = '';
-      this.searchProducts("?product__collection__name=" + collection)
+      this.searchProducts("product__collection__name=" + collection)
     } else {
       this.getProducts();
     }
@@ -148,22 +148,27 @@ export class SearchComponent implements OnInit, OnDestroy {
     let category = this.route.snapshot.params.category;
     let subcategory = this.route.snapshot.params.subcategory;
 
+    if (!category) {
+      this.searchProducts("");
+      return;
+    }
+
     if (subcategory != null) {
       this.sub_category = subcategory;
       this.category = category;
-      this.searchProducts("?product__sub_category__name=" + subcategory)
+      this.searchProducts("product__sub_category__name=" + subcategory)
     } else if (category != null) {
       this.sub_category = '';
       this.category = category;
-      this.searchProducts("?product__category__name=" + category)
+      this.searchProducts("product__category__name=" + category)
     } else if (partner_id != null) {
       this.sub_category = '';
       this.category = '';
-      this.searchProducts("?partner=" + partner_id)
+      this.searchProducts("partner=" + partner_id)
     } else if (collection != null) {
       this.sub_category = '';
       this.category = '';
-      this.searchProducts("?product__collection__name=" + collection)
+      this.searchProducts("product__collection__name=" + collection)
     } else {
       this.getProducts();
     }
@@ -201,15 +206,19 @@ export class SearchComponent implements OnInit, OnDestroy {
   // }
 
   getProducts() {
+    // let q;
+    // this.color? q='&?color=' + this.color:'';
     this.apiService.getProducts('').subscribe(res => {
       this.products = res;
     }, err => { });
   }
   searchProducts(q: string) {
+    if (this.color && q) q = 'product__color=' + this.color + '&' + q;
+    if (this.color && !q) q = 'product__color=' + this.color;
 
-    this.color ? q = q + '?color=' + this.color : q;
+    // this.color ? q = 'color=' + this.color + '&' + q : q;
 
-    this.apiService.getProducts(q).subscribe(res => {
+    this.apiService.getProducts('?' + q).subscribe(res => {
       this.products = res;
     }, err => { })
   }
