@@ -7,6 +7,61 @@
     box-shadow: none !important;
 }
 
+
+*{
+    font-family: 'sofia' !important;
+  }
+  
+  .toolbar {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 600;
+    }
+  
+  
+    .content {
+      padding:0px;
+    }
+  
+  
+    .spacer {
+      flex: 1;
+    }
+  
+  
+    @media (max-width: 991.98px) { 
+      .toolbar{
+          height: 0px;
+      }
+  
+   
+  }
+  @media (min-width: 991.98px) {
+    .toolbar{
+          position: relative;
+      
+      }
+      
+      .promotion-text{
+        padding-left: 40px;
+        font-size: medium;
+        text-decoration: none;
+        color: white;
+      }
+      .promotion-text-right{
+        padding-right: 40px;
+        font-size: medium;
+        text-decoration: none;
+        color:  white;
+      }
+  }
+
 @media (max-width: 991.98px) {
     .navbar {
         background-color: white;
