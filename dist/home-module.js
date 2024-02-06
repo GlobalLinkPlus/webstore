@@ -6790,7 +6790,7 @@ function ItemDetailDesktopComponent_ng_template_13_Template(rf, ctx) { if (rf & 
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 57);
 } if (rf & 2) {
     const item_r14 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r14.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r14.url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function ItemDetailDesktopComponent_ng_template_14_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 58);
@@ -6799,7 +6799,7 @@ function ItemDetailDesktopComponent_ng_template_14_Template(rf, ctx) { if (rf & 
 } if (rf & 2) {
     const item_r15 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r15.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r15.url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function ItemDetailDesktopComponent_div_30_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 60);
@@ -6919,7 +6919,7 @@ class ItemDetailDesktopComponent {
             brand: "",
             id: '1',
             name: "",
-            images: [],
+            image_urls: [],
             price: "",
             rating: "",
             reviews: "",
@@ -7018,11 +7018,15 @@ class ItemDetailDesktopComponent {
             this.product = res.product;
             this.msrp = res.msrp;
             this.item_detail = res;
-            this.images = res.product.images;
+            this.images = res.product.image_urls;
+            console.log(this.images);
             this.product["product_count"] = 1;
             this.totalCards = 14;
-            this.current_image = this.product.images[0].image;
-            this.featuresArray = Object.values(res.product.features);
+            this.current_image = this.product.image_urls[0].image;
+            this.featuresArray = Object.values(res.product.features).filter(value => {
+                return (Array.isArray(value) && value.length > 0) || (typeof value === 'string' && value.trim() !== '');
+            });
+            ;
             this.attributeArray = this.generateAttributeArray(res.product);
             this.apiService.getVariations("?product=" + this.product.id).subscribe(res => {
                 this.variations = res;
@@ -10222,7 +10226,7 @@ class CartComponent {
     }
 }
 CartComponent.ɵfac = function CartComponent_Factory(t) { return new (t || CartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_user_info_service__WEBPACK_IMPORTED_MODULE_1__["UserInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_biz_service__WEBPACK_IMPORTED_MODULE_3__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_login_modal_service__WEBPACK_IMPORTED_MODULE_4__["LoginModalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"])); };
-CartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CartComponent, selectors: [["app-cart"]], decls: 50, vars: 9, consts: [[2, "min-height", "100vh"], [2, "min-height", "100vh", "display", "flex", "flex-direction", "column", "max-width", "100vw"], [1, "container-fluid", "vstack", "gap-2", "main-div"], [1, "cart-items-wrapper", "mb-5", "pb-5"], [1, "d-flex", "align-items-center", "justify-content-between", "cart-items-header", "mb-3", "px-2"], [1, "row"], [1, "page-title"], [1, "card", "main-content", 2, "border", "none"], [1, "card-body"], [1, "row", "form-info"], [1, "col-lg-8", "col-sm-8", "col-12", "col-cart"], ["class", "row", 4, "ngIf"], [4, "ngIf"], [1, "col-lg-4", "col-sm-4", "col-12", "col-summary"], [1, "card", "summary-card"], [1, "row", 2, "margin-top", "15px"], [2, "display", "inline-block"], ["style", "float: right;", 4, "ngIf"], [1, "line"], [1, "row", 2, "margin-top", "20px"], [1, "btn", "submit-now-button", 3, "ngStyle", "click"], [1, "row", 2, "margin-top", "50px"], [2, "padding-top", "20px", "bottom", "0"], ["class", "item-cart", 3, "ngStyle", 4, "ngFor", "ngForOf"], [1, "item-cart", 3, "ngStyle"], [1, "col-sm-3", "col-lg-3", 2, "overflow", "hidden"], [3, "routerLink"], ["width", "200px", "height", "200px", 3, "src"], [1, "col-sm-6", "col-lg-6"], [2, "font-weight", "400", "font-size", "large"], [2, "text-decoration", "none", "font-size", "x-large", 3, "routerLink"], [3, "rate", "label", "size"], [1, "col-sm-3", "col-lg-3"], [1, "row", "item-price"], ["style", "font-size: xx-large;font-weight: 400;", 4, "ngIf"], [1, "row", 2, "margin-top", "10px"], [1, "col-sm-12", "col-lg-12"], [1, "item-count", 2, "border", "2px solid rgb(90, 90, 90)", "border-radius", "30px", "width", "fit-content", "padding", "0px", "display", "flex", "height", "35px"], [2, "padding-left", "15px", "padding-right", "10px", "padding-top", "3px", "padding-bottom", "3px", "font-size", "medium", 3, "click"], [1, "fa", "fa-minus", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "10px", "padding-right", "10px", "padding-top", "3px", "padding-bottom", "3px", "font-weight", "500", "font-size", "large", "border-right", "2px solid rgb(90, 90, 90)", "border-left", "2px solid black", "width", "50px", "text-align", "center"], [2, "padding-left", "10px", "padding-right", "15px", "padding-top", "3px", "padding-bottom", "3px", "font-size", "medium", 3, "click"], [1, "fa", "fa-plus", 2, "font-family", "'Font Awesome 6 Free' !important"], [1, "row", "save-latter"], [1, "col-sm-12"], [2, "padding", "0px"], [1, "row", "remove", 2, "margin-top", "10px"], [2, "padding", "0px", "cursor", "pointer", 3, "click"], [1, "fa", "fa-trash", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "5px"], [2, "font-size", "xx-large", "font-weight", "400"], [2, "float", "right"]], template: function CartComponent_Template(rf, ctx) { if (rf & 1) {
+CartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CartComponent, selectors: [["app-cart"]], decls: 50, vars: 9, consts: [[2, "min-height", "100vh"], [2, "min-height", "100vh", "display", "flex", "flex-direction", "column", "max-width", "100vw", "overflow-x", "hidden"], [1, "container-fluid", "vstack", "gap-2", "main-div"], [1, "cart-items-wrapper", "mb-5", "pb-5"], [1, "d-flex", "align-items-center", "justify-content-between", "cart-items-header", "mb-3", "px-2"], [1, "row"], [1, "page-title"], [1, "card", "main-content", 2, "border", "none"], [1, "card-body"], [1, "row", "form-info"], [1, "col-lg-8", "col-sm-8", "col-12", "col-cart"], ["class", "row", 4, "ngIf"], [4, "ngIf"], [1, "col-lg-4", "col-sm-4", "col-12", "col-summary"], [1, "card", "summary-card"], [1, "row", 2, "margin-top", "15px"], [2, "display", "inline-block"], ["style", "float: right;", 4, "ngIf"], [1, "line"], [1, "row", 2, "margin-top", "20px"], [1, "btn", "submit-now-button", 3, "ngStyle", "click"], [1, "row", 2, "margin-top", "50px"], [2, "padding-top", "20px", "bottom", "0"], ["class", "item-cart", 3, "ngStyle", 4, "ngFor", "ngForOf"], [1, "item-cart", 3, "ngStyle"], [1, "col-sm-3", "col-lg-3", 2, "overflow", "hidden"], [3, "routerLink"], ["width", "200px", "height", "200px", 3, "src"], [1, "col-sm-6", "col-lg-6"], [2, "font-weight", "400", "font-size", "large"], [2, "text-decoration", "none", "font-size", "x-large", 3, "routerLink"], [3, "rate", "label", "size"], [1, "col-sm-3", "col-lg-3"], [1, "row", "item-price"], ["style", "font-size: xx-large;font-weight: 400;", 4, "ngIf"], [1, "row", 2, "margin-top", "10px"], [1, "col-sm-12", "col-lg-12"], [1, "item-count", 2, "border", "2px solid rgb(90, 90, 90)", "border-radius", "30px", "width", "fit-content", "padding", "0px", "display", "flex", "height", "35px"], [2, "padding-left", "15px", "padding-right", "10px", "padding-top", "3px", "padding-bottom", "3px", "font-size", "medium", 3, "click"], [1, "fa", "fa-minus", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "10px", "padding-right", "10px", "padding-top", "3px", "padding-bottom", "3px", "font-weight", "500", "font-size", "large", "border-right", "2px solid rgb(90, 90, 90)", "border-left", "2px solid black", "width", "50px", "text-align", "center"], [2, "padding-left", "10px", "padding-right", "15px", "padding-top", "3px", "padding-bottom", "3px", "font-size", "medium", 3, "click"], [1, "fa", "fa-plus", 2, "font-family", "'Font Awesome 6 Free' !important"], [1, "row", "save-latter"], [1, "col-sm-12"], [2, "padding", "0px"], [1, "row", "remove", 2, "margin-top", "10px"], [2, "padding", "0px", "cursor", "pointer", 3, "click"], [1, "fa", "fa-trash", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "5px"], [2, "font-size", "xx-large", "font-weight", "400"], [2, "float", "right"]], template: function CartComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "main", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "header");

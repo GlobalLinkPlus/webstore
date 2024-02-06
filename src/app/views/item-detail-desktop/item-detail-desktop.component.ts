@@ -116,7 +116,7 @@ export class ItemDetailDesktopComponent implements OnInit {
     brand: "",
     id: '1',
     name: "",
-    images: [],
+    image_urls: [],
     price: "",
     rating: "",
     reviews: "",
@@ -259,11 +259,14 @@ export class ItemDetailDesktopComponent implements OnInit {
       this.product = res.product;
       this.msrp = res.msrp;
       this.item_detail = res;
-      this.images = res.product.images;
+      this.images = res.product.image_urls;
+      console.log(this.images)
       this.product["product_count"] = 1;
       this.totalCards = 14;
-      this.current_image = this.product.images[0].image;
-      this.featuresArray = Object.values(res.product.features);
+      this.current_image = this.product.image_urls[0].image;
+      this.featuresArray = Object.values(res.product.features).filter(value => {
+        return (Array.isArray(value) && value.length > 0) || (typeof value === 'string' && value.trim() !== '');
+      });;
       this.attributeArray = this.generateAttributeArray(res.product);
 
 

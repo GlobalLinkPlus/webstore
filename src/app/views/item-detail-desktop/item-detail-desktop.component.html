@@ -28,11 +28,11 @@
                             [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1" [showIndicators]="false"
                             [containerStyle]="{ 'max-width': '640px' }">
                             <ng-template pTemplate="item" let-item>
-                                <img [src]="item.image" style="width: 100%;" />
+                                <img [src]="item.url" style="width: 100%;" />
                             </ng-template>
                             <ng-template pTemplate="thumbnail" let-item>
                                 <div class="grid grid-nogutter justify-content-center">
-                                    <img [src]="item.image" style="display: block; height: 50px; width: 75px;" />
+                                    <img [src]="item.url" style="display: block; height: 50px; width: 75px;" />
                                 </div>
                             </ng-template>
                         </p-galleria>

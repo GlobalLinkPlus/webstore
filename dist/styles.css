@@ -14916,12 +14916,12 @@ ngb-carousel .wrapper > img {
 html, body {
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
 }
 body {
   display: grid;
   grid-template-rows: 1fr auto;
   /* One row for the main content, one for the footer */
-  min-height: 100vh;
 }
 main {
   overflow-y: auto;
