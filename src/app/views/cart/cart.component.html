@@ -25,7 +25,7 @@
                     [ngStyle]="item.id==cartItems[0].id?{'margin-top':'0px'}:{'margin-top':'30px'}">
                     <div class="row">
                       <div class="col-sm-3 col-lg-3" style="overflow:hidden;">
-                        <a [routerLink]="['/product',item.id]"><img [src]="item.images[0].image" width="200px"
+                        <a [routerLink]="['/product',item.id]"><img [src]="item.image_urls[0].url" width="200px"
                             height="200px" /></a>
                       </div>
                       <div class="col-sm-6 col-lg-6">
@@ -37,12 +37,12 @@
                           <app-star-rate-bar [rate]=item.rating [label]="item.reviews" [size]=24></app-star-rate-bar>
 
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                           <span style="font-weight: 400;font-size: large;">Size: Queen Duvet Cover + 2 Shams</span>
                         </div>
                         <div class="row">
                           <span style="font-weight: 400;font-size: large;">Color: White</span>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="col-sm-3 col-lg-3">
                         <div class="row item-price">

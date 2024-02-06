@@ -5,69 +5,13 @@
   <div style="padding-top: 80px; margin-bottom: 40px;">
 
     <div id="hero-carousel" class="carousel slide pb-2" data-bs-ride="carousel">
-      <!-- <ngb-carousel>
-        <ng-template *ngFor="let image of sliders" ngbSlide>
-          <div class="wrapper">
-            <img [src]="image" alt="Random first slide">
-          </div>
-        </ng-template>
-      </ngb-carousel> -->
       <p-galleria [(value)]="sliders" [showIndicators]="false" [activeIndex]="primarySliderIndex" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [autoPlay]="true"
         [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }">
         <ng-template pTemplate="item" let-item>
           <img [src]="item.url" style="width: 100%; display: block;" />
         </ng-template>
       </p-galleria>
-      <!-- <div class="carousel-inner">
-        <ng-container *ngFor="let item of sliders; let i=index;">
-          <div class="carousel-item active" data-bs-interval="5000" style="padding-top: 0px;">
-            <div class="card border-0 rounded-0">
-              <div class="card-body" style="padding-left:0px;padding-right:0px">
-                <div class="row align-items-start">
-
-                  <div class="col-12" style="padding-left:0px;padding-right:0px">
-                    <img src="{{item.image}}" alt="" class="w-100 object-fit-cover rounded-3">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ng-container> -->
-
-      <!-- <div class="carousel-item  bg-body-tertiary bg-opacity-10" data-bs-interval="5000" style="padding-top: 0px;">
-          <div class="card border-0 rounded-0">
-            <div class="card-body" style="padding-left:0px;padding-right:0px">
-              <div class="row align-items-start">
-          
-                <div class="col-12" style="padding-left:0px;padding-right:0px">
-                  <img src="assets/images/img2.jpg" alt="" class="w-100 object-fit-cover rounded-3">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item bg-body-tertiary" data-bs-interval="5000" style="padding-top: 0px;">
-          <div class="card border-0 rounded-0">
-            <div class="card-body" style="padding-left:0px;padding-right:0px">
-              <div class="row align-items-start">
-           
-                <div class="col-12" style="padding-left:0px;padding-right:0px">
-                  <img src="assets/images/img3.jpg" alt="" class="w-100 object-fit-cover rounded-3">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>  -->
-
-      <!-- </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-        <i class="bi bi-chevron-left"></i>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button> -->
+      
     </div>
     <div class="container vstack gap-2">
       <!-- <div class="card border-0 rounded-0 shadow-sm">
@@ -253,7 +197,7 @@
                 <div class="txt" style="display: flex; align-items: center; justify-content: center;">
                   <div class="txt2">
                     <a href="{{bizService.get_mid_banner_link()}}" target="_blank"
-                      style="text-decoration: none; color: #525252;">
+                      style="text-decoration: none; color: #191919;">
                       <span
                         style="font-size: xx-large; font-weight: 600;">{{bizService.get_mid_banner_first_line()}}</span>
                       <br>
