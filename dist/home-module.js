@@ -6249,7 +6249,7 @@ function HomeComponent_div_14_ng_template_2_img_2_Template(rf, ctx) { if (rf & 1
 } if (rf & 2) {
     const sectionOneProduct_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "product/", sectionOneProduct_r9.id, "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", sectionOneProduct_r9.product.images[0].image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", sectionOneProduct_r9.product.image_urls[0].url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function HomeComponent_div_14_ng_template_2_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 44);
@@ -6323,9 +6323,9 @@ function HomeComponent_div_14_ng_template_2_Template(rf, ctx) { if (rf & 1) {
     const sectionOneProduct_r9 = ctx.$implicit;
     const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionOneProduct_r9.product.images.length > 0 && sectionOneProduct_r9.product.images[0].image);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionOneProduct_r9.product.image_urls.length > 0 && sectionOneProduct_r9.product.image_urls[0].url);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionOneProduct_r9.product.images.length == 0 || !sectionOneProduct_r9.product.images[0].image);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionOneProduct_r9.product.image_urls.length == 0 || !sectionOneProduct_r9.product.image_urls[0].url);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r8.userInfoService.isLoggedIn());
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
@@ -6365,7 +6365,7 @@ function HomeComponent_div_36_ng_template_2_img_2_Template(rf, ctx) { if (rf & 1
 } if (rf & 2) {
     const sectionTwoProduct_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "product/", sectionTwoProduct_r20.id, "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", sectionTwoProduct_r20.product.images[0].image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", sectionTwoProduct_r20.product.image_urls[0].url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function HomeComponent_div_36_ng_template_2_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 56);
@@ -6439,9 +6439,9 @@ function HomeComponent_div_36_ng_template_2_Template(rf, ctx) { if (rf & 1) {
     const sectionTwoProduct_r20 = ctx.$implicit;
     const ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionTwoProduct_r20.product.images.length > 0 && sectionTwoProduct_r20.product.images[0].image);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionTwoProduct_r20.product.image_urls.length > 0 && sectionTwoProduct_r20.product.image_urls[0].url);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionTwoProduct_r20.product.images.length == 0 || !sectionTwoProduct_r20.product.images[0].image);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", sectionTwoProduct_r20.product.image_urls.length == 0 || !sectionTwoProduct_r20.product.image_urls[0].url);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r19.userInfoService.isLoggedIn());
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
@@ -6890,12 +6890,20 @@ function ItemDetailDesktopComponent_th_86_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](spec_r24.name);
 } }
+function ItemDetailDesktopComponent_td_89_span_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "-");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
 function ItemDetailDesktopComponent_td_89_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 76);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ItemDetailDesktopComponent_td_89_span_1_Template, 2, 0, "span", 77);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const spec_r25 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !spec_r25.value);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", spec_r25.value, "", spec_r25 == null ? null : spec_r25.unit, " ");
 } }
@@ -7051,25 +7059,17 @@ class ItemDetailDesktopComponent {
     generateAttributeArray(product) {
         var _a, _b, _c;
         const attributes = [
-            // { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
-            // { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
-            // { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
-            // { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
-            // { name: 'Brand', value: product.brand },
-            // { name: 'Origin', value: product.origin || '' },
-            // { name: 'MOQ', value: product.MOQ || '' },
-            // { name: 'Color', value: product.color || '' },
-            // { name: 'Material', value: product.material.primary_material || '' },
-            // { name: 'Style', value: product.style || '' }
             { name: 'Length', value: ((_a = product.dimensions.find(d => d.name === 'length')) === null || _a === void 0 ? void 0 : _a.value) || '', unit: 'in' },
             { name: 'Width', value: ((_b = product.dimensions.find(d => d.name === 'width')) === null || _b === void 0 ? void 0 : _b.value) || '', unit: 'in' },
             { name: 'Height', value: ((_c = product.dimensions.find(d => d.name === 'height')) === null || _c === void 0 ? void 0 : _c.value) || '', unit: 'in' },
             { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
             { name: 'Brand', value: product.brand },
             { name: 'Origin', value: product.origin || '' },
-            { name: 'MOQ', value: product.MOQ || '' },
+            { name: 'MOQ', value: product.minimum_order_qty || '' },
+            { name: 'Size', value: product.size || '' },
+            { name: 'Shape', value: product.shape || '' },
             { name: 'Color', value: product.color || '' },
-            { name: 'Material', value: product.material.primary_material || '' },
+            { name: 'Primary Material', value: product.material.primary_material || '' },
             { name: 'Style', value: product.style || '' },
             { name: 'Name', value: product.name },
             { name: 'SKU', value: product.sku },
@@ -7077,13 +7077,35 @@ class ItemDetailDesktopComponent {
             { name: 'Quantity', value: product.quantity },
             { name: 'Partner', value: '' },
             { name: 'Country', value: '' },
-            { name: 'Category', value: product.category },
-            { name: 'Sub Category', value: product.sub_category },
+            { name: 'Category', value: product.category_details.name },
+            { name: 'Sub Category', value: product.sub_category_details.name },
             { name: 'Rating', value: product.rating.toString() },
             { name: 'Reviews', value: product.reviews.toString() },
             { name: 'Tax', value: product.tax },
             { name: 'Date Added', value: product.date_added },
-            { name: 'Collection', value: product.collection.name || '' }
+            { name: 'Collection', value: product.collection },
+            { name: 'Number of Pieces', value: product.number_of_pieces },
+            { name: 'Is Powered', value: product.is_powered.toString() },
+            { name: 'Wood Type', value: product.wood_type },
+            { name: 'Serial Number', value: product.serial_number || '' },
+            { name: 'ASIN', value: product.asin || '' },
+            { name: 'Model ID', value: product.model_id || '' },
+            { name: 'Manufacture ID', value: product.manufacture_id || '' },
+            { name: 'Group', value: product.group },
+            { name: 'Country', value: product.country || '' },
+            { name: 'Taxes', value: product.tax },
+            { name: 'Supplier Lead Time', value: product.lead_time.supplier_lead_time || '' },
+            { name: 'Replacement Lead Time', value: product.lead_time.replacement_lead_time || '' },
+            { name: 'Color', value: product.color },
+            { name: 'Finish', value: product.finish },
+            { name: 'Primary Material', value: product.material.primary_material },
+            { name: 'Secondary Material', value: product.material.secondary_material },
+            { name: 'Assembly Required', value: product.assembly.assembly_required.toString() },
+            { name: 'Assembly Required Level', value: product.assembly.assembly_required_level },
+            { name: 'Assembly Instructions URL', value: product.assembly.assembly_instructions_url },
+            { name: 'Recommended Use', value: product.recommended.recommended_use },
+            { name: 'Recommended Room', value: product.recommended.recommended_room },
+            { name: 'Recommended Location', value: product.recommended.recommended_location },
         ];
         return attributes;
     }
@@ -7147,7 +7169,7 @@ ItemDetailDesktopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.container = _t.first);
     } }, hostBindings: function ItemDetailDesktopComponent_HostBindings(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("resize", function ItemDetailDesktopComponent_resize_HostBindingHandler() { return ctx.windowResize(); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresolveWindow"]);
-    } }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbRatingConfig"]])], decls: 92, vars: 28, consts: [[2, "min-height", "100vh", "display", "flex", "flex-direction", "column", "max-width", "100vw"], [1, "row", "main-content"], [1, "col-sm-12", "col-lg-12"], [1, "main-card", 2, "padding", "20px"], [1, "row"], [1, "d-flex", "align-items-center", "justify-content-between", "cart-items-header", "mb-3", "px-2"], ["class", "mb-0 h5 ", 4, "ngIf"], ["style", "font-size: 16px;", "class", "mb-0 h5 ", 4, "ngIf"], [1, "col-sm-7", "col-lg-7", 2, "padding-right", "30px"], [3, "value", "autoPlay", "circular", "showItemNavigators", "responsiveOptions", "numVisible", "numScroll", "showIndicators", "containerStyle", "valueChange"], ["pTemplate", "item"], ["pTemplate", "thumbnail"], [1, "col-sm-5", "col-lg-5"], [1, "text-muted"], [1, "product-name"], [1, "row", 2, "padding-top", "20px"], [1, "product-rating"], [3, "rate", "rateChange"], [1, "", 2, "color", "red", "padding-top", "10px"], ["class", "product-price", 4, "ngIf"], ["style", "font-size: 15px;font-weight: 500;text-decoration: underline;", 4, "ngIf"], [1, "col-sm-12", 2, "margin-top", "30px !important"], [1, "col-sm-8"], [2, "font-weight", "700"], [1, "col-sm-4", 2, "text-align", "right"], [1, "fa-solid", "fa-plus", 2, "font-family", "fontAwesome", "font-size", "larger"], [1, "col-sm-12"], [1, "cart-buttons"], [1, "item-count", 2, "border", "2px solid rgb(90, 90, 90)", "border-radius", "30px", "width", "fit-content", "padding", "0px", "display", "flex", "height", "35px"], [2, "padding-left", "15px", "padding-right", "10px", "display", "flex", "align-items", "center", "justify-content", "center", "font-size", "medium", 3, "click"], [1, "fa", "fa-minus", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "10px", "padding-right", "10px", "display", "flex", "align-items", "center", "justify-content", "center", "font-weight", "500", "font-size", "large", "border-right", "2px solid rgb(90, 90, 90)", "border-left", "2px solid black", "width", "50px", "text-align", "center"], [2, "padding-left", "10px", "padding-right", "15px", "display", "flex", "align-items", "center", "justify-content", "center", "font-size", "medium", 3, "click"], [1, "fa", "fa-plus", 2, "font-family", "'Font Awesome 6 Free' !important"], ["class", "btn  buy-now-button", 3, "ngStyle", "click", 4, "ngIf"], ["class", "btn  checkout-button", 3, "ngStyle", "click", 4, "ngIf"], ["class", "btn  remove-button", "style", "margin-top: 10px;", 3, "click", 4, "ngIf"], [1, "col-sm-12", "mt-3"], [1, "col-sm-8", 2, "cursor", "pointer", 3, "click"], [1, "col-sm-4", 2, "text-align", "right", 3, "click"], ["class", "fa-solid fa-plus", "style", "font-family: fontAwesome;font-size: larger;cursor: pointer;", 4, "ngIf"], ["class", "fa-solid fa-minus", "style", "font-family: fontAwesome;font-size: larger;cursor: pointer;", 4, "ngIf"], ["style", "padding-right: 12px;", 4, "ngIf"], [1, "row", 2, "position", "relative", "margin-top", "20px"], [2, "font-weight", "600", "font-size", "large"], [2, "position", "absolute", "right", "0", "width", "fit-content", "margin-top", "5px"], [1, "fa-solid", "fa-minus", 2, "font-family", "fontAwesome", "font-size", "larger"], [1, "col-lg-12", "col-sm-12", "col-12"], [1, "table-responsive"], ["datatable", "", "id", "printTable", 1, "table", "table-borderless"], [2, "background", "white"], ["style", "border-bottom: 1px solid grey ; white-space: nowrap;", 4, "ngFor", "ngForOf"], ["style", "font-size:large; white-space: nowrap;", 4, "ngFor", "ngForOf"], [2, "padding-top", "20px", "bottom", "0", "width", "100%"], [1, "mb-0", "h5"], [1, "text-color-inherit", 2, "text-decoration", "none", "font-size", "16px", 3, "href"], [1, "mb-0", "h5", 2, "font-size", "16px"], [2, "width", "100%", 3, "src"], [1, "grid", "grid-nogutter", "justify-content-center"], [2, "display", "block", "height", "50px", "width", "75px", 3, "src"], [1, "product-price"], [2, "font-size", "15px", "font-weight", "500", "text-decoration", "underline"], [3, "routerLink"], [2, "color", "black"], [1, "btn", "buy-now-button", 3, "ngStyle", "click"], [1, "fa-solid", "fa-plus", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "10px"], [1, "btn", "checkout-button", 3, "ngStyle", "click"], [1, "btn", "remove-button", 2, "margin-top", "10px", 3, "click"], [1, "fa", "fa-trash", 2, "font-family", "'Font Awesome 6 Free' !important"], [1, "fa-solid", "fa-plus", 2, "font-family", "fontAwesome", "font-size", "larger", "cursor", "pointer"], [1, "fa-solid", "fa-minus", 2, "font-family", "fontAwesome", "font-size", "larger", "cursor", "pointer"], [2, "padding-right", "12px"], ["style", "color: #525252;", 4, "ngFor", "ngForOf"], [2, "color", "#525252"], [2, "border-bottom", "1px solid grey", "white-space", "nowrap"], [2, "font-size", "large", "white-space", "nowrap"]], template: function ItemDetailDesktopComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbRatingConfig"]])], decls: 92, vars: 28, consts: [[2, "min-height", "100vh", "display", "flex", "flex-direction", "column", "max-width", "100vw"], [1, "row", "main-content"], [1, "col-sm-12", "col-lg-12"], [1, "main-card", 2, "padding", "20px"], [1, "row"], [1, "d-flex", "align-items-center", "justify-content-between", "cart-items-header", "mb-3", "px-2"], ["class", "mb-0 h5 ", 4, "ngIf"], ["style", "font-size: 16px;", "class", "mb-0 h5 ", 4, "ngIf"], [1, "col-sm-7", "col-lg-7", 2, "padding-right", "30px"], [3, "value", "autoPlay", "circular", "showItemNavigators", "responsiveOptions", "numVisible", "numScroll", "showIndicators", "containerStyle", "valueChange"], ["pTemplate", "item"], ["pTemplate", "thumbnail"], [1, "col-sm-5", "col-lg-5"], [1, "text-muted"], [1, "product-name"], [1, "row", 2, "padding-top", "20px"], [1, "product-rating"], [3, "rate", "rateChange"], [1, "", 2, "color", "red", "padding-top", "10px"], ["class", "product-price", 4, "ngIf"], ["style", "font-size: 15px;font-weight: 500;text-decoration: underline;", 4, "ngIf"], [1, "col-sm-12", 2, "margin-top", "30px !important"], [1, "col-sm-8"], [2, "font-weight", "700"], [1, "col-sm-4", 2, "text-align", "right"], [1, "fa-solid", "fa-plus", 2, "font-family", "fontAwesome", "font-size", "larger"], [1, "col-sm-12"], [1, "cart-buttons"], [1, "item-count", 2, "border", "2px solid rgb(90, 90, 90)", "border-radius", "30px", "width", "fit-content", "padding", "0px", "display", "flex", "height", "35px"], [2, "padding-left", "15px", "padding-right", "10px", "display", "flex", "align-items", "center", "justify-content", "center", "font-size", "medium", 3, "click"], [1, "fa", "fa-minus", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "10px", "padding-right", "10px", "display", "flex", "align-items", "center", "justify-content", "center", "font-weight", "500", "font-size", "large", "border-right", "2px solid rgb(90, 90, 90)", "border-left", "2px solid black", "width", "50px", "text-align", "center"], [2, "padding-left", "10px", "padding-right", "15px", "display", "flex", "align-items", "center", "justify-content", "center", "font-size", "medium", 3, "click"], [1, "fa", "fa-plus", 2, "font-family", "'Font Awesome 6 Free' !important"], ["class", "btn  buy-now-button", 3, "ngStyle", "click", 4, "ngIf"], ["class", "btn  checkout-button", 3, "ngStyle", "click", 4, "ngIf"], ["class", "btn  remove-button", "style", "margin-top: 10px;", 3, "click", 4, "ngIf"], [1, "col-sm-12", "mt-3"], [1, "col-sm-8", 2, "cursor", "pointer", 3, "click"], [1, "col-sm-4", 2, "text-align", "right", 3, "click"], ["class", "fa-solid fa-plus", "style", "font-family: fontAwesome;font-size: larger;cursor: pointer;", 4, "ngIf"], ["class", "fa-solid fa-minus", "style", "font-family: fontAwesome;font-size: larger;cursor: pointer;", 4, "ngIf"], ["style", "padding-right: 12px;", 4, "ngIf"], [1, "row", 2, "position", "relative", "margin-top", "20px"], [2, "font-weight", "600", "font-size", "large"], [2, "position", "absolute", "right", "0", "width", "fit-content", "margin-top", "5px"], [1, "fa-solid", "fa-minus", 2, "font-family", "fontAwesome", "font-size", "larger"], [1, "col-lg-12", "col-sm-12", "col-12"], [1, "table-responsive"], ["datatable", "", "id", "printTable", 1, "table", "table-borderless"], [2, "background", "white"], ["style", "border-bottom: 1px solid grey ; white-space: nowrap;", 4, "ngFor", "ngForOf"], ["style", "font-size:large; white-space: nowrap;", 4, "ngFor", "ngForOf"], [2, "padding-top", "20px", "bottom", "0", "width", "100%"], [1, "mb-0", "h5"], [1, "text-color-inherit", 2, "text-decoration", "none", "font-size", "16px", 3, "href"], [1, "mb-0", "h5", 2, "font-size", "16px"], [2, "width", "100%", 3, "src"], [1, "grid", "grid-nogutter", "justify-content-center"], [2, "display", "block", "height", "50px", "width", "75px", 3, "src"], [1, "product-price"], [2, "font-size", "15px", "font-weight", "500", "text-decoration", "underline"], [3, "routerLink"], [2, "color", "black"], [1, "btn", "buy-now-button", 3, "ngStyle", "click"], [1, "fa-solid", "fa-plus", 2, "font-family", "'Font Awesome 6 Free' !important"], [2, "padding-left", "10px"], [1, "btn", "checkout-button", 3, "ngStyle", "click"], [1, "btn", "remove-button", 2, "margin-top", "10px", 3, "click"], [1, "fa", "fa-trash", 2, "font-family", "'Font Awesome 6 Free' !important"], [1, "fa-solid", "fa-plus", 2, "font-family", "fontAwesome", "font-size", "larger", "cursor", "pointer"], [1, "fa-solid", "fa-minus", 2, "font-family", "fontAwesome", "font-size", "larger", "cursor", "pointer"], [2, "padding-right", "12px"], ["style", "color: #525252;", 4, "ngFor", "ngForOf"], [2, "color", "#525252"], [2, "border-bottom", "1px solid grey", "white-space", "nowrap"], [2, "font-size", "large", "white-space", "nowrap"], [4, "ngIf"]], template: function ItemDetailDesktopComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "app-header");
@@ -7293,7 +7315,7 @@ ItemDetailDesktopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "tbody");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "tr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](89, ItemDetailDesktopComponent_td_89_Template, 2, 2, "td", 52);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](89, ItemDetailDesktopComponent_td_89_Template, 3, 3, "td", 52);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -9376,7 +9398,7 @@ function SearchComponent_div_68_img_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const item_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", item_r14.product.images[0].image, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", item_r14.product.image_urls[0].url, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
 } }
 function SearchComponent_div_68_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "div", 62);
@@ -9448,9 +9470,9 @@ function SearchComponent_div_68_Template(rf, ctx) { if (rf & 1) {
     const item_r14 = ctx.$implicit;
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", item_r14.product.images.length > 0 && item_r14.product.images[0].image);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", item_r14.product.image_urls.length > 0 && item_r14.product.image_urls[0].url);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", item_r14.product.images.length == 0 || !item_r14.product.images[0].image);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", item_r14.product.image_urls.length == 0 || !item_r14.product.image_urls[0].url);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r5.userInfoService.isLoggedIn());
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);

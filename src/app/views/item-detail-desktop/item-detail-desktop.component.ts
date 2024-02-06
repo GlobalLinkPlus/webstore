@@ -7,31 +7,9 @@ import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
-// interface Dimension {
-//   name: string;
-//   value: string;
-//   dimension_class: string;
-// }
-
-// interface Weight {
-//   weight: string;
-//   weight_class: string;
-// }
-
 interface Material {
   primary_material: string;
 }
-
-// interface Product {
-//   dimensions: Dimension[];
-//   weights: Weight;
-//   brand: string;
-//   origin: string | null;
-//   MOQ: string | null;
-//   color: string | null;
-//   material: Material | null;
-//   style: string | null;
-// }
 
 interface Dimension {
   name: string;
@@ -62,11 +40,79 @@ interface Collection {
   id: string;
 }
 
+// interface Product {
+//   origin: string | null;
+//   MOQ: string | null;
+//   color: string | null;
+//   style: string | null;
+//   id: string;
+//   name: string;
+//   sku: string;
+//   upc: string;
+//   brand: string;
+//   quantity: string;
+//   category: string;
+//   sub_category: string;
+//   date_added: string;
+//   dimensions: Dimension[];
+//   weights: Weight;
+//   rating: number;
+//   material: Material | null;
+//   reviews: number;
+//   tax: string;
+//   collection: Collection;
+//   shipping: {
+//       rows: ShippingRow[];
+//   };
+// }
+interface Image {
+  name: string,
+  url: string,
+}
+
+interface Features {
+  feature_1: string;
+  feature_2: string;
+  feature_3: string;
+  feature_4: string;
+  feature_5: string;
+  customFields: any[]; // You may need to specify the type of customFields
+}
+
+interface PricingDetails {
+  profit: string;
+  total_cost: string;
+  cost_of_good: string;
+  ocean_freight: string;
+  inland_freight: string;
+  tariff_duty_dump: string;
+  margin_markup_value: string;
+  margin_markup_formula: string;
+  margin_markup_percentage: string;
+}
+
+interface CategoryDetails {
+ name:string;
+ id:string
+}
+interface SubCategoryDetails {
+  name:string;
+  id:string
+ }
 interface Product {
-  origin: string | null;
-  MOQ: string | null;
-  color: string | null;
-  style: string | null;
+  wood_type: any;
+  category_details: CategoryDetails;
+  sub_category_details: SubCategoryDetails;
+  group: string;
+  style: string;
+  MOQ: string;
+  origin: string;
+  serial_number: string;
+  asin: string;
+  model_id: string;
+  manufacture_id: string;
+  minimum_order_qty: string;
+  country: string;
   id: string;
   name: string;
   sku: string;
@@ -79,12 +125,63 @@ interface Product {
   dimensions: Dimension[];
   weights: Weight;
   rating: number;
-  material: Material | null;
   reviews: number;
   tax: string;
-  collection: Collection;
-  shipping: {
-      rows: ShippingRow[];
+  collection: string; // Collection can be an array
+  image_urls: Image[];
+  consigned: boolean | null;
+  features: Features;
+  channel: string;
+  pricing: {
+      return_percentage: number | null;
+      warehouse_cost: string;
+      retail_cost: string;
+      msrp: string;
+      marketplace_fee: number | null;
+      global_link_fee: string;
+      freight_cost: string;
+      first_cost: string;
+      wholesale_cost: string;
+      marketing: string;
+      overhead: string;
+      pricing_details: PricingDetails;
+  };
+  assembly: {
+      assembly_required: boolean;
+      assembly_required_level: string;
+      assembly_instructions_url: string;
+  };
+  lead_time: {
+      supplier_lead_time: string | null;
+      replacement_lead_time: string | null;
+  };
+  recommended: {
+      recommended_use: string;
+      recommended_room: string;
+      recommended_location: string;
+  };
+  is_powered: boolean;
+  power_type: string;
+  number_of_pieces: string;
+  seat_back_style: string;
+  accent_color: string;
+  fabric: {
+      fabric_color: string;
+      fabric_material: string;
+      fabric_care_instructions: string;
+      fabric_material_percentage: number | null;
+  };
+  theme: string;
+  shape: string;
+  seating_capacity: string;
+  home_decor_style: string;
+  age_group: string;
+  size: string;
+  color: string;
+  finish: string;
+  material: {
+      primary_material: string;
+      secondary_material: string;
   };
 }
 
@@ -308,16 +405,6 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
     const attributes = [
-        // { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
-        // { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
-        // { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
-        // { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
-        // { name: 'Brand', value: product.brand },
-        // { name: 'Origin', value: product.origin || '' },
-        // { name: 'MOQ', value: product.MOQ || '' },
-        // { name: 'Color', value: product.color || '' },
-        // { name: 'Material', value: product.material.primary_material || '' },
-        // { name: 'Style', value: product.style || '' }
 
         { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
         { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
@@ -325,9 +412,11 @@ export class ItemDetailDesktopComponent implements OnInit {
         { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
         { name: 'Brand', value: product.brand },
         { name: 'Origin', value: product.origin || '' },
-        { name: 'MOQ', value: product.MOQ || '' },
+        { name: 'MOQ', value: product.minimum_order_qty || '' },
+        { name: 'Size', value: product.size || '' },
+        { name: 'Shape', value: product.shape || '' },
         { name: 'Color', value: product.color || '' },
-        { name: 'Material', value: product.material.primary_material || '' },
+        { name: 'Primary Material', value: product.material.primary_material || '' },
         { name: 'Style', value: product.style || '' },
         { name: 'Name', value: product.name },
         { name: 'SKU', value: product.sku },
@@ -335,13 +424,37 @@ export class ItemDetailDesktopComponent implements OnInit {
         { name: 'Quantity', value: product.quantity },
         { name: 'Partner', value: '' }, // Add partner information if available
         { name: 'Country', value: '' }, // Add country information if available
-        { name: 'Category', value: product.category },
-        { name: 'Sub Category', value: product.sub_category },
+        { name: 'Category', value: product.category_details.name },
+        { name: 'Sub Category', value: product.sub_category_details.name },
         { name: 'Rating', value: product.rating.toString() },
         { name: 'Reviews', value: product.reviews.toString() },
         { name: 'Tax', value: product.tax },
         { name: 'Date Added', value: product.date_added },
-        { name: 'Collection', value: product.collection.name || '' }
+        { name: 'Collection', value: product.collection },
+        { name: 'Number of Pieces', value: product.number_of_pieces },
+        { name: 'Is Powered', value: product.is_powered.toString() },
+        { name: 'Wood Type', value: product.wood_type },
+
+        { name: 'Serial Number', value: product.serial_number || '' },
+        { name: 'ASIN', value: product.asin || '' },
+        { name: 'Model ID', value: product.model_id || '' },
+        { name: 'Manufacture ID', value: product.manufacture_id || '' },
+        { name: 'Group', value: product.group }, // Add group information if available
+        { name: 'Country', value: product.country || '' },
+        { name: 'Taxes', value: product.tax },
+        { name: 'Supplier Lead Time', value: product.lead_time.supplier_lead_time || '' },
+        { name: 'Replacement Lead Time', value: product.lead_time.replacement_lead_time || '' },
+        { name: 'Color', value: product.color },
+        { name: 'Finish', value: product.finish },
+        { name: 'Primary Material', value: product.material.primary_material },
+        { name: 'Secondary Material', value: product.material.secondary_material },
+        { name: 'Assembly Required', value: product.assembly.assembly_required.toString() },
+        { name: 'Assembly Required Level', value: product.assembly.assembly_required_level },
+        { name: 'Assembly Instructions URL', value: product.assembly.assembly_instructions_url },
+        { name: 'Recommended Use', value: product.recommended.recommended_use },
+        { name: 'Recommended Room', value: product.recommended.recommended_room },
+        { name: 'Recommended Location', value: product.recommended.recommended_location },
+
     ];
 
     return attributes;

@@ -253,6 +253,7 @@
                                     <tr>
 
                                         <td *ngFor="let  spec of attributeArray" style="font-size:large; white-space: nowrap;">
+                                            <span *ngIf="!spec.value">-</span>
                                             {{spec.value}}{{spec?.unit}}
                                         </td>
 

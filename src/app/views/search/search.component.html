@@ -432,11 +432,11 @@
 
             <div class="col" *ngFor="let item of products" style="margin-bottom: 40px;">
               <div class="position-relative">
-                <img appDynamicSize *ngIf="item.product.images.length>0 && item.product.images[0].image"
-                (click)="selectProduct(item.id)" [src]="item.product.images[0].image"
+                <img appDynamicSize *ngIf="item.product.image_urls.length>0 && item.product.image_urls[0].url"
+                (click)="selectProduct(item.id)" [src]="item.product.image_urls[0].url"
                   style="border-radius: 10%; cursor: pointer; border: 1px solid whitesmoke;"
                   class="card-img-top object-fit-cover scale-up" alt="item image">
-                <div appDynamicSize *ngIf="item.product.images.length==0 ||  !item.product.images[0].image"
+                <div appDynamicSize *ngIf="item.product.image_urls.length==0 ||  !item.product.image_urls[0].url"
                   class="card-img-top object-fit-cover scale-up"></div>
                 <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
                   class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
