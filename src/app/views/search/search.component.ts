@@ -178,7 +178,6 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.apiService.getProductCategory('').subscribe(
       res => {
         this.categories = res;
-
       },
       err => { }
     )

@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   };
 
   loading = false;
+  itemNavigators = true;
 
 
 
@@ -124,6 +125,12 @@ export class HomeComponent implements OnInit {
     this.getHomeSectionItems();
     this.sliders = JSON.parse(this.bizService.get_sliders());
     this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
+
+    if (this.sliders.length > 1) {
+      this.itemNavigators = true;
+    } else {
+      this.itemNavigators = false;
+    }
 
     this.sectionCarouselResponsiveOptions = [
       {

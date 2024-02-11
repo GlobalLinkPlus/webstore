@@ -40,6 +40,11 @@ interface Collection {
   id: string;
 }
 
+interface Partner {
+  name: string;
+  id: string;
+}
+
 // interface Product {
 //   origin: string | null;
 //   MOQ: string | null;
@@ -100,6 +105,7 @@ interface SubCategoryDetails {
   id:string
  }
 interface Product {
+  partner_details: Partner;
   wood_type: any;
   category_details: CategoryDetails;
   sub_category_details: SubCategoryDetails;
@@ -127,7 +133,7 @@ interface Product {
   rating: number;
   reviews: number;
   tax: string;
-  collection: string; // Collection can be an array
+  collection: string | Collection[]; // Collection can be an array
   image_urls: Image[];
   consigned: boolean | null;
   features: Features;
@@ -403,6 +409,18 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   }
 
+  mapCollectionToString(data){
+    if (Array.isArray(data)) {
+      const names: string[] = data.map((item) => item.name);
+      return names.join(", ");
+    }
+
+    if (typeof data === "string") {
+      return data
+    }
+    
+  }
+
   generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
     const attributes = [
 
@@ -422,15 +440,15 @@ export class ItemDetailDesktopComponent implements OnInit {
         { name: 'SKU', value: product.sku },
         { name: 'UPC', value: product.upc },
         { name: 'Quantity', value: product.quantity },
-        { name: 'Partner', value: '' }, // Add partner information if available
-        { name: 'Country', value: '' }, // Add country information if available
+        { name: 'Partner', value: product.partner_details.name }, // Add partner information if available
+        { name: 'Country', value: product.country }, // Add country information if available
         { name: 'Category', value: product.category_details.name },
         { name: 'Sub Category', value: product.sub_category_details.name },
         { name: 'Rating', value: product.rating.toString() },
         { name: 'Reviews', value: product.reviews.toString() },
         { name: 'Tax', value: product.tax },
         { name: 'Date Added', value: product.date_added },
-        { name: 'Collection', value: product.collection },
+        { name: 'Collection', value: this.mapCollectionToString(product.collection) },
         { name: 'Number of Pieces', value: product.number_of_pieces },
         { name: 'Is Powered', value: product.is_powered.toString() },
         { name: 'Wood Type', value: product.wood_type },
@@ -440,7 +458,6 @@ export class ItemDetailDesktopComponent implements OnInit {
         { name: 'Model ID', value: product.model_id || '' },
         { name: 'Manufacture ID', value: product.manufacture_id || '' },
         { name: 'Group', value: product.group }, // Add group information if available
-        { name: 'Country', value: product.country || '' },
         { name: 'Taxes', value: product.tax },
         { name: 'Supplier Lead Time', value: product.lead_time.supplier_lead_time || '' },
         { name: 'Replacement Lead Time', value: product.lead_time.replacement_lead_time || '' },
