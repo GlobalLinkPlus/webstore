@@ -250,12 +250,12 @@
 
             <div class="col" *ngFor="let item of products" style="margin-bottom: 40px;">
               <div class="position-relative">
-                <div (click)="selectProduct(item.id)" style="cursor: pointer;display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
+                <div class="scale-up" (click)="selectProduct(item.id)" style="cursor: pointer;display: flex; justify-content: center; align-items: center; width:255px; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
                   <img
                   *ngIf="item.product.image_urls.length>0 && item.product.image_urls[0].url"
                   [src]="item.product.image_urls[0].url"
                   style="border-radius: 10%; "
-                  class="card-img-top object-fit-cover scale-up" alt="item image">
+                  class="card-img-top object-fit-cover" alt="item image">
                 </div>
                 <div appDynamicSize *ngIf="item.product.image_urls.length==0 ||  !item.product.image_urls[0].url"
                   class="card-img-top object-fit-cover scale-up"></div>
