@@ -18,7 +18,11 @@ export class SearchComponent implements OnInit, OnDestroy {
   categories = [];
   collections = [];
   sub_category = ''
+  type='';
   category = ''
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
   color = ''
   colors = [
     { label: 'Grey', value: 'Grey', selected: false },
@@ -61,6 +65,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initialize()
     this.searchFilter()
+    this.type = this.bizService.getBizType();
   }
 
   searchFilter() {

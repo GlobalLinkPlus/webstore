@@ -22,6 +22,10 @@ export class BizService {
     return sessionStorage.getItem("name");
   }
 
+  public getBizType(): string {
+    return sessionStorage.getItem("type");
+  }
+
   public setBizDetail(data: any): void {
     sessionStorage.setItem("company_id", data.id);
     sessionStorage.setItem("company_logo", data.company_logo);
@@ -41,6 +45,9 @@ export class BizService {
     sessionStorage.setItem("webstore_link", data.webstore_link);
     sessionStorage.setItem("company", data.company);
     sessionStorage.setItem("sliders", JSON.stringify(data.sliders));
+    if(data.type==="b2b") sessionStorage.setItem("type", "business");
+    if(data.type==="b2c") sessionStorage.setItem("type", "customer");
+    if(data.type==="catalogue") sessionStorage.setItem("type", "catalog");
   }
 
   public get_company_logo(): string {

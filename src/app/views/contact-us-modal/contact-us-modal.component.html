@@ -1,0 +1,24 @@
+<p-dialog header="Contact Us" [modal]="true" [style]="{ 'width': '410px', 'border-radius': '10px' }">
+    <form (ngSubmit)="submitForm()" #contactForm="ngForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input style="border-radius: 15px;" placeholder="Enter Name" type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input style="border-radius: 15px;" placeholder="Enter Email" type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input style="border-radius: 15px;" placeholder="Enter Phone Number" type="tel" class="form-control" id="phone" [(ngModel)]="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea style="border-radius: 15px;" placeholder="Enter Message" class="form-control" id="message" rows="4" required [(ngModel)]="message"
+                name="message"></textarea>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <button [ngStyle]="{'background-color': bizService.get_background_color()}" style="border-radius: 20px; width: 150px; border: none; color: white;" type="submit" class="">Submit</button>
+        </div>
+    </form>
+</p-dialog>

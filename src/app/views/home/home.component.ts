@@ -51,8 +51,12 @@ export class HomeComponent implements OnInit {
   currentPage: number = 1;
   pagePosition: string = "0%";
   cardsPerPage: number;
+  type: string;
   totalPages: number;
   overflowWidth: string;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
   cardWidth: string;
   containerWidth: number;
   primarySliderIndex: number;
@@ -125,6 +129,7 @@ export class HomeComponent implements OnInit {
     this.getHomeSectionItems();
     this.sliders = JSON.parse(this.bizService.get_sliders());
     this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
+    this.type = this.bizService.getBizType();
 
     if (this.sliders.length > 1) {
       this.itemNavigators = true;

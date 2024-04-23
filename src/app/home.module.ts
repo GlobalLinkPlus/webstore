@@ -30,6 +30,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { ContactUsModalComponent } from './views/contact-us-modal/contact-us-modal.component';
+import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [  
@@ -55,6 +59,7 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
     DynamicSizeDirective,
     SpinLoaderComponent,
     ForgotPasswordComponent,
+    ContactUsModalComponent,
      ],
   imports: [
     CommonModule,
@@ -70,7 +75,9 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
     SpinLoaderComponent
   ],
   providers: [
- 
+    MessageService,
+    DialogService,
+    ToastModule
   ],
   entryComponents:[
     ],

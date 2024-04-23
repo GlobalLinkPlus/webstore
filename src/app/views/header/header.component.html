@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <nav style="height: 180px; background-color: white; padding-left: 0;" class="navbar navbar-expand shadow fixed-top"
   [ngClass]="isSticky ? 'navbar-sticky':'navbar'">
   <div class="container-fluid" style="position: absolute; top:0; display: flex; flex-direction: column;">
@@ -53,7 +54,8 @@
                 <div class="TopNav_retailDropDown_14">
                   <div style="max-height: 620px;" class="DropDown_subMenu_a5">
 
-                    <div (click)="changeCategory(cat.name)" class="row" style="width: 100%;margin-left: 0px;margin-right: 0px; cursor: pointer;">
+                    <div (click)="changeCategory(cat.name)" class="row"
+                      style="width: 100%;margin-left: 0px;margin-right: 0px; cursor: pointer;">
                       <h6
                         style="text-align: start;padding-left: 10px;padding-right: 0px; font-weight: bold; margin-bottom: 10px;">
                         {{navbarCategoryFormat(cat.name)}}</h6>
@@ -78,7 +80,8 @@
                     </ng-container> -->
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
                       <ng-container *ngFor="let sub of sub_categories">
-                        <div *ngIf="sub.category === cat.id" (click)="changeSubCategory(cat.name,sub.name)" style="padding-left: 10px; font-size: medium; cursor: pointer;">
+                        <div *ngIf="sub.category === cat.id" (click)="changeSubCategory(cat.name,sub.name)"
+                          style="padding-left: 10px; font-size: medium; cursor: pointer;">
                           {{ sub.name }}
                         </div>
                       </ng-container>
@@ -94,7 +97,7 @@
           </div>
         </div>
       </div>
-      <ul class="navbar-nav mx-3 gap-2">
+      <ul *ngIf="type===business" class="navbar-nav mx-3 gap-2">
         <li class="nav-item menu-button" (mouseenter)="onMouseEnterCartMenu()" (mouseleave)="onMouseLeaveCartMenu()">
           <button type="button" class="nav-link btn position-relative">
             <a routerLink="/{{bizService.getBizId()}}/cart">
@@ -234,6 +237,11 @@
           </div>
         </li>
       </ul>
+      <button *ngIf="type===catalog" class="btn  buy-now-button"
+        (click)="openContactUsModal()"
+        style="border-radius: 50px; margin-right: 50px; height: 50px; margin-top: 5px;"
+        [ngStyle]="{'background-color': bizService.get_background_color()}">
+        <span style="color: white; padding-left: 40px; padding-right: 40px;">Contact Us</span></button>
     </div>
   </div>
 </nav>

@@ -6,11 +6,15 @@ import { BizService } from 'src/app/services/biz.service';
 import { SearchBarService } from 'src/app/services/search-bar.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { SearchComponent } from '../search/search.component';
+import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.component';
+import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [MessageService]
 })
 export class HeaderComponent implements OnInit {
   @ViewChild(SearchComponent) searchComponent: SearchComponent;
@@ -18,6 +22,10 @@ export class HeaderComponent implements OnInit {
   categories: any[] = [];
   sub_categories: any[] = [];
   search_input: string = "";
+  type: string;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
   isSticky: boolean = false;
   products = [];
   url = '/' + this.bizService.getBizId();
@@ -44,7 +52,9 @@ export class HeaderComponent implements OnInit {
     public userInfoService: UserInfoService,
     private searchBarService: SearchBarService,
     public bizService: BizService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private dialogService: DialogService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -70,6 +80,22 @@ export class HeaderComponent implements OnInit {
     }, err => { }, ()=>{});
 
     this.checkRightHeaderLink()
+
+    this.type = this.bizService.getBizType();
+  }
+
+  show() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+}
+
+  openContactUsModal() {
+    this.show();
+    // const ref = this.dialogService.open(ContactUsModalComponent, {
+    //   header: 'Contact Us',
+    //   width: '410px',
+    //   modal:true,
+    //   closable: true,
+    // });
   }
 
   checkRightHeaderLink() {
