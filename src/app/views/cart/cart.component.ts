@@ -14,6 +14,10 @@ export class CartComponent implements OnInit {
 
 
   public cartItems:any[]=[]
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
   cart_summary: any={
     currency:'$',
@@ -35,6 +39,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.calculateCartCost();
+    this.type = this.bizService.getBizType();
   }
  
   reduceProductCount(item: any){

@@ -1,4 +1,4 @@
-<main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw;">
+<main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw; overflow-x: hidden;">
     <header>
         <app-header></app-header>
     </header>
@@ -269,6 +269,7 @@
     </div>
     <footer style="padding-top: 20px; bottom: 0; width: 100%;">
 
-        <app-footer></app-footer>
+        <app-footer *ngIf="type===business || type===catalog"></app-footer>
+    <app-customer-footer *ngIf="type===customer"></app-customer-footer>
     </footer>
 </main>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { BizService } from 'src/app/services/biz.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-contact-us-modal',
@@ -13,25 +15,39 @@ export class ContactUsModalComponent implements OnInit {
   email: string;
   phone: string;
   message: string;
+  contactUsForm: FormGroup;
 
-  constructor(private messageService: MessageService,
+  constructor(
+    private messageService: MessageService,
+    private formBuilder: FormBuilder,
     public ref: DynamicDialogRef,
-    public bizService: BizService) { }
+    public bizService: BizService,
+    private apiService: ApiService
+  ) {
+    this.contactUsForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', []],
+      message: ['', [Validators.required]]
+    });
+  }
 
   ngOnInit(): void {
+    this.contactUsForm.markAsUntouched();
   }
 
   submitForm() {
-    // Perform form submission logic here (e.g., send data to backend)
-    // Simulate form submission success
-    const success = true; // Change this based on your actual success/error conditions
 
-    if (success) {
-      this.showSuccessAlert();
-      this.ref.close();
-    } else {
-      this.ref.close();
-      this.showErrorAlert();
+    if (this.contactUsForm.valid) {
+      this.apiService.contactUs(this.contactUsForm.value).subscribe(res => {
+        if (res) {
+          this.showSuccessAlert();
+          this.ref.close();
+        }
+      }, err => {
+        this.ref.close();
+        this.showErrorAlert();
+      })
     }
   }
 

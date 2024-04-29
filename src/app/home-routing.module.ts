@@ -12,6 +12,7 @@ import { PaymentMethodComponent } from './views/payment-method/payment-method.co
 import { SearchComponent } from './views/search/search.component';
 import { ShippingDetailComponent } from './views/shipping-detail/shipping-detail.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { CreateAccountComponent } from './views/create-account/create-account.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path:'account',
     component:AccountComponent
+  },
+  {
+    path:'create-account',
+    component:CreateAccountComponent
   },
   {
     path:'my-orders',

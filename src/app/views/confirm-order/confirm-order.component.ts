@@ -14,6 +14,11 @@ export class ConfirmOrderComponent implements OnInit {
 
   public cartItems:any[]=[]
 
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
+
   cart_summary: any={
     currency:'$',
     subtotal:0,
@@ -41,6 +46,8 @@ export class ConfirmOrderComponent implements OnInit {
     this.apiService.getOrderInfo({id:this.route.snapshot.params.order_id}).subscribe(res=>{
       this.order_detail=res
     },err=>{});
+
+    this.type = this.bizService.getBizType();
   }
  
   reduceProductCount(item: any){

@@ -1,6 +1,6 @@
 
 
-<main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw;">
+<main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw; overflow-x: hidden;">
   <header>
     <app-header></app-header>
   </header>
@@ -298,6 +298,19 @@
                     <!-- *ngIf="userInfoService.isLoggedIn()" -->
                   </div>
                 </div>
+                <div *ngIf="type===customer" style="padding-top: 15px;" class="card-body px-2">
+                  <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold"
+                    routerLink="product/{{item.id}}">
+                    {{item.product.name}}</p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="" style="width: 100%; display: flex; justify-content: space-between;">
+                      <small style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
+                        {{item.currency}}{{item.msrp}}</small>
+                    </div>
+                  </div>
+                  <p class="h5 mb-0">
+                    {{item.currency}}{{item.first_cost}}</p>
+                </div>
               </div>
             </div>
 
@@ -307,8 +320,9 @@
     </div>
   </div>
 
-  <footer style="padding-top: 20px;">
-    <app-footer></app-footer>
+  <footer style="padding-top: 20px; ">
+    <app-footer *ngIf="type===business || type===catalog"></app-footer>
+    <app-customer-footer *ngIf="type===customer"></app-customer-footer>
   </footer>
 
 </main>

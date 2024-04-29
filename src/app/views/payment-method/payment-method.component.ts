@@ -21,6 +21,10 @@ export class PaymentMethodComponent implements OnInit {
     id:"1",
     name:"America Express"
   }]
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
   cart_summary: any={
     currency:'$',
@@ -58,6 +62,8 @@ export class PaymentMethodComponent implements OnInit {
 
     this.apiService.getPaymentMethods().subscribe(res=>{this.payment_methods=res},err=>{});
     this.apiService.getCreditCardTypes().subscribe(res=>{this.credit_card_types=res},err=>{});
+
+    this.type = this.bizService.getBizType();
   }
   submitForm(){
     this.apiService.addOrderPaymentMethod(this.paymentForm.value).subscribe(res=>{

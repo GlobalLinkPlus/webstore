@@ -283,6 +283,9 @@ class ApiService {
     addCustomerLocation(data) {
         return this.http.post(BASE_URL + 'customer/location/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
+    contactUs(data) {
+        return this.http.post(BASE_URL + 'contact-us/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+    }
     getTopSellers() {
         return this.http.get(BASE_URL + 'channels/').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }

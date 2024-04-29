@@ -205,6 +205,10 @@ export class ItemDetailDesktopComponent implements OnInit {
   category;
   subcategory;
   show_features = false;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
 
   item_detail = {
@@ -405,7 +409,7 @@ export class ItemDetailDesktopComponent implements OnInit {
     });
 
 
-
+    this.type = this.bizService.getBizType();
 
   }
 

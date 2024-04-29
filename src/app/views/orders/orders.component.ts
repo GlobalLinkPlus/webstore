@@ -20,6 +20,10 @@ export class OrdersComponent implements OnInit {
   show_pending_orders = false;
   show_progress_orders = false;
   show_completed_orders = false;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
 
 
@@ -42,6 +46,8 @@ export class OrdersComponent implements OnInit {
     this.apiService.getOrders({"status":"Completed","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
      this.ordersCompleted=res;
     },err=>{});
+
+    this.type = this.bizService.getBizType();
   }
 
   getProductsTotalPrice(price,quantity){

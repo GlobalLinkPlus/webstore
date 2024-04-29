@@ -699,6 +699,7 @@
     </main>
     <footer style="bottom: 0; width: 100%;">
 
-        <app-footer></app-footer>
+        <app-footer *ngIf="type===business || type===catalog"></app-footer>
+    <app-customer-footer *ngIf="type===customer"></app-customer-footer>
     </footer>
 </div>

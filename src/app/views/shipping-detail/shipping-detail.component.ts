@@ -13,6 +13,10 @@ import { UserInfoService } from 'src/app/services/user-info.service';
 export class ShippingDetailComponent implements OnInit {
   shippingForm:FormGroup;
   public cartItems:any[]=[]
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
   cart_summary: any={
     currency:'$',
     subtotal:'0',
@@ -44,6 +48,8 @@ export class ShippingDetailComponent implements OnInit {
  
     this.cartItems=this.userInfoService.getCartItems();
     this.calculateCartCost();
+
+    this.type = this.bizService.getBizType();
   }
   saveShippingDetail(){
 

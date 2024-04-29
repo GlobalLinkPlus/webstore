@@ -106,6 +106,11 @@ export class ApiService {
       map(this.extractData));
   }
 
+  contactUs(data): Observable<any> {
+    return this.http.post(BASE_URL + 'contact-us/', data).pipe(
+      map(this.extractData));
+  }
+
   getTopSellers(): Observable<any> {
     return this.http.get(BASE_URL + 'channels/').pipe(
       map(this.extractData));

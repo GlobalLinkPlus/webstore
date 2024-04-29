@@ -134,6 +134,19 @@
                       routerLink="product/{{sectionOneProduct.id}}">
                       {{sectionOneProduct.product.name}}</p>
                   </div>
+                  <div *ngIf="type===customer" style="padding-top: 15px;" class="card-body px-2">
+                    <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold"
+                      routerLink="product/{{sectionOneProduct.id}}">
+                      {{sectionOneProduct.product.name}}</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="" style="width: 100%; display: flex; justify-content: space-between;">
+                        <small style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
+                          {{sectionOneProduct.currency}}{{sectionOneProduct.msrp}}</small>
+                      </div>
+                    </div>
+                    <p class="h5 mb-0">
+                      {{sectionOneProduct.currency}}{{sectionOneProduct.first_cost}}</p>
+                  </div>
                 </div>
               </div>
               <!-- <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
@@ -274,6 +287,19 @@
                     routerLink="product/{{sectionTwoProduct.id}}">
                     {{sectionTwoProduct.product.name}}</p>
                 </div>
+                <div *ngIf="type===customer" style="padding-top: 15px;" class="card-body px-2">
+                  <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold"
+                    routerLink="product/{{sectionTwoProduct.id}}">
+                    {{sectionTwoProduct.product.name}}</p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="" style="width: 100%; display: flex; justify-content: space-between;">
+                      <small style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
+                        {{sectionTwoProduct.currency}}{{sectionTwoProduct.msrp}}</small>
+                    </div>
+                  </div>
+                  <p class="h5 mb-0">
+                    {{sectionTwoProduct.currency}}{{sectionTwoProduct.first_cost}}</p>
+                </div>
               </div>
             </div>
             <!-- <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
@@ -347,6 +373,7 @@
   </div>
   <footer style="padding-top: 20px;">
 
-    <app-footer></app-footer>
+    <app-footer *ngIf="type===business || type===catalog"></app-footer>
+    <app-customer-footer *ngIf="type===customer"></app-customer-footer>
   </footer>
 </main>

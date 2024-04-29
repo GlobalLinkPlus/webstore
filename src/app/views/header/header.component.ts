@@ -8,13 +8,11 @@ import { UserInfoService } from 'src/app/services/user-info.service';
 import { SearchComponent } from '../search/search.component';
 import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.component';
 import { DialogService } from 'primeng/dynamicdialog';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  providers: [MessageService]
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   @ViewChild(SearchComponent) searchComponent: SearchComponent;
@@ -53,8 +51,7 @@ export class HeaderComponent implements OnInit {
     private searchBarService: SearchBarService,
     public bizService: BizService,
     private apiService: ApiService,
-    private dialogService: DialogService,
-    private messageService: MessageService
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -84,18 +81,13 @@ export class HeaderComponent implements OnInit {
     this.type = this.bizService.getBizType();
   }
 
-  show() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
-}
-
   openContactUsModal() {
-    this.show();
-    // const ref = this.dialogService.open(ContactUsModalComponent, {
-    //   header: 'Contact Us',
-    //   width: '410px',
-    //   modal:true,
-    //   closable: true,
-    // });
+    const ref = this.dialogService.open(ContactUsModalComponent, {
+      header: 'Contact Us',
+      width: '410px',
+      modal:true,
+      closable: true,
+    });
   }
 
   checkRightHeaderLink() {

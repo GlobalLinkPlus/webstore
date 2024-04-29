@@ -34,6 +34,8 @@ import { ContactUsModalComponent } from './views/contact-us-modal/contact-us-mod
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
+import { CustomerFooterComponent } from './views/customer-footer/customer-footer.component';
+import { CreateAccountComponent } from './views/create-account/create-account.component';
 
 @NgModule({
   declarations: [  
@@ -60,6 +62,8 @@ import { ToastModule } from 'primeng/toast';
     SpinLoaderComponent,
     ForgotPasswordComponent,
     ContactUsModalComponent,
+    CustomerFooterComponent,
+    CreateAccountComponent,
      ],
   imports: [
     CommonModule,

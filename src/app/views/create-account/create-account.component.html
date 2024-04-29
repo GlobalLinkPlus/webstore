@@ -1,0 +1,180 @@
+<header>
+    <!-- <app-header></app-header> -->
+    <div class="toolbar" role="banner" [ngStyle]="{'background-color': bizService.get_background_color()}">
+
+        <a class="promotion-text" target="_blank" href="{{bizService.get_left_link()}}"
+            *ngIf="checkLeftHeaderLink()">{{bizService.get_left_header()}}</a>
+        <div class="spacer"></div>
+        <span class="promotion-text" *ngIf="!checkLeftHeaderLink()">{{bizService.get_left_header()}}</span>
+        <a class="promotion-text-right" target="_blank" href="{{bizService.get_right_link()}}"
+            *ngIf="rightHeaderLink">{{bizService.get_right_header()}}</a>
+        <span class="promotion-text-right" *ngIf="!rightHeaderLink">{{bizService.get_right_header()}}</span>
+
+    </div>
+    <a style="padding-left: 37px; padding-right: 50px;" href="{{bizService.get_webstore_link()}}" class="logo">
+        <img src="{{bizService.get_company_logo()}}" height="60px" />
+    </a>
+</header>
+<main class="container-fluid" style="padding-left: 50px; padding-right: 50px; padding-top: 30px;">
+    <div style="font-size: 24px; font-weight: 600; color: #525252;">Create Account</div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="flex: 1;"></div>
+        <form [formGroup]="CreateAccountForm" style="flex: 4; display: flex; column-gap: 20px;">
+            <div style="flex: 1;">
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1;">
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input formControlName="first_name" type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div style="flex: 1;">
+        </div>
+    </div>
+    <div style="font-size: 24px; font-weight: 600; color: #525252;">Create Account</div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="flex: 1;"></div>
+        <div style="flex: 4; display: flex; column-gap: 20px;">
+            <div style="flex: 1;">
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1;">
+                <div class="row">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="color: #525252;">First Name</label>
+                        <input type="text" placeholder="Enter First Name"
+                            class="round-input">
+                        <!-- <small style="color: red; font-size: 12px; padding-left: 15px;"
+                            *ngIf="CreateAccountForm.get('confirm_password').hasError('passwordMismatch')">
+                            passwords do not match
+                        </small> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="flex: 1;"></div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 50px; margin-top: 30px;">
+        <button class="btn  login-button"
+            [ngStyle]="{'background-color': bizService.get_background_color()}">
+            Create Account
+        </button>
+    </div>
+</main>
