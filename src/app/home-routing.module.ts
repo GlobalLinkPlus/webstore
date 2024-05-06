@@ -13,6 +13,10 @@ import { SearchComponent } from './views/search/search.component';
 import { ShippingDetailComponent } from './views/shipping-detail/shipping-detail.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 import { CreateAccountComponent } from './views/create-account/create-account.component';
+import { FaqsComponent } from './views/faqs/faqs.component';
+import { CompanyPolicyComponent } from './views/company-policy/company-policy.component';
+import { AboutComponent } from './views/about/about.component';
+import { ContactUsComponent } from './views/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -74,6 +78,22 @@ const routes: Routes = [
   {
     path:'account',
     component:AccountComponent
+  },
+  {
+    path:'faqs',
+    component:FaqsComponent
+  },
+  {
+    path:'policies',
+    component:CompanyPolicyComponent
+  },
+  {
+    path:'about',
+    component:AboutComponent
+  },
+  {
+    path:'contact-us',
+    component:ContactUsComponent
   },
   {
     path:'create-account',

@@ -5,26 +5,27 @@
             <div *ngFor="let cat of categories;" style="cursor: pointer;" (click)="changeCategory(cat.name)">{{cat.name}}</div>
             <div style="cursor: pointer;">& More</div>
         </div>
-        <div style="flex: 1;">
+        <div style="flex: 1;" *ngIf="type!==catalog">
             <div style="font-weight: bold;">Account</div>
             <div *ngIf="!userInfoService.isLoggedIn()" (click)="login()" style="cursor: pointer;">Log In</div>
             <div *ngIf="userInfoService.isLoggedIn()" (click)="logout()" style="cursor: pointer;">Log Out</div>
-            <div style="cursor: pointer;">Profile</div>
-            <div style="cursor: pointer;">Order History</div>
-            <div routerLink="/{{bizService.getBizId()}}/my-orders" style="cursor: pointer;">Orders</div>
+            <div style="cursor: pointer;" *ngIf="type===customer && !userInfoService.isLoggedIn()">Register</div>
+            <div *ngIf="userInfoService.isLoggedIn()" style="cursor: pointer;">Profile</div>
+            <div *ngIf="userInfoService.isLoggedIn()" style="cursor: pointer;">Order History</div>
+            <div *ngIf="userInfoService.isLoggedIn()" routerLink="/{{bizService.getBizId()}}/my-orders" style="cursor: pointer;">Orders</div>
         </div>
         <div style="flex: 1;">
             <div style="font-weight: bold;">About Us</div>
-            <div style="cursor: pointer;">About Us</div>
+            <div routerLink="/{{bizService.getBizId()}}/about" style="cursor: pointer;">About Us</div>
             <div style="cursor: pointer;">Returns</div>
             <div style="cursor: pointer;">Warranty</div>
             <div style="cursor: pointer;">Shipping Policy</div>
-            <div style="cursor: pointer;">FAQ</div>
+            <div style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/faqs">FAQ</div>
             <div style="cursor: pointer;">Careers</div>
         </div>
         <div style="flex: 1;">
             <div style="font-weight: bold;">Contact Us</div>
-            <div (click)="openContactUsModal()" style="cursor: pointer;">Contact Us</div>
+            <div routerLink="/{{bizService.getBizId()}}/contact-us" style="cursor: pointer;">Contact Us</div>
         </div>
         <div style="flex: 4; display: flex; justify-content: flex-end; align-items: flex-end;">
             <div style="margin-left: 10px; cursor: pointer;">
@@ -73,6 +74,6 @@
     </div>
     <div style="display: flex; justify-content: space-between; padding-bottom: 20px; border-top: #C1C7D6 1px solid; padding-top: 15px;">
         <div>{{bizService.getBizName()}}</div>
-        <div>Terms of Use | Privacy Policy</div>
+        <div style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies">Terms of Use | Privacy Policy</div>
     </div>
 </div>

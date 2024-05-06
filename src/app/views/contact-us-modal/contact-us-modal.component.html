@@ -5,7 +5,7 @@
             <input style="border-radius: 15px;" placeholder="Enter Name" type="text" class="form-control" id="name"
                 formControlName="name">
             <small style="color: red; font-size: 12px; padding-left: 15px;"
-                *ngIf="contactUsForm.get('name').hasError('required')">
+                *ngIf="contactUsForm.get('name').hasError('required') && this.contactUsForm.get('name').touched">
                 name is required
             </small>
         </div>
@@ -14,7 +14,7 @@
             <input style="border-radius: 15px;" placeholder="Enter Email" type="email" class="form-control" id="email"
                 formControlName="email">
             <small style="color: red; font-size: 12px; padding-left: 15px;"
-                *ngIf="contactUsForm.get('email').hasError('required')">
+                *ngIf="contactUsForm.get('email').hasError('required') && this.contactUsForm.get('email').touched">
                 email is required
             </small>
             <small style="color: red; font-size: 12px; padding-left: 15px;"
@@ -32,7 +32,7 @@
             <textarea style="border-radius: 15px;" placeholder="Enter Message" class="form-control" id="message"
                 rows="4" formControlName="message"></textarea>
             <small style="color: red; font-size: 12px; padding-left: 15px;"
-                *ngIf="contactUsForm.get('message').hasError('required')">
+                *ngIf="contactUsForm.get('message').hasError('required') && this.contactUsForm.get('message').touched">
                 message is required
             </small>
         </div>

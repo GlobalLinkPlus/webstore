@@ -36,6 +36,11 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
 import { CustomerFooterComponent } from './views/customer-footer/customer-footer.component';
 import { CreateAccountComponent } from './views/create-account/create-account.component';
+import { FaqsComponent } from './views/faqs/faqs.component';
+import { AccordionModule } from 'primeng/accordion';
+import { ContactUsComponent } from './views/contact-us/contact-us.component';
+import { CompanyPolicyComponent } from './views/company-policy/company-policy.component';
+import { AboutComponent } from './views/about/about.component';
 
 @NgModule({
   declarations: [  
@@ -64,6 +69,10 @@ import { CreateAccountComponent } from './views/create-account/create-account.co
     ContactUsModalComponent,
     CustomerFooterComponent,
     CreateAccountComponent,
+    FaqsComponent,
+    ContactUsComponent,
+    CompanyPolicyComponent,
+    AboutComponent,
      ],
   imports: [
     CommonModule,
@@ -73,7 +82,9 @@ import { CreateAccountComponent } from './views/create-account/create-account.co
     HomeRoutingModule,
     NgbModule,
     GalleriaModule,
-    CarouselModule
+    CarouselModule,
+    AccordionModule,
+    ToastModule,
   ],
   exports:[
     SpinLoaderComponent
@@ -81,7 +92,8 @@ import { CreateAccountComponent } from './views/create-account/create-account.co
   providers: [
     MessageService,
     DialogService,
-    ToastModule
+    ToastModule,
+    AccordionModule
   ],
   entryComponents:[
     ],

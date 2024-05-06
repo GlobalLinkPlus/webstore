@@ -1,36 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
-import { BizService } from 'src/app/services/biz.service';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { ApiService } from 'src/app/services/api.service';
+import { BizService } from 'src/app/services/biz.service';
 
 @Component({
-  selector: 'app-contact-us-modal',
-  templateUrl: './contact-us-modal.component.html',
-  providers: [MessageService]
+  selector: 'app-contact-us',
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['./contact-us.component.scss']
 })
-export class ContactUsModalComponent implements OnInit {
+export class ContactUsComponent implements OnInit {
 
   contactUsForm: FormGroup;
 
   constructor(
     private messageService: MessageService,
     private formBuilder: FormBuilder,
-    public ref: DynamicDialogRef,
     public bizService: BizService,
     private apiService: ApiService
   ) {
     this.contactUsForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', []],
+      phone: ['', [Validators.required]],
       message: ['', [Validators.required]]
     });
   }
 
   ngOnInit(): void {
-    this.contactUsForm.markAsUntouched();
   }
 
   submitForm() {
@@ -39,10 +37,8 @@ export class ContactUsModalComponent implements OnInit {
       this.apiService.contactUs(this.contactUsForm.value).subscribe(res => {
         if (res) {
           this.showSuccessAlert();
-          this.ref.close();
         }
       }, err => {
-        this.ref.close();
         this.showErrorAlert();
       })
     }

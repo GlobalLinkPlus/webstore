@@ -13,6 +13,10 @@ import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.co
 })
 export class CustomerFooterComponent implements OnInit {
   categories: any[] = [];
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
   constructor(
     private router: Router, 
@@ -27,6 +31,7 @@ export class CustomerFooterComponent implements OnInit {
       if (res)
         this.categories = res.splice(0, 7);
     }, err => { });
+    this.type = this.bizService.getBizType();
   }
 
   openContactUsModal() {
