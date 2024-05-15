@@ -6,8 +6,8 @@
 
       <a class="promotion-text" target="_blank" href="{{bizService.get_left_link()}}"
         *ngIf="checkLeftHeaderLink()">{{bizService.get_left_header()}}</a>
-      <div class="spacer"></div>
       <span class="promotion-text" *ngIf="!checkLeftHeaderLink()">{{bizService.get_left_header()}}</span>
+      <div class="spacer"></div>
       <a class="promotion-text-right" target="_blank" href="{{bizService.get_right_link()}}"
         *ngIf="rightHeaderLink">{{bizService.get_right_header()}}</a>
       <span class="promotion-text-right" *ngIf="!rightHeaderLink">{{bizService.get_right_header()}}</span>
