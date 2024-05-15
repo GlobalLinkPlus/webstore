@@ -34,7 +34,13 @@ export class ContactUsComponent implements OnInit {
   submitForm() {
 
     if (this.contactUsForm.valid) {
-      this.apiService.contactUs(this.contactUsForm.value).subscribe(res => {
+      const data = {
+        name: this.contactUsForm.get('firstName').value + ' ' + this.contactUsForm.get('lastName').value,
+        email: this.contactUsForm.get('email').value,
+        phone: this.contactUsForm.get('phone').value,
+        message: this.contactUsForm.get('message').value
+      }
+      this.apiService.contactUs(data).subscribe(res => {
         if (res) {
           this.showSuccessAlert();
         }
