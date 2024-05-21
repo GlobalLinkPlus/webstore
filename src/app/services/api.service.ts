@@ -32,6 +32,10 @@ export class ApiService {
     return this.http.get(BASE_URL + 'webstore/?name=' + name);
   }
 
+  getAboutUsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
+  }
+
   validateCustomerEmail(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(
       map(this.extractData));
