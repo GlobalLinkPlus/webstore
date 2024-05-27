@@ -140,7 +140,7 @@ class CustomerFooterComponent {
     }
 }
 CustomerFooterComponent.ɵfac = function CustomerFooterComponent_Factory(t) { return new (t || CustomerFooterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_biz_service__WEBPACK_IMPORTED_MODULE_3__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_4__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_user_info_service__WEBPACK_IMPORTED_MODULE_5__["UserInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_6__["DialogService"])); };
-CustomerFooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: CustomerFooterComponent, selectors: [["app-customer-footer"]], decls: 54, vars: 7, consts: [[2, "display", "flex", "flex-direction", "column", "padding-left", "30px", "padding-right", "30px", "background-color", "#F5F5F5"], [2, "display", "flex", "padding-bottom", "20px", "padding-top", "20px"], [2, "flex", "1"], [2, "font-weight", "bold"], ["style", "cursor: pointer;", 3, "click", 4, "ngFor", "ngForOf"], [2, "cursor", "pointer"], ["style", "flex: 1;", 4, "ngIf"], [2, "cursor", "pointer", 3, "routerLink"], [2, "flex", "4", "display", "flex", "justify-content", "flex-end", "align-items", "flex-end"], [2, "margin-left", "10px", "cursor", "pointer"], ["width", "30", "height", "30", "viewBox", "0 0 30 30", "fill", "none", "xmlns", "http://www.w3.org/2000/svg"], ["d", "M20.7502 7.275C19.8957 6.29953 19.4248 5.04679 19.4252 3.75H15.5627V19.25C15.5329 20.0888 15.1788 20.8833 14.5749 21.4662C13.971 22.0491 13.1645 22.3749 12.3252 22.375C10.5502 22.375 9.0752 20.925 9.0752 19.125C9.0752 16.975 11.1502 15.3625 13.2877 16.025V12.075C8.9752 11.5 5.2002 14.85 5.2002 19.125C5.2002 23.2875 8.6502 26.25 12.3127 26.25C16.2377 26.25 19.4252 23.0625 19.4252 19.125V11.2625C20.9914 12.3873 22.8719 12.9908 24.8002 12.9875V9.125C24.8002 9.125 22.4502 9.2375 20.7502 7.275Z", "fill", "black"], ["d", "M17.2437 13.1663L25.85 2.5H22.0088L15.44 10.6462L9.6125 2.5H1.25L11.0075 16.1375L1.8375 27.5H5.68L12.8112 18.6625L19.1375 27.5H27.5L17.2437 13.1663ZM14.2688 16.8538L12.4625 14.33L5.45 4.53375H8.3375L13.9975 12.43L15.8012 14.955L23.3237 25.4662H20.4363L14.2688 16.8538Z", "fill", "black"], ["d", "M17.5 16.875H20.625L21.875 11.875H17.5V9.375C17.5 8.0875 17.5 6.875 20 6.875H21.875V2.675C21.4675 2.62125 19.9287 2.5 18.3037 2.5C14.91 2.5 12.5 4.57125 12.5 8.375V11.875H8.75V16.875H12.5V27.5H17.5V16.875Z", "fill", "black"], ["d", "M15.0013 11.25C14.0067 11.25 13.0529 11.6451 12.3496 12.3483C11.6463 13.0516 11.2513 14.0054 11.2513 15C11.2513 15.9946 11.6463 16.9484 12.3496 17.6517C13.0529 18.3549 14.0067 18.75 15.0013 18.75C15.9958 18.75 16.9496 18.3549 17.6529 17.6517C18.3562 16.9484 18.7513 15.9946 18.7513 15C18.7513 14.0054 18.3562 13.0516 17.6529 12.3483C16.9496 11.6451 15.9958 11.25 15.0013 11.25ZM15.0013 8.75C16.6589 8.75 18.2486 9.40848 19.4207 10.5806C20.5928 11.7527 21.2512 13.3424 21.2512 15C21.2512 16.6576 20.5928 18.2473 19.4207 19.4194C18.2486 20.5915 16.6589 21.25 15.0013 21.25C13.3436 21.25 11.7539 20.5915 10.5818 19.4194C9.40973 18.2473 8.75125 16.6576 8.75125 15C8.75125 13.3424 9.40973 11.7527 10.5818 10.5806C11.7539 9.40848 13.3436 8.75 15.0013 8.75ZM23.1262 8.4375C23.1262 8.8519 22.9616 9.24933 22.6686 9.54235C22.3756 9.83538 21.9781 10 21.5637 10C21.1493 10 20.7519 9.83538 20.4589 9.54235C20.1659 9.24933 20.0012 8.8519 20.0012 8.4375C20.0012 8.0231 20.1659 7.62567 20.4589 7.33265C20.7519 7.03962 21.1493 6.875 21.5637 6.875C21.9781 6.875 22.3756 7.03962 22.6686 7.33265C22.9616 7.62567 23.1262 8.0231 23.1262 8.4375ZM15.0013 5C11.9088 5 11.4038 5.00875 9.965 5.0725C8.985 5.11875 8.3275 5.25 7.7175 5.4875C7.20702 5.67492 6.74552 5.97533 6.3675 6.36625C5.97626 6.74425 5.67544 7.20573 5.4875 7.71625C5.25 8.32875 5.11875 8.985 5.07375 9.96375C5.00875 11.3438 5 11.8263 5 15C5 18.0938 5.00875 18.5975 5.0725 20.0362C5.11875 21.015 5.25 21.6737 5.48625 22.2825C5.69875 22.8263 5.94875 23.2175 6.36375 23.6325C6.785 24.0525 7.17625 24.3037 7.71375 24.5112C8.33125 24.75 8.98875 24.8825 9.96375 24.9275C11.3438 24.9925 11.8263 25 15 25C18.0938 25 18.5975 24.9912 20.0362 24.9275C21.0138 24.8812 21.6712 24.75 22.2825 24.5138C22.7925 24.3254 23.2538 24.0251 23.6325 23.635C24.0538 23.215 24.305 22.8237 24.5125 22.285C24.75 21.67 24.8825 21.0125 24.9275 20.035C24.9925 18.6562 25 18.1725 25 15C25 11.9075 24.9912 11.4025 24.9275 9.96375C24.8812 8.98625 24.7488 8.32625 24.5125 7.71625C24.3241 7.20627 24.0238 6.74498 23.6337 6.36625C23.2559 5.97481 22.7944 5.67396 22.2837 5.48625C21.6712 5.24875 21.0138 5.1175 20.0362 5.0725C18.6575 5.0075 18.175 5 15 5M15 2.5C18.3962 2.5 18.82 2.5125 20.1537 2.575C21.4837 2.6375 22.3912 2.84625 23.1875 3.15625C24.0125 3.47375 24.7075 3.90375 25.4025 4.5975C26.0381 5.22237 26.5299 5.97824 26.8438 6.8125C27.1525 7.60875 27.3625 8.51625 27.425 9.8475C27.4838 11.18 27.5 11.6038 27.5 15C27.5 18.3962 27.4875 18.82 27.425 20.1525C27.3625 21.4837 27.1525 22.39 26.8438 23.1875C26.5308 24.0222 26.0389 24.7782 25.4025 25.4025C24.7775 26.0379 24.0216 26.5297 23.1875 26.8438C22.3912 27.1525 21.4837 27.3625 20.1537 27.425C18.82 27.4838 18.3962 27.5 15 27.5C11.6038 27.5 11.18 27.4875 9.84625 27.425C8.51625 27.3625 7.61 27.1525 6.8125 26.8438C5.97791 26.5306 5.22191 26.0387 4.5975 25.4025C3.96179 24.7777 3.46995 24.0218 3.15625 23.1875C2.84625 22.3912 2.6375 21.4837 2.575 20.1525C2.515 18.82 2.5 18.3962 2.5 15C2.5 11.6038 2.5125 11.18 2.575 9.8475C2.6375 8.51625 2.84625 7.61 3.15625 6.8125C3.46905 5.97772 3.961 5.22165 4.5975 4.5975C5.22209 3.96154 5.97804 3.46966 6.8125 3.15625C7.60875 2.84625 8.515 2.6375 9.84625 2.575C11.1812 2.51625 11.605 2.5 15.0013 2.5", "fill", "black"], ["width", "23", "height", "30", "viewBox", "0 0 23 30", "fill", "none", "xmlns", "http://www.w3.org/2000/svg"], ["clip-path", "url(#clip0_11873_529)"], ["d", "M11.9531 0.382812C5.94141 0.382812 0 4.39063 0 10.877C0 15.002 2.32031 17.3457 3.72656 17.3457C4.30664 17.3457 4.64062 15.7285 4.64062 15.2715C4.64062 14.7266 3.25195 13.5664 3.25195 11.2988C3.25195 6.58789 6.83789 3.24805 11.4785 3.24805C15.4688 3.24805 18.4219 5.51562 18.4219 9.68164C18.4219 12.793 17.1738 18.6289 13.1309 18.6289C11.6719 18.6289 10.4238 17.5742 10.4238 16.0625C10.4238 13.8477 11.9707 11.7031 11.9707 9.41797C11.9707 5.53906 6.46875 6.24219 6.46875 10.9297C6.46875 11.9141 6.5918 13.0039 7.03125 13.9004C6.22266 17.3809 4.57031 22.5664 4.57031 26.1523C4.57031 27.2598 4.72852 28.3496 4.83398 29.457C5.0332 29.6797 4.93359 29.6562 5.23828 29.5449C8.19141 25.502 8.08594 24.7109 9.42188 19.4199C10.1426 20.791 12.0059 21.5293 13.4824 21.5293C19.7051 21.5293 22.5 15.4648 22.5 9.99805C22.5 4.17969 17.4727 0.382812 11.9531 0.382812Z", "fill", "black"], ["id", "clip0_11873_529"], ["width", "22.5", "height", "30", "fill", "white"], [2, "display", "flex", "justify-content", "space-between", "padding-bottom", "20px", "border-top", "#C1C7D6 1px solid", "padding-top", "15px"], [2, "cursor", "pointer", 3, "click"], ["style", "cursor: pointer;", 3, "click", 4, "ngIf"], ["style", "cursor: pointer;", 4, "ngIf"], ["style", "cursor: pointer;", 3, "routerLink", 4, "ngIf"]], template: function CustomerFooterComponent_Template(rf, ctx) { if (rf & 1) {
+CustomerFooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: CustomerFooterComponent, selectors: [["app-customer-footer"]], decls: 54, vars: 8, consts: [[2, "display", "flex", "flex-direction", "column", "padding-left", "30px", "padding-right", "30px", "background-color", "#F5F5F5"], [2, "display", "flex", "padding-bottom", "20px", "padding-top", "20px"], [2, "flex", "1"], [2, "font-weight", "bold"], ["style", "cursor: pointer;", 3, "click", 4, "ngFor", "ngForOf"], [2, "cursor", "pointer"], ["style", "flex: 1;", 4, "ngIf"], [2, "cursor", "pointer", 3, "routerLink"], [2, "flex", "4", "display", "flex", "justify-content", "flex-end", "align-items", "flex-end"], [2, "margin-left", "10px", "cursor", "pointer"], ["width", "30", "height", "30", "viewBox", "0 0 30 30", "fill", "none", "xmlns", "http://www.w3.org/2000/svg"], ["d", "M20.7502 7.275C19.8957 6.29953 19.4248 5.04679 19.4252 3.75H15.5627V19.25C15.5329 20.0888 15.1788 20.8833 14.5749 21.4662C13.971 22.0491 13.1645 22.3749 12.3252 22.375C10.5502 22.375 9.0752 20.925 9.0752 19.125C9.0752 16.975 11.1502 15.3625 13.2877 16.025V12.075C8.9752 11.5 5.2002 14.85 5.2002 19.125C5.2002 23.2875 8.6502 26.25 12.3127 26.25C16.2377 26.25 19.4252 23.0625 19.4252 19.125V11.2625C20.9914 12.3873 22.8719 12.9908 24.8002 12.9875V9.125C24.8002 9.125 22.4502 9.2375 20.7502 7.275Z", "fill", "black"], ["d", "M17.2437 13.1663L25.85 2.5H22.0088L15.44 10.6462L9.6125 2.5H1.25L11.0075 16.1375L1.8375 27.5H5.68L12.8112 18.6625L19.1375 27.5H27.5L17.2437 13.1663ZM14.2688 16.8538L12.4625 14.33L5.45 4.53375H8.3375L13.9975 12.43L15.8012 14.955L23.3237 25.4662H20.4363L14.2688 16.8538Z", "fill", "black"], ["d", "M17.5 16.875H20.625L21.875 11.875H17.5V9.375C17.5 8.0875 17.5 6.875 20 6.875H21.875V2.675C21.4675 2.62125 19.9287 2.5 18.3037 2.5C14.91 2.5 12.5 4.57125 12.5 8.375V11.875H8.75V16.875H12.5V27.5H17.5V16.875Z", "fill", "black"], ["d", "M15.0013 11.25C14.0067 11.25 13.0529 11.6451 12.3496 12.3483C11.6463 13.0516 11.2513 14.0054 11.2513 15C11.2513 15.9946 11.6463 16.9484 12.3496 17.6517C13.0529 18.3549 14.0067 18.75 15.0013 18.75C15.9958 18.75 16.9496 18.3549 17.6529 17.6517C18.3562 16.9484 18.7513 15.9946 18.7513 15C18.7513 14.0054 18.3562 13.0516 17.6529 12.3483C16.9496 11.6451 15.9958 11.25 15.0013 11.25ZM15.0013 8.75C16.6589 8.75 18.2486 9.40848 19.4207 10.5806C20.5928 11.7527 21.2512 13.3424 21.2512 15C21.2512 16.6576 20.5928 18.2473 19.4207 19.4194C18.2486 20.5915 16.6589 21.25 15.0013 21.25C13.3436 21.25 11.7539 20.5915 10.5818 19.4194C9.40973 18.2473 8.75125 16.6576 8.75125 15C8.75125 13.3424 9.40973 11.7527 10.5818 10.5806C11.7539 9.40848 13.3436 8.75 15.0013 8.75ZM23.1262 8.4375C23.1262 8.8519 22.9616 9.24933 22.6686 9.54235C22.3756 9.83538 21.9781 10 21.5637 10C21.1493 10 20.7519 9.83538 20.4589 9.54235C20.1659 9.24933 20.0012 8.8519 20.0012 8.4375C20.0012 8.0231 20.1659 7.62567 20.4589 7.33265C20.7519 7.03962 21.1493 6.875 21.5637 6.875C21.9781 6.875 22.3756 7.03962 22.6686 7.33265C22.9616 7.62567 23.1262 8.0231 23.1262 8.4375ZM15.0013 5C11.9088 5 11.4038 5.00875 9.965 5.0725C8.985 5.11875 8.3275 5.25 7.7175 5.4875C7.20702 5.67492 6.74552 5.97533 6.3675 6.36625C5.97626 6.74425 5.67544 7.20573 5.4875 7.71625C5.25 8.32875 5.11875 8.985 5.07375 9.96375C5.00875 11.3438 5 11.8263 5 15C5 18.0938 5.00875 18.5975 5.0725 20.0362C5.11875 21.015 5.25 21.6737 5.48625 22.2825C5.69875 22.8263 5.94875 23.2175 6.36375 23.6325C6.785 24.0525 7.17625 24.3037 7.71375 24.5112C8.33125 24.75 8.98875 24.8825 9.96375 24.9275C11.3438 24.9925 11.8263 25 15 25C18.0938 25 18.5975 24.9912 20.0362 24.9275C21.0138 24.8812 21.6712 24.75 22.2825 24.5138C22.7925 24.3254 23.2538 24.0251 23.6325 23.635C24.0538 23.215 24.305 22.8237 24.5125 22.285C24.75 21.67 24.8825 21.0125 24.9275 20.035C24.9925 18.6562 25 18.1725 25 15C25 11.9075 24.9912 11.4025 24.9275 9.96375C24.8812 8.98625 24.7488 8.32625 24.5125 7.71625C24.3241 7.20627 24.0238 6.74498 23.6337 6.36625C23.2559 5.97481 22.7944 5.67396 22.2837 5.48625C21.6712 5.24875 21.0138 5.1175 20.0362 5.0725C18.6575 5.0075 18.175 5 15 5M15 2.5C18.3962 2.5 18.82 2.5125 20.1537 2.575C21.4837 2.6375 22.3912 2.84625 23.1875 3.15625C24.0125 3.47375 24.7075 3.90375 25.4025 4.5975C26.0381 5.22237 26.5299 5.97824 26.8438 6.8125C27.1525 7.60875 27.3625 8.51625 27.425 9.8475C27.4838 11.18 27.5 11.6038 27.5 15C27.5 18.3962 27.4875 18.82 27.425 20.1525C27.3625 21.4837 27.1525 22.39 26.8438 23.1875C26.5308 24.0222 26.0389 24.7782 25.4025 25.4025C24.7775 26.0379 24.0216 26.5297 23.1875 26.8438C22.3912 27.1525 21.4837 27.3625 20.1537 27.425C18.82 27.4838 18.3962 27.5 15 27.5C11.6038 27.5 11.18 27.4875 9.84625 27.425C8.51625 27.3625 7.61 27.1525 6.8125 26.8438C5.97791 26.5306 5.22191 26.0387 4.5975 25.4025C3.96179 24.7777 3.46995 24.0218 3.15625 23.1875C2.84625 22.3912 2.6375 21.4837 2.575 20.1525C2.515 18.82 2.5 18.3962 2.5 15C2.5 11.6038 2.5125 11.18 2.575 9.8475C2.6375 8.51625 2.84625 7.61 3.15625 6.8125C3.46905 5.97772 3.961 5.22165 4.5975 4.5975C5.22209 3.96154 5.97804 3.46966 6.8125 3.15625C7.60875 2.84625 8.515 2.6375 9.84625 2.575C11.1812 2.51625 11.605 2.5 15.0013 2.5", "fill", "black"], ["width", "23", "height", "30", "viewBox", "0 0 23 30", "fill", "none", "xmlns", "http://www.w3.org/2000/svg"], ["clip-path", "url(#clip0_11873_529)"], ["d", "M11.9531 0.382812C5.94141 0.382812 0 4.39063 0 10.877C0 15.002 2.32031 17.3457 3.72656 17.3457C4.30664 17.3457 4.64062 15.7285 4.64062 15.2715C4.64062 14.7266 3.25195 13.5664 3.25195 11.2988C3.25195 6.58789 6.83789 3.24805 11.4785 3.24805C15.4688 3.24805 18.4219 5.51562 18.4219 9.68164C18.4219 12.793 17.1738 18.6289 13.1309 18.6289C11.6719 18.6289 10.4238 17.5742 10.4238 16.0625C10.4238 13.8477 11.9707 11.7031 11.9707 9.41797C11.9707 5.53906 6.46875 6.24219 6.46875 10.9297C6.46875 11.9141 6.5918 13.0039 7.03125 13.9004C6.22266 17.3809 4.57031 22.5664 4.57031 26.1523C4.57031 27.2598 4.72852 28.3496 4.83398 29.457C5.0332 29.6797 4.93359 29.6562 5.23828 29.5449C8.19141 25.502 8.08594 24.7109 9.42188 19.4199C10.1426 20.791 12.0059 21.5293 13.4824 21.5293C19.7051 21.5293 22.5 15.4648 22.5 9.99805C22.5 4.17969 17.4727 0.382812 11.9531 0.382812Z", "fill", "black"], ["id", "clip0_11873_529"], ["width", "22.5", "height", "30", "fill", "white"], [2, "display", "flex", "justify-content", "space-between", "padding-bottom", "20px", "border-top", "#C1C7D6 1px solid", "padding-top", "15px"], [2, "cursor", "pointer", 3, "click"], ["style", "cursor: pointer;", 3, "click", 4, "ngIf"], ["style", "cursor: pointer;", 4, "ngIf"], ["style", "cursor: pointer;", 3, "routerLink", 4, "ngIf"]], template: function CustomerFooterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
@@ -166,7 +166,7 @@ CustomerFooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](17, "Warranty");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "div", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "Shipping Policy");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div", 7);
@@ -245,7 +245,9 @@ CustomerFooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.type !== ctx.catalog);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate1"]("routerLink", "/", ctx.bizService.getBizId(), "/about");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate1"]("routerLink", "/", ctx.bizService.getBizId(), "/policies");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate1"]("routerLink", "/", ctx.bizService.getBizId(), "/faqs");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate1"]("routerLink", "/", ctx.bizService.getBizId(), "/contact-us");
@@ -1517,6 +1519,3146 @@ GalleriaModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInj
 
 
 //# sourceMappingURL=primeng-galleria.js.map
+
+/***/ }),
+
+/***/ "3sZV":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js ***!
+  \********************************************************************************/
+/*! exports provided: GoogleMap, GoogleMapsModule, MapBaseLayer, MapBicyclingLayer, MapCircle, MapGroundOverlay, MapInfoWindow, MapKmlLayer, MapMarker, MapMarkerClusterer, MapPolygon, MapPolyline, MapRectangle, MapTrafficLayer, MapTransitLayer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleMap", function() { return GoogleMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsModule", function() { return GoogleMapsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapBaseLayer", function() { return MapBaseLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapBicyclingLayer", function() { return MapBicyclingLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapCircle", function() { return MapCircle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapGroundOverlay", function() { return MapGroundOverlay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapInfoWindow", function() { return MapInfoWindow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapKmlLayer", function() { return MapKmlLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapMarker", function() { return MapMarker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapMarkerClusterer", function() { return MapMarkerClusterer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapPolygon", function() { return MapPolygon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapPolyline", function() { return MapPolyline; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapRectangle", function() { return MapRectangle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapTrafficLayer", function() { return MapTrafficLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapTransitLayer", function() { return MapTransitLayer; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+
+
+
+
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/** Manages event on a Google Maps object, ensuring that events are added only when necessary. */
+
+
+const _c0 = ["*"];
+class MapEventManager {
+    constructor(_ngZone) {
+        this._ngZone = _ngZone;
+        /** Pending listeners that were added before the target was set. */
+        this._pending = [];
+        this._listeners = [];
+        this._targetStream = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+    }
+    /** Clears all currently-registered event listeners. */
+    _clearListeners() {
+        for (const listener of this._listeners) {
+            listener.remove();
+        }
+        this._listeners = [];
+    }
+    /** Gets an observable that adds an event listener to the map when a consumer subscribes to it. */
+    getLazyEmitter(name) {
+        return this._targetStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(target => {
+            const observable = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](observer => {
+                // If the target hasn't been initialized yet, cache the observer so it can be added later.
+                if (!target) {
+                    this._pending.push({ observable, observer });
+                    return undefined;
+                }
+                const listener = target.addListener(name, (event) => {
+                    this._ngZone.run(() => observer.next(event));
+                });
+                this._listeners.push(listener);
+                return () => listener.remove();
+            });
+            return observable;
+        }));
+    }
+    /** Sets the current target that the manager should bind events to. */
+    setTarget(target) {
+        const currentTarget = this._targetStream.value;
+        if (target === currentTarget) {
+            return;
+        }
+        // Clear the listeners from the pre-existing target.
+        if (currentTarget) {
+            this._clearListeners();
+            this._pending = [];
+        }
+        this._targetStream.next(target);
+        // Add the listeners that were bound before the map was initialized.
+        this._pending.forEach(subscriber => subscriber.observable.subscribe(subscriber.observer));
+        this._pending = [];
+    }
+    /** Destroys the manager and clears the event listeners. */
+    destroy() {
+        this._clearListeners();
+        this._pending = [];
+        this._targetStream.complete();
+    }
+}
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/** default options set to the Googleplex */
+const DEFAULT_OPTIONS = {
+    center: { lat: 37.421995, lng: -122.084092 },
+    zoom: 17,
+    // Note: the type conversion here isn't necessary for our CI, but it resolves a g3 failure.
+    mapTypeId: 'roadmap'
+};
+/** Arbitrary default height for the map element */
+const DEFAULT_HEIGHT = '500px';
+/** Arbitrary default width for the map element */
+const DEFAULT_WIDTH = '500px';
+/**
+ * Angular component that renders a Google Map via the Google Maps JavaScript
+ * API.
+ * @see https://developers.google.com/maps/documentation/javascript/reference/
+ */
+class GoogleMap {
+    constructor(_elementRef, _ngZone, platformId) {
+        this._elementRef = _elementRef;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        /** Height of the map. Set this to `null` if you'd like to control the height through CSS. */
+        this.height = DEFAULT_HEIGHT;
+        /** Width of the map. Set this to `null` if you'd like to control the width through CSS. */
+        this.width = DEFAULT_WIDTH;
+        this._options = DEFAULT_OPTIONS;
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.bounds_changed
+         */
+        this.boundsChanged = this._eventManager.getLazyEmitter('bounds_changed');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.center_changed
+         */
+        this.centerChanged = this._eventManager.getLazyEmitter('center_changed');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.click
+         */
+        this.mapClick = this._eventManager
+            .getLazyEmitter('click');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.dblclick
+         */
+        this.mapDblclick = this._eventManager.getLazyEmitter('dblclick');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.drag
+         */
+        this.mapDrag = this._eventManager.getLazyEmitter('drag');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.dragend
+         */
+        this.mapDragend = this._eventManager.getLazyEmitter('dragend');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.dragstart
+         */
+        this.mapDragstart = this._eventManager.getLazyEmitter('dragstart');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.heading_changed
+         */
+        this.headingChanged = this._eventManager.getLazyEmitter('heading_changed');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.idle
+         */
+        this.idle = this._eventManager.getLazyEmitter('idle');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.maptypeid_changed
+         */
+        this.maptypeidChanged = this._eventManager.getLazyEmitter('maptypeid_changed');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.mousemove
+         */
+        this.mapMousemove = this._eventManager.getLazyEmitter('mousemove');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.mouseout
+         */
+        this.mapMouseout = this._eventManager.getLazyEmitter('mouseout');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.mouseover
+         */
+        this.mapMouseover = this._eventManager.getLazyEmitter('mouseover');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/map#Map.projection_changed
+         */
+        this.projectionChanged = this._eventManager.getLazyEmitter('projection_changed');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.rightclick
+         */
+        this.mapRightclick = this._eventManager.getLazyEmitter('rightclick');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.tilesloaded
+         */
+        this.tilesloaded = this._eventManager.getLazyEmitter('tilesloaded');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.tilt_changed
+         */
+        this.tiltChanged = this._eventManager.getLazyEmitter('tilt_changed');
+        /**
+         * See
+         * https://developers.google.com/maps/documentation/javascript/reference/map#Map.zoom_changed
+         */
+        this.zoomChanged = this._eventManager.getLazyEmitter('zoom_changed');
+        this._isBrowser = Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformBrowser"])(platformId);
+        if (this._isBrowser) {
+            const googleMapsWindow = window;
+            if (!googleMapsWindow.google && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+                throw Error('Namespace google not found, cannot construct embedded google ' +
+                    'map. Please install the Google Maps JavaScript API: ' +
+                    'https://developers.google.com/maps/documentation/javascript/' +
+                    'tutorial#Loading_the_Maps_API');
+            }
+        }
+    }
+    set center(center) {
+        this._center = center;
+    }
+    set zoom(zoom) {
+        this._zoom = zoom;
+    }
+    set options(options) {
+        this._options = options || DEFAULT_OPTIONS;
+    }
+    ngOnChanges(changes) {
+        if (changes['height'] || changes['width']) {
+            this._setSize();
+        }
+        const googleMap = this.googleMap;
+        if (googleMap) {
+            if (changes['options']) {
+                googleMap.setOptions(this._combineOptions());
+            }
+            if (changes['center'] && this._center) {
+                googleMap.setCenter(this._center);
+            }
+            // Note that the zoom can be zero.
+            if (changes['zoom'] && this._zoom != null) {
+                googleMap.setZoom(this._zoom);
+            }
+            if (changes['mapTypeId'] && this.mapTypeId) {
+                googleMap.setMapTypeId(this.mapTypeId);
+            }
+        }
+    }
+    ngOnInit() {
+        // It should be a noop during server-side rendering.
+        if (this._isBrowser) {
+            this._mapEl = this._elementRef.nativeElement.querySelector('.map-container');
+            this._setSize();
+            // Create the object outside the zone so its events don't trigger change detection.
+            // We'll bring it back in inside the `MapEventManager` only for the events that the
+            // user has subscribed to.
+            this._ngZone.runOutsideAngular(() => {
+                this.googleMap = new google.maps.Map(this._mapEl, this._combineOptions());
+            });
+            this._eventManager.setTarget(this.googleMap);
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.fitBounds
+     */
+    fitBounds(bounds, padding) {
+        this._assertInitialized();
+        this.googleMap.fitBounds(bounds, padding);
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.panBy
+     */
+    panBy(x, y) {
+        this._assertInitialized();
+        this.googleMap.panBy(x, y);
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.panTo
+     */
+    panTo(latLng) {
+        this._assertInitialized();
+        this.googleMap.panTo(latLng);
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.panToBounds
+     */
+    panToBounds(latLngBounds, padding) {
+        this._assertInitialized();
+        this.googleMap.panToBounds(latLngBounds, padding);
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getBounds
+     */
+    getBounds() {
+        this._assertInitialized();
+        return this.googleMap.getBounds() || null;
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getCenter
+     */
+    getCenter() {
+        this._assertInitialized();
+        return this.googleMap.getCenter();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getClickableIcons
+     */
+    getClickableIcons() {
+        this._assertInitialized();
+        return this.googleMap.getClickableIcons();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getHeading
+     */
+    getHeading() {
+        this._assertInitialized();
+        return this.googleMap.getHeading();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getMapTypeId
+     */
+    getMapTypeId() {
+        this._assertInitialized();
+        return this.googleMap.getMapTypeId();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getProjection
+     */
+    getProjection() {
+        this._assertInitialized();
+        return this.googleMap.getProjection();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getStreetView
+     */
+    getStreetView() {
+        this._assertInitialized();
+        return this.googleMap.getStreetView();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getTilt
+     */
+    getTilt() {
+        this._assertInitialized();
+        return this.googleMap.getTilt();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.getZoom
+     */
+    getZoom() {
+        this._assertInitialized();
+        return this.googleMap.getZoom();
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.controls
+     */
+    get controls() {
+        this._assertInitialized();
+        return this.googleMap.controls;
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.data
+     */
+    get data() {
+        this._assertInitialized();
+        return this.googleMap.data;
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.mapTypes
+     */
+    get mapTypes() {
+        this._assertInitialized();
+        return this.googleMap.mapTypes;
+    }
+    /**
+     * See
+     * https://developers.google.com/maps/documentation/javascript/reference/map#Map.overlayMapTypes
+     */
+    get overlayMapTypes() {
+        this._assertInitialized();
+        return this.googleMap.overlayMapTypes;
+    }
+    _setSize() {
+        if (this._mapEl) {
+            const styles = this._mapEl.style;
+            styles.height =
+                this.height === null ? '' : (coerceCssPixelValue(this.height) || DEFAULT_HEIGHT);
+            styles.width = this.width === null ? '' : (coerceCssPixelValue(this.width) || DEFAULT_WIDTH);
+        }
+    }
+    /** Combines the center and zoom and the other map options into a single object */
+    _combineOptions() {
+        var _a, _b;
+        const options = this._options || {};
+        return Object.assign(Object.assign({}, options), { 
+            // It's important that we set **some** kind of `center` and `zoom`, otherwise
+            // Google Maps will render a blank rectangle which looks broken.
+            center: this._center || options.center || DEFAULT_OPTIONS.center, zoom: (_b = (_a = this._zoom) !== null && _a !== void 0 ? _a : options.zoom) !== null && _b !== void 0 ? _b : DEFAULT_OPTIONS.zoom, 
+            // Passing in an undefined `mapTypeId` seems to break tile loading
+            // so make sure that we have some kind of default (see #22082).
+            mapTypeId: this.mapTypeId || options.mapTypeId || DEFAULT_OPTIONS.mapTypeId });
+    }
+    /** Asserts that the map has been initialized. */
+    _assertInitialized() {
+        if (!this.googleMap && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+            throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                'Please wait for the API to load before trying to interact with it.');
+        }
+    }
+}
+GoogleMap.ɵfac = function GoogleMap_Factory(t) { return new (t || GoogleMap)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"])); };
+GoogleMap.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GoogleMap, selectors: [["google-map"]], inputs: { height: "height", width: "width", center: "center", zoom: "zoom", options: "options", mapTypeId: "mapTypeId" }, outputs: { boundsChanged: "boundsChanged", centerChanged: "centerChanged", mapClick: "mapClick", mapDblclick: "mapDblclick", mapDrag: "mapDrag", mapDragend: "mapDragend", mapDragstart: "mapDragstart", headingChanged: "headingChanged", idle: "idle", maptypeidChanged: "maptypeidChanged", mapMousemove: "mapMousemove", mapMouseout: "mapMouseout", mapMouseover: "mapMouseover", projectionChanged: "projectionChanged", mapRightclick: "mapRightclick", tilesloaded: "tilesloaded", tiltChanged: "tiltChanged", zoomChanged: "zoomChanged" }, exportAs: ["googleMap"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], ngContentSelectors: _c0, decls: 2, vars: 0, consts: [[1, "map-container"]], template: function GoogleMap_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](1);
+    } }, encapsulation: 2, changeDetection: 0 });
+GoogleMap.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] },
+    { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] }
+];
+GoogleMap.propDecorators = {
+    height: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    width: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    mapTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    center: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    zoom: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    boundsChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    centerChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDrag: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDragend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDragstart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    headingChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    idle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    maptypeidChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMousemove: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMouseout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMouseover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    projectionChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapRightclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    tilesloaded: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    tiltChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    zoomChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GoogleMap, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'google-map',
+                exportAs: 'googleMap',
+                changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+                template: '<div class="map-container"></div><ng-content></ng-content>',
+                encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }, { type: Object, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
+                args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]]
+            }] }]; }, { height: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], width: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], boundsChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], centerChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDrag: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDragend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDragstart: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], headingChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], idle: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], maptypeidChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMousemove: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMouseout: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMouseover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], projectionChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapRightclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], tilesloaded: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], tiltChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], zoomChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], center: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], zoom: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], mapTypeId: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+const cssUnitsPattern = /([A-Za-z%]+)$/;
+/** Coerces a value to a CSS pixel value. */
+function coerceCssPixelValue(value) {
+    if (value == null) {
+        return '';
+    }
+    return cssUnitsPattern.test(value) ? value : `${value}px`;
+}
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+class MapBaseLayer {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._ngZone.runOutsideAngular(() => {
+                this._initializeObject();
+            });
+            this._assertInitialized();
+            this._setMap();
+        }
+    }
+    ngOnDestroy() {
+        this._unsetMap();
+    }
+    _assertInitialized() {
+        if (!this._map.googleMap) {
+            throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                'Please wait for the API to load before trying to interact with it.');
+        }
+    }
+    _initializeObject() { }
+    _setMap() { }
+    _unsetMap() { }
+}
+MapBaseLayer.ɵfac = function MapBaseLayer_Factory(t) { return new (t || MapBaseLayer)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapBaseLayer.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapBaseLayer, selectors: [["map-base-layer"]], exportAs: ["mapBaseLayer"] });
+MapBaseLayer.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapBaseLayer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-base-layer',
+                exportAs: 'mapBaseLayer'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, null); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Bicycling Layer via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/map#BicyclingLayer
+ */
+class MapBicyclingLayer extends MapBaseLayer {
+    _initializeObject() {
+        this.bicyclingLayer = new google.maps.BicyclingLayer();
+    }
+    _setMap() {
+        this._assertLayerInitialized();
+        this.bicyclingLayer.setMap(this._map.googleMap);
+    }
+    _unsetMap() {
+        if (this.bicyclingLayer) {
+            this.bicyclingLayer.setMap(null);
+        }
+    }
+    _assertLayerInitialized() {
+        if (!this.bicyclingLayer) {
+            throw Error('Cannot interact with a Google Map Bicycling Layer before it has been initialized. ' +
+                'Please wait for the Transit Layer to load before trying to interact with it.');
+        }
+    }
+}
+MapBicyclingLayer.ɵfac = function MapBicyclingLayer_Factory(t) { return ɵMapBicyclingLayer_BaseFactory(t || MapBicyclingLayer); };
+MapBicyclingLayer.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapBicyclingLayer, selectors: [["map-bicycling-layer"]], exportAs: ["mapBicyclingLayer"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]] });
+const ɵMapBicyclingLayer_BaseFactory = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](MapBicyclingLayer);
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapBicyclingLayer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-bicycling-layer',
+                exportAs: 'mapBicyclingLayer'
+            }]
+    }], null, null); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Circle via the Google Maps JavaScript API.
+ * @see developers.google.com/maps/documentation/javascript/reference/polygon#Circle
+ */
+class MapCircle {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._options = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+        this._center = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._radius = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.center_changed
+         */
+        this.centerChanged = this._eventManager.getLazyEmitter('center_changed');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.click
+         */
+        this.circleClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.dblclick
+         */
+        this.circleDblclick = this._eventManager.getLazyEmitter('dblclick');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.drag
+         */
+        this.circleDrag = this._eventManager.getLazyEmitter('drag');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.dragend
+         */
+        this.circleDragend = this._eventManager.getLazyEmitter('dragend');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.dragstart
+         */
+        this.circleDragstart = this._eventManager.getLazyEmitter('dragstart');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.mousedown
+         */
+        this.circleMousedown = this._eventManager.getLazyEmitter('mousedown');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.mousemove
+         */
+        this.circleMousemove = this._eventManager.getLazyEmitter('mousemove');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.mouseout
+         */
+        this.circleMouseout = this._eventManager.getLazyEmitter('mouseout');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.mouseover
+         */
+        this.circleMouseover = this._eventManager.getLazyEmitter('mouseover');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.mouseup
+         */
+        this.circleMouseup = this._eventManager.getLazyEmitter('mouseup');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.radius_changed
+         */
+        this.radiusChanged = this._eventManager.getLazyEmitter('radius_changed');
+        /**
+         * @see
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.rightclick
+         */
+        this.circleRightclick = this._eventManager.getLazyEmitter('rightclick');
+    }
+    set options(options) {
+        this._options.next(options || {});
+    }
+    set center(center) {
+        this._center.next(center);
+    }
+    set radius(radius) {
+        this._radius.next(radius);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                this._ngZone.runOutsideAngular(() => {
+                    this.circle = new google.maps.Circle(options);
+                });
+                this._assertInitialized();
+                this.circle.setMap(this._map.googleMap);
+                this._eventManager.setTarget(this.circle);
+            });
+            this._watchForOptionsChanges();
+            this._watchForCenterChanges();
+            this._watchForRadiusChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.circle) {
+            this.circle.setMap(null);
+        }
+    }
+    /**
+     * @see
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.getBounds
+     */
+    getBounds() {
+        this._assertInitialized();
+        return this.circle.getBounds();
+    }
+    /**
+     * @see
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.getCenter
+     */
+    getCenter() {
+        this._assertInitialized();
+        return this.circle.getCenter();
+    }
+    /**
+     * @see
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.getDraggable
+     */
+    getDraggable() {
+        this._assertInitialized();
+        return this.circle.getDraggable();
+    }
+    /**
+     * @see
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.getEditable
+     */
+    getEditable() {
+        this._assertInitialized();
+        return this.circle.getEditable();
+    }
+    /**
+     * @see
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.getRadius
+     */
+    getRadius() {
+        this._assertInitialized();
+        return this.circle.getRadius();
+    }
+    /**
+     * @see
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Circle.getVisible
+     */
+    getVisible() {
+        this._assertInitialized();
+        return this.circle.getVisible();
+    }
+    _combineOptions() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])([this._options, this._center, this._radius])
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(([options, center, radius]) => {
+            const combinedOptions = Object.assign(Object.assign({}, options), { center: center || options.center, radius: radius !== undefined ? radius : options.radius });
+            return combinedOptions;
+        }));
+    }
+    _watchForOptionsChanges() {
+        this._options.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(options => {
+            this._assertInitialized();
+            this.circle.setOptions(options);
+        });
+    }
+    _watchForCenterChanges() {
+        this._center.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(center => {
+            if (center) {
+                this._assertInitialized();
+                this.circle.setCenter(center);
+            }
+        });
+    }
+    _watchForRadiusChanges() {
+        this._radius.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(radius => {
+            if (radius !== undefined) {
+                this._assertInitialized();
+                this.circle.setRadius(radius);
+            }
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._map.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.circle) {
+                throw Error('Cannot interact with a Google Map Circle before it has been ' +
+                    'initialized. Please wait for the Circle to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapCircle.ɵfac = function MapCircle_Factory(t) { return new (t || MapCircle)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapCircle.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapCircle, selectors: [["map-circle"]], inputs: { options: "options", center: "center", radius: "radius" }, outputs: { centerChanged: "centerChanged", circleClick: "circleClick", circleDblclick: "circleDblclick", circleDrag: "circleDrag", circleDragend: "circleDragend", circleDragstart: "circleDragstart", circleMousedown: "circleMousedown", circleMousemove: "circleMousemove", circleMouseout: "circleMouseout", circleMouseover: "circleMouseover", circleMouseup: "circleMouseup", radiusChanged: "radiusChanged", circleRightclick: "circleRightclick" }, exportAs: ["mapCircle"] });
+MapCircle.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapCircle.propDecorators = {
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    center: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    radius: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    centerChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleDrag: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleDragend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleDragstart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleMousedown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleMousemove: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleMouseout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleMouseover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleMouseup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    radiusChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    circleRightclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapCircle, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-circle',
+                exportAs: 'mapCircle'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { centerChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleDrag: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleDragend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleDragstart: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleMousedown: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleMousemove: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleMouseout: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleMouseover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleMouseup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], radiusChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], circleRightclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], center: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], radius: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Ground Overlay via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/image-overlay#GroundOverlay
+ */
+class MapGroundOverlay {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._opacity = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](1);
+        this._url = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('');
+        this._bounds = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /** Whether the overlay is clickable */
+        this.clickable = false;
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/image-overlay#GroundOverlay.click
+         */
+        this.mapClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/image-overlay
+         * #GroundOverlay.dblclick
+         */
+        this.mapDblclick = this._eventManager.getLazyEmitter('dblclick');
+    }
+    /** URL of the image that will be shown in the overlay. */
+    set url(url) {
+        this._url.next(url);
+    }
+    /** Bounds for the overlay. */
+    get bounds() {
+        return this._bounds.value;
+    }
+    set bounds(bounds) {
+        this._bounds.next(bounds);
+    }
+    /** Opacity of the overlay. */
+    set opacity(opacity) {
+        this._opacity.next(opacity);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            // The ground overlay setup is slightly different from the other Google Maps objects in that
+            // we have to recreate the `GroundOverlay` object whenever the bounds change, because
+            // Google Maps doesn't provide an API to update the bounds of an existing overlay.
+            this._bounds.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(bounds => {
+                if (this.groundOverlay) {
+                    this.groundOverlay.setMap(null);
+                    this.groundOverlay = undefined;
+                }
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                if (bounds) {
+                    this._ngZone.runOutsideAngular(() => {
+                        this.groundOverlay = new google.maps.GroundOverlay(this._url.getValue(), bounds, {
+                            clickable: this.clickable,
+                            opacity: this._opacity.value,
+                        });
+                    });
+                    this._assertInitialized();
+                    this.groundOverlay.setMap(this._map.googleMap);
+                    this._eventManager.setTarget(this.groundOverlay);
+                }
+            });
+            this._watchForOpacityChanges();
+            this._watchForUrlChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.groundOverlay) {
+            this.groundOverlay.setMap(null);
+        }
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/image-overlay
+     * #GroundOverlay.getBounds
+     */
+    getBounds() {
+        this._assertInitialized();
+        return this.groundOverlay.getBounds();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/image-overlay
+     * #GroundOverlay.getOpacity
+     */
+    getOpacity() {
+        this._assertInitialized();
+        return this.groundOverlay.getOpacity();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/image-overlay
+     * #GroundOverlay.getUrl
+     */
+    getUrl() {
+        this._assertInitialized();
+        return this.groundOverlay.getUrl();
+    }
+    _watchForOpacityChanges() {
+        this._opacity.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(opacity => {
+            if (opacity != null) {
+                this._assertInitialized();
+                this.groundOverlay.setOpacity(opacity);
+            }
+        });
+    }
+    _watchForUrlChanges() {
+        this._url.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(url => {
+            this._assertInitialized();
+            const overlay = this.groundOverlay;
+            overlay.set('url', url);
+            // Google Maps only redraws the overlay if we re-set the map.
+            overlay.setMap(null);
+            overlay.setMap(this._map.googleMap);
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._map.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.groundOverlay) {
+                throw Error('Cannot interact with a Google Map GroundOverlay before it has been initialized. ' +
+                    'Please wait for the GroundOverlay to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapGroundOverlay.ɵfac = function MapGroundOverlay_Factory(t) { return new (t || MapGroundOverlay)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapGroundOverlay.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapGroundOverlay, selectors: [["map-ground-overlay"]], inputs: { clickable: "clickable", url: "url", bounds: "bounds", opacity: "opacity" }, outputs: { mapClick: "mapClick", mapDblclick: "mapDblclick" }, exportAs: ["mapGroundOverlay"] });
+MapGroundOverlay.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapGroundOverlay.propDecorators = {
+    url: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    bounds: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    clickable: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    opacity: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    mapClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapGroundOverlay, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-ground-overlay',
+                exportAs: 'mapGroundOverlay'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { clickable: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], mapClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], url: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], bounds: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], opacity: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps info window via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/info-window
+ */
+class MapInfoWindow {
+    constructor(_googleMap, _elementRef, _ngZone) {
+        this._googleMap = _googleMap;
+        this._elementRef = _elementRef;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._options = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+        this._position = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._destroy = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow.closeclick
+         */
+        this.closeclick = this._eventManager.getLazyEmitter('closeclick');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/info-window
+         * #InfoWindow.content_changed
+         */
+        this.contentChanged = this._eventManager.getLazyEmitter('content_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow.domready
+         */
+        this.domready = this._eventManager.getLazyEmitter('domready');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/info-window
+         * #InfoWindow.position_changed
+         */
+        this.positionChanged = this._eventManager.getLazyEmitter('position_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/info-window
+         * #InfoWindow.zindex_changed
+         */
+        this.zindexChanged = this._eventManager.getLazyEmitter('zindex_changed');
+    }
+    set options(options) {
+        this._options.next(options || {});
+    }
+    set position(position) {
+        this._position.next(position);
+    }
+    ngOnInit() {
+        if (this._googleMap._isBrowser) {
+            const combinedOptionsChanges = this._combineOptions();
+            combinedOptionsChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                this._ngZone.runOutsideAngular(() => {
+                    this.infoWindow = new google.maps.InfoWindow(options);
+                });
+                this._eventManager.setTarget(this.infoWindow);
+            });
+            this._watchForOptionsChanges();
+            this._watchForPositionChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroy.next();
+        this._destroy.complete();
+        // If no info window has been created on the server, we do not try closing it.
+        // On the server, an info window cannot be created and this would cause errors.
+        if (this.infoWindow) {
+            this.close();
+        }
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow.close
+     */
+    close() {
+        this._assertInitialized();
+        this.infoWindow.close();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow.getContent
+     */
+    getContent() {
+        this._assertInitialized();
+        return this.infoWindow.getContent();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/info-window
+     * #InfoWindow.getPosition
+     */
+    getPosition() {
+        this._assertInitialized();
+        return this.infoWindow.getPosition();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow.getZIndex
+     */
+    getZIndex() {
+        this._assertInitialized();
+        return this.infoWindow.getZIndex();
+    }
+    /**
+     * Opens the MapInfoWindow using the provided anchor. If the anchor is not set,
+     * then the position property of the options input is used instead.
+     */
+    open(anchor) {
+        this._assertInitialized();
+        const anchorObject = anchor ? anchor.getAnchor() : undefined;
+        // Prevent the info window from initializing when trying to reopen on the same anchor.
+        // Note that when the window is opened for the first time, the anchor will always be
+        // undefined. If that's the case, we have to allow it to open in order to handle the
+        // case where the window doesn't have an anchor, but is placed at a particular position.
+        if (this.infoWindow.get('anchor') !== anchorObject || !anchorObject) {
+            this._elementRef.nativeElement.style.display = '';
+            this.infoWindow.open(this._googleMap.googleMap, anchorObject);
+        }
+    }
+    _combineOptions() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])([this._options, this._position]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(([options, position]) => {
+            const combinedOptions = Object.assign(Object.assign({}, options), { position: position || options.position, content: this._elementRef.nativeElement });
+            return combinedOptions;
+        }));
+    }
+    _watchForOptionsChanges() {
+        this._options.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroy)).subscribe(options => {
+            this._assertInitialized();
+            this.infoWindow.setOptions(options);
+        });
+    }
+    _watchForPositionChanges() {
+        this._position.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroy)).subscribe(position => {
+            if (position) {
+                this._assertInitialized();
+                this.infoWindow.setPosition(position);
+            }
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._googleMap.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.infoWindow) {
+                throw Error('Cannot interact with a Google Map Info Window before it has been ' +
+                    'initialized. Please wait for the Info Window to load before trying to interact with ' +
+                    'it.');
+            }
+        }
+    }
+}
+MapInfoWindow.ɵfac = function MapInfoWindow_Factory(t) { return new (t || MapInfoWindow)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapInfoWindow.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapInfoWindow, selectors: [["map-info-window"]], hostAttrs: [2, "display", "none"], inputs: { options: "options", position: "position" }, outputs: { closeclick: "closeclick", contentChanged: "contentChanged", domready: "domready", positionChanged: "positionChanged", zindexChanged: "zindexChanged" }, exportAs: ["mapInfoWindow"] });
+MapInfoWindow.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapInfoWindow.propDecorators = {
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    position: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    closeclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    contentChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    domready: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    positionChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    zindexChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapInfoWindow, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-info-window',
+                exportAs: 'mapInfoWindow',
+                host: { 'style': 'display: none' }
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { closeclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], contentChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], domready: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], positionChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], zindexChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], position: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps KML Layer via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer
+ */
+class MapKmlLayer {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._options = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+        this._url = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('');
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.click
+         */
+        this.kmlClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/kml
+         * #KmlLayer.defaultviewport_changed
+         */
+        this.defaultviewportChanged = this._eventManager.getLazyEmitter('defaultviewport_changed');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.status_changed
+         */
+        this.statusChanged = this._eventManager.getLazyEmitter('status_changed');
+    }
+    set options(options) {
+        this._options.next(options || {});
+    }
+    set url(url) {
+        this._url.next(url);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                this._ngZone.runOutsideAngular(() => this.kmlLayer = new google.maps.KmlLayer(options));
+                this._assertInitialized();
+                this.kmlLayer.setMap(this._map.googleMap);
+                this._eventManager.setTarget(this.kmlLayer);
+            });
+            this._watchForOptionsChanges();
+            this._watchForUrlChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.kmlLayer) {
+            this.kmlLayer.setMap(null);
+        }
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.getDefaultViewport
+     */
+    getDefaultViewport() {
+        this._assertInitialized();
+        return this.kmlLayer.getDefaultViewport();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.getMetadata
+     */
+    getMetadata() {
+        this._assertInitialized();
+        return this.kmlLayer.getMetadata();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.getStatus
+     */
+    getStatus() {
+        this._assertInitialized();
+        return this.kmlLayer.getStatus();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.getUrl
+     */
+    getUrl() {
+        this._assertInitialized();
+        return this.kmlLayer.getUrl();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/kml#KmlLayer.getZIndex
+     */
+    getZIndex() {
+        this._assertInitialized();
+        return this.kmlLayer.getZIndex();
+    }
+    _combineOptions() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])([this._options, this._url]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(([options, url]) => {
+            const combinedOptions = Object.assign(Object.assign({}, options), { url: url || options.url });
+            return combinedOptions;
+        }));
+    }
+    _watchForOptionsChanges() {
+        this._options.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(options => {
+            if (this.kmlLayer) {
+                this._assertInitialized();
+                this.kmlLayer.setOptions(options);
+            }
+        });
+    }
+    _watchForUrlChanges() {
+        this._url.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(url => {
+            if (url && this.kmlLayer) {
+                this._assertInitialized();
+                this.kmlLayer.setUrl(url);
+            }
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._map.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.kmlLayer) {
+                throw Error('Cannot interact with a Google Map KmlLayer before it has been ' +
+                    'initialized. Please wait for the KmlLayer to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapKmlLayer.ɵfac = function MapKmlLayer_Factory(t) { return new (t || MapKmlLayer)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapKmlLayer.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapKmlLayer, selectors: [["map-kml-layer"]], inputs: { options: "options", url: "url" }, outputs: { kmlClick: "kmlClick", defaultviewportChanged: "defaultviewportChanged", statusChanged: "statusChanged" }, exportAs: ["mapKmlLayer"] });
+MapKmlLayer.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapKmlLayer.propDecorators = {
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    url: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    kmlClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    defaultviewportChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    statusChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapKmlLayer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-kml-layer',
+                exportAs: 'mapKmlLayer'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { kmlClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], defaultviewportChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], statusChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], url: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Default options for the Google Maps marker component. Displays a marker
+ * at the Googleplex.
+ */
+const DEFAULT_MARKER_OPTIONS = {
+    position: { lat: 37.421995, lng: -122.084092 },
+};
+/**
+ * Angular component that renders a Google Maps marker via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/marker
+ */
+class MapMarker {
+    constructor(_googleMap, _ngZone) {
+        this._googleMap = _googleMap;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.animation_changed
+         */
+        this.animationChanged = this._eventManager.getLazyEmitter('animation_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.click
+         */
+        this.mapClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.clickable_changed
+         */
+        this.clickableChanged = this._eventManager.getLazyEmitter('clickable_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.cursor_changed
+         */
+        this.cursorChanged = this._eventManager.getLazyEmitter('cursor_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.dblclick
+         */
+        this.mapDblclick = this._eventManager.getLazyEmitter('dblclick');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.drag
+         */
+        this.mapDrag = this._eventManager.getLazyEmitter('drag');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.dragend
+         */
+        this.mapDragend = this._eventManager.getLazyEmitter('dragend');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.draggable_changed
+         */
+        this.draggableChanged = this._eventManager.getLazyEmitter('draggable_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.dragstart
+         */
+        this.mapDragstart = this._eventManager.getLazyEmitter('dragstart');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.flat_changed
+         */
+        this.flatChanged = this._eventManager.getLazyEmitter('flat_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.icon_changed
+         */
+        this.iconChanged = this._eventManager.getLazyEmitter('icon_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.mousedown
+         */
+        this.mapMousedown = this._eventManager.getLazyEmitter('mousedown');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.mouseout
+         */
+        this.mapMouseout = this._eventManager.getLazyEmitter('mouseout');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.mouseover
+         */
+        this.mapMouseover = this._eventManager.getLazyEmitter('mouseover');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.mouseup
+         */
+        this.mapMouseup = this._eventManager.getLazyEmitter('mouseup');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.position_changed
+         */
+        this.positionChanged = this._eventManager.getLazyEmitter('position_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.rightclick
+         */
+        this.mapRightclick = this._eventManager.getLazyEmitter('rightclick');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.shape_changed
+         */
+        this.shapeChanged = this._eventManager.getLazyEmitter('shape_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.title_changed
+         */
+        this.titleChanged = this._eventManager.getLazyEmitter('title_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.visible_changed
+         */
+        this.visibleChanged = this._eventManager.getLazyEmitter('visible_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/marker#Marker.zindex_changed
+         */
+        this.zindexChanged = this._eventManager.getLazyEmitter('zindex_changed');
+    }
+    /**
+     * Title of the marker.
+     * See: developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions.title
+     */
+    set title(title) {
+        this._title = title;
+    }
+    /**
+     * Position of the marker. See:
+     * developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions.position
+     */
+    set position(position) {
+        this._position = position;
+    }
+    /**
+     * Label for the marker.
+     * See: developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions.label
+     */
+    set label(label) {
+        this._label = label;
+    }
+    /**
+     * Whether the marker is clickable. See:
+     * developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions.clickable
+     */
+    set clickable(clickable) {
+        this._clickable = clickable;
+    }
+    /**
+     * Options used to configure the marker.
+     * See: developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions
+     */
+    set options(options) {
+        this._options = options;
+    }
+    ngOnInit() {
+        if (this._googleMap._isBrowser) {
+            // Create the object outside the zone so its events don't trigger change detection.
+            // We'll bring it back in inside the `MapEventManager` only for the events that the
+            // user has subscribed to.
+            this._ngZone.runOutsideAngular(() => {
+                this.marker = new google.maps.Marker(this._combineOptions());
+            });
+            this._assertInitialized();
+            this.marker.setMap(this._googleMap.googleMap);
+            this._eventManager.setTarget(this.marker);
+        }
+    }
+    ngOnChanges(changes) {
+        const { marker, _title, _position, _label, _clickable } = this;
+        if (marker) {
+            if (changes['options']) {
+                marker.setOptions(this._combineOptions());
+            }
+            if (changes['title'] && _title !== undefined) {
+                marker.setTitle(_title);
+            }
+            if (changes['position'] && _position) {
+                marker.setPosition(_position);
+            }
+            if (changes['label'] && _label !== undefined) {
+                marker.setLabel(_label);
+            }
+            if (changes['clickable'] && _clickable !== undefined) {
+                marker.setClickable(_clickable);
+            }
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        if (this.marker) {
+            this.marker.setMap(null);
+        }
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getAnimation
+     */
+    getAnimation() {
+        this._assertInitialized();
+        return this.marker.getAnimation() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getClickable
+     */
+    getClickable() {
+        this._assertInitialized();
+        return this.marker.getClickable();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getCursor
+     */
+    getCursor() {
+        this._assertInitialized();
+        return this.marker.getCursor() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getDraggable
+     */
+    getDraggable() {
+        this._assertInitialized();
+        return !!this.marker.getDraggable();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getIcon
+     */
+    getIcon() {
+        this._assertInitialized();
+        return this.marker.getIcon() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getLabel
+     */
+    getLabel() {
+        this._assertInitialized();
+        return this.marker.getLabel() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getOpacity
+     */
+    getOpacity() {
+        this._assertInitialized();
+        return this.marker.getOpacity() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getPosition
+     */
+    getPosition() {
+        this._assertInitialized();
+        return this.marker.getPosition() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getShape
+     */
+    getShape() {
+        this._assertInitialized();
+        return this.marker.getShape() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getTitle
+     */
+    getTitle() {
+        this._assertInitialized();
+        return this.marker.getTitle() || null;
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getVisible
+     */
+    getVisible() {
+        this._assertInitialized();
+        return this.marker.getVisible();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/marker#Marker.getZIndex
+     */
+    getZIndex() {
+        this._assertInitialized();
+        return this.marker.getZIndex() || null;
+    }
+    /** Gets the anchor point that can be used to attach other Google Maps objects. */
+    getAnchor() {
+        this._assertInitialized();
+        return this.marker;
+    }
+    /** Creates a combined options object using the passed-in options and the individual inputs. */
+    _combineOptions() {
+        const options = this._options || DEFAULT_MARKER_OPTIONS;
+        return Object.assign(Object.assign({}, options), { title: this._title || options.title, position: this._position || options.position, label: this._label || options.label, clickable: this._clickable !== undefined ? this._clickable : options.clickable, map: this._googleMap.googleMap });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._googleMap.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.marker) {
+                throw Error('Cannot interact with a Google Map Marker before it has been ' +
+                    'initialized. Please wait for the Marker to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapMarker.ɵfac = function MapMarker_Factory(t) { return new (t || MapMarker)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapMarker.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapMarker, selectors: [["map-marker"]], inputs: { title: "title", position: "position", label: "label", clickable: "clickable", options: "options" }, outputs: { animationChanged: "animationChanged", mapClick: "mapClick", clickableChanged: "clickableChanged", cursorChanged: "cursorChanged", mapDblclick: "mapDblclick", mapDrag: "mapDrag", mapDragend: "mapDragend", draggableChanged: "draggableChanged", mapDragstart: "mapDragstart", flatChanged: "flatChanged", iconChanged: "iconChanged", mapMousedown: "mapMousedown", mapMouseout: "mapMouseout", mapMouseover: "mapMouseover", mapMouseup: "mapMouseup", positionChanged: "positionChanged", mapRightclick: "mapRightclick", shapeChanged: "shapeChanged", titleChanged: "titleChanged", visibleChanged: "visibleChanged", zindexChanged: "zindexChanged" }, exportAs: ["mapMarker"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
+MapMarker.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapMarker.propDecorators = {
+    title: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    position: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    label: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    clickable: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    animationChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    clickableChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    cursorChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDrag: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDragend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    draggableChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapDragstart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    flatChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    iconChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMousedown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMouseout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMouseover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapMouseup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    positionChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    mapRightclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    shapeChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    titleChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    visibleChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    zindexChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapMarker, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-marker',
+                exportAs: 'mapMarker'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { animationChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], clickableChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], cursorChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDrag: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDragend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], draggableChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapDragstart: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], flatChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], iconChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMousedown: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMouseout: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMouseover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapMouseup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], positionChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], mapRightclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], shapeChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], titleChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], visibleChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], zindexChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], title: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], position: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], label: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], clickable: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component for implementing a Google Maps Marker Clusterer.
+ *
+ * See https://developers.google.com/maps/documentation/javascript/marker-clustering
+ */
+class MapMarkerClusterer {
+    constructor(_googleMap, _ngZone) {
+        this._googleMap = _googleMap;
+        this._ngZone = _ngZone;
+        this._currentMarkers = new Set();
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._destroy = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.ariaLabelFn = () => '';
+        /**
+         * See
+         * googlemaps.github.io/v3-utility-library/modules/
+         * _google_markerclustererplus.html#clusteringbegin
+         */
+        this.clusteringbegin = this._eventManager.getLazyEmitter('clusteringbegin');
+        /**
+         * See
+         * googlemaps.github.io/v3-utility-library/modules/_google_markerclustererplus.html#clusteringend
+         */
+        this.clusteringend = this._eventManager.getLazyEmitter('clusteringend');
+        this._canInitialize = this._googleMap._isBrowser;
+    }
+    set averageCenter(averageCenter) {
+        this._averageCenter = averageCenter;
+    }
+    set batchSizeIE(batchSizeIE) {
+        this._batchSizeIE = batchSizeIE;
+    }
+    set calculator(calculator) {
+        this._calculator = calculator;
+    }
+    set clusterClass(clusterClass) {
+        this._clusterClass = clusterClass;
+    }
+    set enableRetinaIcons(enableRetinaIcons) {
+        this._enableRetinaIcons = enableRetinaIcons;
+    }
+    set gridSize(gridSize) {
+        this._gridSize = gridSize;
+    }
+    set ignoreHidden(ignoreHidden) {
+        this._ignoreHidden = ignoreHidden;
+    }
+    set imageExtension(imageExtension) {
+        this._imageExtension = imageExtension;
+    }
+    set imagePath(imagePath) {
+        this._imagePath = imagePath;
+    }
+    set imageSizes(imageSizes) {
+        this._imageSizes = imageSizes;
+    }
+    set maxZoom(maxZoom) {
+        this._maxZoom = maxZoom;
+    }
+    set minimumClusterSize(minimumClusterSize) {
+        this._minimumClusterSize = minimumClusterSize;
+    }
+    set styles(styles) {
+        this._styles = styles;
+    }
+    set title(title) {
+        this._title = title;
+    }
+    set zIndex(zIndex) {
+        this._zIndex = zIndex;
+    }
+    set zoomOnClick(zoomOnClick) {
+        this._zoomOnClick = zoomOnClick;
+    }
+    ngOnInit() {
+        if (this._canInitialize) {
+            // Create the object outside the zone so its events don't trigger change detection.
+            // We'll bring it back in inside the `MapEventManager` only for the events that the
+            // user has subscribed to.
+            this._ngZone.runOutsideAngular(() => {
+                this.markerClusterer = new MarkerClusterer(this._googleMap.googleMap, [], this._combineOptions());
+            });
+            this._assertInitialized();
+            this._eventManager.setTarget(this.markerClusterer);
+        }
+    }
+    ngAfterContentInit() {
+        if (this._canInitialize) {
+            this._watchForMarkerChanges();
+        }
+    }
+    ngOnChanges(changes) {
+        const { markerClusterer: clusterer, ariaLabelFn, _averageCenter, _batchSizeIE, _calculator, _styles, _clusterClass, _enableRetinaIcons, _gridSize, _ignoreHidden, _imageExtension, _imagePath, _imageSizes, _maxZoom, _minimumClusterSize, _title, _zIndex, _zoomOnClick } = this;
+        if (clusterer) {
+            if (changes['ariaLabelFn']) {
+                clusterer.ariaLabelFn = ariaLabelFn;
+            }
+            if (changes['averageCenter'] && _averageCenter !== undefined) {
+                clusterer.setAverageCenter(_averageCenter);
+            }
+            if (changes['batchSizeIE'] && _batchSizeIE !== undefined) {
+                clusterer.setBatchSizeIE(_batchSizeIE);
+            }
+            if (changes['calculator'] && _calculator) {
+                clusterer.setCalculator(_calculator);
+            }
+            if (changes['clusterClass'] && _clusterClass !== undefined) {
+                clusterer.setClusterClass(_clusterClass);
+            }
+            if (changes['enableRetinaIcons'] && _enableRetinaIcons !== undefined) {
+                clusterer.setEnableRetinaIcons(_enableRetinaIcons);
+            }
+            if (changes['gridSize'] && _gridSize !== undefined) {
+                clusterer.setGridSize(_gridSize);
+            }
+            if (changes['ignoreHidden'] && _ignoreHidden !== undefined) {
+                clusterer.setIgnoreHidden(_ignoreHidden);
+            }
+            if (changes['imageExtension'] && _imageExtension !== undefined) {
+                clusterer.setImageExtension(_imageExtension);
+            }
+            if (changes['imagePath'] && _imagePath !== undefined) {
+                clusterer.setImagePath(_imagePath);
+            }
+            if (changes['imageSizes'] && _imageSizes) {
+                clusterer.setImageSizes(_imageSizes);
+            }
+            if (changes['maxZoom'] && _maxZoom !== undefined) {
+                clusterer.setMaxZoom(_maxZoom);
+            }
+            if (changes['minimumClusterSize'] && _minimumClusterSize !== undefined) {
+                clusterer.setMinimumClusterSize(_minimumClusterSize);
+            }
+            if (changes['styles'] && _styles) {
+                clusterer.setStyles(_styles);
+            }
+            if (changes['title'] && _title !== undefined) {
+                clusterer.setTitle(_title);
+            }
+            if (changes['zIndex'] && _zIndex !== undefined) {
+                clusterer.setZIndex(_zIndex);
+            }
+            if (changes['zoomOnClick'] && _zoomOnClick !== undefined) {
+                clusterer.setZoomOnClick(_zoomOnClick);
+            }
+        }
+    }
+    ngOnDestroy() {
+        this._destroy.next();
+        this._destroy.complete();
+        this._eventManager.destroy();
+        if (this.markerClusterer) {
+            this.markerClusterer.setMap(null);
+        }
+    }
+    fitMapToMarkers(padding) {
+        this._assertInitialized();
+        this.markerClusterer.fitMapToMarkers(padding);
+    }
+    getAverageCenter() {
+        this._assertInitialized();
+        return this.markerClusterer.getAverageCenter();
+    }
+    getBatchSizeIE() {
+        this._assertInitialized();
+        return this.markerClusterer.getBatchSizeIE();
+    }
+    getCalculator() {
+        this._assertInitialized();
+        return this.markerClusterer.getCalculator();
+    }
+    getClusterClass() {
+        this._assertInitialized();
+        return this.markerClusterer.getClusterClass();
+    }
+    getClusters() {
+        this._assertInitialized();
+        return this.markerClusterer.getClusters();
+    }
+    getEnableRetinaIcons() {
+        this._assertInitialized();
+        return this.markerClusterer.getEnableRetinaIcons();
+    }
+    getGridSize() {
+        this._assertInitialized();
+        return this.markerClusterer.getGridSize();
+    }
+    getIgnoreHidden() {
+        this._assertInitialized();
+        return this.markerClusterer.getIgnoreHidden();
+    }
+    getImageExtension() {
+        this._assertInitialized();
+        return this.markerClusterer.getImageExtension();
+    }
+    getImagePath() {
+        this._assertInitialized();
+        return this.markerClusterer.getImagePath();
+    }
+    getImageSizes() {
+        this._assertInitialized();
+        return this.markerClusterer.getImageSizes();
+    }
+    getMaxZoom() {
+        this._assertInitialized();
+        return this.markerClusterer.getMaxZoom();
+    }
+    getMinimumClusterSize() {
+        this._assertInitialized();
+        return this.markerClusterer.getMinimumClusterSize();
+    }
+    getStyles() {
+        this._assertInitialized();
+        return this.markerClusterer.getStyles();
+    }
+    getTitle() {
+        this._assertInitialized();
+        return this.markerClusterer.getTitle();
+    }
+    getTotalClusters() {
+        this._assertInitialized();
+        return this.markerClusterer.getTotalClusters();
+    }
+    getTotalMarkers() {
+        this._assertInitialized();
+        return this.markerClusterer.getTotalMarkers();
+    }
+    getZIndex() {
+        this._assertInitialized();
+        return this.markerClusterer.getZIndex();
+    }
+    getZoomOnClick() {
+        this._assertInitialized();
+        return this.markerClusterer.getZoomOnClick();
+    }
+    _combineOptions() {
+        return {
+            ariaLabelFn: this.ariaLabelFn,
+            averageCenter: this._averageCenter,
+            batchSize: this.batchSize,
+            batchSizeIE: this._batchSizeIE,
+            calculator: this._calculator,
+            clusterClass: this._clusterClass,
+            enableRetinaIcons: this._enableRetinaIcons,
+            gridSize: this._gridSize,
+            ignoreHidden: this._ignoreHidden,
+            imageExtension: this._imageExtension,
+            imagePath: this._imagePath,
+            imageSizes: this._imageSizes,
+            maxZoom: this._maxZoom,
+            minimumClusterSize: this._minimumClusterSize,
+            styles: this._styles,
+            title: this._title,
+            zIndex: this._zIndex,
+            zoomOnClick: this._zoomOnClick,
+        };
+    }
+    _watchForMarkerChanges() {
+        this._assertInitialized();
+        const initialMarkers = [];
+        for (const marker of this._getInternalMarkers(this._markers.toArray())) {
+            this._currentMarkers.add(marker);
+            initialMarkers.push(marker);
+        }
+        this.markerClusterer.addMarkers(initialMarkers);
+        this._markers.changes.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroy)).subscribe((markerComponents) => {
+            this._assertInitialized();
+            const newMarkers = new Set(this._getInternalMarkers(markerComponents));
+            const markersToAdd = [];
+            const markersToRemove = [];
+            for (const marker of Array.from(newMarkers)) {
+                if (!this._currentMarkers.has(marker)) {
+                    this._currentMarkers.add(marker);
+                    markersToAdd.push(marker);
+                }
+            }
+            for (const marker of Array.from(this._currentMarkers)) {
+                if (!newMarkers.has(marker)) {
+                    markersToRemove.push(marker);
+                }
+            }
+            this.markerClusterer.addMarkers(markersToAdd, true);
+            this.markerClusterer.removeMarkers(markersToRemove, true);
+            this.markerClusterer.repaint();
+            for (const marker of markersToRemove) {
+                this._currentMarkers.delete(marker);
+            }
+        });
+    }
+    _getInternalMarkers(markers) {
+        return markers.filter(markerComponent => !!markerComponent.marker)
+            .map(markerComponent => markerComponent.marker);
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._googleMap.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.markerClusterer) {
+                throw Error('Cannot interact with a MarkerClusterer before it has been initialized. ' +
+                    'Please wait for the MarkerClusterer to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapMarkerClusterer.ɵfac = function MapMarkerClusterer_Factory(t) { return new (t || MapMarkerClusterer)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapMarkerClusterer.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapMarkerClusterer, selectors: [["map-marker-clusterer"]], contentQueries: function MapMarkerClusterer_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵcontentQuery"](dirIndex, MapMarker, 1);
+    } if (rf & 2) {
+        let _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx._markers = _t);
+    } }, inputs: { ariaLabelFn: "ariaLabelFn", averageCenter: "averageCenter", batchSizeIE: "batchSizeIE", calculator: "calculator", clusterClass: "clusterClass", enableRetinaIcons: "enableRetinaIcons", gridSize: "gridSize", ignoreHidden: "ignoreHidden", imageExtension: "imageExtension", imagePath: "imagePath", imageSizes: "imageSizes", maxZoom: "maxZoom", minimumClusterSize: "minimumClusterSize", styles: "styles", title: "title", zIndex: "zIndex", zoomOnClick: "zoomOnClick", batchSize: "batchSize" }, outputs: { clusteringbegin: "clusteringbegin", clusteringend: "clusteringend" }, exportAs: ["mapMarkerClusterer"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], ngContentSelectors: _c0, decls: 1, vars: 0, template: function MapMarkerClusterer_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](0);
+    } }, encapsulation: 2, changeDetection: 0 });
+MapMarkerClusterer.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapMarkerClusterer.propDecorators = {
+    ariaLabelFn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    averageCenter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    batchSize: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    batchSizeIE: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    calculator: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    clusterClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    enableRetinaIcons: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    gridSize: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    ignoreHidden: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    imageExtension: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    imagePath: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    imageSizes: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    maxZoom: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    minimumClusterSize: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    styles: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    title: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    zIndex: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    zoomOnClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    clusteringbegin: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    clusteringend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    _markers: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"], args: [MapMarker, { descendants: true },] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapMarkerClusterer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'map-marker-clusterer',
+                exportAs: 'mapMarkerClusterer',
+                changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+                template: '<ng-content></ng-content>',
+                encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { ariaLabelFn: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], clusteringbegin: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], clusteringend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], averageCenter: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], batchSizeIE: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], calculator: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], clusterClass: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], enableRetinaIcons: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], gridSize: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], ignoreHidden: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], imageExtension: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], imagePath: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], imageSizes: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], maxZoom: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], minimumClusterSize: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], styles: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], title: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], zIndex: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], zoomOnClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], batchSize: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], _markers: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"],
+            args: [MapMarker, { descendants: true }]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Polygon via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon
+ */
+class MapPolygon {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._options = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+        this._paths = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.click
+         */
+        this.polygonClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.dblclick
+         */
+        this.polygonDblclick = this._eventManager.getLazyEmitter('dblclick');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.drag
+         */
+        this.polygonDrag = this._eventManager.getLazyEmitter('drag');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.dragend
+         */
+        this.polygonDragend = this._eventManager.getLazyEmitter('dragend');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.dragstart
+         */
+        this.polygonDragstart = this._eventManager.getLazyEmitter('dragstart');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.mousedown
+         */
+        this.polygonMousedown = this._eventManager.getLazyEmitter('mousedown');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.mousemove
+         */
+        this.polygonMousemove = this._eventManager.getLazyEmitter('mousemove');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.mouseout
+         */
+        this.polygonMouseout = this._eventManager.getLazyEmitter('mouseout');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.mouseover
+         */
+        this.polygonMouseover = this._eventManager.getLazyEmitter('mouseover');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.mouseup
+         */
+        this.polygonMouseup = this._eventManager.getLazyEmitter('mouseup');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.rightclick
+         */
+        this.polygonRightclick = this._eventManager.getLazyEmitter('rightclick');
+    }
+    set options(options) {
+        this._options.next(options || {});
+    }
+    set paths(paths) {
+        this._paths.next(paths);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                this._ngZone.runOutsideAngular(() => {
+                    this.polygon = new google.maps.Polygon(options);
+                });
+                this._assertInitialized();
+                this.polygon.setMap(this._map.googleMap);
+                this._eventManager.setTarget(this.polygon);
+            });
+            this._watchForOptionsChanges();
+            this._watchForPathChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.polygon) {
+            this.polygon.setMap(null);
+        }
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.getDraggable
+     */
+    getDraggable() {
+        this._assertInitialized();
+        return this.polygon.getDraggable();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.getEditable
+     */
+    getEditable() {
+        this._assertInitialized();
+        return this.polygon.getEditable();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.getPath
+     */
+    getPath() {
+        this._assertInitialized();
+        return this.polygon.getPath();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.getPaths
+     */
+    getPaths() {
+        this._assertInitialized();
+        return this.polygon.getPaths();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polygon.getVisible
+     */
+    getVisible() {
+        this._assertInitialized();
+        return this.polygon.getVisible();
+    }
+    _combineOptions() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])([this._options, this._paths]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(([options, paths]) => {
+            const combinedOptions = Object.assign(Object.assign({}, options), { paths: paths || options.paths });
+            return combinedOptions;
+        }));
+    }
+    _watchForOptionsChanges() {
+        this._options.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(options => {
+            this._assertInitialized();
+            this.polygon.setOptions(options);
+        });
+    }
+    _watchForPathChanges() {
+        this._paths.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(paths => {
+            if (paths) {
+                this._assertInitialized();
+                this.polygon.setPaths(paths);
+            }
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._map.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.polygon) {
+                throw Error('Cannot interact with a Google Map Polygon before it has been ' +
+                    'initialized. Please wait for the Polygon to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapPolygon.ɵfac = function MapPolygon_Factory(t) { return new (t || MapPolygon)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapPolygon.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapPolygon, selectors: [["map-polygon"]], inputs: { options: "options", paths: "paths" }, outputs: { polygonClick: "polygonClick", polygonDblclick: "polygonDblclick", polygonDrag: "polygonDrag", polygonDragend: "polygonDragend", polygonDragstart: "polygonDragstart", polygonMousedown: "polygonMousedown", polygonMousemove: "polygonMousemove", polygonMouseout: "polygonMouseout", polygonMouseover: "polygonMouseover", polygonMouseup: "polygonMouseup", polygonRightclick: "polygonRightclick" }, exportAs: ["mapPolygon"] });
+MapPolygon.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapPolygon.propDecorators = {
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    paths: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    polygonClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonDrag: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonDragend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonDragstart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonMousedown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonMousemove: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonMouseout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonMouseover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonMouseup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polygonRightclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapPolygon, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-polygon',
+                exportAs: 'mapPolygon'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { polygonClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonDrag: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonDragend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonDragstart: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonMousedown: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonMousemove: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonMouseout: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonMouseover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonMouseup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polygonRightclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], paths: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Polyline via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline
+ */
+class MapPolyline {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._options = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+        this._path = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.click
+         */
+        this.polylineClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.dblclick
+         */
+        this.polylineDblclick = this._eventManager.getLazyEmitter('dblclick');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.drag
+         */
+        this.polylineDrag = this._eventManager.getLazyEmitter('drag');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.dragend
+         */
+        this.polylineDragend = this._eventManager.getLazyEmitter('dragend');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.dragstart
+         */
+        this.polylineDragstart = this._eventManager.getLazyEmitter('dragstart');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.mousedown
+         */
+        this.polylineMousedown = this._eventManager.getLazyEmitter('mousedown');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.mousemove
+         */
+        this.polylineMousemove = this._eventManager.getLazyEmitter('mousemove');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.mouseout
+         */
+        this.polylineMouseout = this._eventManager.getLazyEmitter('mouseout');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.mouseover
+         */
+        this.polylineMouseover = this._eventManager.getLazyEmitter('mouseover');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.mouseup
+         */
+        this.polylineMouseup = this._eventManager.getLazyEmitter('mouseup');
+        /**
+         * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.rightclick
+         */
+        this.polylineRightclick = this._eventManager.getLazyEmitter('rightclick');
+    }
+    set options(options) {
+        this._options.next(options || {});
+    }
+    set path(path) {
+        this._path.next(path);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                this._ngZone.runOutsideAngular(() => this.polyline = new google.maps.Polyline(options));
+                this._assertInitialized();
+                this.polyline.setMap(this._map.googleMap);
+                this._eventManager.setTarget(this.polyline);
+            });
+            this._watchForOptionsChanges();
+            this._watchForPathChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.polyline) {
+            this.polyline.setMap(null);
+        }
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.getDraggable
+     */
+    getDraggable() {
+        this._assertInitialized();
+        return this.polyline.getDraggable();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.getEditable
+     */
+    getEditable() {
+        this._assertInitialized();
+        return this.polyline.getEditable();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.getPath
+     */
+    getPath() {
+        this._assertInitialized();
+        return this.polyline.getPath();
+    }
+    /**
+     * See developers.google.com/maps/documentation/javascript/reference/polygon#Polyline.getVisible
+     */
+    getVisible() {
+        this._assertInitialized();
+        return this.polyline.getVisible();
+    }
+    _combineOptions() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])([this._options, this._path]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(([options, path]) => {
+            const combinedOptions = Object.assign(Object.assign({}, options), { path: path || options.path });
+            return combinedOptions;
+        }));
+    }
+    _watchForOptionsChanges() {
+        this._options.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(options => {
+            this._assertInitialized();
+            this.polyline.setOptions(options);
+        });
+    }
+    _watchForPathChanges() {
+        this._path.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(path => {
+            if (path) {
+                this._assertInitialized();
+                this.polyline.setPath(path);
+            }
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._map.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.polyline) {
+                throw Error('Cannot interact with a Google Map Polyline before it has been ' +
+                    'initialized. Please wait for the Polyline to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapPolyline.ɵfac = function MapPolyline_Factory(t) { return new (t || MapPolyline)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapPolyline.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapPolyline, selectors: [["map-polyline"]], inputs: { options: "options", path: "path" }, outputs: { polylineClick: "polylineClick", polylineDblclick: "polylineDblclick", polylineDrag: "polylineDrag", polylineDragend: "polylineDragend", polylineDragstart: "polylineDragstart", polylineMousedown: "polylineMousedown", polylineMousemove: "polylineMousemove", polylineMouseout: "polylineMouseout", polylineMouseover: "polylineMouseover", polylineMouseup: "polylineMouseup", polylineRightclick: "polylineRightclick" }, exportAs: ["mapPolyline"] });
+MapPolyline.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapPolyline.propDecorators = {
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    path: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    polylineClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineDrag: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineDragend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineDragstart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineMousedown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineMousemove: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineMouseout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineMouseover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineMouseup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    polylineRightclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapPolyline, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-polyline',
+                exportAs: 'mapPolyline'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { polylineClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineDrag: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineDragend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineDragstart: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineMousedown: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineMousemove: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineMouseout: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineMouseover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineMouseup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], polylineRightclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], path: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Rectangle via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle
+ */
+class MapRectangle {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._eventManager = new MapEventManager(this._ngZone);
+        this._options = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+        this._bounds = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](undefined);
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.boundsChanged
+         */
+        this.boundsChanged = this._eventManager.getLazyEmitter('bounds_changed');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.click
+         */
+        this.rectangleClick = this._eventManager.getLazyEmitter('click');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.dblclick
+         */
+        this.rectangleDblclick = this._eventManager.getLazyEmitter('dblclick');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.drag
+         */
+        this.rectangleDrag = this._eventManager.getLazyEmitter('drag');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.dragend
+         */
+        this.rectangleDragend = this._eventManager.getLazyEmitter('dragend');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.dragstart
+         */
+        this.rectangleDragstart = this._eventManager.getLazyEmitter('dragstart');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.mousedown
+         */
+        this.rectangleMousedown = this._eventManager.getLazyEmitter('mousedown');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.mousemove
+         */
+        this.rectangleMousemove = this._eventManager.getLazyEmitter('mousemove');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.mouseout
+         */
+        this.rectangleMouseout = this._eventManager.getLazyEmitter('mouseout');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.mouseover
+         */
+        this.rectangleMouseover = this._eventManager.getLazyEmitter('mouseover');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.mouseup
+         */
+        this.rectangleMouseup = this._eventManager.getLazyEmitter('mouseup');
+        /**
+         * See
+         * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.rightclick
+         */
+        this.rectangleRightclick = this._eventManager.getLazyEmitter('rightclick');
+    }
+    set options(options) {
+        this._options.next(options || {});
+    }
+    set bounds(bounds) {
+        this._bounds.next(bounds);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                // We'll bring it back in inside the `MapEventManager` only for the events that the
+                // user has subscribed to.
+                this._ngZone.runOutsideAngular(() => {
+                    this.rectangle = new google.maps.Rectangle(options);
+                });
+                this._assertInitialized();
+                this.rectangle.setMap(this._map.googleMap);
+                this._eventManager.setTarget(this.rectangle);
+            });
+            this._watchForOptionsChanges();
+            this._watchForBoundsChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._eventManager.destroy();
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.rectangle) {
+            this.rectangle.setMap(null);
+        }
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.getBounds
+     */
+    getBounds() {
+        this._assertInitialized();
+        return this.rectangle.getBounds();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.getDraggable
+     */
+    getDraggable() {
+        this._assertInitialized();
+        return this.rectangle.getDraggable();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.getEditable
+     */
+    getEditable() {
+        this._assertInitialized();
+        return this.rectangle.getEditable();
+    }
+    /**
+     * See
+     * developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle.getVisible
+     */
+    getVisible() {
+        this._assertInitialized();
+        return this.rectangle.getVisible();
+    }
+    _combineOptions() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])([this._options, this._bounds]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(([options, bounds]) => {
+            const combinedOptions = Object.assign(Object.assign({}, options), { bounds: bounds || options.bounds });
+            return combinedOptions;
+        }));
+    }
+    _watchForOptionsChanges() {
+        this._options.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(options => {
+            this._assertInitialized();
+            this.rectangle.setOptions(options);
+        });
+    }
+    _watchForBoundsChanges() {
+        this._bounds.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(bounds => {
+            if (bounds) {
+                this._assertInitialized();
+                this.rectangle.setBounds(bounds);
+            }
+        });
+    }
+    _assertInitialized() {
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (!this._map.googleMap) {
+                throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                    'Please wait for the API to load before trying to interact with it.');
+            }
+            if (!this.rectangle) {
+                throw Error('Cannot interact with a Google Map Rectangle before it has been initialized. ' +
+                    'Please wait for the Rectangle to load before trying to interact with it.');
+            }
+        }
+    }
+}
+MapRectangle.ɵfac = function MapRectangle_Factory(t) { return new (t || MapRectangle)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapRectangle.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapRectangle, selectors: [["map-rectangle"]], inputs: { options: "options", bounds: "bounds" }, outputs: { boundsChanged: "boundsChanged", rectangleClick: "rectangleClick", rectangleDblclick: "rectangleDblclick", rectangleDrag: "rectangleDrag", rectangleDragend: "rectangleDragend", rectangleDragstart: "rectangleDragstart", rectangleMousedown: "rectangleMousedown", rectangleMousemove: "rectangleMousemove", rectangleMouseout: "rectangleMouseout", rectangleMouseover: "rectangleMouseover", rectangleMouseup: "rectangleMouseup", rectangleRightclick: "rectangleRightclick" }, exportAs: ["mapRectangle"] });
+MapRectangle.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapRectangle.propDecorators = {
+    options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    bounds: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    boundsChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleDblclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleDrag: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleDragend: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleDragstart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleMousedown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleMousemove: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleMouseout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleMouseover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleMouseup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    rectangleRightclick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapRectangle, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-rectangle',
+                exportAs: 'mapRectangle'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { boundsChanged: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleDblclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleDrag: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleDragend: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleDragstart: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleMousedown: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleMousemove: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleMouseout: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleMouseover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleMouseup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rectangleRightclick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], options: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], bounds: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Traffic Layer via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/map#TrafficLayer
+ */
+class MapTrafficLayer {
+    constructor(_map, _ngZone) {
+        this._map = _map;
+        this._ngZone = _ngZone;
+        this._autoRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    /**
+     * Whether the traffic layer refreshes with updated information automatically.
+     */
+    set autoRefresh(autoRefresh) {
+        this._autoRefresh.next(autoRefresh);
+    }
+    ngOnInit() {
+        if (this._map._isBrowser) {
+            this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(options => {
+                // Create the object outside the zone so its events don't trigger change detection.
+                this._ngZone.runOutsideAngular(() => {
+                    this.trafficLayer = new google.maps.TrafficLayer(options);
+                });
+                this._assertInitialized();
+                this.trafficLayer.setMap(this._map.googleMap);
+            });
+            this._watchForAutoRefreshChanges();
+        }
+    }
+    ngOnDestroy() {
+        this._destroyed.next();
+        this._destroyed.complete();
+        if (this.trafficLayer) {
+            this.trafficLayer.setMap(null);
+        }
+    }
+    _combineOptions() {
+        return this._autoRefresh.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(autoRefresh => {
+            const combinedOptions = { autoRefresh };
+            return combinedOptions;
+        }));
+    }
+    _watchForAutoRefreshChanges() {
+        this._combineOptions().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed)).subscribe(options => {
+            this._assertInitialized();
+            this.trafficLayer.setOptions(options);
+        });
+    }
+    _assertInitialized() {
+        if (!this._map.googleMap) {
+            throw Error('Cannot access Google Map information before the API has been initialized. ' +
+                'Please wait for the API to load before trying to interact with it.');
+        }
+        if (!this.trafficLayer) {
+            throw Error('Cannot interact with a Google Map Traffic Layer before it has been initialized. ' +
+                'Please wait for the Traffic Layer to load before trying to interact with it.');
+        }
+    }
+}
+MapTrafficLayer.ɵfac = function MapTrafficLayer_Factory(t) { return new (t || MapTrafficLayer)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](GoogleMap), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+MapTrafficLayer.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapTrafficLayer, selectors: [["map-traffic-layer"]], inputs: { autoRefresh: "autoRefresh" }, exportAs: ["mapTrafficLayer"] });
+MapTrafficLayer.ctorParameters = () => [
+    { type: GoogleMap },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+MapTrafficLayer.propDecorators = {
+    autoRefresh: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapTrafficLayer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-traffic-layer',
+                exportAs: 'mapTrafficLayer'
+            }]
+    }], function () { return [{ type: GoogleMap }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, { autoRefresh: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Angular component that renders a Google Maps Transit Layer via the Google Maps JavaScript API.
+ *
+ * See developers.google.com/maps/documentation/javascript/reference/map#TransitLayer
+ */
+class MapTransitLayer extends MapBaseLayer {
+    _initializeObject() {
+        this.transitLayer = new google.maps.TransitLayer();
+    }
+    _setMap() {
+        this._assertLayerInitialized();
+        this.transitLayer.setMap(this._map.googleMap);
+    }
+    _unsetMap() {
+        if (this.transitLayer) {
+            this.transitLayer.setMap(null);
+        }
+    }
+    _assertLayerInitialized() {
+        if (!this.transitLayer) {
+            throw Error('Cannot interact with a Google Map Transit Layer before it has been initialized. ' +
+                'Please wait for the Transit Layer to load before trying to interact with it.');
+        }
+    }
+}
+MapTransitLayer.ɵfac = function MapTransitLayer_Factory(t) { return ɵMapTransitLayer_BaseFactory(t || MapTransitLayer); };
+MapTransitLayer.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: MapTransitLayer, selectors: [["map-transit-layer"]], exportAs: ["mapTransitLayer"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]] });
+const ɵMapTransitLayer_BaseFactory = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](MapTransitLayer);
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapTransitLayer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: 'map-transit-layer',
+                exportAs: 'mapTransitLayer'
+            }]
+    }], null, null); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+const COMPONENTS = [
+    GoogleMap,
+    MapBaseLayer,
+    MapBicyclingLayer,
+    MapCircle,
+    MapGroundOverlay,
+    MapInfoWindow,
+    MapKmlLayer,
+    MapMarker,
+    MapMarkerClusterer,
+    MapPolygon,
+    MapPolyline,
+    MapRectangle,
+    MapTrafficLayer,
+    MapTransitLayer,
+];
+class GoogleMapsModule {
+}
+GoogleMapsModule.ɵfac = function GoogleMapsModule_Factory(t) { return new (t || GoogleMapsModule)(); };
+GoogleMapsModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: GoogleMapsModule });
+GoogleMapsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({});
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](GoogleMapsModule, { declarations: [GoogleMap, MapBaseLayer, MapBicyclingLayer, MapCircle, MapGroundOverlay, MapInfoWindow, MapKmlLayer, MapMarker, MapMarkerClusterer, MapPolygon, MapPolyline, MapRectangle, MapTrafficLayer, MapTransitLayer], exports: [GoogleMap, MapBaseLayer, MapBicyclingLayer, MapCircle, MapGroundOverlay, MapInfoWindow, MapKmlLayer, MapMarker, MapMarkerClusterer, MapPolygon, MapPolyline, MapRectangle, MapTrafficLayer, MapTransitLayer] }); })();
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GoogleMapsModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                declarations: COMPONENTS,
+                exports: COMPONENTS
+            }]
+    }], null, null); })();
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=google-maps.js.map
 
 /***/ }),
 
@@ -6241,8 +9383,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_biz_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/biz.service */ "Epua");
 /* harmony import */ var src_app_services_api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/api.service */ "H+bZ");
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../header/header.component */ "MR1q");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _customer_footer_customer_footer_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../customer-footer/customer-footer.component */ "1zey");
+/* harmony import */ var _angular_google_maps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/google-maps */ "3sZV");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _customer_footer_customer_footer_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../customer-footer/customer-footer.component */ "1zey");
 
 
 
@@ -6252,33 +9395,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ContactUsComponent_small_19_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 26);
+
+function ContactUsComponent_small_21_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " firstName is required ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
-function ContactUsComponent_small_24_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 26);
+function ContactUsComponent_small_26_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " lastName is required ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
-function ContactUsComponent_small_30_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 26);
+function ContactUsComponent_small_32_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " email is required ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
-function ContactUsComponent_small_31_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 26);
+function ContactUsComponent_small_33_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Invalid Email ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
-function ContactUsComponent_small_36_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 26);
+function ContactUsComponent_small_38_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " phone is required ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
-function ContactUsComponent_small_41_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 26);
+function ContactUsComponent_small_43_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " message is required ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
@@ -6290,6 +9434,10 @@ class ContactUsComponent {
         this.formBuilder = formBuilder;
         this.bizService = bizService;
         this.apiService = apiService;
+        this.options = {
+            center: { lat: 40, lng: -20 },
+            zoom: 4
+        };
         this.contactUsForm = this.formBuilder.group({
             firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
             lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
@@ -6325,7 +9473,7 @@ class ContactUsComponent {
     }
 }
 ContactUsComponent.ɵfac = function ContactUsComponent_Factory(t) { return new (t || ContactUsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](primeng_api__WEBPACK_IMPORTED_MODULE_2__["MessageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_biz_service__WEBPACK_IMPORTED_MODULE_3__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_4__["ApiService"])); };
-ContactUsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ContactUsComponent, selectors: [["app-contact-us"]], decls: 51, vars: 13, consts: [[2, "min-height", "100vh", "display", "flex", "flex-direction", "column", "max-width", "100vw", "overflow-x", "hidden"], [1, "row", "main-content", 2, "margin-top", "220px", "margin-bottom", "50px"], [2, "padding-left", "100px", "padding-right", "100px", "display", "flex", "column-gap", "30px"], [2, "flex", "1"], [2, "font-size", "24px", "font-weight", "bold"], [2, "border", "1px solid #C1C7D6"], [3, "formGroup", "ngSubmit"], ["contactForm", "ngForm"], [2, "display", "flex", "column-gap", "20px"], [1, "form-group", 2, "flex", "1"], ["for", "firstName"], ["placeholder", "Enter First Name", "type", "text", "id", "firstName", "formControlName", "firstName", 1, "form-control", 2, "border-radius", "15px"], ["style", "color: red; font-size: 12px; padding-left: 15px;", 4, "ngIf"], ["for", "lastName"], ["placeholder", "Enter Last Name", "type", "text", "id", "lastName", "formControlName", "lastName", 1, "form-control", 2, "border-radius", "15px"], ["for", "email"], ["placeholder", "Enter Email", "type", "email", "id", "email", "formControlName", "email", 1, "form-control", 2, "border-radius", "15px"], ["for", "phone"], ["placeholder", "Enter Phone Number", "type", "tel", "id", "phone", "formControlName", "phone", 1, "form-control", 2, "border-radius", "15px"], [1, "form-group"], ["for", "message"], ["placeholder", "Enter Message", "id", "message", "rows", "4", "formControlName", "message", 1, "form-control", 2, "border-radius", "15px"], [2, "display", "flex", "justify-content", "center", "flex-direction", "column", "align-items", "center"], ["type", "submit", 1, "", 2, "border-radius", "20px", "width", "300px", "border", "none", "color", "white", "padding", "15px", 3, "ngStyle"], [3, "ngStyle"], [2, "padding-top", "20px", "bottom", "0", "width", "100%"], [2, "color", "red", "font-size", "12px", "padding-left", "15px"]], template: function ContactUsComponent_Template(rf, ctx) { if (rf & 1) {
+ContactUsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ContactUsComponent, selectors: [["app-contact-us"]], decls: 53, vars: 14, consts: [[2, "min-height", "100vh", "display", "flex", "flex-direction", "column", "max-width", "100vw", "overflow-x", "hidden"], [1, "row", "main-content", 2, "margin-top", "220px", "margin-bottom", "50px"], [2, "padding-left", "100px", "padding-right", "100px", "display", "flex", "column-gap", "40px"], [2, "flex", "1"], [2, "font-size", "24px", "font-weight", "bold"], [2, "border", "1px solid #C1C7D6"], [2, "margin-bottom", "30px"], [2, "border-radius", "20px"], ["width", "100%", "height", "400px", 3, "options"], [3, "formGroup", "ngSubmit"], ["contactForm", "ngForm"], [2, "display", "flex", "column-gap", "20px"], [1, "form-group", 2, "flex", "1"], ["for", "firstName"], ["placeholder", "Enter First Name", "type", "text", "id", "firstName", "formControlName", "firstName", 1, "form-control", 2, "border-radius", "15px"], ["style", "color: red; font-size: 12px; padding-left: 15px;", 4, "ngIf"], ["for", "lastName"], ["placeholder", "Enter Last Name", "type", "text", "id", "lastName", "formControlName", "lastName", 1, "form-control", 2, "border-radius", "15px"], ["for", "email"], ["placeholder", "Enter Email", "type", "email", "id", "email", "formControlName", "email", 1, "form-control", 2, "border-radius", "15px"], ["for", "phone"], ["placeholder", "Enter Phone Number", "type", "tel", "id", "phone", "formControlName", "phone", 1, "form-control", 2, "border-radius", "15px"], [1, "form-group"], ["for", "message"], ["placeholder", "Enter Message", "id", "message", "rows", "4", "formControlName", "message", 1, "form-control", 2, "border-radius", "15px"], [2, "display", "flex", "justify-content", "center", "flex-direction", "column", "align-items", "center"], ["type", "submit", 1, "", 2, "border-radius", "20px", "width", "300px", "border", "none", "color", "white", "padding", "15px", 3, "ngStyle"], [3, "ngStyle"], [2, "padding-top", "20px", "bottom", "0", "width", "100%"], [2, "color", "red", "font-size", "12px", "padding-left", "15px"]], template: function ContactUsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "main", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "header");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "app-header");
@@ -6337,74 +9485,79 @@ ContactUsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Contact Us");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](8, "hr", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Contact us today if you have any questions or inquiries");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "form", 6, 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngSubmit", function ContactUsComponent_Template_form_ngSubmit_12_listener() { return ctx.submitForm(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "label", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](17, "First Name:");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](18, "input", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](19, ContactUsComponent_small_19_Template, 2, 0, "small", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "label", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "Last Name:");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](23, "input", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](24, ContactUsComponent_small_24_Template, 2, 0, "small", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](12, "google-map", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "label", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "Email:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "form", 9, 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngSubmit", function ContactUsComponent_Template_form_ngSubmit_14_listener() { return ctx.submitForm(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "label", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "First Name:");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](29, "input", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](30, ContactUsComponent_small_30_Template, 2, 0, "small", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](31, ContactUsComponent_small_31_Template, 2, 0, "small", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](20, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](21, ContactUsComponent_small_21_Template, 2, 0, "small", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "label", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](34, "Phone Number:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "label", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "Last Name:");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](35, "input", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](36, ContactUsComponent_small_36_Template, 2, 0, "small", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](38, "label", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](39, "Message:");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](40, "textarea", 21);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](41, ContactUsComponent_small_41_Template, 2, 0, "small", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "div", 22);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "button", 23);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](44, "Contact");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](46, "Email us for other inquires ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "span", 24);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Send us an email");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](25, "input", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](26, ContactUsComponent_small_26_Template, 2, 0, "small", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "div", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "label", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](30, "Email:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](31, "input", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](32, ContactUsComponent_small_32_Template, 2, 0, "small", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](33, ContactUsComponent_small_33_Template, 2, 0, "small", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](35, "label", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](36, "Phone Number:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](37, "input", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](38, ContactUsComponent_small_38_Template, 2, 0, "small", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "label", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, "Message:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](42, "textarea", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](43, ContactUsComponent_small_43_Template, 2, 0, "small", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](44, "div", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "button", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](46, "Contact");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Email us for other inquires ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](49, "span", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](50, "Send us an email");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](49, "footer", 25);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](50, "app-customer-footer");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](51, "footer", 28);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](52, "app-customer-footer");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("options", ctx.options);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("formGroup", ctx.contactUsForm);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.contactUsForm.get("firstName").hasError("required") && ctx.contactUsForm.get("firstName").touched);
@@ -6419,10 +9572,10 @@ ContactUsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.contactUsForm.get("message").hasError("required") && ctx.contactUsForm.get("message").touched);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](9, _c0, ctx.bizService.get_background_color()));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](10, _c0, ctx.bizService.get_background_color()));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](11, _c1, ctx.bizService.get_background_color()));
-    } }, directives: [_header_header_component__WEBPACK_IMPORTED_MODULE_5__["HeaderComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgStyle"], _customer_footer_customer_footer_component__WEBPACK_IMPORTED_MODULE_7__["CustomerFooterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0LXVzLmNvbXBvbmVudC5zY3NzIn0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](12, _c1, ctx.bizService.get_background_color()));
+    } }, directives: [_header_header_component__WEBPACK_IMPORTED_MODULE_5__["HeaderComponent"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_6__["GoogleMap"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgStyle"], _customer_footer_customer_footer_component__WEBPACK_IMPORTED_MODULE_8__["CustomerFooterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0LXVzLmNvbXBvbmVudC5zY3NzIn0= */"] });
 
 
 /***/ }),
@@ -9289,8 +12442,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./views/contact-us/contact-us.component */ "PUU/");
 /* harmony import */ var _views_company_policy_company_policy_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./views/company-policy/company-policy.component */ "WSYD");
 /* harmony import */ var _views_about_about_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./views/about/about.component */ "7wzR");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_google_maps__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/google-maps */ "3sZV");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
 
 
 
@@ -9339,12 +12494,13 @@ class HomeModule {
     }
 }
 HomeModule.ɵfac = function HomeModule_Factory(t) { return new (t || HomeModule)(); };
-HomeModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_39__["ɵɵdefineNgModule"]({ type: HomeModule });
-HomeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_39__["ɵɵdefineInjector"]({ providers: [
+HomeModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵdefineNgModule"]({ type: HomeModule });
+HomeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵdefineInjector"]({ providers: [
         primeng_api__WEBPACK_IMPORTED_MODULE_29__["MessageService"],
         primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_30__["DialogService"],
         primeng_toast__WEBPACK_IMPORTED_MODULE_31__["ToastModule"],
-        primeng_accordion__WEBPACK_IMPORTED_MODULE_35__["AccordionModule"]
+        primeng_accordion__WEBPACK_IMPORTED_MODULE_35__["AccordionModule"],
+        _angular_google_maps__WEBPACK_IMPORTED_MODULE_39__["GoogleMapsModule"],
     ], imports: [[
             _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"],
@@ -9356,8 +12512,9 @@ HomeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_39__["ɵɵdefineInject
             primeng_carousel__WEBPACK_IMPORTED_MODULE_26__["CarouselModule"],
             primeng_accordion__WEBPACK_IMPORTED_MODULE_35__["AccordionModule"],
             primeng_toast__WEBPACK_IMPORTED_MODULE_31__["ToastModule"],
+            _angular_google_maps__WEBPACK_IMPORTED_MODULE_39__["GoogleMapsModule"],
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_39__["ɵɵsetNgModuleScope"](HomeModule, { declarations: [_pipe_title_case_pipe__WEBPACK_IMPORTED_MODULE_23__["TitleCasePipe"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵsetNgModuleScope"](HomeModule, { declarations: [_pipe_title_case_pipe__WEBPACK_IMPORTED_MODULE_23__["TitleCasePipe"],
         _views_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
         _views_item_detail_item_detail_component__WEBPACK_IMPORTED_MODULE_7__["ItemDetailComponent"],
         _views_item_detail_desktop_item_detail_desktop_component__WEBPACK_IMPORTED_MODULE_6__["ItemDetailDesktopComponent"],
@@ -9394,9 +12551,10 @@ HomeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_39__["ɵɵdefineInject
         primeng_galleria__WEBPACK_IMPORTED_MODULE_25__["GalleriaModule"],
         primeng_carousel__WEBPACK_IMPORTED_MODULE_26__["CarouselModule"],
         primeng_accordion__WEBPACK_IMPORTED_MODULE_35__["AccordionModule"],
-        primeng_toast__WEBPACK_IMPORTED_MODULE_31__["ToastModule"]], exports: [_views_spin_loader_spin_loader_component__WEBPACK_IMPORTED_MODULE_22__["SpinLoaderComponent"]] }); })();
-_angular_core__WEBPACK_IMPORTED_MODULE_39__["ɵɵsetComponentScope"](_views_search_search_component__WEBPACK_IMPORTED_MODULE_10__["SearchComponent"], [_views_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
-    _directives_hover_activated_accordion_directive__WEBPACK_IMPORTED_MODULE_15__["HoverActivatedAccordionDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_0__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_40__["RouterLinkWithHref"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_0__["NgIf"], _directives_dynamic_size_directive__WEBPACK_IMPORTED_MODULE_16__["DynamicSizeDirective"], _angular_router__WEBPACK_IMPORTED_MODULE_40__["RouterLink"], _views_customer_footer_customer_footer_component__WEBPACK_IMPORTED_MODULE_32__["CustomerFooterComponent"]], [_pipe_title_case_pipe__WEBPACK_IMPORTED_MODULE_23__["TitleCasePipe"]]);
+        primeng_toast__WEBPACK_IMPORTED_MODULE_31__["ToastModule"],
+        _angular_google_maps__WEBPACK_IMPORTED_MODULE_39__["GoogleMapsModule"]], exports: [_views_spin_loader_spin_loader_component__WEBPACK_IMPORTED_MODULE_22__["SpinLoaderComponent"]] }); })();
+_angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵsetComponentScope"](_views_search_search_component__WEBPACK_IMPORTED_MODULE_10__["SearchComponent"], [_views_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
+    _directives_hover_activated_accordion_directive__WEBPACK_IMPORTED_MODULE_15__["HoverActivatedAccordionDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_0__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_41__["RouterLinkWithHref"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_0__["NgIf"], _directives_dynamic_size_directive__WEBPACK_IMPORTED_MODULE_16__["DynamicSizeDirective"], _angular_router__WEBPACK_IMPORTED_MODULE_41__["RouterLink"], _views_customer_footer_customer_footer_component__WEBPACK_IMPORTED_MODULE_32__["CustomerFooterComponent"]], [_pipe_title_case_pipe__WEBPACK_IMPORTED_MODULE_23__["TitleCasePipe"]]);
 
 
 /***/ }),

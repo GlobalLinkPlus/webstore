@@ -41,6 +41,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { ContactUsComponent } from './views/contact-us/contact-us.component';
 import { CompanyPolicyComponent } from './views/company-policy/company-policy.component';
 import { AboutComponent } from './views/about/about.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [  
@@ -85,6 +86,7 @@ import { AboutComponent } from './views/about/about.component';
     CarouselModule,
     AccordionModule,
     ToastModule,
+    GoogleMapsModule,
   ],
   exports:[
     SpinLoaderComponent
@@ -93,7 +95,8 @@ import { AboutComponent } from './views/about/about.component';
     MessageService,
     DialogService,
     ToastModule,
-    AccordionModule
+    AccordionModule,
+    GoogleMapsModule,
   ],
   entryComponents:[
     ],

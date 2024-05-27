@@ -12,6 +12,10 @@ import { BizService } from 'src/app/services/biz.service';
 export class ContactUsComponent implements OnInit {
 
   contactUsForm: FormGroup;
+  options: google.maps.MapOptions = {
+    center: {lat: 40, lng: -20},
+    zoom: 4
+  };
 
   constructor(
     private messageService: MessageService,
