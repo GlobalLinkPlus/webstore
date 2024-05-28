@@ -3,6 +3,7 @@ import { BizService } from './services/biz.service';
 import { AngularFaviconService } from 'angular-favicon';
 import { Title} from '@angular/platform-browser';
 import { Meta} from '@angular/platform-browser';
+import { DomInjectorService } from './dom-injector.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit{
  constructor(public bizService: BizService,
   private ngxFavicon: AngularFaviconService,
   private titleService: Title,
-  private metaService: Meta
+  private metaService: Meta,
+  private domInjectorService: DomInjectorService
   ){
 
  }
@@ -26,5 +28,6 @@ export class AppComponent implements OnInit{
   ]);
   this.ngxFavicon.setFavicon(this.bizService.get_favicon_image());
   // this.ngxFavicon.setFavicon("https://static.vecteezy.com/system/resources/thumbnails/003/171/355/small/objective-lens-icon-with-six-rainbow-colors-vector.jpg");
+  this.domInjectorService.injectApiKey();
 }
 }
