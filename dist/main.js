@@ -1,5 +1,36 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "/+8M":
+/*!*****************************************!*\
+  !*** ./src/app/dom-injector.service.ts ***!
+  \*****************************************/
+/*! exports provided: DomInjectorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DomInjectorService", function() { return DomInjectorService; });
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../environments/environment */ "AytR");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class DomInjectorService {
+    constructor(rendererFactory) {
+        this.renderer = rendererFactory.createRenderer(null, null);
+    }
+    injectApiKey() {
+        const metaTag = this.renderer.createElement('meta');
+        this.renderer.setAttribute(metaTag, 'name', 'api-key');
+        this.renderer.setAttribute(metaTag, 'content', _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].GOOGLE_API_KEY);
+        this.renderer.appendChild(document.head, metaTag);
+    }
+}
+DomInjectorService.ɵfac = function DomInjectorService_Factory(t) { return new (t || DomInjectorService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["RendererFactory2"])); };
+DomInjectorService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: DomInjectorService, factory: DomInjectorService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
 /***/ 0:
 /*!***************************!*\
   !*** multi ./src/main.ts ***!
@@ -57,7 +88,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
+    GOOGLE_API_KEY: 'AIzaSyAYSk6F_zStBqewtptxnDPMOm6V9CfR-Pk',
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -451,18 +483,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_biz_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/biz.service */ "Epua");
 /* harmony import */ var angular_favicon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-favicon */ "l7sf");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _dom_injector_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom-injector.service */ "/+8M");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
 
 
 
 
 
 class AppComponent {
-    constructor(bizService, ngxFavicon, titleService, metaService) {
+    constructor(bizService, ngxFavicon, titleService, metaService, domInjectorService) {
         this.bizService = bizService;
         this.ngxFavicon = ngxFavicon;
         this.titleService = titleService;
         this.metaService = metaService;
+        this.domInjectorService = domInjectorService;
         this.title = 'ecommerce';
     }
     ngOnInit() {
@@ -473,15 +508,16 @@ class AppComponent {
         ]);
         this.ngxFavicon.setFavicon(this.bizService.get_favicon_image());
         // this.ngxFavicon.setFavicon("https://static.vecteezy.com/system/resources/thumbnails/003/171/355/small/objective-lens-icon-with-six-rainbow-colors-vector.jpg");
+        this.domInjectorService.injectApiKey();
     }
 }
-AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_biz_service__WEBPACK_IMPORTED_MODULE_1__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](angular_favicon__WEBPACK_IMPORTED_MODULE_2__["AngularFaviconService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Title"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Meta"])); };
+AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_biz_service__WEBPACK_IMPORTED_MODULE_1__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](angular_favicon__WEBPACK_IMPORTED_MODULE_2__["AngularFaviconService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Title"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Meta"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_dom_injector_service__WEBPACK_IMPORTED_MODULE_4__["DomInjectorService"])); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 3, vars: 0, consts: [[2, "min-height", "100vh"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "router-outlet");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "p-toast");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterOutlet"]], styles: ["*[_ngcontent-%COMP%] {\n  font-family: \"sofia\" !important;\n}\n\n.toolbar[_ngcontent-%COMP%] {\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 40px;\n  overflow-y: auto;\n  display: flex;\n  align-items: center;\n  color: white;\n  font-weight: 600;\n}\n\n.content[_ngcontent-%COMP%] {\n  padding: 0px;\n}\n\n.spacer[_ngcontent-%COMP%] {\n  flex: 1;\n}\n\n@media (max-width: 991.98px) {\n  .toolbar[_ngcontent-%COMP%] {\n    height: 0px;\n  }\n}\n\n@media (min-width: 991.98px) {\n  .toolbar[_ngcontent-%COMP%] {\n    position: relative;\n  }\n\n  .promotion-text[_ngcontent-%COMP%] {\n    padding-left: 40px;\n    font-size: medium;\n    text-decoration: none;\n    color: white;\n  }\n\n  .promotion-text-right[_ngcontent-%COMP%] {\n    padding-right: 40px;\n    font-size: medium;\n    text-decoration: none;\n    color: white;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLCtCQUFBO0FBQUY7O0FBR0E7RUFDSSxNQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7QUFBSjs7QUFJRTtFQUNFLFlBQUE7QUFESjs7QUFLRTtFQUNFLE9BQUE7QUFGSjs7QUFNRTtFQUNFO0lBQ0ksV0FBQTtFQUhOO0FBQ0Y7O0FBT0E7RUFDRTtJQUNNLGtCQUFBO0VBTE47O0VBU0U7SUFDRSxrQkFBQTtJQUNBLGlCQUFBO0lBQ0EscUJBQUE7SUFDQSxZQUFBO0VBTko7O0VBUUU7SUFDRSxtQkFBQTtJQUNBLGlCQUFBO0lBQ0EscUJBQUE7SUFDQSxZQUFBO0VBTEo7QUFDRiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbip7XG4gIGZvbnQtZmFtaWx5OiAnc29maWEnICFpbXBvcnRhbnQ7XG59XG5cbi50b29sYmFyIHtcbiAgICB0b3A6IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICBoZWlnaHQ6IDQwcHg7XG4gICAgb3ZlcmZsb3cteTogYXV0bztcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIH1cblxuXG4gIC5jb250ZW50IHtcbiAgICBwYWRkaW5nOjBweDtcbiAgfVxuXG5cbiAgLnNwYWNlciB7XG4gICAgZmxleDogMTtcbiAgfVxuXG5cbiAgQG1lZGlhIChtYXgtd2lkdGg6IDk5MS45OHB4KSB7IFxuICAgIC50b29sYmFye1xuICAgICAgICBoZWlnaHQ6IDBweDtcbiAgICB9XG5cbiBcbn1cbkBtZWRpYSAobWluLXdpZHRoOiA5OTEuOThweCkgeyBcbiAgLnRvb2xiYXJ7XG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBcbiAgICB9XG4gICAgXG4gICAgLnByb21vdGlvbi10ZXh0e1xuICAgICAgcGFkZGluZy1sZWZ0OiA0MHB4O1xuICAgICAgZm9udC1zaXplOiBtZWRpdW07XG4gICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgICBjb2xvcjogd2hpdGU7XG4gICAgfVxuICAgIC5wcm9tb3Rpb24tdGV4dC1yaWdodHtcbiAgICAgIHBhZGRpbmctcmlnaHQ6IDQwcHg7XG4gICAgICBmb250LXNpemU6IG1lZGl1bTtcbiAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICAgIGNvbG9yOiAgd2hpdGU7XG4gICAgfVxufSJdfQ== */"] });
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterOutlet"]], styles: ["*[_ngcontent-%COMP%] {\n  font-family: \"sofia\" !important;\n}\n\n.toolbar[_ngcontent-%COMP%] {\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 40px;\n  overflow-y: auto;\n  display: flex;\n  align-items: center;\n  color: white;\n  font-weight: 600;\n}\n\n.content[_ngcontent-%COMP%] {\n  padding: 0px;\n}\n\n.spacer[_ngcontent-%COMP%] {\n  flex: 1;\n}\n\n@media (max-width: 991.98px) {\n  .toolbar[_ngcontent-%COMP%] {\n    height: 0px;\n  }\n}\n\n@media (min-width: 991.98px) {\n  .toolbar[_ngcontent-%COMP%] {\n    position: relative;\n  }\n\n  .promotion-text[_ngcontent-%COMP%] {\n    padding-left: 40px;\n    font-size: medium;\n    text-decoration: none;\n    color: white;\n  }\n\n  .promotion-text-right[_ngcontent-%COMP%] {\n    padding-right: 40px;\n    font-size: medium;\n    text-decoration: none;\n    color: white;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLCtCQUFBO0FBQUY7O0FBR0E7RUFDSSxNQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7QUFBSjs7QUFJRTtFQUNFLFlBQUE7QUFESjs7QUFLRTtFQUNFLE9BQUE7QUFGSjs7QUFNRTtFQUNFO0lBQ0ksV0FBQTtFQUhOO0FBQ0Y7O0FBT0E7RUFDRTtJQUNNLGtCQUFBO0VBTE47O0VBU0U7SUFDRSxrQkFBQTtJQUNBLGlCQUFBO0lBQ0EscUJBQUE7SUFDQSxZQUFBO0VBTko7O0VBUUU7SUFDRSxtQkFBQTtJQUNBLGlCQUFBO0lBQ0EscUJBQUE7SUFDQSxZQUFBO0VBTEo7QUFDRiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbip7XG4gIGZvbnQtZmFtaWx5OiAnc29maWEnICFpbXBvcnRhbnQ7XG59XG5cbi50b29sYmFyIHtcbiAgICB0b3A6IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICBoZWlnaHQ6IDQwcHg7XG4gICAgb3ZlcmZsb3cteTogYXV0bztcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIH1cblxuXG4gIC5jb250ZW50IHtcbiAgICBwYWRkaW5nOjBweDtcbiAgfVxuXG5cbiAgLnNwYWNlciB7XG4gICAgZmxleDogMTtcbiAgfVxuXG5cbiAgQG1lZGlhIChtYXgtd2lkdGg6IDk5MS45OHB4KSB7IFxuICAgIC50b29sYmFye1xuICAgICAgICBoZWlnaHQ6IDBweDtcbiAgICB9XG5cbiBcbn1cbkBtZWRpYSAobWluLXdpZHRoOiA5OTEuOThweCkgeyBcbiAgLnRvb2xiYXJ7XG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBcbiAgICB9XG4gICAgXG4gICAgLnByb21vdGlvbi10ZXh0e1xuICAgICAgcGFkZGluZy1sZWZ0OiA0MHB4O1xuICAgICAgZm9udC1zaXplOiBtZWRpdW07XG4gICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgICBjb2xvcjogd2hpdGU7XG4gICAgfVxuICAgIC5wcm9tb3Rpb24tdGV4dC1yaWdodHtcbiAgICAgIHBhZGRpbmctcmlnaHQ6IDQwcHg7XG4gICAgICBmb250LXNpemU6IG1lZGl1bTtcbiAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICAgIGNvbG9yOiAgd2hpdGU7XG4gICAgfVxufSJdfQ== */"] });
 
 
 /***/ }),
@@ -506,7 +542,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_biz_info_resolver__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/biz-info-resolver */ "JssX");
 /* harmony import */ var _services_login_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/login-modal.service */ "5D85");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "1kSV");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/platform-browser/animations */ "omvX");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/api */ "7zfz");
 /* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/dynamicdialog */ "J7/z");
 /* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/toast */ "Gxio");
