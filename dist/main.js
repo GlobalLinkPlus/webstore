@@ -259,6 +259,12 @@ class ApiService {
     getAboutUsDetails(id) {
         return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
     }
+    getReturnPolicyDetails(id) {
+        return this.http.get(BASE_URL + 'return-policy/?webstore_id=' + id);
+    }
+    getFaqsDetails(id) {
+        return this.http.get(BASE_URL + 'faqs/?webstore_id=' + id);
+    }
     validateCustomerEmail(data) {
         return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
