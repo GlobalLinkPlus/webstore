@@ -4,15 +4,17 @@
     </header>
     <div style="margin-top: 220px; margin-bottom: 50px;" class="row main-content">
         <div style="padding-left: 100px; padding-right: 100px; display: flex; column-gap: 40px;">
-            <div style="flex: 1;">
+            <div style="flex: 1; display: flex; flex-direction: column;">
                 <div style="font-size: 24px; font-weight: bold;">Contact Us</div>
                 <hr style="border: 1px solid #C1C7D6;">
                 <div style="margin-bottom: 30px;">Contact us today if you have any questions or inquiries</div>
-                <div style="border-radius: 20px;">
-                    <google-map [options]="options" width="100%" height="400px"></google-map>
+                <div style="display: flex;justify-content: center;">
+                    <div style="border-radius: 20px; width: 100%; max-width: 600px;">
+                        <google-map [options]="options" width="100%" height="400px"></google-map>
+                    </div>
                 </div>
             </div>
-            <div style="flex: 1;">
+            <div style="flex: 1; padding-top: 75px;">
                 <form [formGroup]="contactUsForm" (ngSubmit)="submitForm()" #contactForm="ngForm">
                     <div style="display: flex; column-gap: 20px;">
                         <div class="form-group" style="flex: 1;">
@@ -70,7 +72,7 @@
                     <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
                         <button [ngStyle]="{'background-color': bizService.get_background_color()}"
                             style="border-radius: 20px; width: 300px; border: none; color: white; padding: 15px;" type="submit"
-                            class="">Contact</button>
+                            class="">Contact Us</button>
                         <div>Email us for other inquires  <span [ngStyle]="{'color': bizService.get_background_color()}">Send us an email</span></div>
                     </div>
                 </form>

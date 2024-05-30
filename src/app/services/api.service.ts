@@ -36,6 +36,14 @@ export class ApiService {
     return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
   }
 
+  getReturnPolicyDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'return-policy/?webstore_id=' + id);
+  }
+
+  getFaqsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'faqs/?webstore_id=' + id);
+  }
+
   validateCustomerEmail(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(
       map(this.extractData));
