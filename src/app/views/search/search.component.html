@@ -254,7 +254,7 @@
                   <img
                   *ngIf="item.product.image_urls.length>0 && item.product.image_urls[0].url"
                   [src]="item.product.image_urls[0].url"
-                  style="border-radius: 10%; "
+                  style="border-radius: 10%; max-height: 255px;"
                   class="card-img-top object-fit-cover" alt="item image">
                 </div>
                 <div appDynamicSize *ngIf="item.product.image_urls.length==0 ||  !item.product.image_urls[0].url"

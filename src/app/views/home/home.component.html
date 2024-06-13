@@ -5,13 +5,14 @@
   <div style="padding-top: 180px; margin-bottom: 40px;">
 
     <div id="hero-carousel" class="carousel slide pb-2" data-bs-ride="carousel">
-      <p-galleria [(value)]="sliders" [showIndicators]="false" [activeIndex]="primarySliderIndex" [numVisible]="5" [circular]="true" [showItemNavigators]="itemNavigators" [autoPlay]="true"
-        [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }">
+      <p-galleria [(value)]="sliders" [showIndicators]="false" [activeIndex]="primarySliderIndex" [numVisible]="5"
+        [circular]="true" [showItemNavigators]="itemNavigators" [autoPlay]="true" [showThumbnails]="false"
+        [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }">
         <ng-template pTemplate="item" let-item>
           <img [src]="item.url" style="width: 100%; display: block;" />
         </ng-template>
       </p-galleria>
-      
+
     </div>
     <div class="container vstack gap-2">
       <!-- <div class="card border-0 rounded-0 shadow-sm">
@@ -84,7 +85,8 @@
         <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
           style="padding-left:0px; position: static;">
           <p class="mb-0 h5 fw-bold">{{section_one.name}}</p>
-          <a *ngIf="sectionOneProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
+          <a *ngIf="sectionOneProducts.length>0" routerLink="products"
+            class="btn text-capitalize btn-sm text-success">see more</a>
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
 
@@ -95,14 +97,15 @@
             <ng-template let-sectionOneProduct pTemplate="item">
               <div style="width: 100%; display: flex; justify-content: center;">
                 <div class="position-relative" style="margin: 10px; max-width: 255px;">
-                  <div class="scale-up" routerLink="product/{{sectionOneProduct.id}}"  style="cursor: pointer;display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
+                  <div class="scale-up" routerLink="product/{{sectionOneProduct.id}}"
+                    style="cursor: pointer;display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
                     <img
-                    *ngIf="sectionOneProduct.product.image_urls.length>0 && sectionOneProduct.product.image_urls[0].url"
-                    [src]="sectionOneProduct.product.image_urls[0].url"
-                    style="border-radius: 10%; "
-                    class="card-img-top object-fit-cover" alt="item image">
+                      *ngIf="sectionOneProduct.product.image_urls.length>0 && sectionOneProduct.product.image_urls[0].url"
+                      [src]="sectionOneProduct.product.image_urls[0].url" style="border-radius: 10%; max-height: 255px;"
+                      class="card-img-top object-fit-cover" alt="item image">
                   </div>
-                  <div appDynamicSize *ngIf="sectionOneProduct.product.image_urls.length==0 ||  !sectionOneProduct.product.image_urls[0].url"
+                  <div appDynamicSize
+                    *ngIf="sectionOneProduct.product.image_urls.length==0 ||  !sectionOneProduct.product.image_urls[0].url"
                     class="card-img-top object-fit-cover"></div>
                   <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
                     class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
@@ -119,7 +122,7 @@
                       <div class="" style="width: 100%; display: flex; justify-content: space-between;">
                         <small *ngIf="!userInfoService.isLoggedIn()"
                           style="font-size: 15px;font-weight: 500;text-decoration: underline; margin-right: 10px;"><a
-                            routerLink="login"><u style="color: black;">Login for<br/> Pricing</u></a></small>
+                            routerLink="login"><u style="color: black;">Login for<br /> Pricing</u></a></small>
                         <!-- mid_banner_image -->
                         <small style="font-size: 15px;font-weight: 500;margin-right: 10px;">MSRP <br />
                           {{sectionOneProduct.currency}}{{sectionOneProduct.msrp}}</small>
@@ -140,7 +143,8 @@
                       {{sectionOneProduct.product.name}}</p>
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="" style="width: 100%; display: flex; justify-content: space-between;">
-                        <small style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
+                        <small
+                          style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
                           {{sectionOneProduct.currency}}{{sectionOneProduct.msrp}}</small>
                       </div>
                     </div>
@@ -238,7 +242,8 @@
       <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
         style="padding-left:0px;">
         <p class="mb-0 h5 fw-bold">{{section_two.name}}</p>
-        <a *ngIf="sectionTwoProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see more</a>
+        <a *ngIf="sectionTwoProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see
+          more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
       <div class="row" *ngIf="sectionTwoProducts.length>0">
@@ -248,14 +253,15 @@
           <ng-template let-sectionTwoProduct pTemplate="item">
             <div style="width: 100%; display: flex; justify-content: center;">
               <div class="position-relative" style="margin: 10px; max-width: 255px;">
-                <div class="scale-up" routerLink="product/{{sectionTwoProduct.id}}" style="cursor: pointer; display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
+                <div class="scale-up" routerLink="product/{{sectionTwoProduct.id}}"
+                  style="cursor: pointer; display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
                   <img
-                  *ngIf="sectionTwoProduct.product.image_urls.length>0 && sectionTwoProduct.product.image_urls[0].url"
-                  [src]="sectionTwoProduct.product.image_urls[0].url"
-                  style="border-radius: 10%;"
-                  class="card-img-top object-fit-cover" alt="item image">
+                    *ngIf="sectionTwoProduct.product.image_urls.length>0 && sectionTwoProduct.product.image_urls[0].url"
+                    [src]="sectionTwoProduct.product.image_urls[0].url" style="border-radius: 10%; max-height: 255px;"
+                    class="card-img-top object-fit-cover" alt="item image">
                 </div>
-                <div appDynamicSize *ngIf="sectionTwoProduct.product.image_urls.length==0 ||  !sectionTwoProduct.product.image_urls[0].url"
+                <div appDynamicSize
+                  *ngIf="sectionTwoProduct.product.image_urls.length==0 ||  !sectionTwoProduct.product.image_urls[0].url"
                   class="card-img-top object-fit-cover scale-up"></div>
                 <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
                   class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
@@ -272,7 +278,7 @@
                     <div class="" style="width: 100%; display: flex; justify-content: space-between;">
                       <small *ngIf="!userInfoService.isLoggedIn()"
                         style="font-size: 15px;font-weight: 500;text-decoration: underline; margin-right: 10px;"><a
-                          routerLink="login"><u style="color: black;">Login for<br/> Pricing</u></a></small>
+                          routerLink="login"><u style="color: black;">Login for<br /> Pricing</u></a></small>
                       <!-- mid_banner_image -->
                       <small style="font-size: 15px;font-weight: 500;margin-right: 10px;">MSRP <br />
                         {{sectionTwoProduct.currency}}{{sectionTwoProduct.msrp}}</small>
@@ -293,7 +299,8 @@
                     {{sectionTwoProduct.product.name}}</p>
                   <div class="d-flex align-items-center justify-content-between">
                     <div class="" style="width: 100%; display: flex; justify-content: space-between;">
-                      <small style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
+                      <small
+                        style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
                         {{sectionTwoProduct.currency}}{{sectionTwoProduct.msrp}}</small>
                     </div>
                   </div>
