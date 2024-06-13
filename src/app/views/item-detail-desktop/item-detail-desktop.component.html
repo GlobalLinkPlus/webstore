@@ -113,7 +113,7 @@
                             <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
                                 $ {{item_detail.first_cost}}
                             </div>
-                            <small *ngIf="!userInfoService.isLoggedIn()"
+                            <small *ngIf="!userInfoService.isLoggedIn() && type!==catalog"
                                 style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a
                                     routerLink="/{{bizService.getBizName()}}/login"><u style="color: black;">Login for Pricing</u></a></small>
                         </div>

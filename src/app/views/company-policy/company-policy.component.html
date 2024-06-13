@@ -4,12 +4,9 @@
     </header>
     <div style="margin-top: 220px; margin-bottom: 50px;" class="row main-content">
         <div *ngFor="let item of policyDetails" style="padding-left: 100px; padding-right: 100px; display: flex; flex-direction: column;">
-            <div style="font-size: 16px; font-weight: bold;">{{item.text_type}}</div>
+            <div style="font-size: 16px; font-weight: bold;">{{item.title}}</div>
             <hr style="border: 1px solid #C1C7D6;">
-            <div style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">{{item.title}}</div>
-            <div style="margin-bottom: 50px;">
-                {{item.description}}
-            </div>
+            <div style="margin-bottom: 50px;" innerHTML="{{item.description}}"></div>
         </div>
     </div>
     <footer style="padding-top: 20px; bottom: 0; width: 100%;">
