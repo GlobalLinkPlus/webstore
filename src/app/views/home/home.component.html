@@ -9,7 +9,7 @@
         [circular]="true" [showItemNavigators]="itemNavigators" [autoPlay]="true" [showThumbnails]="false"
         [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }">
         <ng-template pTemplate="item" let-item>
-          <img [src]="item?.url" style="width: 100%; display: block;" />
+          <img [src]="item?.url" loading="lazy" style="width: 100%; display: block;" />
         </ng-template>
       </p-galleria>
 
@@ -101,6 +101,7 @@
                     style="cursor: pointer;display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
                     <img
                       *ngIf="sectionOneProduct.product.image_urls.length>0 && sectionOneProduct.product.image_urls[0].url"
+                      loading="lazy"
                       [src]="sectionOneProduct.product.image_urls[0].url" style="border-radius: 10%; max-height: 255px;"
                       class="card-img-top object-fit-cover" alt="item image">
                   </div>
@@ -257,6 +258,7 @@
                   style="cursor: pointer; display: flex; justify-content: center; align-items: center; width:255; height: 255px; object-fit: cover; border: 1px solid whitesmoke; border-radius: 10%;">
                   <img
                     *ngIf="sectionTwoProduct.product.image_urls.length>0 && sectionTwoProduct.product.image_urls[0].url"
+                    loading="lazy"
                     [src]="sectionTwoProduct.product.image_urls[0].url" style="border-radius: 10%; max-height: 255px;"
                     class="card-img-top object-fit-cover" alt="item image">
                 </div>
