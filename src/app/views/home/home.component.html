@@ -9,7 +9,7 @@
         [circular]="true" [showItemNavigators]="itemNavigators" [autoPlay]="true" [showThumbnails]="false"
         [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }">
         <ng-template pTemplate="item" let-item>
-          <img [src]="item.url" style="width: 100%; display: block;" />
+          <img [src]="item?.url" style="width: 100%; display: block;" />
         </ng-template>
       </p-galleria>
 
@@ -85,12 +85,12 @@
         <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
           style="padding-left:0px; position: static;">
           <p class="mb-0 h5 fw-bold">{{section_one.name}}</p>
-          <a *ngIf="sectionOneProducts.length>0" routerLink="products"
+          <a *ngIf="sectionOneProducts?.length>0" routerLink="products"
             class="btn text-capitalize btn-sm text-success">see more</a>
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
 
-        <div class="row" *ngIf="sectionOneProducts.length>0">
+        <div class="row" *ngIf="sectionOneProducts?.length>0">
 
           <p-carousel [value]="sectionOneProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
             [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000">
@@ -242,11 +242,11 @@
       <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
         style="padding-left:0px;">
         <p class="mb-0 h5 fw-bold">{{section_two.name}}</p>
-        <a *ngIf="sectionTwoProducts.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see
+        <a *ngIf="sectionTwoProducts?.length>0" routerLink="products" class="btn text-capitalize btn-sm text-success">see
           more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
-      <div class="row" *ngIf="sectionTwoProducts.length>0">
+      <div class="row" *ngIf="sectionTwoProducts?.length>0">
 
         <p-carousel [value]="sectionTwoProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
           [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000">

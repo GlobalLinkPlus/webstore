@@ -97,7 +97,7 @@
           </div>
         </div>
       </div>
-      <ul *ngIf="type===business" class="navbar-nav mx-3 gap-2">
+      <ul *ngIf="type!==catalog" class="navbar-nav mx-3 gap-2">
         <li class="nav-item menu-button" (mouseenter)="onMouseEnterCartMenu()" (mouseleave)="onMouseLeaveCartMenu()">
           <button type="button" class="nav-link btn position-relative">
             <a routerLink="/{{bizService.getBizId()}}/cart">
