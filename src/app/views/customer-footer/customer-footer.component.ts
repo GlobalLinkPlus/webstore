@@ -16,6 +16,7 @@ export class CustomerFooterComponent implements OnInit {
   customer = "customer";
   business = "business";
   catalog = "catalog";
+  footerData: any;
   type: string;
 
   constructor(
@@ -32,6 +33,7 @@ export class CustomerFooterComponent implements OnInit {
         this.categories = res.splice(0, 7);
     }, err => { });
     this.type = this.bizService.getBizType();
+    this.footerData = this.bizService.get_footer_data();
   }
 
   openContactUsModal() {

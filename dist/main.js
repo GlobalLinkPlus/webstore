@@ -139,6 +139,7 @@ class BizService {
         sessionStorage.setItem("favicon_image", data.favicon_image);
         sessionStorage.setItem("webstore_link", data.webstore_link);
         sessionStorage.setItem("company", data.company);
+        sessionStorage.setItem("footer_data", JSON.stringify(data.footer_data.footer_data));
         sessionStorage.setItem("sliders", JSON.stringify(data.sliders));
         if (data.type === "b2b")
             sessionStorage.setItem("type", "business");
@@ -159,6 +160,9 @@ class BizService {
     }
     get_background_color() {
         return sessionStorage.getItem("background_color");
+    }
+    get_footer_data() {
+        return JSON.parse(sessionStorage.getItem("footer_data"));
     }
     get_company_id() {
         return sessionStorage.getItem("company_id");

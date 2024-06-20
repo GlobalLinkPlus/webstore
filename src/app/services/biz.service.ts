@@ -44,6 +44,7 @@ export class BizService {
     sessionStorage.setItem("favicon_image", data.favicon_image);
     sessionStorage.setItem("webstore_link", data.webstore_link);
     sessionStorage.setItem("company", data.company);
+    sessionStorage.setItem("footer_data", JSON.stringify(data.footer_data.footer_data));
     sessionStorage.setItem("sliders", JSON.stringify(data.sliders));
     if(data.type==="b2b") sessionStorage.setItem("type", "business");
     if(data.type==="b2c") sessionStorage.setItem("type", "customer");
@@ -66,6 +67,10 @@ export class BizService {
   public get_background_color(): string {
     return sessionStorage.getItem("background_color");
 
+  }
+
+  public get_footer_data(): any {
+    return JSON.parse(sessionStorage.getItem("footer_data"));
   }
 
 
