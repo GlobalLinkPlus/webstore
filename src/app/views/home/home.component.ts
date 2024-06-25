@@ -127,7 +127,8 @@ export class HomeComponent implements OnInit {
     // this.getTopProducts();
 
     this.getHomeSectionItems();
-    this.sliders = JSON.parse(this.bizService.get_sliders());
+    // this.sliders = JSON.parse(this.bizService.get_sliders());
+    this.sliders = this.jsonParseUntilUnescaped(this.bizService.get_sliders());
     this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
     this.type = this.bizService.getBizType();
 
@@ -163,6 +164,17 @@ export class HomeComponent implements OnInit {
     // this.sliders.forEach(item => {
     //   this.images.push(item.image);
     // });
+  }
+
+  jsonParseUntilUnescaped(escapedJson) {
+    const parsedJson = JSON.parse(escapedJson)
+    const stringifiedParsedJson = parsedJson.toString();
+  
+    if (stringifiedParsedJson.includes('\"')) {
+        return this.jsonParseUntilUnescaped(stringifiedParsedJson )
+    }
+  
+    return parsedJson;
   }
   getHomeSectionItems() {
     this.loading = true;
