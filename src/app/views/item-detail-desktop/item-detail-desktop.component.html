@@ -24,15 +24,15 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
-                        <p-galleria [(value)]="images" [autoPlay]="false" [circular]="true" [showItemNavigators]="false"
-                            [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1" [showIndicators]="false"
-                            [containerStyle]="{ 'max-width': '640px' }">
+                        <p-galleria [(activeIndex)]="activeIndex" [(value)]="images" [(autoPlay)]="autoPlay" [circular]="true" [showItemNavigators]="false"
+                            [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1"
+                            [showIndicators]="false" [containerStyle]="{ 'max-width': '640px' }">
                             <ng-template pTemplate="item" let-item>
-                                <img [src]="item.url" loading="lazy" style="width: 100%; max-height: 640px;" />
+                                <img [(src)]="item.url" loading="lazy" style="width: 100%; max-height: 640px;" />
                             </ng-template>
                             <ng-template pTemplate="thumbnail" let-item>
                                 <div class="grid grid-nogutter justify-content-center">
-                                    <img [src]="item.url" style="display: block; height: 50px; width: 75px;" />
+                                    <img [(src)]="item.url" style="display: block; height: 50px; width: 75px;" />
                                 </div>
                             </ng-template>
                         </p-galleria>
@@ -86,17 +86,23 @@
                     </div>
                     <div class="col-sm-5 col-lg-5">
                         <div class="row">
-                            <div class="col-sm-12 col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="col-sm-12 col-lg-12"
+                                style="display: flex; justify-content: space-between; align-items: center;">
                                 <span class="text-muted">
-                                    SKU:{{product.sku}}
+                                    SKU:{{product?.sku}}
                                 </span>
-                                <select name="" id="" style="min-width: 100px; border-radius: 15px; padding-left: 5px; padding-right: 5px;">
+                                <select name="" id="" (change)="onBaseComboChange($event.target.value)"
+                                    style="min-width: 100px; border-radius: 15px; padding-left: 5px; padding-right: 5px;">
                                     <option value="" style="font-size: 10px;">Select variation</option>
+                                    <option *ngFor="let variation of variations"
+                                        [value]="variation.additional_features.base_combo">
+                                        {{ variation.additional_features.base_combo }}
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
-                            <span class="product-name">{{product.name}}</span>
+                            <span class="product-name">{{product?.name}}</span>
                         </div>
                         <div class="row" style="padding-top: 20px;">
                             <div class="col-sm-12 col-lg-12">
@@ -104,7 +110,7 @@
                                 <div class="product-rating">
                                     <!-- <app-star-rate-bar [rate]=product.rating [label]="product.reviews"
                                         [size]=24></app-star-rate-bar> -->
-                                    <ngb-rating [(rate)]="product.rating"></ngb-rating>
+                                    <ngb-rating [(rate)]="productRating"></ngb-rating>
                                 </div>
                             </div>
                         </div>
@@ -118,17 +124,13 @@
                             </div>
                             <small *ngIf="!userInfoService.isLoggedIn() && type!==catalog"
                                 style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a
-                                    routerLink="/{{bizService.getBizName()}}/login"><u style="color: black;">Login for Pricing</u></a></small>
+                                    routerLink="/{{bizService.getBizName()}}/login"><u style="color: black;">Login for
+                                        Pricing</u></a></small>
                         </div>
                         <div class="row">
                             <div class="col-sm-12" style="margin-top: 30px !important;">
                                 <div class="row">
-                                    <div class="col-sm-8">
-                                        <span style="font-weight:700;">Select Variation</span>
-                                    </div>
                                     <div class="col-sm-4" style="text-align: right;">
-                                        <i class="fa-solid fa-plus"
-                                            style="font-family: fontAwesome;font-size: larger;"></i>
                                     </div>
                                     <!-- <div class="col-sm-12">
                                         <select>
@@ -150,7 +152,7 @@
                                                         (click)="reduceProductCount()"><i class="fa fa-minus"
                                                             style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
                                                     <span
-                                                        style="padding-left: 10px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-weight: 500; font-size: large;border-right:2px solid rgb(90, 90, 90); border-left:2px solid black;width:50px;text-align: center;">{{product.product_count}}</span>
+                                                        style="padding-left: 10px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-weight: 500; font-size: large;border-right:2px solid rgb(90, 90, 90); border-left:2px solid black;width:50px;text-align: center;">{{product?.product_count}}</span>
                                                     <span
                                                         style="padding-left: 10px;padding-right: 15px;display: flex;align-items: center;justify-content: center; font-size: medium;"
                                                         (click)="increaseProductCount()"> <i class="fa fa-plus"
@@ -195,7 +197,7 @@
 
 
                                     <div class="col-sm-12">
-                                        {{product.description}}
+                                        {{product?.description}}
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +207,8 @@
                                     <div class="col-sm-8" (click)="setShowFeatures()" style="cursor: pointer;">
                                         <span style="font-weight:700;">Feature</span>
                                     </div>
-                                    <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4" style="text-align: right;">
+                                    <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4"
+                                        style="text-align: right;">
                                         <i *ngIf="show_features===false" class="fa-solid fa-plus"
                                             style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
                                         <i *ngIf="show_features===true" class="fa-solid fa-minus"
@@ -248,14 +251,16 @@
                                     <tr>
 
                                         <th *ngFor="let  spec of attributeArray"
-                                            style="border-bottom: 1px solid grey ; white-space: nowrap;">{{spec.name}}</th>
+                                            style="border-bottom: 1px solid grey ; white-space: nowrap;">{{spec.name}}
+                                        </th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
 
-                                        <td *ngFor="let  spec of attributeArray" style="font-size:large; white-space: nowrap;">
+                                        <td *ngFor="let  spec of attributeArray"
+                                            style="font-size:large; white-space: nowrap;">
                                             <span *ngIf="!spec.value">-</span>
                                             {{spec.value}}{{spec?.unit}}
                                         </td>
@@ -271,6 +276,6 @@
 
     </div>
     <footer style="padding-top: 20px; bottom: 0; width: 100%;">
-    <app-customer-footer></app-customer-footer>
+        <app-customer-footer></app-customer-footer>
     </footer>
 </main>

@@ -263,6 +263,9 @@ class ApiService {
     getAboutUsDetails(id) {
         return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
     }
+    getProductVariations(id) {
+        return this.http.get(BASE_URL + 'variations/?product=' + id);
+    }
     getReturnPolicyDetails(id) {
         return this.http.get(BASE_URL + 'return-policy/?webstore_id=' + id);
     }

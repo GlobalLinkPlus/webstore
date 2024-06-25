@@ -36,6 +36,10 @@ export class ApiService {
     return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
   }
 
+  getProductVariations(id): Observable<any> {
+    return this.http.get(BASE_URL + 'variations/?product=' + id);
+  }
+
   getReturnPolicyDetails(id): Observable<any> {
     return this.http.get(BASE_URL + 'return-policy/?webstore_id=' + id);
   }

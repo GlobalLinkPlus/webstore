@@ -8,6 +8,10 @@
   font-family: 'sofia';
 }
 
+select:focus-visible {
+  outline: none;
+}
+
 .large-product-image{
   width: 100%;
   height: auto;

@@ -97,15 +97,16 @@ interface PricingDetails {
 }
 
 interface CategoryDetails {
- name:string;
- id:string
+  name: string;
+  id: string
 }
 interface SubCategoryDetails {
-  name:string;
-  id:string
- }
+  name: string;
+  id: string
+}
 interface Product {
   partner_details: Partner;
+  product_count: number;
   wood_type: any;
   category_details: CategoryDetails;
   sub_category_details: SubCategoryDetails;
@@ -117,6 +118,7 @@ interface Product {
   asin: string;
   model_id: string;
   manufacture_id: string;
+  description: string;
   minimum_order_qty: string;
   country: string;
   id: string;
@@ -139,32 +141,32 @@ interface Product {
   features: Features;
   channel: string;
   pricing: {
-      return_percentage: number | null;
-      warehouse_cost: string;
-      retail_cost: string;
-      msrp: string;
-      marketplace_fee: number | null;
-      global_link_fee: string;
-      freight_cost: string;
-      first_cost: string;
-      wholesale_cost: string;
-      marketing: string;
-      overhead: string;
-      pricing_details: PricingDetails;
+    return_percentage: number | null;
+    warehouse_cost: string;
+    retail_cost: string;
+    msrp: string;
+    marketplace_fee: number | null;
+    global_link_fee: string;
+    freight_cost: string;
+    first_cost: string;
+    wholesale_cost: string;
+    marketing: string;
+    overhead: string;
+    pricing_details: PricingDetails;
   };
   assembly: {
-      assembly_required: boolean;
-      assembly_required_level: string;
-      assembly_instructions_url: string;
+    assembly_required: boolean;
+    assembly_required_level: string;
+    assembly_instructions_url: string;
   };
   lead_time: {
-      supplier_lead_time: string | null;
-      replacement_lead_time: string | null;
+    supplier_lead_time: string | null;
+    replacement_lead_time: string | null;
   };
   recommended: {
-      recommended_use: string;
-      recommended_room: string;
-      recommended_location: string;
+    recommended_use: string;
+    recommended_room: string;
+    recommended_location: string;
   };
   is_powered: boolean;
   power_type: string;
@@ -172,10 +174,10 @@ interface Product {
   seat_back_style: string;
   accent_color: string;
   fabric: {
-      fabric_color: string;
-      fabric_material: string;
-      fabric_care_instructions: string;
-      fabric_material_percentage: number | null;
+    fabric_color: string;
+    fabric_material: string;
+    fabric_care_instructions: string;
+    fabric_material_percentage: number | null;
   };
   theme: string;
   shape: string;
@@ -186,8 +188,8 @@ interface Product {
   color: string;
   finish: string;
   material: {
-      primary_material: string;
-      secondary_material: string;
+    primary_material: string;
+    secondary_material: string;
   };
 }
 
@@ -219,25 +221,26 @@ export class ItemDetailDesktopComponent implements OnInit {
   videos = [];
 
   variations = [];
-  product = {
-    brand: "",
-    id: '1',
-    name: "",
-    image_urls: [],
-    price: "",
-    rating: "",
-    reviews: "",
-    sku: "",
-    stock_status: "",
-    product_count: 1,
-    description: "",
-    dimensions: [],
-    weights: {
-      weight: '',
-      weight_class: ''
-    },
-    features: {}
-  }
+  selectedVariation = "";
+  product: Product;
+  //   brand: "",
+  //   id: '1',
+  //   name: "",
+  //   image_urls: [],
+  //   price: "",
+  //   rating: "",
+  //   reviews: "",
+  //   sku: "",
+  //   stock_status: "",
+  //   product_count: 1,
+  //   description: "",
+  //   dimensions: [],
+  //   weights: {
+  //     weight: '',
+  //     weight_class: ''
+  //   },
+  //   features: {}
+  // }
   msrp = "";
   featuresArray = [];
   images: any[];
@@ -261,6 +264,9 @@ export class ItemDetailDesktopComponent implements OnInit {
   @ViewChild("imageContainer", { static: true, read: ElementRef })
   imageContainer: ElementRef;
   attributeArray;
+  autoPlay = false;
+  activeIndex = 0;
+  productRating = 0;
 
   @ViewChild("container", { static: true, read: ElementRef })
   container: ElementRef;
@@ -349,6 +355,27 @@ export class ItemDetailDesktopComponent implements OnInit {
 
 
   }
+
+  onBaseComboChange(selectedBaseCombo: string): void {
+    if(!selectedBaseCombo) {
+      this.ngOnInit();
+      return;
+    };
+    const variation = this.variations.find(
+      (v) => v.additional_features.base_combo === selectedBaseCombo
+    );
+    console.log(variation);
+    this.selectedVariation = variation || null;
+
+    if (variation) {
+      console.log(variation);
+      this.updateProductDetails(variation);
+    }
+  }
+
+  async setActiveIndex(images: any) {
+    this.activeIndex = await Math.floor(Math.random() * (images.length-1));
+  }
   ngOnInit() {
 
     // this.cardsPerPage = this.getCardsPerPage();
@@ -367,17 +394,17 @@ export class ItemDetailDesktopComponent implements OnInit {
       this.msrp = res.msrp;
       this.item_detail = res;
       this.images = res.product.image_urls;
-      console.log(this.images)
+      this.productRating = res.product.rating || 0;
       this.product["product_count"] = 1;
       this.totalCards = 14;
-      this.current_image = this.product.image_urls[0].image;
+      this.current_image = this.product.image_urls[0].url;
+      this.setActiveIndex(this.images);
       this.featuresArray = Object.values(res.product.features).filter(value => {
         return (Array.isArray(value) && value.length > 0) || (typeof value === 'string' && value.trim() !== '');
       });;
       this.attributeArray = this.generateAttributeArray(res.product);
 
-
-      this.apiService.getVariations("?product=" + this.product.id).subscribe(
+      this.apiService.getProductVariations(this.product.id).subscribe(
         res => {
           this.variations = res;
         },
@@ -413,7 +440,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   }
 
-  mapCollectionToString(data){
+  mapCollectionToString(data) {
     if (Array.isArray(data)) {
       const names: string[] = data.map((item) => item.name);
       return names.join(", ");
@@ -422,74 +449,99 @@ export class ItemDetailDesktopComponent implements OnInit {
     if (typeof data === "string") {
       return data
     }
-    
+
+  }
+  async updateProductDetails(variation: any) {
+    if (this.product) {
+      this.msrp = variation.additional_features.details.variation_msrp.toString();
+      this.images = variation.additional_features.images;
+      console.log(this.images)
+      this.product = {
+        ...this.product,
+        name: variation.additional_features.details.variation_product_name,
+        description: variation.additional_features.details.variation_description,
+        sku: variation.additional_features.details.variation_sku,
+        upc: variation.additional_features.details.variation_upc,
+        asin: variation.additional_features.details.variation_asin,
+        image_urls: variation.additional_features.images,
+        pricing: {
+          ...this.product.pricing,
+          retail_cost: variation.additional_features.details.variation_retail_price.toString(),
+          msrp: variation.additional_features.details.variation_msrp.toString(),
+        },
+        weights: {
+          ...this.product.weights,
+          weight: variation.additional_features.shipping.lines[0].weight,
+        },
+      };
+    }
+    this.attributeArray = await this.generateAttributeArray(this.product);
+    this.activeIndex = await Math.floor(Math.random() * (this.images.length-1));
+    // this.activeIndex = 1;
   }
 
   generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
     const attributes = [
 
-        { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
-        { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
-        { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
-        { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
-        { name: 'Brand', value: product.brand },
-        { name: 'Origin', value: product.origin || '' },
-        { name: 'MOQ', value: product.minimum_order_qty || '' },
-        { name: 'Size', value: product.size || '' },
-        { name: 'Shape', value: product.shape || '' },
-        { name: 'Color', value: product.color || '' },
-        { name: 'Primary Material', value: product.material.primary_material || '' },
-        { name: 'Style', value: product.style || '' },
-        { name: 'Name', value: product.name },
-        { name: 'SKU', value: product.sku },
-        { name: 'UPC', value: product.upc },
-        { name: 'Quantity', value: product.quantity },
-        { name: 'Partner', value: product.partner_details.name }, // Add partner information if available
-        { name: 'Country', value: product.country }, // Add country information if available
-        { name: 'Category', value: product.category_details.name },
-        { name: 'Sub Category', value: product.sub_category_details.name },
-        { name: 'Rating', value: product.rating?.toString() || '' },
-        { name: 'Reviews', value: product.reviews?.toString() || '' },
-        { name: 'Tax', value: product.tax },
-        { name: 'Date Added', value: product.date_added },
-        { name: 'Collection', value: this.mapCollectionToString(product.collection) },
-        { name: 'Number of Pieces', value: product.number_of_pieces },
-        { name: 'Is Powered', value: product.is_powered?.toString() || '' },
-        { name: 'Wood Type', value: product.wood_type },
+      { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
+      { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
+      { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
+      { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
+      { name: 'Brand', value: product.brand },
+      { name: 'Origin', value: product.origin || '' },
+      { name: 'MOQ', value: product.minimum_order_qty || '' },
+      { name: 'Size', value: product.size || '' },
+      { name: 'Shape', value: product.shape || '' },
+      { name: 'Color', value: product.color || '' },
+      { name: 'Primary Material', value: product.material.primary_material || '' },
+      { name: 'Style', value: product.style || '' },
+      { name: 'Name', value: product.name },
+      { name: 'SKU', value: product.sku },
+      { name: 'UPC', value: product.upc },
+      { name: 'Quantity', value: product.quantity },
+      { name: 'Partner', value: product.partner_details.name }, // Add partner information if available
+      { name: 'Country', value: product.country }, // Add country information if available
+      { name: 'Category', value: product.category_details.name },
+      { name: 'Sub Category', value: product.sub_category_details.name },
+      { name: 'Rating', value: product.rating?.toString() || '' },
+      { name: 'Reviews', value: product.reviews?.toString() || '' },
+      { name: 'Tax', value: product.tax },
+      { name: 'Date Added', value: product.date_added },
+      { name: 'Collection', value: this.mapCollectionToString(product.collection) },
+      { name: 'Number of Pieces', value: product.number_of_pieces },
+      { name: 'Is Powered', value: product.is_powered?.toString() || '' },
+      { name: 'Wood Type', value: product.wood_type },
 
-        { name: 'Serial Number', value: product.serial_number || '' },
-        { name: 'ASIN', value: product.asin || '' },
-        { name: 'Model ID', value: product.model_id || '' },
-        { name: 'Manufacture ID', value: product.manufacture_id || '' },
-        { name: 'Group', value: product.group }, // Add group information if available
-        { name: 'Taxes', value: product.tax },
-        { name: 'Supplier Lead Time', value: product.lead_time.supplier_lead_time || '' },
-        { name: 'Replacement Lead Time', value: product.lead_time.replacement_lead_time || '' },
-        { name: 'Color', value: product.color },
-        { name: 'Finish', value: product.finish },
-        { name: 'Primary Material', value: product.material.primary_material },
-        { name: 'Secondary Material', value: product.material.secondary_material },
-        { name: 'Assembly Required', value: product.assembly.assembly_required?.toString() || '' },
-        { name: 'Assembly Required Level', value: product.assembly.assembly_required_level },
-        { name: 'Assembly Instructions URL', value: product.assembly.assembly_instructions_url },
-        { name: 'Recommended Use', value: product.recommended.recommended_use },
-        { name: 'Recommended Room', value: product.recommended.recommended_room },
-        { name: 'Recommended Location', value: product.recommended.recommended_location },
+      { name: 'Serial Number', value: product.serial_number || '' },
+      { name: 'ASIN', value: product.asin || '' },
+      { name: 'Model ID', value: product.model_id || '' },
+      { name: 'Manufacture ID', value: product.manufacture_id || '' },
+      { name: 'Group', value: product.group }, // Add group information if available
+      { name: 'Taxes', value: product.tax },
+      { name: 'Supplier Lead Time', value: product.lead_time.supplier_lead_time || '' },
+      { name: 'Replacement Lead Time', value: product.lead_time.replacement_lead_time || '' },
+      { name: 'Color', value: product.color },
+      { name: 'Finish', value: product.finish },
+      { name: 'Primary Material', value: product.material.primary_material },
+      { name: 'Secondary Material', value: product.material.secondary_material },
+      { name: 'Assembly Required', value: product.assembly.assembly_required?.toString() || '' },
+      { name: 'Assembly Required Level', value: product.assembly.assembly_required_level },
+      { name: 'Assembly Instructions URL', value: product.assembly.assembly_instructions_url },
+      { name: 'Recommended Use', value: product.recommended.recommended_use },
+      { name: 'Recommended Room', value: product.recommended.recommended_room },
+      { name: 'Recommended Location', value: product.recommended.recommended_location },
 
     ];
 
     return attributes;
-}
+  }
 
   checkout() {
     this.router.navigateByUrl("/" + this.bizService.getBizId() + "/cart");
   }
-  addItemToCart() {
-    var p = this.product;
-    var pricing = this.item_detail;
-    pricing["product"] = p.id
-    p["pricing"] = pricing;
-    this.userInfoService.addItemCart(p);
+  addProductToCart() {
+    const product = { ...this.product, pricing: { ...this.item_detail, product: this.product.id } };
+    this.userInfoService.addItemCart(product);
   }
   removeItemToCart() {
     this.userInfoService.removeItemCart(this.product);
