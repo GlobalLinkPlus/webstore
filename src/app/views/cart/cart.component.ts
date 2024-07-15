@@ -81,7 +81,7 @@ export class CartComponent implements OnInit {
     if(this.cartItems.length<1)
     return
   
-    if(this.userInfoService.isLoggedIn()){
+    if(this.userInfoService.isLoggedIn() || this.type===this.customer){
       this.router.navigateByUrl("/"+this.bizService.getBizId()+"/shipping-detail")
     }else{
      

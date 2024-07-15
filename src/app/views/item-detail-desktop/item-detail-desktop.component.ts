@@ -369,6 +369,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
     if (variation) {
       console.log(variation);
+      this.images = [];
       this.updateProductDetails(variation);
     }
   }
@@ -455,7 +456,6 @@ export class ItemDetailDesktopComponent implements OnInit {
     if (this.product) {
       this.msrp = variation.additional_features.details.variation_msrp.toString();
       this.images = variation.additional_features.images;
-      console.log(this.images)
       this.product = {
         ...this.product,
         name: variation.additional_features.details.variation_product_name,

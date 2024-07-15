@@ -237,11 +237,14 @@
           </div>
         </li>
       </ul>
-      <button *ngIf="type===catalog" class="btn  buy-now-button"
-        (click)="openContactUsModal()"
-        style="border-radius: 50px; margin-right: 50px; height: 50px; margin-top: 5px;"
+      <button *ngIf="type===catalog" class="btn  buy-now-button" (click)="openContactUsModal()"
+        style="border-radius: 50px; margin-right: 20px; height: 50px; margin-top: 5px;"
         [ngStyle]="{'background-color': bizService.get_background_color()}">
-        <span style="color: white; padding-left: 40px; padding-right: 40px;">Contact Us</span></button>
+        <span style="color: white; padding-left: 20px; padding-right: 20px;">Contact Us</span></button>
+      <!-- <button *ngIf="type===catalog" class="btn  buy-now-button" (click)="logInToBiz()"
+        style="border-radius: 50px; margin-right: 20px; height: 50px; margin-top: 5px;"
+        [ngStyle]="{'background-color': bizService.get_background_color()}">
+        <span style="color: white; padding-left: 20px; padding-right: 20px;">LogIn</span></button> -->
     </div>
   </div>
 </nav>

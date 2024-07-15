@@ -90,6 +90,10 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  logInToBiz(){
+    
+  }
+
   checkRightHeaderLink() {
     if (this.bizService.get_right_link() && this.bizService.get_right_link() !== "null") {
       this.rightHeaderLink = true;

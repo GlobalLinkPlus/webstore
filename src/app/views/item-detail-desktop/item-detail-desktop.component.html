@@ -92,6 +92,7 @@
                                     SKU:{{product?.sku}}
                                 </span>
                                 <select name="" id="" (change)="onBaseComboChange($event.target.value)"
+                                    *ngIf="variations.length > 0"
                                     style="min-width: 100px; border-radius: 15px; padding-left: 5px; padding-right: 5px;">
                                     <option value="" style="font-size: 10px;">Select variation</option>
                                     <option *ngFor="let variation of variations"
@@ -116,13 +117,16 @@
                         </div>
 
                         <div class="row">
-                            <div class="" style="color: red; padding-top: 10px;">
+                            <div *ngIf="type!==catalog" style="color: red; padding-top: 10px;">
                                 MSRP: $ {{msrp}}
                             </div>
                             <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
                                 $ {{item_detail.first_cost}}
                             </div>
-                            <small *ngIf="!userInfoService.isLoggedIn() && type!==catalog"
+                            <div *ngIf="type===customer" class="product-price">
+                                $ {{item_detail.first_cost}}
+                            </div>
+                            <small *ngIf="!userInfoService.isLoggedIn() && type!==catalog && type!==customer"
                                 style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a
                                     routerLink="/{{bizService.getBizName()}}/login"><u style="color: black;">Login for
                                         Pricing</u></a></small>
@@ -145,7 +149,7 @@
                                             <div class="cart-buttons">
 
 
-                                                <div class="item-count"
+                                                <div class="item-count" *ngIf="type!==catalog"
                                                     style="border: 2px solid rgb(90, 90, 90); border-radius:30px;width: fit-content;padding:0px;display: flex;height: 35px;">
                                                     <span
                                                         style="padding-left: 15px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-size: medium;"
@@ -159,7 +163,7 @@
                                                             style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
                                                 </div>
 
-                                                <button *ngIf="!userInfoService.isItemInCart(product)"
+                                                <button *ngIf="!userInfoService.isItemInCart(product) && type!==catalog"
                                                     class="btn  buy-now-button"
                                                     [ngStyle]="{'background-color': bizService.get_background_color()}"
                                                     (click)="addItemToCart()"><i class="fa-solid fa-plus"
@@ -167,7 +171,7 @@
                                                         style="padding-left: 10px;">Add to Cart</span></button>
                                                 <!-- <div class="row">
                                                     <div class="col-sm-12"> -->
-                                                <button *ngIf="userInfoService.isItemInCart(product)"
+                                                <button *ngIf="userInfoService.isItemInCart(product) && type!==catalog"
                                                     class="btn  checkout-button"
                                                     [ngStyle]="{'background-color': bizService.get_background_color()}"
                                                     (click)="checkout()">Proceed to Checkout</button>
