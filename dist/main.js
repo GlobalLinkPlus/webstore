@@ -263,6 +263,9 @@ class ApiService {
     getAboutUsDetails(id) {
         return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
     }
+    getSocialsDetails(id) {
+        return this.http.get(BASE_URL + 'socials/?webstore_id=' + id);
+    }
     getProductVariations(id) {
         return this.http.get(BASE_URL + 'variations/?product=' + id);
     }
@@ -917,7 +920,7 @@ class UserInfoService {
         if (cart) {
             let items = JSON.parse(cart);
             for (var i = 0; i < items.length; i++) {
-                if (items[i].id == item.id) {
+                if (items[i].id == (item === null || item === void 0 ? void 0 : item.id)) {
                     return true;
                 }
             }

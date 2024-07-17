@@ -2,7 +2,8 @@
     <div style="display: flex; padding-bottom: 20px; padding-top: 20px;">
         <div style="flex: 1;">
             <div style="font-weight: bold;">Categories</div>
-            <div *ngFor="let cat of categories;" style="cursor: pointer;" (click)="changeCategory(cat.name)">{{cat.name}}</div>
+            <div *ngFor="let cat of categories;" style="cursor: pointer;" (click)="changeCategory(cat.name)">
+                {{cat.name}}</div>
             <div style="cursor: pointer;">& More</div>
         </div>
         <div style="flex: 1;" *ngIf="type!==catalog">
@@ -12,14 +13,18 @@
             <div style="cursor: pointer;" *ngIf="type===customer && !userInfoService.isLoggedIn()">Register</div>
             <div *ngIf="userInfoService.isLoggedIn()" style="cursor: pointer;">Profile</div>
             <div *ngIf="userInfoService.isLoggedIn()" style="cursor: pointer;">Order History</div>
-            <div *ngIf="userInfoService.isLoggedIn()" routerLink="/{{bizService.getBizId()}}/my-orders" style="cursor: pointer;">Orders</div>
+            <div *ngIf="userInfoService.isLoggedIn()" routerLink="/{{bizService.getBizId()}}/my-orders"
+                style="cursor: pointer;">Orders</div>
         </div>
         <div style="flex: 1;">
             <div style="font-weight: bold;">About Us</div>
-            <div *ngIf="footerData.about_us" routerLink="/{{bizService.getBizId()}}/about" style="cursor: pointer;">About Us</div>
-            <div *ngIf="footerData.return" routerLink="/{{bizService.getBizId()}}/policies" style="cursor: pointer;">Returns</div>
-            <div *ngIf="footerData.warranty" style="cursor: pointer;">Warranty</div>
-            <div *ngIf="footerData.shipping" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies">Shipping Policy</div>
+            <div *ngIf="footerData.about_us" routerLink="/{{bizService.getBizId()}}/about" style="cursor: pointer;">
+                About Us</div>
+            <div *ngIf="footerData.return" routerLink="/{{bizService.getBizId()}}/policies" style="cursor: pointer;">
+                Returns</div>
+            <div *ngIf="footerData.warranty" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies#warranty">Warranty</div>
+            <div *ngIf="footerData.shipping" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies#policies">
+                Shipping Policy</div>
             <div *ngIf="footerData.faq" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/faqs">FAQ</div>
             <div *ngIf="footerData.careers" style="cursor: pointer;">Careers</div>
         </div>
@@ -28,52 +33,17 @@
             <div routerLink="/{{bizService.getBizId()}}/contact-us" style="cursor: pointer;">Contact Us</div>
         </div>
         <div style="flex: 4; display: flex; justify-content: flex-end; align-items: flex-end;">
-            <div style="margin-left: 10px; cursor: pointer;">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M20.7502 7.275C19.8957 6.29953 19.4248 5.04679 19.4252 3.75H15.5627V19.25C15.5329 20.0888 15.1788 20.8833 14.5749 21.4662C13.971 22.0491 13.1645 22.3749 12.3252 22.375C10.5502 22.375 9.0752 20.925 9.0752 19.125C9.0752 16.975 11.1502 15.3625 13.2877 16.025V12.075C8.9752 11.5 5.2002 14.85 5.2002 19.125C5.2002 23.2875 8.6502 26.25 12.3127 26.25C16.2377 26.25 19.4252 23.0625 19.4252 19.125V11.2625C20.9914 12.3873 22.8719 12.9908 24.8002 12.9875V9.125C24.8002 9.125 22.4502 9.2375 20.7502 7.275Z"
-                        fill="black" />
-                </svg>
-            </div>
-            <div style="margin-left: 10px; cursor: pointer;">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M17.2437 13.1663L25.85 2.5H22.0088L15.44 10.6462L9.6125 2.5H1.25L11.0075 16.1375L1.8375 27.5H5.68L12.8112 18.6625L19.1375 27.5H27.5L17.2437 13.1663ZM14.2688 16.8538L12.4625 14.33L5.45 4.53375H8.3375L13.9975 12.43L15.8012 14.955L23.3237 25.4662H20.4363L14.2688 16.8538Z"
-                        fill="black" />
-                </svg>
-            </div>
-            <div style="margin-left: 10px; cursor: pointer;">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M17.5 16.875H20.625L21.875 11.875H17.5V9.375C17.5 8.0875 17.5 6.875 20 6.875H21.875V2.675C21.4675 2.62125 19.9287 2.5 18.3037 2.5C14.91 2.5 12.5 4.57125 12.5 8.375V11.875H8.75V16.875H12.5V27.5H17.5V16.875Z"
-                        fill="black" />
-                </svg>
-            </div>
-            <div style="margin-left: 10px; cursor: pointer;">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M15.0013 11.25C14.0067 11.25 13.0529 11.6451 12.3496 12.3483C11.6463 13.0516 11.2513 14.0054 11.2513 15C11.2513 15.9946 11.6463 16.9484 12.3496 17.6517C13.0529 18.3549 14.0067 18.75 15.0013 18.75C15.9958 18.75 16.9496 18.3549 17.6529 17.6517C18.3562 16.9484 18.7513 15.9946 18.7513 15C18.7513 14.0054 18.3562 13.0516 17.6529 12.3483C16.9496 11.6451 15.9958 11.25 15.0013 11.25ZM15.0013 8.75C16.6589 8.75 18.2486 9.40848 19.4207 10.5806C20.5928 11.7527 21.2512 13.3424 21.2512 15C21.2512 16.6576 20.5928 18.2473 19.4207 19.4194C18.2486 20.5915 16.6589 21.25 15.0013 21.25C13.3436 21.25 11.7539 20.5915 10.5818 19.4194C9.40973 18.2473 8.75125 16.6576 8.75125 15C8.75125 13.3424 9.40973 11.7527 10.5818 10.5806C11.7539 9.40848 13.3436 8.75 15.0013 8.75ZM23.1262 8.4375C23.1262 8.8519 22.9616 9.24933 22.6686 9.54235C22.3756 9.83538 21.9781 10 21.5637 10C21.1493 10 20.7519 9.83538 20.4589 9.54235C20.1659 9.24933 20.0012 8.8519 20.0012 8.4375C20.0012 8.0231 20.1659 7.62567 20.4589 7.33265C20.7519 7.03962 21.1493 6.875 21.5637 6.875C21.9781 6.875 22.3756 7.03962 22.6686 7.33265C22.9616 7.62567 23.1262 8.0231 23.1262 8.4375ZM15.0013 5C11.9088 5 11.4038 5.00875 9.965 5.0725C8.985 5.11875 8.3275 5.25 7.7175 5.4875C7.20702 5.67492 6.74552 5.97533 6.3675 6.36625C5.97626 6.74425 5.67544 7.20573 5.4875 7.71625C5.25 8.32875 5.11875 8.985 5.07375 9.96375C5.00875 11.3438 5 11.8263 5 15C5 18.0938 5.00875 18.5975 5.0725 20.0362C5.11875 21.015 5.25 21.6737 5.48625 22.2825C5.69875 22.8263 5.94875 23.2175 6.36375 23.6325C6.785 24.0525 7.17625 24.3037 7.71375 24.5112C8.33125 24.75 8.98875 24.8825 9.96375 24.9275C11.3438 24.9925 11.8263 25 15 25C18.0938 25 18.5975 24.9912 20.0362 24.9275C21.0138 24.8812 21.6712 24.75 22.2825 24.5138C22.7925 24.3254 23.2538 24.0251 23.6325 23.635C24.0538 23.215 24.305 22.8237 24.5125 22.285C24.75 21.67 24.8825 21.0125 24.9275 20.035C24.9925 18.6562 25 18.1725 25 15C25 11.9075 24.9912 11.4025 24.9275 9.96375C24.8812 8.98625 24.7488 8.32625 24.5125 7.71625C24.3241 7.20627 24.0238 6.74498 23.6337 6.36625C23.2559 5.97481 22.7944 5.67396 22.2837 5.48625C21.6712 5.24875 21.0138 5.1175 20.0362 5.0725C18.6575 5.0075 18.175 5 15 5M15 2.5C18.3962 2.5 18.82 2.5125 20.1537 2.575C21.4837 2.6375 22.3912 2.84625 23.1875 3.15625C24.0125 3.47375 24.7075 3.90375 25.4025 4.5975C26.0381 5.22237 26.5299 5.97824 26.8438 6.8125C27.1525 7.60875 27.3625 8.51625 27.425 9.8475C27.4838 11.18 27.5 11.6038 27.5 15C27.5 18.3962 27.4875 18.82 27.425 20.1525C27.3625 21.4837 27.1525 22.39 26.8438 23.1875C26.5308 24.0222 26.0389 24.7782 25.4025 25.4025C24.7775 26.0379 24.0216 26.5297 23.1875 26.8438C22.3912 27.1525 21.4837 27.3625 20.1537 27.425C18.82 27.4838 18.3962 27.5 15 27.5C11.6038 27.5 11.18 27.4875 9.84625 27.425C8.51625 27.3625 7.61 27.1525 6.8125 26.8438C5.97791 26.5306 5.22191 26.0387 4.5975 25.4025C3.96179 24.7777 3.46995 24.0218 3.15625 23.1875C2.84625 22.3912 2.6375 21.4837 2.575 20.1525C2.515 18.82 2.5 18.3962 2.5 15C2.5 11.6038 2.5125 11.18 2.575 9.8475C2.6375 8.51625 2.84625 7.61 3.15625 6.8125C3.46905 5.97772 3.961 5.22165 4.5975 4.5975C5.22209 3.96154 5.97804 3.46966 6.8125 3.15625C7.60875 2.84625 8.515 2.6375 9.84625 2.575C11.1812 2.51625 11.605 2.5 15.0013 2.5"
-                        fill="black" />
-                </svg>
-            </div>
-            <div style="margin-left: 10px; cursor: pointer;">
-                <svg width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_11873_529)">
-                        <path
-                            d="M11.9531 0.382812C5.94141 0.382812 0 4.39063 0 10.877C0 15.002 2.32031 17.3457 3.72656 17.3457C4.30664 17.3457 4.64062 15.7285 4.64062 15.2715C4.64062 14.7266 3.25195 13.5664 3.25195 11.2988C3.25195 6.58789 6.83789 3.24805 11.4785 3.24805C15.4688 3.24805 18.4219 5.51562 18.4219 9.68164C18.4219 12.793 17.1738 18.6289 13.1309 18.6289C11.6719 18.6289 10.4238 17.5742 10.4238 16.0625C10.4238 13.8477 11.9707 11.7031 11.9707 9.41797C11.9707 5.53906 6.46875 6.24219 6.46875 10.9297C6.46875 11.9141 6.5918 13.0039 7.03125 13.9004C6.22266 17.3809 4.57031 22.5664 4.57031 26.1523C4.57031 27.2598 4.72852 28.3496 4.83398 29.457C5.0332 29.6797 4.93359 29.6562 5.23828 29.5449C8.19141 25.502 8.08594 24.7109 9.42188 19.4199C10.1426 20.791 12.0059 21.5293 13.4824 21.5293C19.7051 21.5293 22.5 15.4648 22.5 9.99805C22.5 4.17969 17.4727 0.382812 11.9531 0.382812Z"
-                            fill="black" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_11873_529">
-                            <rect width="22.5" height="30" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
+            <div *ngFor="let social of socials" style="margin-left: 10px; cursor: pointer;">
+                <a href="https://{{social.url}}" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-{{social.name.toLowerCase()}}" style="font-size: 28px; color: black;"></i>
+                </a>
             </div>
         </div>
     </div>
-    <div style="display: flex; justify-content: space-between; padding-bottom: 20px; border-top: #C1C7D6 1px solid; padding-top: 15px;">
+    <div
+        style="display: flex; justify-content: space-between; padding-bottom: 20px; border-top: #C1C7D6 1px solid; padding-top: 15px;">
         <div>{{bizService.getBizName()}}</div>
-        <div *ngIf="footerData.privacy_policy" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies">Terms of Use | Privacy Policy</div>
+        <div *ngIf="footerData.privacy_policy" style="cursor: pointer;"
+            routerLink="/{{bizService.getBizId()}}/policies#policies">Terms of Use | Privacy Policy</div>
     </div>
 </div>

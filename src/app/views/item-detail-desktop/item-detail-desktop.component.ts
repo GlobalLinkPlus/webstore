@@ -270,17 +270,17 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   @ViewChild("container", { static: true, read: ElementRef })
   container: ElementRef;
-  @HostListener("window:resize") windowResize() {
-    let newCardsPerPage = this.getCardsPerPage();
-    if (newCardsPerPage != this.cardsPerPage) {
-      this.cardsPerPage = newCardsPerPage;
-      this.initializeSlider();
-      if (this.currentPage > this.totalPages) {
-        this.currentPage = this.totalPages;
-        this.populatePagePosition();
-      }
-    }
-  }
+  // @HostListener("window:resize") windowResize() {
+  //   let newCardsPerPage = this.getCardsPerPage();
+  //   if (newCardsPerPage != this.cardsPerPage) {
+  //     this.cardsPerPage = newCardsPerPage;
+  //     this.initializeSlider();
+  //     if (this.currentPage > this.totalPages) {
+  //       this.currentPage = this.totalPages;
+  //       this.populatePagePosition();
+  //     }
+  //   }
+  // }
 
   images1 = [
 
@@ -413,13 +413,13 @@ export class ItemDetailDesktopComponent implements OnInit {
 
       )
 
-      this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
-        res => {
-          this.videos = res;
-        },
-        err => { }
+      // this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
+      //   res => {
+      //     this.videos = res;
+      //   },
+      //   err => { }
 
-      )
+      // )
 
 
       try {

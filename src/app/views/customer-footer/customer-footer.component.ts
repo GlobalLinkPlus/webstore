@@ -13,6 +13,7 @@ import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.co
 })
 export class CustomerFooterComponent implements OnInit {
   categories: any[] = [];
+  socials: any[] = [];
   customer = "customer";
   business = "business";
   catalog = "catalog";
@@ -34,6 +35,7 @@ export class CustomerFooterComponent implements OnInit {
     }, err => { });
     this.type = this.bizService.getBizType();
     this.footerData = this.bizService.get_footer_data();
+    this.getSocials(this.bizService.get_company_id());
   }
 
   openContactUsModal() {
@@ -43,6 +45,14 @@ export class CustomerFooterComponent implements OnInit {
       modal:true,
       closable: true,
     });
+  }
+
+  getSocials(id) {
+    this.apiService.getSocialsDetails(id).subscribe(res => {
+      if (res) {
+        this.socials = res;
+      }
+    }, err => { });
   }
 
   changeCategory(category) {
