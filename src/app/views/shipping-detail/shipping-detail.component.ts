@@ -58,7 +58,6 @@ export class ShippingDetailComponent implements OnInit {
         customer: this.userInfoService.getCustomerId(),
         products:[],
         new_customer:"No",
-        order_channel:"Webstore",
         customer_location_id:"",
         channel:this.cartItems[0].channel,
         "shipping":Object.assign({
@@ -66,8 +65,7 @@ export class ShippingDetailComponent implements OnInit {
           "carrier":"FredEx"
         },
         this.shippingForm.value
-        ),        
-        amount:this.cart_summary.total_cost
+        ),
       }
       payload["shipping"]
       for(var i=0;i<this.cartItems.length;i++){
@@ -75,22 +73,21 @@ export class ShippingDetailComponent implements OnInit {
           {
             id:this.cartItems[i].id,
             quantity:this.cartItems[i].product_count,
-            channel:this.cartItems[i].channel
+            channel:this.cartItems[i].channel,
+            amount:+this.cartItems[i].pricing.first_cost,
+            channel_price: 619.4456515037593,
+            location: "315c2df1-7362-4af0-9840-d3fdd749cef3"
           }
         )
       }
 
+      // this.processPayment();
+
       this.apiService.createNewOrder(payload).subscribe(res=>{
-        this.router.navigateByUrl("/"+this.bizService.getBizId()+"/payment-method/"+res.order_id);
-
-      },err=>{
-
-      })
+        // this.router.navigateByUrl("/"+this.bizService.getBizId()+"/payment-method/"+res.order_id);
+        this.processPayment()
+      },err=>{})
     // this.apiService.addCustomerLocation(this.shippingForm.value).subscribe(res=>{
-      
-      
-   
-   
     // },err=>{})
   }
 
@@ -109,6 +106,40 @@ export class ShippingDetailComponent implements OnInit {
     // this.apiService.calculateCartCosts(this.userInfoService.getCartItems()).subscribe(res=>{
     //   this.cart_summary=res;
     // },err=>{});
+  }
+
+  processPayment(){
+    const payload = {
+      webstore_id: this.bizService.get_company_id(),
+      payment_data: {},
+      cart: [],
+      amount: this.cart_summary.total_cost*100,
+      // currency: this.cart_summary.currency
+      currency: "USD",
+      success_url: "https://webstore.globallinkplus.com/globallinkdemo/my-orders",
+      cancel_url: "https://webstore.globallinkplus.com/globallinkdemo/cart",
+    }
+
+    this.cartItems.forEach(item => {
+      payload.cart.push({
+        quantity: item.product_count,
+        price_data: {
+          currency: "USD",
+          unit_amount: +item.pricing.first_cost*100,
+          product_data: {
+            name: item.name,
+            description: item.description,
+            images: item.image_urls.url
+          }
+        }
+      })
+    })
+
+    this.apiService.processPayment(payload).subscribe(res => {
+      window.location.href = res?.checkout_url;
+    }, err => {
+      console.log(err)
+    })
   }
 
 

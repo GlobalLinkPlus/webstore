@@ -278,6 +278,9 @@ class ApiService {
     validateCustomerEmail(data) {
         return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
+    processPayment(data) {
+        return this.http.post(BASE_URL + 'webstore_payment/payment_stripe/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+    }
     resetPassword(data) {
         return this.http.put(BASE_URL + 'webstore/password/reset', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }

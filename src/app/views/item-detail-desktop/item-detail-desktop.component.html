@@ -120,7 +120,7 @@
                             <div *ngIf="type!==catalog" style="color: red; padding-top: 10px;">
                                 MSRP: $ {{msrp}}
                             </div>
-                            <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
+                            <div *ngIf="userInfoService.isLoggedIn() && type!==customer" class="product-price">
                                 $ {{item_detail.first_cost}}
                             </div>
                             <div *ngIf="type===customer" class="product-price">

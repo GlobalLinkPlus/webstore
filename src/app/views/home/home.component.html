@@ -109,7 +109,7 @@
                     *ngIf="sectionOneProduct.product.image_urls.length==0 ||  !sectionOneProduct.product.image_urls[0].url"
                     class="card-img-top object-fit-cover"></div>
                   <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
-                    class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                    class="btn btn-light position-absolute end-0 top-0"><i class="bi bi-heart"></i></button>
                   <div *ngIf="type===business" style="padding-top: 15px;" class="card-body px-2">
                     <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold"
                       routerLink="product/{{sectionOneProduct.id}}">
@@ -266,7 +266,7 @@
                   *ngIf="sectionTwoProduct.product.image_urls.length==0 ||  !sectionTwoProduct.product.image_urls[0].url"
                   class="card-img-top object-fit-cover scale-up"></div>
                 <button style="margin: 15px;" *ngIf="userInfoService.isLoggedIn()"
-                  class="btn btn-light position-absolute end-0"><i class="bi bi-heart"></i></button>
+                  class="btn btn-light position-absolute end-0 top-0"><i class="bi bi-heart"></i></button>
                 <div *ngIf="type===business" style="padding-top: 15px;" class="card-body px-2">
                   <p style="cursor: pointer;" class="fw-normal mb-2 small fw-bold"
                     routerLink="product/{{sectionTwoProduct.id}}">

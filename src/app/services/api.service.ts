@@ -32,6 +32,8 @@ export class ApiService {
     return this.http.get(BASE_URL + 'webstore/?name=' + name);
   }
 
+
+
   getAboutUsDetails(id): Observable<any> {
     return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
   }
@@ -54,6 +56,11 @@ export class ApiService {
 
   validateCustomerEmail(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(
+      map(this.extractData));
+  }
+
+  processPayment(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore_payment/payment_stripe/', data).pipe(
       map(this.extractData));
   }
 
