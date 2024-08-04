@@ -100,6 +100,12 @@
     float: right;
     font-size: xx-large;
   }
+
+  @media (max-width: 412px) {
+    .container-mobile-view{
+      padding-top: 10px !important;
+    }
+  }
   
   .product-card-detail{
     margin-top: 30px;

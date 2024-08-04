@@ -103,6 +103,12 @@ label{
     }
 }
 
+@media(max-width: 412px){
+  .container-mobile-view{
+    padding-top: 25px !important;
+  }
+}
+
 .full-height{
     height: 100%;
 }

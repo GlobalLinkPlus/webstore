@@ -5,7 +5,7 @@
     <app-header></app-header>
   </header>
 
-  <div class="row  search-content" style="margin-top: 30px;">
+  <div class="row  search-content" style="margin-top: 5px;">
     <div class="col-sm-2 col-lg-2 mt-4">
       <div class="modal-side-nav right-side-nav fade-side-nav" id="rightModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -34,7 +34,7 @@
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <ul style="max-height: 200px; overflow-y: scroll;">
-                        <li *ngFor="let item of  categories" (click)="changeCategory(item.name)"
+                        <li *ngFor="let item of  categories" data-dismiss="modal" (click)="changeCategory(item.name)"
                           style="margin-bottom: 15px; cursor: pointer;">
                           <a>{{item.name}}</a>
                         </li>
@@ -54,19 +54,19 @@
                       Collections
                     </button>
                   </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                  <!-- <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <ul>
                         <li *ngFor="let item of  collections">
-                          <a routerLink="collections/{{item.name}}" style="text-transform: lowercase;">{{item.name}}</a>
+                          <a routerLink="collections/{{item.name}}" data-dismiss="modal" style="text-transform: lowercase;">{{item.name}}</a>
                         </li>
 
 
                       </ul>
 
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="accordion-item" hoverActivatedAccordion>
                   <h2 class="accordion-header" id="flush-headingThree">
@@ -150,76 +150,6 @@
           </div>
         </div>
       </div>
-      <!-- <ul class="sidebar-nav" >
-                  <li class="menu">
-                      <a href="#">Categories <span style="float: right;padding-right: 10px;"><i class="fa fa-minus"></i></span></a>
-                      <ul style=" list-style-type: none;" class="submenu">
-                          <li>
-                              <a href="#">Brands</a>
-                          </li>
-                          <li>
-                              <a href="#">Furniture</a>
-                          </li>
-                          <li>
-                              <a href="#">Towels</a>
-                          </li>
-                          <li>
-                              <a href="#">Matress</a>
-                          </li>
-                          <li>
-                              <a href="#">Rugs</a>
-                          </li>
-                          <li>
-                              <a href="#">Pillows</a>
-                          </li>
-                          <li>
-                              <a href="#">Dog Beds</a>
-                          </li>
-                      </ul>
-
-                  </li>
-                  <li class="menu">
-                      <a href="#">Collections <span style="float: right;padding-right: 10px;"><i class="fa fa-minus"></i></span></a>
-                      <ul style=" list-style-type: none;" class="submenu">
-                          <li>
-                              <a href="#">Arbor Lodge</a>
-                          </li>
-                          <li>
-                              <a href="#">Berkely</a>
-                          </li>
-                          <li>
-                              <a href="#">Brooklyn</a>
-                          </li>
-                          <li>
-                              <a href="#">Largo</a>
-                          </li>
-                          <li>
-                              <a href="#">Milan</a>
-                          </li>
-                          <li>
-                              <a href="#">Oak Mill</a>
-                          </li>
-                          <li>
-                              <a href="#">Tyler</a>
-                          </li>
-                      </ul>
-
-                  </li>
-                  <li class="menu">
-                      <a href="#">Color
-                          <span style="float: right;padding-right: 10px;"><i class="fa fa-caret-down"></i></span></a>
-                  </li>
-                  <li class="menu">
-                      <a href="#">Material <span style="float: right;padding-right: 10px;"><i class="fa fa-caret-down"></i></span></a>
-                  </li>
-                  <li class="menu">
-                      <a href="#">Shipping Type <span style="float: right;padding-right: 10px;"><i class="fa fa-caret-down"></i></span></a>
-                  </li>
-                  <li class="menu">
-                      <a href="#">Price Per Item<span style="float: right;padding-right: 10px;"><i class="fa fa-caret-down"></i></span></a>
-                  </li>
-                
-              </ul> -->
     </div>
     <div class="col-sm-10 col-lg-10">
       <div class="container-fluid vstack gap-2">
