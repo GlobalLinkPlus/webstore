@@ -13,11 +13,18 @@
       <span class="promotion-text-right" *ngIf="!rightHeaderLink">{{bizService.get_right_header()}}</span>
 
     </div>
-    <div style="display: flex; padding-top: 30px; width: 100%;">
+    <div class="header-container-mobile" style="display: flex; padding-top: 30px; width: 100%;">
+      <div class="hamburger-menu">
+        <hr class="hamburger-line">
+        <hr class="hamburger-line">
+        <hr class="hamburger-line">
+      </div>
       <div class="navbar-brand" style="min-width: 280px;z-index: 1040;">
-        <!-- <span class="app-title" style="padding-left: 40px;" >
-         <a href="" style="text-decoration: none;color: black;">.<span style="color:#f68b1e">ts</span>marketing.</a>
-        </span>  -->
+        <a class="logo" routerLink="/{{bizService.getBizName()}}">
+          <img src="{{bizService.get_company_logo()}}" style="height:50px" />
+        </a>
+      </div>
+      <div class="navbar-brand-mobile" style="min-width: 200px;z-index: 1040;">
         <a class="logo" routerLink="/{{bizService.getBizName()}}">
           <img src="{{bizService.get_company_logo()}}" style="height:50px" />
         </a>
@@ -159,7 +166,7 @@
 
 
 
-          <div class="nav-item dropdown menu-button" style="height: 40px;">
+          <div class="nav-item dropdown menu-button account-menu" style="height: 40px;">
             <span class="nav-link dropdown-toggle" style="cursor: pointer;" data-bs-toggle="dropdown">
               <span class="unhovered">
                 <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -196,7 +203,8 @@
 
                 </svg>
               </span>
-              <span class="menu-text" [ngStyle]="getUserMenuHoverStyle()">Account</span></span>
+              <span class="menu-text" [ngStyle]="getUserMenuHoverStyle()">Account</span>
+            </span>
             <div class="dropdown-menu" style="left:auto;right:0">
 
               <span style="cursor: pointer;" class="dropdown-item">My Account</span>

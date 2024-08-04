@@ -97,6 +97,19 @@
   .left.disabled, .right.disabled {
     color:#CCC;
   }
+
+  @media (max-width: 412px) {
+
+    .product-container-image-mobile-view{
+      width: 160px !important;
+    }
+
+    .product-image-mobile-view{
+      width: 160px !important;
+      height: 160px !important;
+    }
+  
+  }
   
   .left {
     margin-left: 50px;

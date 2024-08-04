@@ -97,6 +97,20 @@ height: 16px;
   padding-top:100px;
 }
 
+.mobile-view-btn{
+  display: none;
+}
+
+@media (max-width: 412px) {
+  .mobile-view-btn{
+    display: flex;
+  }
+
+  .normal-view-btn{
+    display: none;
+  }
+}
+
 .btn-submit{
   float: right;
   height: 50px;
