@@ -98,7 +98,7 @@
     color:#CCC;
   }
 
-  @media (max-width: 412px) {
+  @media (max-width: 580px) {
 
     .product-container-image-mobile-view{
       width: 160px !important;
@@ -200,6 +200,12 @@ a{
   }
 
 }
+
+@media (max-width: 580px){
+  .search-content{
+    margin-top: 5px !important;
+  }
+}
 @media (min-width: 991.98px){ 
   .modal-header-side-nav{
     display: none;
@@ -278,10 +284,10 @@ a{
 
 @media (max-width: 991.98px){ 
 
-  main{
-    padding-left: 15px !important;
-    padding-right: 15 !important;
-  }
+  // main{
+  //   padding-left: 15px !important;
+  //   padding-right: 15 !important;
+  // }
 }
 
 .facetGroup_facets__bE9U9 {

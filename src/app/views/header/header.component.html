@@ -52,7 +52,7 @@
 
             <span hoverActivatedNavMenu style="display: block;width: fit-content;">
 
-              <div (click)="changeCategory(cat.name)" style="cursor: pointer;"> <a style="text-decoration: none;"
+              <div (click)="changeCategory(cat.name)" style="cursor: pointer;white-space: nowrap;"> <a style="text-decoration: none;"
                   class="TopNav_topNavLink_13"
                   [ngStyle]="getTopMenuHoverStyle(cat.id)">{{navbarCategoryFormat(cat.name)}}</a></div>
               <div
@@ -260,7 +260,7 @@
   </div>
 </nav>
 
-<div class="col-sm-2 col-lg-2 mt-4">
+<div class="col-sm-2 col-lg-2 mt-4 modal-body-side-nav">
   <div class="modal-side-nav left-side-nav fade-side-nav" id="menuModal" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog-side-nav" role="document">
@@ -274,7 +274,7 @@
             </button></span>
         </div>
 
-        <div class="modal-body-side-nav" style="padding-left: 30px; padding-top: 20px;">
+        <div style="padding-left: 30px; padding-top: 20px;">
           <div style="margin-bottom: 5px;" *ngFor="let cat of categories;">
             <div>
               <span (click)="changeCategory(cat.name)" data-dismiss="modal">{{cat.name}}</span>
@@ -324,7 +324,6 @@
             </div>
 
           </div>
-          <div style="display: flex; flex:1;"></div>
         </div>
       </div>
     </div>

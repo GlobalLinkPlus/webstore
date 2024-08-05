@@ -269,6 +269,12 @@ select:focus-visible {
   content: "-";
 }
 
+@media (max-width:580px){
+  .main-content {
+    margin-top: 5px !important;
+  }
+}
+
 @media (min-width: 991.98px) { 
   .main-content {
     padding-top: 170px;
