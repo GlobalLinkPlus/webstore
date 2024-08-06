@@ -1,6 +1,6 @@
 import { Route } from '@angular/compiler/src/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
@@ -318,7 +318,8 @@ export class ItemDetailDesktopComponent implements OnInit {
     private apiService: ApiService,
     public bizService: BizService,
     public userInfoService: UserInfoService,
-    public rateConfig: NgbRatingConfig
+    public rateConfig: NgbRatingConfig,
+    private cd: ChangeDetectorRef
   ) {
     rateConfig.max = 5
     rateConfig.readonly = !userInfoService.isLoggedIn()
@@ -356,7 +357,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   }
 
-  onBaseComboChange(selectedBaseCombo: string): void {
+  async onBaseComboChange(selectedBaseCombo: string): Promise<void> {
     if(!selectedBaseCombo) {
       this.ngOnInit();
       return;
@@ -370,6 +371,7 @@ export class ItemDetailDesktopComponent implements OnInit {
     if (variation) {
       console.log(variation);
       this.images = [];
+      await this.images;
       this.updateProductDetails(variation);
     }
   }
@@ -455,7 +457,8 @@ export class ItemDetailDesktopComponent implements OnInit {
   async updateProductDetails(variation: any) {
     if (this.product) {
       this.msrp = variation.additional_features.details.variation_msrp.toString();
-      this.images = variation.additional_features.images;
+      this.images = [...variation.additional_features.images];
+      this.cd.detectChanges();
       this.product = {
         ...this.product,
         name: variation.additional_features.details.variation_product_name,
