@@ -27,7 +27,7 @@
           <img src="{{bizService.get_company_logo()}}" style="height:50px" />
         </a>
       </div>
-      <div class="navbar-brand-mobile" style="min-width: 200px;z-index: 1040;">
+      <div class="navbar-brand-mobile" style="min-width: 200px;z-index: 1040; margin-right: 20px;">
         <a class="logo" routerLink="/{{bizService.getBizName()}}">
           <img src="{{bizService.get_company_logo()}}" style="height:50px" />
         </a>
@@ -274,19 +274,21 @@
             </button></span>
         </div>
 
-        <div style="padding-left: 30px; padding-top: 20px;">
-          <div style="margin-bottom: 5px;" *ngFor="let cat of categories;">
-            <div>
-              <span (click)="changeCategory(cat.name)" data-dismiss="modal">{{cat.name}}</span>
-              <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
-            </div>
-            <div style="padding-left: 15px;" *ngFor="let sub of sub_categories">
-              <a *ngIf="sub.category==cat.id"
-                routerLink="/{{bizService.getBizId()}}/products/{{cat.name}}/{{sub.name}}/"
-                class="DropDown_columnLink_c4 DropDown_columnTitle_ec" data-dismiss="modal">{{sub.name}}</a>
+        <div style="padding-left: 30px; padding-top: 20px; display: flex; flex-direction: column; overflow-y: scroll; height: 90vh;">
+          <div style="flex:1; overflow-y: scroll; max-height: 400px; padding-bottom: 10px;">
+            <div style="margin-bottom: 5px;" *ngFor="let cat of categories;">
+              <div>
+                <span (click)="changeCategory(cat.name)" data-dismiss="modal">{{cat.name}}</span>
+                <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+              </div>
+              <div style="padding-left: 15px;" *ngFor="let sub of sub_categories">
+                <a *ngIf="sub.category==cat.id"
+                  routerLink="/{{bizService.getBizId()}}/products/{{cat.name}}/{{sub.name}}/"
+                  class="DropDown_columnLink_c4 DropDown_columnTitle_ec" data-dismiss="modal">{{sub.name}}</a>
+              </div>
             </div>
           </div>
-          <div style="flex: 4; display: flex; align-items: flex-end;">
+          <div style="display: flex; align-items: flex-end; flex:1;">
             <div style="display: flex; justify-self: flex-end; height: fit-content;">
               <div>
                 <span class="unhovered">

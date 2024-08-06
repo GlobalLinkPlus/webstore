@@ -1,4 +1,4 @@
-<div style="min-height: 100vh; display: flex; flex-direction: column;">
+<div style="min-height: 100vh; width: 100vw; display: flex; flex-direction: column;">
     <header>
         <app-header></app-header>
     </header>
@@ -58,7 +58,7 @@
                                                         <td>{{shippingItemsFormat(item.products)}}</td>
                                                         <td>{{item.created| date:'dd-MM-yyyy'}}</td>
                                                     </tr>
-                                                    <tr *ngIf="selected_item==item.id">
+                                                    <tr *ngIf="selected_item==item.id" class="order-item-mobile-view">
 
                                                         <td colspan="5">
                                                             <div class="card"

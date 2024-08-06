@@ -208,15 +208,17 @@
 
                             <div class="col-sm-12 mt-3">
                                 <div class="row">
-                                    <div class="col-sm-8" (click)="setShowFeatures()" style="cursor: pointer;">
-                                        <span style="font-weight:700;">Feature</span>
-                                    </div>
-                                    <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4"
-                                        style="text-align: right;">
-                                        <i *ngIf="show_features===false" class="fa-solid fa-plus"
-                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
-                                        <i *ngIf="show_features===true" class="fa-solid fa-minus"
-                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
+                                    <div style="display: flex;">
+                                        <div class="col-sm-8" (click)="setShowFeatures()" style="cursor: pointer;">
+                                            <span style="font-weight:700;">Features</span>
+                                        </div>
+                                        <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4"
+                                            style="text-align: right;">
+                                            <i *ngIf="show_features===false" class="fa-solid fa-plus"
+                                                style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
+                                            <i *ngIf="show_features===true" class="fa-solid fa-minus"
+                                                style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
+                                        </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <hr>

@@ -2,8 +2,8 @@
     <header>
         <app-header></app-header>
     </header>
-    <div style="margin-top: 220px; margin-bottom: 50px;" class="row main-content">
-        <div *ngFor="let item of policyDetails" style="padding-left: 100px; padding-right: 100px; display: flex; flex-direction: column;">
+    <div style="margin-top: 220px; margin-bottom: 50px;" class="main-content">
+        <div *ngFor="let item of policyDetails" class="policies-container" style="padding-left: 100px; padding-right: 100px; display: flex; flex-direction: column;">
             <div style="font-size: 22px; font-weight: bold;">{{item.title}}</div>
             <hr style="border: 1px solid #C1C7D6;">
             <div style="margin-bottom: 50px;" innerHTML="{{item.description}}"></div>

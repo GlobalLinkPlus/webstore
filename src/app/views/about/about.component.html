@@ -2,9 +2,9 @@
     <header>
         <app-header></app-header>
     </header>
-    <div style="margin-top: 220px; margin-bottom: 50px;" class="row main-content">
-        <div style="padding-left: 100px; padding-right: 100px; display: flex; flex-direction: column;">
-            <div *ngFor="let item of aboutUsDetails" style="display: flex; column-gap: 30px;">
+    <div style="margin-top: 220px; margin-bottom: 50px;" class="main-content">
+        <div class="about-us-container" style="padding-left: 100px; padding-right: 100px; display: flex; flex-direction: column;">
+            <div *ngFor="let item of aboutUsDetails" class="about-us-content" style="display: flex; column-gap: 30px;">
                 <div style="flex: 1;">
                     <div style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">{{item.title}}</div>
                     <div style="margin-bottom: 50px;">

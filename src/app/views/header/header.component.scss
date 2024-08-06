@@ -131,6 +131,10 @@
         padding-top: 0px !important;
     }
 
+    .navbar-collapse{
+        display: none;
+    }
+
     .navbar-brand-mobile {
         display: flex;
         margin-left: 25px;
@@ -139,6 +143,8 @@
     .modal-body-side-nav{
         display: flex;
         flex-direction: column;
+        // height: 100vh;
+        overflow-y: scroll;
     }
 }
 

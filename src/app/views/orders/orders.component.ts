@@ -36,16 +36,16 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
 
     this.apiService.getOrders({"status":"Pending","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-      this.ordersPending=res;
-    },err=>{});
-
+      this.ordersPending = res.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+    }, err => {});
+  
     this.apiService.getOrders({"status":"Acknowledged","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-      this.ordersProgress=res;
-    },err=>{});
-
+      this.ordersProgress = res.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+    }, err => {});
+  
     this.apiService.getOrders({"status":"Completed","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-     this.ordersCompleted=res;
-    },err=>{});
+      this.ordersCompleted = res.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+    }, err => {});
 
     this.type = this.bizService.getBizType();
   }
