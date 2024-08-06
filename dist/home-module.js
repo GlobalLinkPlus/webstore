@@ -10280,7 +10280,7 @@ function HomeComponent_div_36_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx_r6.sectionTwoProducts)("numVisible", 3)("numScroll", 3)("circular", true)("responsiveOptions", ctx_r6.sectionCarouselResponsiveOptions)("containerStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](6, _c0));
 } }
-const _c1 = function (a0) { return { "background-image": a0, "width": "100%" }; };
+const _c1 = function (a0) { return { "background-image": a0, "background-size": "cover", "background-position": "center", "width": "100%" }; };
 class HomeComponent {
     constructor(apiService, userInfoService, bizService, config) {
         this.apiService = apiService;
@@ -10810,13 +10810,14 @@ function ItemDetailDesktopComponent_td_80_Template(rf, ctx) { if (rf & 1) {
 } }
 const _c3 = function () { return { "max-width": "640px" }; };
 class ItemDetailDesktopComponent {
-    constructor(route, router, apiService, bizService, userInfoService, rateConfig) {
+    constructor(route, router, apiService, bizService, userInfoService, rateConfig, cd) {
         this.route = route;
         this.router = router;
         this.apiService = apiService;
         this.bizService = bizService;
         this.userInfoService = userInfoService;
         this.rateConfig = rateConfig;
+        this.cd = cd;
         this.show_features = false;
         this.customer = "customer";
         this.business = "business";
@@ -10924,19 +10925,22 @@ class ItemDetailDesktopComponent {
         };
     }
     onBaseComboChange(selectedBaseCombo) {
-        if (!selectedBaseCombo) {
-            this.ngOnInit();
-            return;
-        }
-        ;
-        const variation = this.variations.find((v) => v.additional_features.base_combo === selectedBaseCombo);
-        console.log(variation);
-        this.selectedVariation = variation || null;
-        if (variation) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (!selectedBaseCombo) {
+                this.ngOnInit();
+                return;
+            }
+            ;
+            const variation = this.variations.find((v) => v.additional_features.base_combo === selectedBaseCombo);
             console.log(variation);
-            this.images = [];
-            this.updateProductDetails(variation);
-        }
+            this.selectedVariation = variation || null;
+            if (variation) {
+                console.log(variation);
+                this.images = [];
+                yield this.images;
+                this.updateProductDetails(variation);
+            }
+        });
     }
     setActiveIndex(images) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -11001,7 +11005,8 @@ class ItemDetailDesktopComponent {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             if (this.product) {
                 this.msrp = variation.additional_features.details.variation_msrp.toString();
-                this.images = variation.additional_features.images;
+                this.images = [...variation.additional_features.images];
+                this.cd.detectChanges();
                 this.product = Object.assign(Object.assign({}, this.product), { name: variation.additional_features.details.variation_product_name, description: variation.additional_features.details.variation_description, sku: variation.additional_features.details.variation_sku, upc: variation.additional_features.details.variation_upc, asin: variation.additional_features.details.variation_asin, image_urls: variation.additional_features.images, pricing: Object.assign(Object.assign({}, this.product.pricing), { retail_cost: variation.additional_features.details.variation_retail_price.toString(), msrp: variation.additional_features.details.variation_msrp.toString() }), weights: Object.assign(Object.assign({}, this.product.weights), { weight: variation.additional_features.shipping.lines[0].weight }) });
             }
             this.attributeArray = yield this.generateAttributeArray(this.product);
@@ -11108,7 +11113,7 @@ class ItemDetailDesktopComponent {
             (this.currentPage - 1)}px)`;
     }
 }
-ItemDetailDesktopComponent.ɵfac = function ItemDetailDesktopComponent_Factory(t) { return new (t || ItemDetailDesktopComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_4__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_biz_service__WEBPACK_IMPORTED_MODULE_5__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_user_info_service__WEBPACK_IMPORTED_MODULE_6__["UserInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbRatingConfig"])); };
+ItemDetailDesktopComponent.ɵfac = function ItemDetailDesktopComponent_Factory(t) { return new (t || ItemDetailDesktopComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_4__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_biz_service__WEBPACK_IMPORTED_MODULE_5__["BizService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_user_info_service__WEBPACK_IMPORTED_MODULE_6__["UserInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbRatingConfig"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"])); };
 ItemDetailDesktopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ItemDetailDesktopComponent, selectors: [["app-item-detail-desktop"]], viewQuery: function ItemDetailDesktopComponent_Query(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](_c0, 3, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](_c1, 3, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]);
