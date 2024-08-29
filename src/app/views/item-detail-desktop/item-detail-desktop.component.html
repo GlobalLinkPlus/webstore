@@ -118,13 +118,13 @@
 
                         <div class="row">
                             <div *ngIf="type!==catalog" style="color: red; padding-top: 10px;">
-                                MSRP: $ {{msrp}}
+                                MSRP: {{item_detail.currency}} {{msrp}}
                             </div>
                             <div *ngIf="userInfoService.isLoggedIn() && type!==customer" class="product-price">
-                                $ {{item_detail.first_cost}}
+                                {{item_detail.currency}} {{item_detail.first_cost}}
                             </div>
                             <div *ngIf="type===customer" class="product-price">
-                                $ {{item_detail.first_cost}}
+                                {{item_detail.currency}} {{item_detail.first_cost}}
                             </div>
                             <small *ngIf="!userInfoService.isLoggedIn() && type!==catalog && type!==customer"
                                 style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a

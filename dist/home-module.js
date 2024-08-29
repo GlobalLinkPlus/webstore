@@ -10671,7 +10671,7 @@ function ItemDetailDesktopComponent_div_28_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" MSRP: $ ", ctx_r5.msrp, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"](" MSRP: ", ctx_r5.item_detail.currency, " ", ctx_r5.msrp, " ");
 } }
 function ItemDetailDesktopComponent_div_29_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 60);
@@ -10680,7 +10680,7 @@ function ItemDetailDesktopComponent_div_29_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" $ ", ctx_r6.item_detail.first_cost, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"](" ", ctx_r6.item_detail.currency, " ", ctx_r6.item_detail.first_cost, " ");
 } }
 function ItemDetailDesktopComponent_div_30_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 60);
@@ -10689,7 +10689,7 @@ function ItemDetailDesktopComponent_div_30_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" $ ", ctx_r7.item_detail.first_cost, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"](" ", ctx_r7.item_detail.currency, " ", ctx_r7.item_detail.first_cost, " ");
 } }
 function ItemDetailDesktopComponent_small_31_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "small", 61);
@@ -11011,6 +11011,7 @@ class ItemDetailDesktopComponent {
             }
             this.attributeArray = yield this.generateAttributeArray(this.product);
             this.activeIndex = yield Math.floor(Math.random() * (this.images.length - 1));
+            this.cd.detectChanges();
             // this.activeIndex = 1;
         });
     }
@@ -11163,9 +11164,9 @@ ItemDetailDesktopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](28, ItemDetailDesktopComponent_div_28_Template, 2, 1, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](29, ItemDetailDesktopComponent_div_29_Template, 2, 1, "div", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](30, ItemDetailDesktopComponent_div_30_Template, 2, 1, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](28, ItemDetailDesktopComponent_div_28_Template, 2, 2, "div", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](29, ItemDetailDesktopComponent_div_29_Template, 2, 2, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](30, ItemDetailDesktopComponent_div_30_Template, 2, 2, "div", 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](31, ItemDetailDesktopComponent_small_31_Template, 4, 1, "small", 21);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 4);
@@ -14554,6 +14555,7 @@ class ShippingDetailComponent {
             customer: this.userInfoService.getCustomerId(),
             products: [],
             new_customer: "No",
+            order_channel: "Webstore",
             customer_location_id: "",
             channel: this.cartItems[0].channel,
             "shipping": Object.assign({

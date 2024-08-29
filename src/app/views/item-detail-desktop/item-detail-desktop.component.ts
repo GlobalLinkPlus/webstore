@@ -480,6 +480,7 @@ export class ItemDetailDesktopComponent implements OnInit {
     }
     this.attributeArray = await this.generateAttributeArray(this.product);
     this.activeIndex = await Math.floor(Math.random() * (this.images.length-1));
+    this.cd.detectChanges();
     // this.activeIndex = 1;
   }
 
