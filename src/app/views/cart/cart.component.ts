@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   type: string;
 
   cart_summary: any={
-    currency:'$',
+    currency:'',
     subtotal:0,
     freight_cost:0,
     estimated_tax:0,
@@ -35,6 +35,10 @@ export class CartComponent implements OnInit {
     private router: Router
     ) {
     this.cartItems= this.userInfoService.getCartItems();
+
+    if(this.cartItems.length>=1){
+      this.cart_summary.currency=this.cartItems[0].pricing.currency;
+    }
    }
 
   ngOnInit(): void {

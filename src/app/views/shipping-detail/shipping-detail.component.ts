@@ -18,7 +18,7 @@ export class ShippingDetailComponent implements OnInit {
   catalog = "catalog";
   type: string;
   cart_summary: any={
-    currency:'$',
+    currency:'',
     subtotal:'0',
     freight_cost:'0',
     estimated_tax:'0',
@@ -47,6 +47,11 @@ export class ShippingDetailComponent implements OnInit {
     });
  
     this.cartItems=this.userInfoService.getCartItems();
+
+    if(this.cartItems.length>=1){
+      this.cart_summary.currency=this.cartItems[0].pricing.currency;
+    }
+
     this.calculateCartCost();
 
     this.type = this.bizService.getBizType();
@@ -125,7 +130,7 @@ export class ShippingDetailComponent implements OnInit {
       payload.cart.push({
         quantity: item.product_count,
         price_data: {
-          currency: "USD",
+          currency: item.pricing.currency==="$" ? "USD":"",
           unit_amount: +item.pricing.first_cost*100,
           product_data: {
             name: item.name,

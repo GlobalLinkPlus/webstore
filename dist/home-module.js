@@ -14181,7 +14181,7 @@ function CartComponent_div_15_div_1_span_14_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const item_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$ ", item_r7.pricing.first_cost, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", item_r7.pricing.currency, "", item_r7.pricing.first_cost, "");
 } }
 const _c0 = function () { return { "margin-top": "0px" }; };
 const _c1 = function () { return { "margin-top": "30px" }; };
@@ -14209,7 +14209,7 @@ function CartComponent_div_15_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 32);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, CartComponent_div_15_div_1_span_14_Template, 2, 1, "span", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, CartComponent_div_15_div_1_span_14_Template, 2, 2, "span", 34);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 36);
@@ -14331,13 +14331,16 @@ class CartComponent {
         this.business = "business";
         this.catalog = "catalog";
         this.cart_summary = {
-            currency: '$',
+            currency: '',
             subtotal: 0,
             freight_cost: 0,
             estimated_tax: 0,
             total_cost: 0
         };
         this.cartItems = this.userInfoService.getCartItems();
+        if (this.cartItems.length >= 1) {
+            this.cart_summary.currency = this.cartItems[0].pricing.currency;
+        }
     }
     ngOnInit() {
         this.calculateCartCost();
@@ -14544,7 +14547,7 @@ class ShippingDetailComponent {
         this.business = "business";
         this.catalog = "catalog";
         this.cart_summary = {
-            currency: '$',
+            currency: '',
             subtotal: '0',
             freight_cost: '0',
             estimated_tax: '0',
@@ -14564,6 +14567,9 @@ class ShippingDetailComponent {
             postal_code: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
         });
         this.cartItems = this.userInfoService.getCartItems();
+        if (this.cartItems.length >= 1) {
+            this.cart_summary.currency = this.cartItems[0].pricing.currency;
+        }
         this.calculateCartCost();
         this.type = this.bizService.getBizType();
     }
@@ -14630,7 +14636,7 @@ class ShippingDetailComponent {
             payload.cart.push({
                 quantity: item.product_count,
                 price_data: {
-                    currency: "USD",
+                    currency: item.pricing.currency === "$" ? "USD" : "",
                     unit_amount: +item.pricing.first_cost * 100,
                     product_data: {
                         name: item.name,

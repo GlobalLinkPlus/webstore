@@ -46,8 +46,8 @@
                       </div>
                       <div class="col-sm-3 col-lg-3">
                         <div class="row item-price">
-                          <span *ngIf="userInfoService.isLoggedIn()" style="font-size: xx-large;font-weight: 400;">$
-                            {{item.pricing.first_cost}}</span>
+                          <span *ngIf="userInfoService.isLoggedIn()" style="font-size: xx-large;font-weight: 400;">
+                            {{item.pricing.currency}}{{item.pricing.first_cost}}</span>
                         </div>
                         <div class="row" style="margin-top: 10px;">
                           <div class="col-sm-12 col-lg-12">
