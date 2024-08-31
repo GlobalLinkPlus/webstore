@@ -24,9 +24,30 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
-                        <p-galleria [(activeIndex)]="activeIndex" [(value)]="images" [(autoPlay)]="autoPlay" [circular]="true" [showItemNavigators]="false"
-                            [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1"
-                            [showIndicators]="false" [containerStyle]="{ 'max-width': '640px' }">
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <img [src]="images[currentIndex].url" [alt]="images[currentIndex].name"
+                                    class="carousel-image" />
+                            </div>
+
+                            <div class="thumbnail-navigation">
+                                <button class="button" (click)="prevImage()">&#10094;</button>
+                                <div class="thumbnails">
+                                    <div *ngFor="let image of images; let i = index" (click)="setCurrentIndex(i)"
+                                        class="thumbnail">
+                                        <img [src]="image.url" [alt]="image.title"
+                                            [class.active]="i === currentIndex" />
+                                    </div>
+                                </div>
+                                <button class="button" (click)="nextImage()">&#10095;</button>
+                            </div>
+                        </div>
+
+
+                        <!-- <p-galleria [(activeIndex)]="activeIndex" [(value)]="images" [(autoPlay)]="autoPlay"
+                            [circular]="true" [showItemNavigators]="false" [responsiveOptions]="responsiveOptions"
+                            [numVisible]="5" [numScroll]="1" [showIndicators]="false"
+                            [containerStyle]="{ 'max-width': '640px' }">
                             <ng-template pTemplate="item" let-item>
                                 <img [(src)]="item.url" loading="lazy" style="width: 100%; max-height: 640px;" />
                             </ng-template>
@@ -35,7 +56,7 @@
                                     <img [(src)]="item.url" style="display: block; height: 50px; width: 75px;" />
                                 </div>
                             </ng-template>
-                        </p-galleria>
+                        </p-galleria> -->
                         <!-- <div class="row">
                             <div style="width:100%; height: fit-content; object-fit: contain;"
                                 [ngStyle]="getImageContainerStyle()" #imageContainer>

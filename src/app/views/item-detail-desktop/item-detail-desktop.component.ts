@@ -292,6 +292,23 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   ];
 
+  currentIndex = 0;
+
+  // Function to go to the next image
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
+
+  // Function to go to the previous image
+  prevImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+  }
+
+  // Function to set image by index
+  setCurrentIndex(index: number) {
+    this.currentIndex = index;
+  }
+
   responsiveOptions: any[] = [
     {
       breakpoint: '1024px',
