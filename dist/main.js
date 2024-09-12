@@ -161,6 +161,12 @@ class BizService {
     get_background_color() {
         return sessionStorage.getItem("background_color");
     }
+    set_channel(channel) {
+        sessionStorage.setItem("channel", channel);
+    }
+    get_channel() {
+        return sessionStorage.getItem("channel");
+    }
     get_footer_data() {
         return JSON.parse(sessionStorage.getItem("footer_data"));
     }
@@ -288,7 +294,7 @@ class ApiService {
         return this.http.post(BASE_URL + 'webstore_sections/', { 'id': id });
     }
     login(data) {
-        return this.http.post(BASE_URL + 'login/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+        return this.http.post(BASE_URL + 'webstore/login', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
     getCustomerDetail(id) {
         return this.http.post(BASE_URL + 'customer_detail/', { id: id }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
@@ -720,6 +726,9 @@ class HomeRoutingComponent {
         this.submitted = true;
         this.apiService.login(this.loginForm.value).subscribe(res => {
             this.submitted = false;
+            if (res.channel) {
+                this.bizService.set_channel(res.channel);
+            }
             if (res.token) {
                 this.userInfoService.saveUserInfo(res);
                 this.closeModal();
