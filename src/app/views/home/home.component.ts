@@ -125,12 +125,12 @@ export class HomeComponent implements OnInit {
     // this.getTopSellerProducts();
 
     // this.getTopProducts();
+    this.type = this.bizService.getBizType();
 
     this.getHomeSectionItems();
     // this.sliders = JSON.parse(this.bizService.get_sliders());
     this.sliders = this.jsonParseUntilUnescaped(this.bizService.get_sliders());
     this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
-    this.type = this.bizService.getBizType();
 
     if (this.sliders.length > 1) {
       this.itemNavigators = true;
@@ -183,7 +183,14 @@ export class HomeComponent implements OnInit {
       this.section_one = res.section_one;
       this.section_two = res.section_two;
       this.sectionOneProducts = res.section_one.products
+      const channel = this.bizService.get_channel();
+      if(this.type===this.business && channel){
+        this.sectionOneProducts = res.section_one.products.filter(product=>product.product.channel === channel);
+      }
       this.sectionTwoProducts = res.section_two.products
+      if(this.type===this.business && channel){
+        this.sectionTwoProducts = res.section_two.products.filter(product=>product.product.channel === channel);
+      }
     }, err => {
       this.loading = false;
       console.log("[ERROR]>>>", err);

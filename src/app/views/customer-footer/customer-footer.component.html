@@ -35,7 +35,7 @@
         <div class="footer-icons" style="flex: 4; display: flex; justify-content: flex-end; align-items: flex-end;">
             <div *ngFor="let social of socials" style="margin-left: 10px; cursor: pointer;">
                 <a href="https://{{social.url}}" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-{{social.name.toLowerCase()}}" style="font-size: 28px; color: black;"></i>
+                    <i class="fa-brands fa-{{social?.name?.toLowerCase()}}" style="font-size: 28px; color: black;"></i>
                 </a>
             </div>
         </div>

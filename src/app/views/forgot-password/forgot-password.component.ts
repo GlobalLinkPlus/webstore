@@ -38,6 +38,8 @@ export class ForgotPasswordComponent implements OnInit {
   displaySection: number;
   activationCode: string;
   successResponse: number = 0;
+  inputType: string = 'password';
+  showPassword: boolean = false;
   constructor(
     private apiService: ApiService,
     private formBuilder: FormBuilder,
@@ -78,6 +80,11 @@ export class ForgotPasswordComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.inputType = this.showPassword ? 'text' : 'password';
   }
 
   resetPassword() {
@@ -123,7 +130,11 @@ export class ForgotPasswordComponent implements OnInit {
   submitEmail() {
     console.log(this.validateEmailForm.value)
     if(this.validateEmailForm.valid){
-      this.apiService.validateCustomerEmail(this.validateEmailForm.value).subscribe(res => {
+      const data = {
+        email: this.validateEmailForm.value.email,
+        webstore_id: this.bizService.get_company_id()
+      }
+      this.apiService.validateCustomerEmail(data).subscribe(res => {
         if(res){
           console.log(res)
           this.successResponse = 1;

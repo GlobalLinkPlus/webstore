@@ -238,10 +238,12 @@ export class HomeRoutingComponent implements OnInit {
     this.submitted=true;
     this.apiService.login(this.loginForm.value).subscribe(res=>{
       this.submitted=false;
+      if(res.channel){
+        this.bizService.set_channel(res.channel);
+      }
       if(res.token){
         this.userInfoService.saveUserInfo(res);
         this.closeModal()
-
       }
     },err=>{
       this.submitted=false;

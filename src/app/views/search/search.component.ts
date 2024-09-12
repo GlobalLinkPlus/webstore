@@ -214,6 +214,10 @@ export class SearchComponent implements OnInit, OnDestroy {
     // this.color? q='&?color=' + this.color:'';
     this.apiService.getProducts('').subscribe(res => {
       this.products = res;
+      const channel = this.bizService.get_channel();
+      if(this.type===this.business && channel){
+        this.products = res.filter(product=>product.channel === channel);
+      }
     }, err => { });
   }
   searchProducts(q: string) {

@@ -69,6 +69,14 @@ export class BizService {
 
   }
 
+  public set_channel(channel: string): void {
+    sessionStorage.setItem("channel", channel);
+  }
+
+  public get_channel(): string {
+    return sessionStorage.getItem("channel");
+  }
+
   public get_footer_data(): any {
     return JSON.parse(sessionStorage.getItem("footer_data"));
   }

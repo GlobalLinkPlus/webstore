@@ -75,7 +75,7 @@ export class ApiService {
 
 
   login(data: any): Observable<any> {
-    return this.http.post(BASE_URL + 'login/', data).pipe(
+    return this.http.post(BASE_URL + 'webstore/login', data).pipe(
       map(this.extractData));
   }
 
