@@ -40,6 +40,8 @@ export class ForgotPasswordComponent implements OnInit {
   successResponse: number = 0;
   inputType: string = 'password';
   showPassword: boolean = false;
+  inputTypeConfirmPassword: string = 'password';
+  showConfirmPassword: boolean = false;
   constructor(
     private apiService: ApiService,
     private formBuilder: FormBuilder,
@@ -87,15 +89,20 @@ export class ForgotPasswordComponent implements OnInit {
     this.inputType = this.showPassword ? 'text' : 'password';
   }
 
+  toggleConfirmPassword() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+    this.inputTypeConfirmPassword = this.showConfirmPassword ? 'text' : 'password';
+  }
+
   resetPassword() {
     this.passwordForm.get('activation_token').setValue(this.activationCode);
-    if(this.passwordForm.valid){
+    if (this.passwordForm.valid) {
       this.apiService.resetPassword(this.passwordForm.value).subscribe(res => {
-        if(res){
+        if (res) {
           console.log(res)
           this.nextSection();
         }
-      }, err =>{
+      }, err => {
         console.log(err)
       })
     }
@@ -129,17 +136,17 @@ export class ForgotPasswordComponent implements OnInit {
 
   submitEmail() {
     console.log(this.validateEmailForm.value)
-    if(this.validateEmailForm.valid){
+    if (this.validateEmailForm.valid) {
       const data = {
         email: this.validateEmailForm.value.email,
         webstore_id: this.bizService.get_company_id()
       }
       this.apiService.validateCustomerEmail(data).subscribe(res => {
-        if(res){
+        if (res) {
           console.log(res)
           this.successResponse = 1;
         }
-      }, err =>{
+      }, err => {
         console.log(err)
         this.successResponse = 2
       })
@@ -158,7 +165,13 @@ export class ForgotPasswordComponent implements OnInit {
       if (res.token) {
         this.userInfoService.saveUserInfo(res);
         // this.router.navigateByUrl(this.bizService.getBizId())
-        this.location.back();
+        const previousUrl = document.referrer; // Get the previous URL
+        
+        if (!previousUrl.includes('login') || !previousUrl.includes('resetpassword')) {
+          this.location.back();
+        } else {
+          this.router.navigate([`/${this.bizService.getBizId()}`]);
+        }
 
       }
     }, err => {

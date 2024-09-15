@@ -107,7 +107,12 @@ import { UserInfoService } from './services/user-info.service';
                 <div class="row" style="margin-top: 20px;">
                   <div class="form-group">
                     <label>Password</label>
-                    <input  formControlName="password" type="password"  placeholder="Enter your password" class="round-input" >
+                    <div style="width: 100%;">
+                      <input formControlName="password" type="{{inputType}}" placeholder="Enter your Password"
+                      class="round-input" style="width: 100%;">
+                      <i *ngIf="!showPassword" class="fa fa-eye" style="cursor: pointer; margin-left: -30px;" (click)="togglePassword()"></i>
+                      <i *ngIf="showPassword" class="fa fa-eye-slash" style="cursor: pointer; margin-left: -30px;" (click)="togglePassword()"></i>
+                    </div>
                   </div>
                 </div>
               </form>
@@ -138,50 +143,57 @@ import { UserInfoService } from './services/user-info.service';
 })
 export class HomeRoutingComponent implements OnInit {
   loginForm: FormGroup;
-  submitted:boolean=false;
+  submitted: boolean = false;
+  inputType: string = 'password';
+  showPassword: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     public bizService: BizService,
     private apiService: ApiService,
     private userInfoService: UserInfoService,
-    private renderer: Renderer2 ,
+    private renderer: Renderer2,
     private loginModalService: LoginModalService,
     private router: Router,
-    ){
-   
+  ) {
+
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
     this.bizService.setBizId(this.route.snapshot.params.biz_id)
     this.route.data.subscribe(res => {
-            console.log(res)
-            this.bizService.setBizDetail(res.bizInfo[0])
+      console.log(res)
+      this.bizService.setBizDetail(res.bizInfo[0])
 
     })
-    this.loginForm=this.formBuilder.group({
-      email:['',[Validators.required]],
-      password:['',[Validators.required]],
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       webstore: ['', Validators.required]
     });
 
-    this.loginModalService.loginModalEmitter.subscribe(res=>{
-      console.log("emitted",res)
-      if(res=="open"){
+    this.loginModalService.loginModalEmitter.subscribe(res => {
+      console.log("emitted", res)
+      if (res == "open") {
         this.openModal();
-      }else if(res=="close"){
+      } else if (res == "close") {
         this.closeModal()
-      }else{
+      } else {
 
       }
     })
 
   }
 
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.inputType = this.showPassword ? 'text' : 'password';
+  }
+
   openModal(): void {
     const modalElement = document.getElementById('loginModal');
-  
+
     if (modalElement) {
       this.renderer.addClass(modalElement, 'show');
       // Show the modal
@@ -196,23 +208,23 @@ export class HomeRoutingComponent implements OnInit {
       document.body.style.overflow = 'hidden'; // Prevent body scrolling
     }
 
-  
+
   }
 
-  closeModalClicked(event: Event){
+  closeModalClicked(event: Event) {
     const clickedElement = event.target as HTMLElement;
     if (clickedElement.classList.contains('modal')) {
       this.closeModal();
     }
   }
 
-  modalContentClicked(event: Event){
+  modalContentClicked(event: Event) {
     event.stopPropagation();
   }
 
   closeModal(): void {
     console.log("close")
-   
+
     const modalElement = document.getElementById('loginModal');
     if (modalElement) {
       this.renderer.removeClass(modalElement, 'show'); // Hide the modal
@@ -229,24 +241,24 @@ export class HomeRoutingComponent implements OnInit {
   }
 
   forgotPassword() {
-    this.router.navigateByUrl("/"+this.bizService.getBizName()+"/resetpassword/1")
+    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/resetpassword/1")
     this.closeModal()
   }
 
-  submitLogin(){
+  submitLogin() {
     this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
-    this.submitted=true;
-    this.apiService.login(this.loginForm.value).subscribe(res=>{
-      this.submitted=false;
-      if(res.channel){
+    this.submitted = true;
+    this.apiService.login(this.loginForm.value).subscribe(res => {
+      this.submitted = false;
+      if (res.channel) {
         this.bizService.set_channel(res.channel);
       }
-      if(res.token){
+      if (res.token) {
         this.userInfoService.saveUserInfo(res);
         this.closeModal()
       }
-    },err=>{
-      this.submitted=false;
+    }, err => {
+      this.submitted = false;
     });
   }
 }
