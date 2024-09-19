@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
   selector: 'app-contact-us',
@@ -11,6 +11,7 @@ import { BizService } from 'src/app/services/biz.service';
 })
 export class ContactUsComponent implements OnInit {
 
+  @ViewChild('alert') alertComponent!: AlertComponent;
   contactUsForm: FormGroup;
   options: google.maps.MapOptions = {
     center: {lat: 40, lng: -20},
@@ -18,7 +19,6 @@ export class ContactUsComponent implements OnInit {
   };
 
   constructor(
-    private messageService: MessageService,
     private formBuilder: FormBuilder,
     public bizService: BizService,
     private apiService: ApiService
@@ -39,27 +39,21 @@ export class ContactUsComponent implements OnInit {
 
     if (this.contactUsForm.valid) {
       const data = {
-        name: this.contactUsForm.get('firstName').value + ' ' + this.contactUsForm.get('lastName').value,
-        email: this.contactUsForm.get('email').value,
+        first_name: this.contactUsForm.get('firstName').value,
+        last_name: this.contactUsForm.get('lastName').value,
+        email_from: this.contactUsForm.get('email').value,
         phone: this.contactUsForm.get('phone').value,
-        message: this.contactUsForm.get('message').value
+        email_content: this.contactUsForm.get('message').value,
+        webstore: this.bizService.get_company_id()
       }
       this.apiService.contactUs(data).subscribe(res => {
         if (res) {
-          this.showSuccessAlert();
+          this.alertComponent.showAlert('message sent successfully', 'success');
         }
       }, err => {
-        this.showErrorAlert();
+        this.alertComponent.showAlert('failed to send message', 'error');
       })
     }
-  }
-
-  showSuccessAlert() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message sent successfully' });
-  }
-
-  showErrorAlert() {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to send message' });
   }
 
 }

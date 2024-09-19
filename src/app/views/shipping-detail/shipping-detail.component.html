@@ -1,5 +1,6 @@
 
 <main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw;">
+	<app-alert #alert></app-alert>
 	<header>
 		<app-header></app-header>
 	</header>
@@ -73,6 +74,24 @@
 								</div>
 							</div>
 
+						</div>
+						<hr style="margin-top: 10px; margin-bottom: 0px; border: 1px solid #696868;">
+						<div class="row" style="margin-top: 10px;">
+							<div class="form-group">
+								<label>Payment Options</label>
+								<select [formControl]="paymentOption" class="form-select round-input"
+									placeholder="Select Payment Option">
+									<option *ngFor=" let value of paymentOptions" [value]="value">{{value}}</option>
+									<!-- <option [value]="stripe">Stripe</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="row" *ngIf="paymentOption.value == mpesa" >
+							<div class="form-group">
+								<label>Enter Mpesa Phone Number</label>
+								<input [formControl]="mpesaPhoneNumber" type="text" class="form-control  round-input"
+									placeholder="Phone Number" />
+							</div>
 						</div>
 
 						<div class="row normal-view-btn" style="margin-top: 30px;justify-content: center;">

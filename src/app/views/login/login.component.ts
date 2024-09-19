@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
     private location: Location
   ) { }
 
+  
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
@@ -41,17 +43,13 @@ export class LoginComponent implements OnInit {
   submitLogin() {
     this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
     this.submitted = true;
-    this.apiService.login(this.loginForm.value).subscribe(res => {
+    this.apiService.login(this.loginForm.value).subscribe(async res => {
       this.submitted = false;
       if (res.token) {
         this.userInfoService.saveUserInfo(res);
-        // this.router.navigateByUrl(this.bizService.getBizId())
-        const previousUrl = document.referrer; // Get the previous URL
-        if (!previousUrl.includes('login') || !previousUrl.includes('resetpassword')) {
-          this.location.back();
-        } else {
+        
           this.router.navigate([`/${this.bizService.getBizId()}`]);
-        }
+
       }
     }, err => {
       this.submitted = false;

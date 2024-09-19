@@ -42,6 +42,7 @@ import { ContactUsComponent } from './views/contact-us/contact-us.component';
 import { CompanyPolicyComponent } from './views/company-policy/company-policy.component';
 import { AboutComponent } from './views/about/about.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AlertComponent } from './views/alert/alert.component';
 
 @NgModule({
   declarations: [  
@@ -74,6 +75,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ContactUsComponent,
     CompanyPolicyComponent,
     AboutComponent,
+    AlertComponent,
      ],
   imports: [
     CommonModule,

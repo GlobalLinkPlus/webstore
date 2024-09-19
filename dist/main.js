@@ -287,6 +287,9 @@ class ApiService {
     processPayment(data) {
         return this.http.post(BASE_URL + 'webstore_payment/payment_stripe/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
+    processMpesaPayment(data) {
+        return this.http.post(BASE_URL + 'payment_request/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+    }
     resetPassword(data) {
         return this.http.put(BASE_URL + 'webstore/password/reset', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
@@ -333,7 +336,7 @@ class ApiService {
         return this.http.post(BASE_URL + 'customer/location/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
     contactUs(data) {
-        return this.http.post(BASE_URL + 'contact-us/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+        return this.http.post(BASE_URL + 'webstore/contact_us/', data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
     getTopSellers() {
         return this.http.get(BASE_URL + 'channels/').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));

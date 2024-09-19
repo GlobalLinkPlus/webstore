@@ -64,6 +64,11 @@ export class ApiService {
       map(this.extractData));
   }
 
+  processMpesaPayment(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'payment_request/', data).pipe(
+      map(this.extractData));
+  }
+
   resetPassword(data: any): Observable<any> {
     return this.http.put(BASE_URL + 'webstore/password/reset', data).pipe(
       map(this.extractData));
@@ -134,7 +139,7 @@ export class ApiService {
   }
 
   contactUs(data): Observable<any> {
-    return this.http.post(BASE_URL + 'contact-us/', data).pipe(
+    return this.http.post(BASE_URL + 'webstore/contact_us/', data).pipe(
       map(this.extractData));
   }
 

@@ -158,25 +158,4 @@ export class ForgotPasswordComponent implements OnInit {
       this.displaySection++;
   }
 
-  submitLogin() {
-    this.submitted = true;
-    this.apiService.login(this.loginForm.value).subscribe(res => {
-      this.submitted = false;
-      if (res.token) {
-        this.userInfoService.saveUserInfo(res);
-        // this.router.navigateByUrl(this.bizService.getBizId())
-        const previousUrl = document.referrer; // Get the previous URL
-        
-        if (!previousUrl.includes('login') || !previousUrl.includes('resetpassword')) {
-          this.location.back();
-        } else {
-          this.router.navigate([`/${this.bizService.getBizId()}`]);
-        }
-
-      }
-    }, err => {
-      this.submitted = false;
-    });
-  }
-
 }
