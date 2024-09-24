@@ -18,17 +18,17 @@
         </div>
         <div style="flex: 1;margin-left: 10px;">
             <div style="font-weight: bold; white-space: nowrap;">About Us</div>
-            <div *ngIf="footerData.about_us" routerLink="/{{bizService.getBizId()}}/about" style="cursor: pointer;white-space: nowrap;">
+            <div *ngIf="footerData?.about_us" routerLink="/{{bizService.getBizId()}}/about" style="cursor: pointer;white-space: nowrap;">
                 About Us</div>
-            <div *ngIf="footerData.return" routerLink="/{{bizService.getBizId()}}/policies" style="cursor: pointer;">
+            <div *ngIf="footerData?.return" routerLink="/{{bizService.getBizId()}}/policies" style="cursor: pointer;">
                 Returns</div>
-            <div *ngIf="footerData.warranty" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies#warranty">Warranty</div>
-            <div *ngIf="footerData.shipping" style="cursor: pointer;white-space: nowrap;" routerLink="/{{bizService.getBizId()}}/policies#policies">
+            <div *ngIf="footerData?.warranty" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/policies#warranty">Warranty</div>
+            <div *ngIf="footerData?.shipping" style="cursor: pointer;white-space: nowrap;" routerLink="/{{bizService.getBizId()}}/policies#policies">
                 Shipping Policy</div>
-            <div *ngIf="footerData.faq" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/faqs">FAQ</div>
-            <div *ngIf="footerData.careers" style="cursor: pointer;">Careers</div>
+            <div *ngIf="footerData?.faq" style="cursor: pointer;" routerLink="/{{bizService.getBizId()}}/faqs">FAQ</div>
+            <div *ngIf="footerData?.careers" style="cursor: pointer;">Careers</div>
         </div>
-        <div *ngIf="footerData.contact_us" style="flex: 1;margin-left: 10px;">
+        <div *ngIf="footerData?.contact_us" style="flex: 1;margin-left: 10px;">
             <div style="font-weight: bold;white-space: nowrap;">Contact Us</div>
             <div routerLink="/{{bizService.getBizId()}}/contact-us" style="cursor: pointer;white-space: nowrap;">Contact Us</div>
         </div>
@@ -43,7 +43,7 @@
     <div
         style="display: flex; justify-content: space-between; padding-bottom: 20px; border-top: #C1C7D6 1px solid; padding-top: 15px;">
         <div>{{bizService.getBizName()}}</div>
-        <div *ngIf="footerData.privacy_policy" style="cursor: pointer;"
+        <div *ngIf="footerData?.privacy_policy" style="cursor: pointer;"
             routerLink="/{{bizService.getBizId()}}/policies#policies">Terms of Use | Privacy Policy</div>
     </div>
 </div>

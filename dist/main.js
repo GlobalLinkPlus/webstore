@@ -107,116 +107,117 @@ __webpack_require__.r(__webpack_exports__);
 class BizService {
     constructor() { }
     setBizId(id) {
-        sessionStorage.setItem("biz_id", id);
+        sessionStorage.setItem('biz_id', id);
     }
     getBizId() {
-        return sessionStorage.getItem("biz_id");
+        return sessionStorage.getItem('biz_id');
     }
     setBizName(name) {
-        sessionStorage.setItem("name", name);
+        sessionStorage.setItem('name', name);
     }
     getBizName() {
-        return sessionStorage.getItem("name");
+        return sessionStorage.getItem('name');
     }
     getBizType() {
-        return sessionStorage.getItem("type");
+        return sessionStorage.getItem('type');
     }
     setBizDetail(data) {
-        sessionStorage.setItem("company_id", data.id);
-        sessionStorage.setItem("company_logo", data.company_logo);
-        sessionStorage.setItem("background_color", data.background_color);
-        sessionStorage.setItem("left_header", data.left_header);
-        sessionStorage.setItem("right_header", data.right_header);
-        sessionStorage.setItem("left_link", data.left_link);
-        sessionStorage.setItem("right_link", data.right_link);
-        sessionStorage.setItem("meta_title", data.meta_title);
-        sessionStorage.setItem("meta_description", data.meta_description);
-        sessionStorage.setItem("mid_banner_image", data.mid_banner_image);
-        sessionStorage.setItem("mid_banner_link", data.mid_banner_link);
-        sessionStorage.setItem("mid_banner_first_line", data.mid_banner_first_line);
-        sessionStorage.setItem("mid_banner_second_line", data.mid_banner_second_line);
-        sessionStorage.setItem("name", data.name);
-        sessionStorage.setItem("favicon_image", data.favicon_image);
-        sessionStorage.setItem("webstore_link", data.webstore_link);
-        sessionStorage.setItem("company", data.company);
-        sessionStorage.setItem("footer_data", JSON.stringify(data.footer_data.footer_data));
-        sessionStorage.setItem("sliders", JSON.stringify(data.sliders));
-        if (data.type === "b2b")
-            sessionStorage.setItem("type", "business");
-        if (data.type === "b2c")
-            sessionStorage.setItem("type", "customer");
-        if (data.type === "catalogue")
-            sessionStorage.setItem("type", "catalog");
+        var _a;
+        sessionStorage.setItem('company_id', data.id ? data.id : '');
+        sessionStorage.setItem('company_logo', data.company_logo ? data.company_logo : '');
+        sessionStorage.setItem('background_color', data.background_color ? data.background_color : '');
+        sessionStorage.setItem('left_header', data.left_header ? data.left_header : '');
+        sessionStorage.setItem('right_header', data.right_header ? data.right_header : '');
+        sessionStorage.setItem('left_link', data.left_link ? data.left_link : '');
+        sessionStorage.setItem('right_link', data.right_link ? data.right_link : '');
+        sessionStorage.setItem('meta_title', data.meta_title ? data.meta_title : '');
+        sessionStorage.setItem('meta_description', data.meta_description ? data.meta_description : '');
+        sessionStorage.setItem('mid_banner_image', data.mid_banner_image ? data.mid_banner_image : '');
+        sessionStorage.setItem('mid_banner_link', data.mid_banner_link ? data.mid_banner_link : '');
+        sessionStorage.setItem('mid_banner_first_line', data.mid_banner_first_line ? data.mid_banner_first_line : '');
+        sessionStorage.setItem('mid_banner_second_line', data.mid_banner_second_line ? data.mid_banner_second_line : '');
+        sessionStorage.setItem('name', data.name ? data.name : '');
+        sessionStorage.setItem('favicon_image', data.favicon_image ? data.favicon_image : '');
+        sessionStorage.setItem('webstore_link', data.webstore_link ? data.webstore_link : '');
+        sessionStorage.setItem('company', data.company ? data.company : '');
+        sessionStorage.setItem('footer_data', JSON.stringify(((_a = data === null || data === void 0 ? void 0 : data.footer_data) === null || _a === void 0 ? void 0 : _a.footer_data) ? data.footer_data.footer_data : ''));
+        sessionStorage.setItem('sliders', JSON.stringify(data.sliders ? data.sliders : ''));
+        if (data.type === 'b2b')
+            sessionStorage.setItem('type', 'business');
+        if (data.type === 'b2c')
+            sessionStorage.setItem('type', 'customer');
+        if (data.type === 'catalogue')
+            sessionStorage.setItem('type', 'catalog');
     }
     get_company_logo() {
         // return "assets/img/logo.png"
         // if(sessionStorage.getItem("company_logo")==null){
         //   return "assets/img/logo.png"
         // }
-        return sessionStorage.getItem("company_logo");
+        return sessionStorage.getItem('company_logo');
     }
     set_company_logo(logo) {
-        sessionStorage.setItem("company_logo", logo);
+        sessionStorage.setItem('company_logo', logo);
     }
     get_background_color() {
-        return sessionStorage.getItem("background_color");
+        return sessionStorage.getItem('background_color');
     }
     set_channel(channel) {
-        sessionStorage.setItem("channel", channel);
+        sessionStorage.setItem('channel', channel);
     }
     get_channel() {
-        return sessionStorage.getItem("channel");
+        return sessionStorage.getItem('channel');
     }
     get_footer_data() {
-        return JSON.parse(sessionStorage.getItem("footer_data"));
+        return JSON.parse(sessionStorage.getItem('footer_data'));
     }
     get_company_id() {
-        return sessionStorage.getItem("company_id");
+        return sessionStorage.getItem('company_id');
     }
     get_left_header() {
-        return sessionStorage.getItem("left_header");
+        return sessionStorage.getItem('left_header');
     }
     get_right_header() {
-        return sessionStorage.getItem("right_header");
+        return sessionStorage.getItem('right_header');
     }
     get_left_link() {
-        return sessionStorage.getItem("left_link");
+        return sessionStorage.getItem('left_link');
     }
     get_right_link() {
-        return sessionStorage.getItem("right_link");
+        return sessionStorage.getItem('right_link');
     }
     get_meta_title() {
-        return sessionStorage.getItem("meta_title");
+        return sessionStorage.getItem('meta_title');
     }
     get_meta_description() {
-        return sessionStorage.getItem("meta_description");
+        return sessionStorage.getItem('meta_description');
     }
     get_mid_banner_image() {
-        return sessionStorage.getItem("mid_banner_image");
+        return sessionStorage.getItem('mid_banner_image');
     }
     get_mid_banner_link() {
-        return sessionStorage.getItem("mid_banner_link");
+        return sessionStorage.getItem('mid_banner_link');
     }
     get_mid_banner_second_line() {
-        return sessionStorage.getItem("mid_banner_second_line");
+        return sessionStorage.getItem('mid_banner_second_line');
     }
     get_mid_banner_first_line() {
-        return sessionStorage.getItem("mid_banner_first_line");
+        return sessionStorage.getItem('mid_banner_first_line');
     }
     get_name() {
-        return sessionStorage.getItem("name");
+        return sessionStorage.getItem('name');
     }
     get_favicon_image() {
-        return sessionStorage.getItem("favicon_image");
+        return sessionStorage.getItem('favicon_image');
     }
     get_webstore_link() {
-        return sessionStorage.getItem("webstore_link");
+        return sessionStorage.getItem('webstore_link');
     }
     get_company() {
-        return sessionStorage.getItem("company");
+        return sessionStorage.getItem('company');
     }
     get_sliders() {
-        return JSON.parse(sessionStorage.getItem("sliders"));
+        return JSON.parse(sessionStorage.getItem('sliders'));
     }
 }
 BizService.ɵfac = function BizService_Factory(t) { return new (t || BizService)(); };

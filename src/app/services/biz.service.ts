@@ -1,54 +1,101 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BizService {
-  constructor() { }
+  constructor() {}
 
   public setBizId(id: string): void {
-    sessionStorage.setItem("biz_id", id);
+    sessionStorage.setItem('biz_id', id);
   }
 
   public getBizId(): string {
-    return sessionStorage.getItem("biz_id");
+    return sessionStorage.getItem('biz_id');
   }
 
   public setBizName(name: string): void {
-    sessionStorage.setItem("name", name);
+    sessionStorage.setItem('name', name);
   }
 
   public getBizName(): string {
-    return sessionStorage.getItem("name");
+    return sessionStorage.getItem('name');
   }
 
   public getBizType(): string {
-    return sessionStorage.getItem("type");
+    return sessionStorage.getItem('type');
   }
 
   public setBizDetail(data: any): void {
-    sessionStorage.setItem("company_id", data.id);
-    sessionStorage.setItem("company_logo", data.company_logo);
-    sessionStorage.setItem("background_color", data.background_color);
-    sessionStorage.setItem("left_header", data.left_header);
-    sessionStorage.setItem("right_header", data.right_header);
-    sessionStorage.setItem("left_link", data.left_link);
-    sessionStorage.setItem("right_link", data.right_link);
-    sessionStorage.setItem("meta_title", data.meta_title);
-    sessionStorage.setItem("meta_description", data.meta_description);
-    sessionStorage.setItem("mid_banner_image", data.mid_banner_image);
-    sessionStorage.setItem("mid_banner_link", data.mid_banner_link);
-    sessionStorage.setItem("mid_banner_first_line", data.mid_banner_first_line);
-    sessionStorage.setItem("mid_banner_second_line", data.mid_banner_second_line);
-    sessionStorage.setItem("name", data.name);
-    sessionStorage.setItem("favicon_image", data.favicon_image);
-    sessionStorage.setItem("webstore_link", data.webstore_link);
-    sessionStorage.setItem("company", data.company);
-    sessionStorage.setItem("footer_data", JSON.stringify(data.footer_data.footer_data));
-    sessionStorage.setItem("sliders", JSON.stringify(data.sliders));
-    if(data.type==="b2b") sessionStorage.setItem("type", "business");
-    if(data.type==="b2c") sessionStorage.setItem("type", "customer");
-    if(data.type==="catalogue") sessionStorage.setItem("type", "catalog");
+    sessionStorage.setItem('company_id', data.id ? data.id : '');
+    sessionStorage.setItem(
+      'company_logo',
+      data.company_logo ? data.company_logo : ''
+    );
+    sessionStorage.setItem(
+      'background_color',
+      data.background_color ? data.background_color : ''
+    );
+    sessionStorage.setItem(
+      'left_header',
+      data.left_header ? data.left_header : ''
+    );
+    sessionStorage.setItem(
+      'right_header',
+      data.right_header ? data.right_header : ''
+    );
+    sessionStorage.setItem('left_link', data.left_link ? data.left_link : '');
+    sessionStorage.setItem(
+      'right_link',
+      data.right_link ? data.right_link : ''
+    );
+    sessionStorage.setItem(
+      'meta_title',
+      data.meta_title ? data.meta_title : ''
+    );
+    sessionStorage.setItem(
+      'meta_description',
+      data.meta_description ? data.meta_description : ''
+    );
+    sessionStorage.setItem(
+      'mid_banner_image',
+      data.mid_banner_image ? data.mid_banner_image : ''
+    );
+    sessionStorage.setItem(
+      'mid_banner_link',
+      data.mid_banner_link ? data.mid_banner_link : ''
+    );
+    sessionStorage.setItem(
+      'mid_banner_first_line',
+      data.mid_banner_first_line ? data.mid_banner_first_line : ''
+    );
+    sessionStorage.setItem(
+      'mid_banner_second_line',
+      data.mid_banner_second_line ? data.mid_banner_second_line : ''
+    );
+    sessionStorage.setItem('name', data.name ? data.name : '');
+    sessionStorage.setItem(
+      'favicon_image',
+      data.favicon_image ? data.favicon_image : ''
+    );
+    sessionStorage.setItem(
+      'webstore_link',
+      data.webstore_link ? data.webstore_link : ''
+    );
+    sessionStorage.setItem('company', data.company ? data.company : '');
+    sessionStorage.setItem(
+      'footer_data',
+      JSON.stringify(
+        data?.footer_data?.footer_data ? data.footer_data.footer_data : ''
+      )
+    );
+    sessionStorage.setItem(
+      'sliders',
+      JSON.stringify(data.sliders ? data.sliders : '')
+    );
+    if (data.type === 'b2b') sessionStorage.setItem('type', 'business');
+    if (data.type === 'b2c') sessionStorage.setItem('type', 'customer');
+    if (data.type === 'catalogue') sessionStorage.setItem('type', 'catalog');
   }
 
   public get_company_logo(): string {
@@ -56,102 +103,76 @@ export class BizService {
     // if(sessionStorage.getItem("company_logo")==null){
     //   return "assets/img/logo.png"
     // }
-    return sessionStorage.getItem("company_logo");
-
+    return sessionStorage.getItem('company_logo');
   }
   public set_company_logo(logo: string): void {
-    sessionStorage.setItem("company_logo", logo);
+    sessionStorage.setItem('company_logo', logo);
   }
 
-
   public get_background_color(): string {
-    return sessionStorage.getItem("background_color");
-
+    return sessionStorage.getItem('background_color');
   }
 
   public set_channel(channel: string): void {
-    sessionStorage.setItem("channel", channel);
+    sessionStorage.setItem('channel', channel);
   }
 
   public get_channel(): string {
-    return sessionStorage.getItem("channel");
+    return sessionStorage.getItem('channel');
   }
 
   public get_footer_data(): any {
-    return JSON.parse(sessionStorage.getItem("footer_data"));
+    return JSON.parse(sessionStorage.getItem('footer_data'));
   }
 
-
   public get_company_id(): string {
-    return sessionStorage.getItem("company_id");
-
+    return sessionStorage.getItem('company_id');
   }
 
   public get_left_header(): string {
-    return sessionStorage.getItem("left_header");
-
+    return sessionStorage.getItem('left_header');
   }
   public get_right_header(): string {
-    return sessionStorage.getItem("right_header");
-
+    return sessionStorage.getItem('right_header');
   }
   public get_left_link(): string {
-    return sessionStorage.getItem("left_link");
-
+    return sessionStorage.getItem('left_link');
   }
   public get_right_link(): string {
-    return sessionStorage.getItem("right_link");
-
+    return sessionStorage.getItem('right_link');
   }
   public get_meta_title(): string {
-    return sessionStorage.getItem("meta_title");
-
+    return sessionStorage.getItem('meta_title');
   }
   public get_meta_description(): string {
-    return sessionStorage.getItem("meta_description");
-
+    return sessionStorage.getItem('meta_description');
   }
   public get_mid_banner_image(): string {
-    return sessionStorage.getItem("mid_banner_image");
-
+    return sessionStorage.getItem('mid_banner_image');
   }
   public get_mid_banner_link(): string {
-    return sessionStorage.getItem("mid_banner_link");
-
+    return sessionStorage.getItem('mid_banner_link');
   }
   public get_mid_banner_second_line(): string {
-    return sessionStorage.getItem("mid_banner_second_line");
-
+    return sessionStorage.getItem('mid_banner_second_line');
   }
   public get_mid_banner_first_line(): string {
-    return sessionStorage.getItem("mid_banner_first_line");
-
+    return sessionStorage.getItem('mid_banner_first_line');
   }
   public get_name(): string {
-    return sessionStorage.getItem("name");
-
+    return sessionStorage.getItem('name');
   }
   public get_favicon_image(): string {
-    return sessionStorage.getItem("favicon_image");
-
+    return sessionStorage.getItem('favicon_image');
   }
   public get_webstore_link(): string {
-    return sessionStorage.getItem("webstore_link");
-
+    return sessionStorage.getItem('webstore_link');
   }
-
 
   public get_company(): string {
-    return sessionStorage.getItem("company");
-
+    return sessionStorage.getItem('company');
   }
   public get_sliders(): any {
-    return JSON.parse(sessionStorage.getItem("sliders"));
+    return JSON.parse(sessionStorage.getItem('sliders'));
   }
-
-  
-
-
-  
-
 }
