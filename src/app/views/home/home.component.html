@@ -14,7 +14,7 @@
       </p-galleria>
 
     </div>
-    <div class="container vstack gap-2">
+    <div class="container vstack gap-2" style="width: 100vw; margin: 0px;">
       <div class="cart-items-wrapper" style="margin-bottom: 1rem;">
         <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
           style="padding-left:0px; position: static;">
@@ -24,7 +24,7 @@
         </div>
         <app-spin-loader *ngIf="loading"></app-spin-loader>
 
-        <div class="row" *ngIf="sectionOneProducts?.length>0" style="max-width: 100vw;">
+        <div class="row" *ngIf="sectionOneProducts?.length>0">
 
           <p-carousel [value]="sectionOneProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
             [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000" [containerStyle]="{ 'max-width': '100vw' }">
@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-    <div class="row" style="padding-left:15px;padding-right:15px;margin-left:0px;margin-right:0px;">
+    <div class="row" style="padding-left:15px;padding-right:15px;margin-left:0px;margin-right:0px; width: 100vw;">
       <div class="">
         <div class="bottom-card"
           [ngStyle]="{'background-image': formatImageUrlToCss(bizService.get_mid_banner_image()),'background-size': 'cover', 'background-position': 'center', 'width': '100%'}">
@@ -124,7 +124,7 @@
         </div>
       </div>
     </div>
-    <div class="container vstack gap-2" style="margin-top:20px">
+    <div class="container vstack gap-2" style="margin-top:20px; margin-left: 0px; margin-right: 0px; width: 100vw;">
       <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
         style="padding-left:0px;">
         <p class="mb-0 h5 fw-bold">{{section_two.name}}</p>
@@ -132,7 +132,7 @@
           more</a>
       </div>
       <app-spin-loader *ngIf="loading"></app-spin-loader>
-      <div class="row" *ngIf="sectionTwoProducts?.length>0" style="max-width: 100vw;">
+      <div class="row" *ngIf="sectionTwoProducts?.length>0">
 
         <p-carousel [value]="sectionTwoProducts" [numVisible]="3" [numScroll]="3" [circular]="true"
           [responsiveOptions]="sectionCarouselResponsiveOptions" autoplayInterval="3000" [containerStyle]="{ 'max-width': '100vw' }">
