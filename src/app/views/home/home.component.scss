@@ -9,13 +9,28 @@
 
 }
 
-.card-text {
+.card-text-dark {
   text-align: center;
   height: 300px;
   border-radius: 20px;
   background:
     -webkit-linear-gradient(rgba(0, 255, 2, 0), rgba(0, 255, 2, 0.0) 0%),
-    -webkit-linear-gradient(-20deg, rgba(4, 0, 255, 0) 50%, rgba(55, 55, 54, 0.314) 0%);
+    -webkit-linear-gradient(-20deg, rgba(4, 0, 255, 0) 50%, rgba(28, 28, 28, 0.314) 0%);
+}
+
+.card-text-light {
+  text-align: center;
+  height: 300px;
+  border-radius: 20px;
+  background:
+    -webkit-linear-gradient(rgba(0, 255, 2, 0), rgba(0, 255, 2, 0.0) 0%),
+    -webkit-linear-gradient(-20deg, rgba(4, 0, 255, 0) 50%, rgba(207, 207, 204, 0.314) 0%);
+}
+
+.card-text-remove {
+  text-align: center;
+  height: 300px;
+  border-radius: 20px;
 }
 
 
@@ -111,6 +126,14 @@
 }
 
 @media (max-width: 580px) {
+
+  .container-mobile {
+    padding-top: 45px !important;
+  }
+
+}
+
+@media (max-width: 991.98px) {
 
   .container-mobile {
     padding-top: 45px !important;

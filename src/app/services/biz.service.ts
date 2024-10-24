@@ -44,7 +44,18 @@ export class BizService {
       'right_header',
       data.right_header ? data.right_header : ''
     );
+
     sessionStorage.setItem('left_link', data.left_link ? data.left_link : '');
+    sessionStorage.setItem(
+      'banner_overlay_remove',
+      data.banner_overlay_remove ? data.banner_overlay_remove : 0
+    );
+    if (data.banner_overlay_remove === 0) {
+      sessionStorage.setItem(
+        'banner_overlay_color',
+        data.banner_overlay_color ? data.banner_overlay_color : 'dark'
+      );
+    }
     sessionStorage.setItem(
       'right_link',
       data.right_link ? data.right_link : ''
@@ -107,6 +118,14 @@ export class BizService {
   }
   public set_company_logo(logo: string): void {
     sessionStorage.setItem('company_logo', logo);
+  }
+
+  public get_overlay_color(): string {
+    return sessionStorage.getItem('banner_overlay_color');
+  }
+
+  public get_overlay_remove(): number {
+    return Number(sessionStorage.getItem('banner_overlay_remove'));
   }
 
   public get_background_color(): string {
