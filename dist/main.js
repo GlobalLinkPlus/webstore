@@ -129,6 +129,10 @@ class BizService {
         sessionStorage.setItem('left_header', data.left_header ? data.left_header : '');
         sessionStorage.setItem('right_header', data.right_header ? data.right_header : '');
         sessionStorage.setItem('left_link', data.left_link ? data.left_link : '');
+        sessionStorage.setItem('banner_overlay_remove', data.banner_overlay_remove ? data.banner_overlay_remove : 0);
+        if (data.banner_overlay_remove === 0) {
+            sessionStorage.setItem('banner_overlay_color', data.banner_overlay_color ? data.banner_overlay_color : 'dark');
+        }
         sessionStorage.setItem('right_link', data.right_link ? data.right_link : '');
         sessionStorage.setItem('meta_title', data.meta_title ? data.meta_title : '');
         sessionStorage.setItem('meta_description', data.meta_description ? data.meta_description : '');
@@ -158,6 +162,12 @@ class BizService {
     }
     set_company_logo(logo) {
         sessionStorage.setItem('company_logo', logo);
+    }
+    get_overlay_color() {
+        return sessionStorage.getItem('banner_overlay_color');
+    }
+    get_overlay_remove() {
+        return Number(sessionStorage.getItem('banner_overlay_remove'));
     }
     get_background_color() {
         return sessionStorage.getItem('background_color');

@@ -304,7 +304,8 @@
                     <a
                       href="{{ bizService.get_mid_banner_link() }}"
                       target="_blank"
-                      style="text-decoration: none; color: #191919"
+                      style="text-decoration: none;"
+                      [style.color]="bizService.get_overlay_remove() === 1 ? '#191919' : (bizService.get_overlay_color() === 'light' ? '#191919' : '#f4f4f4')"
                     >
                       <span style="font-size: xx-large; font-weight: 600">{{
                         bizService.get_mid_banner_first_line()
