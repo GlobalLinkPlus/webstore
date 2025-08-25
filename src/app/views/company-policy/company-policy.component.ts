@@ -15,26 +15,23 @@ interface PolicyDetails {
 @Component({
   selector: 'app-company-policy',
   templateUrl: './company-policy.component.html',
-  styleUrls: ['./company-policy.component.scss']
+  styleUrls: ['./company-policy.component.scss'],
 })
 export class CompanyPolicyComponent implements OnInit {
-
   policyDetails: PolicyDetails[] = [];
 
-  constructor(
-    private apiService: ApiService,
-    private bizService: BizService
-  ) { }
+  constructor(private apiService: ApiService, private bizService: BizService) {}
 
   ngOnInit(): void {
     this.getPolicyDetails(this.bizService.get_company_id());
   }
 
   getPolicyDetails(id) {
-    this.apiService.getReturnPolicyDetails(id).subscribe(res => {
-      if (res)
-        this.policyDetails = res;
-    }, err => { });
+    this.apiService.getReturnPolicyDetails(id).subscribe(
+      (res) => {
+        if (res) this.policyDetails = res;
+      },
+      (err) => {}
+    );
   }
-
 }

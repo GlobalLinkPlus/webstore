@@ -1,15 +1,35 @@
-<main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw; overflow-x: hidden;">
-    <header>
-        <app-header></app-header>
-    </header>
-    <div style="margin-top: 220px; margin-bottom: 50px;" class="main-content">
-        <div *ngFor="let item of policyDetails" class="policies-container" style="padding-left: 100px; padding-right: 100px; display: flex; flex-direction: column;">
-            <div style="font-size: 22px; font-weight: bold;">{{item.title}}</div>
-            <hr style="border: 1px solid #C1C7D6;">
-            <div style="margin-bottom: 50px;" innerHTML="{{item.description}}"></div>
-        </div>
+<main
+  style="
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    overflow-x: hidden;
+  "
+>
+  <header>
+    <app-header></app-header>
+  </header>
+  <div style="margin-top: 220px; margin-bottom: 50px" class="main-content">
+    <div
+      *ngFor="let item of policyDetails"
+      class="policies-container"
+      style="
+        padding-left: 100px;
+        padding-right: 100px;
+        display: flex;
+        flex-direction: column;
+      "
+      [id]="item.policy_identifier"
+    >
+      <div style="font-size: 22px; font-weight: bold">
+        {{ item.title }}
+      </div>
+      <hr style="border: 1px solid #c1c7d6" />
+      <div style="margin-bottom: 50px" innerHTML="{{ item.description }}"></div>
     </div>
-    <footer style="padding-top: 20px; bottom: 0; width: 100%;">
-        <app-customer-footer></app-customer-footer>
-    </footer>
+  </div>
+  <footer style="padding-top: 20px; bottom: 0; width: 100%">
+    <app-customer-footer></app-customer-footer>
+  </footer>
 </main>

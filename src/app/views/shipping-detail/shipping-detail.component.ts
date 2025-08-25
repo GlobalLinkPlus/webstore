@@ -180,6 +180,7 @@ export class ShippingDetailComponent implements OnInit {
     };
 
     this.cartItems.forEach((item) => {
+      this.userInfoService.removeItemCart(item);
       payload.cart.push({
         quantity: item.product_count,
         price_data: {

@@ -504,9 +504,9 @@ export class ItemDetailDesktopComponent implements OnInit {
   generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
     const attributes = [
 
-      { name: 'Length', value: product.dimensions.find(d => d.name === 'length')?.value || '', unit: 'in' },
-      { name: 'Width', value: product.dimensions.find(d => d.name === 'width')?.value || '', unit: 'in' },
-      { name: 'Height', value: product.dimensions.find(d => d.name === 'height')?.value || '', unit: 'in' },
+      { name: 'Length', value: product.dimensions?.find(d => d?.name === 'length')?.value || '', unit: 'in' },
+      { name: 'Width', value: product.dimensions?.find(d => d?.name === 'width')?.value || '', unit: 'in' },
+      { name: 'Height', value: product.dimensions?.find(d => d?.name === 'height')?.value || '', unit: 'in' },
       { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
       { name: 'Brand', value: product.brand },
       { name: 'Origin', value: product.origin || '' },

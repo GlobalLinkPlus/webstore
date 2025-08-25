@@ -5,7 +5,6 @@ import { CartComponent } from './views/cart/cart.component';
 import { ConfirmOrderComponent } from './views/confirm-order/confirm-order.component';
 import { HomeComponent } from './views/home/home.component';
 import { ItemDetailDesktopComponent } from './views/item-detail-desktop/item-detail-desktop.component';
-import { ItemDetailComponent } from './views/item-detail/item-detail.component';
 import { LoginComponent } from './views/login/login.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { PaymentMethodComponent } from './views/payment-method/payment-method.component';
