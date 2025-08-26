@@ -1,6 +1,14 @@
 import { Route } from '@angular/compiler/src/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
@@ -15,6 +23,14 @@ interface Dimension {
   name: string;
   value: string;
   dimension_class: string;
+}
+
+interface DimensionObj
+{
+  width: string,
+  height: string,
+  length: string,
+  dimension_metric: string
 }
 
 interface Weight {
@@ -71,8 +87,8 @@ interface Partner {
 //   };
 // }
 interface Image {
-  name: string,
-  url: string,
+  name: string;
+  url: string;
 }
 
 interface Features {
@@ -98,11 +114,11 @@ interface PricingDetails {
 
 interface CategoryDetails {
   name: string;
-  id: string
+  id: string;
 }
 interface SubCategoryDetails {
   name: string;
-  id: string
+  id: string;
 }
 interface Product {
   partner_details: Partner;
@@ -130,7 +146,7 @@ interface Product {
   category: string;
   sub_category: string;
   date_added: string;
-  dimensions: Dimension[];
+  dimensions: Dimension[] | DimensionObj;
   weights: Weight;
   rating: number;
   reviews: number;
@@ -197,31 +213,26 @@ interface Product {
   selector: 'app-item-detail-desktop',
   templateUrl: './item-detail-desktop.component.html',
   styleUrls: ['./item-detail-desktop.component.scss'],
-  providers: [NgbRatingConfig]
+  providers: [NgbRatingConfig],
 })
 export class ItemDetailDesktopComponent implements OnInit {
-
-
-
-
   category;
   subcategory;
   show_features = false;
-  customer = "customer";
-  business = "business";
-  catalog = "catalog";
+  customer = 'customer';
+  business = 'business';
+  catalog = 'catalog';
   type: string;
-
 
   item_detail = {
     retail_cost: '',
-    first_cost: ''
-  }
+    first_cost: '',
+  };
 
   videos = [];
 
   variations = [];
-  selectedVariation = "";
+  selectedVariation = '';
   product: Product;
   //   brand: "",
   //   id: '1',
@@ -241,34 +252,33 @@ export class ItemDetailDesktopComponent implements OnInit {
   //   },
   //   features: {}
   // }
-  msrp = "";
+  msrp = '';
   featuresArray = [];
   images: any[];
 
-
   channel_detail = {
     name: '',
-    id: ''
+    id: '',
   };
 
-  current_image: string = "";
+  current_image: string = '';
   current_image_index: Number = 0;
   totalCards: number = 14;
   currentPage: number = 1;
-  pagePosition: string = "0%";
+  pagePosition: string = '0%';
   cardsPerPage: number;
   totalPages: number;
   overflowWidth: string;
   cardWidth: string;
   containerWidth: number;
-  @ViewChild("imageContainer", { static: true, read: ElementRef })
+  @ViewChild('imageContainer', { static: true, read: ElementRef })
   imageContainer: ElementRef;
   attributeArray;
   autoPlay = false;
   activeIndex = 0;
   productRating = 0;
 
-  @ViewChild("container", { static: true, read: ElementRef })
+  @ViewChild('container', { static: true, read: ElementRef })
   container: ElementRef;
   // @HostListener("window:resize") windowResize() {
   //   let newCardsPerPage = this.getCardsPerPage();
@@ -283,13 +293,11 @@ export class ItemDetailDesktopComponent implements OnInit {
   // }
 
   images1 = [
+    'https://picsum.photos/id/700/900/500',
 
-    "https://picsum.photos/id/700/900/500",
+    'https://picsum.photos/id/1011/900/500',
 
-    "https://picsum.photos/id/1011/900/500",
-
-    "https://picsum.photos/id/984/900/500"
-
+    'https://picsum.photos/id/984/900/500',
   ];
 
   currentIndex = 0;
@@ -301,7 +309,8 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   // Function to go to the previous image
   prevImage() {
-    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.currentIndex =
+      (this.currentIndex - 1 + this.images.length) % this.images.length;
   }
 
   // Function to set image by index
@@ -312,22 +321,22 @@ export class ItemDetailDesktopComponent implements OnInit {
   responsiveOptions: any[] = [
     {
       breakpoint: '1024px',
-      numVisible: 5
+      numVisible: 5,
     },
     {
       breakpoint: '768px',
-      numVisible: 3
+      numVisible: 3,
     },
     {
       breakpoint: '560px',
-      numVisible: 1
-    }
+      numVisible: 1,
+    },
   ];
 
   imageContainerStyle = {
-    "padding-left": '0px',
-    "padding-right": '0px'
-  }
+    'padding-left': '0px',
+    'padding-right': '0px',
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -338,8 +347,8 @@ export class ItemDetailDesktopComponent implements OnInit {
     public rateConfig: NgbRatingConfig,
     private cd: ChangeDetectorRef
   ) {
-    rateConfig.max = 5
-    rateConfig.readonly = !userInfoService.isLoggedIn()
+    rateConfig.max = 5;
+    rateConfig.readonly = !userInfoService.isLoggedIn();
   }
 
   setShowFeatures() {
@@ -365,20 +374,18 @@ export class ItemDetailDesktopComponent implements OnInit {
 
     // imgElement.style.width = `${newWidth}px`;
     // imgElement.style.height = '600px';
-    var imageContainerStyle_padding = (width - newWidth) / 2
+    var imageContainerStyle_padding = (width - newWidth) / 2;
     this.imageContainerStyle = {
-      "padding-left": `${imageContainerStyle_padding}px`,
-      "padding-right": `${imageContainerStyle_padding}px`
-    }
-
-
+      'padding-left': `${imageContainerStyle_padding}px`,
+      'padding-right': `${imageContainerStyle_padding}px`,
+    };
   }
 
   async onBaseComboChange(selectedBaseCombo: string): Promise<void> {
-    if(!selectedBaseCombo) {
+    if (!selectedBaseCombo) {
       this.ngOnInit();
       return;
-    };
+    }
     const variation = this.variations.find(
       (v) => v.additional_features.base_combo === selectedBaseCombo
     );
@@ -394,99 +401,101 @@ export class ItemDetailDesktopComponent implements OnInit {
   }
 
   async setActiveIndex(images: any) {
-    this.activeIndex = await Math.floor(Math.random() * (images.length-1));
+    this.activeIndex = await Math.floor(Math.random() * (images.length - 1));
   }
   ngOnInit() {
-
     // this.cardsPerPage = this.getCardsPerPage();
     // this.initializeSlider();
 
     this.apiService.getChannelsDetails(this.route.snapshot.params.id).subscribe(
-      res => {
+      (res) => {
         this.channel_detail = res[0];
       },
-      err => { }
+      (err) => {}
+    );
 
-    )
+    this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(
+      (res) => {
+        this.product = res.product;
+        this.msrp = res.msrp;
+        this.item_detail = res;
+        this.images = res.product.image_urls;
+        this.productRating = res.product.rating || 0;
+        this.product['product_count'] = 1;
+        this.totalCards = 14;
+        this.current_image = this.product.image_urls[0].url;
+        this.setActiveIndex(this.images);
+        this.featuresArray = Object.values(res.product.features).filter(
+          (value) => {
+            return (
+              (Array.isArray(value) && value.length > 0) ||
+              (typeof value === 'string' && value.trim() !== '')
+            );
+          }
+        );
+        this.attributeArray = this.generateAttributeArray(res.product);
 
-    this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(res => {
-      this.product = res.product;
-      this.msrp = res.msrp;
-      this.item_detail = res;
-      this.images = res.product.image_urls;
-      this.productRating = res.product.rating || 0;
-      this.product["product_count"] = 1;
-      this.totalCards = 14;
-      this.current_image = this.product.image_urls[0].url;
-      this.setActiveIndex(this.images);
-      this.featuresArray = Object.values(res.product.features).filter(value => {
-        return (Array.isArray(value) && value.length > 0) || (typeof value === 'string' && value.trim() !== '');
-      });;
-      this.attributeArray = this.generateAttributeArray(res.product);
+        this.apiService.getProductVariations(this.product.id).subscribe(
+          (res) => {
+            this.variations = res;
+          },
+          (err) => {}
+        );
 
-      this.apiService.getProductVariations(this.product.id).subscribe(
-        res => {
-          this.variations = res;
-        },
-        err => { }
+        // this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
+        //   res => {
+        //     this.videos = res;
+        //   },
+        //   err => { }
 
-      )
+        // )
 
-      // this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
-      //   res => {
-      //     this.videos = res;
-      //   },
-      //   err => { }
-
-      // )
-
-
-      try {
-        let p: any = this.product;
-        this.category = p.category_details.name;
-      } catch (err) { }
-      try {
-        let p: any = this.product;
-        this.subcategory = p.sub_category_details.name;
-      } catch (err) { }
-
-    }, err => {
-      console.log("[ERROR]>>>", err);
-
-    });
-
+        try {
+          let p: any = this.product;
+          this.category = p.category_details.name;
+        } catch (err) {}
+        try {
+          let p: any = this.product;
+          this.subcategory = p.sub_category_details.name;
+        } catch (err) {}
+      },
+      (err) => {
+        console.log('[ERROR]>>>', err);
+      }
+    );
 
     this.type = this.bizService.getBizType();
-
   }
 
   mapCollectionToString(data) {
     if (Array.isArray(data)) {
       const names: string[] = data.map((item) => item.name);
-      return names.join(", ");
+      return names.join(', ');
     }
 
-    if (typeof data === "string") {
-      return data
+    if (typeof data === 'string') {
+      return data;
     }
-
   }
   async updateProductDetails(variation: any) {
     if (this.product) {
-      this.msrp = variation.additional_features.details.variation_msrp.toString();
+      this.msrp =
+        variation.additional_features.details.variation_msrp.toString();
       this.images = [...variation.additional_features.images];
       this.cd.detectChanges();
       this.product = {
         ...this.product,
         name: variation.additional_features.details.variation_product_name,
-        description: variation.additional_features.details.variation_description,
+        description:
+          variation.additional_features.details.variation_description,
         sku: variation.additional_features.details.variation_sku,
         upc: variation.additional_features.details.variation_upc,
         asin: variation.additional_features.details.variation_asin,
         image_urls: variation.additional_features.images,
         pricing: {
           ...this.product.pricing,
-          retail_cost: variation.additional_features.details.variation_retail_price.toString(),
+          retail_cost:
+            variation.additional_features.details.variation_retail_price.toString(),
           msrp: variation.additional_features.details.variation_msrp.toString(),
         },
         weights: {
@@ -496,25 +505,75 @@ export class ItemDetailDesktopComponent implements OnInit {
       };
     }
     this.attributeArray = await this.generateAttributeArray(this.product);
-    this.activeIndex = await Math.floor(Math.random() * (this.images.length-1));
+    this.activeIndex = await Math.floor(
+      Math.random() * (this.images.length - 1)
+    );
     this.cd.detectChanges();
     // this.activeIndex = 1;
   }
 
-  generateAttributeArray(product: Product): { name: string, value: string, unit?: string }[] {
-    const attributes = [
+  generateAttributeArray(
+    product: Product
+  ): { name: string; value: string; unit?: string }[] {
 
-      { name: 'Length', value: product.dimensions?.find(d => d?.name === 'length')?.value || '', unit: 'in' },
-      { name: 'Width', value: product.dimensions?.find(d => d?.name === 'width')?.value || '', unit: 'in' },
-      { name: 'Height', value: product.dimensions?.find(d => d?.name === 'height')?.value || '', unit: 'in' },
-      { name: 'Weight', value: product.weights.weight, unit: product.weights.weight_class },
+    let dimensions: { name: string; value: string; unit: string }[] = [];
+
+    if (Array.isArray(product.dimensions)) {
+      dimensions = [
+        {
+          name: 'Length',
+          value:
+            product.dimensions?.find((d) => d?.name === 'length')?.value || '',
+          unit: 'in',
+        },
+        {
+          name: 'Width',
+          value:
+            product.dimensions?.find((d) => d?.name === 'width')?.value || '',
+          unit: 'in',
+        },
+        {
+          name: 'Height',
+          value:
+            product.dimensions?.find((d) => d?.name === 'height')?.value || '',
+          unit: 'in',
+        },
+      ];
+    } else if (product.dimensions && typeof product.dimensions === 'object') {
+      dimensions = [
+        {
+          name: 'Length',
+          value: product.dimensions?.length || '',
+          unit: product.dimensions.dimension_metric || 'in',
+        },
+        {
+          name: 'Width',
+          value: product.dimensions.width || '',
+          unit: product.dimensions.dimension_metric || 'in',
+        },
+        {
+          name: 'Height',
+          value: product.dimensions.height || '',
+          unit: product.dimensions.dimension_metric || 'in',
+        },
+      ];
+    }
+    const attributes = [
+      {
+        name: 'Weight',
+        value: product.weights.weight,
+        unit: product.weights.weight_class,
+      },
       { name: 'Brand', value: product.brand },
       { name: 'Origin', value: product.origin || '' },
       { name: 'MOQ', value: product.minimum_order_qty || '' },
       { name: 'Size', value: product.size || '' },
       { name: 'Shape', value: product.shape || '' },
       { name: 'Color', value: product.color || '' },
-      { name: 'Primary Material', value: product.material.primary_material || '' },
+      {
+        name: 'Primary Material',
+        value: product.material.primary_material || '',
+      },
       { name: 'Style', value: product.style || '' },
       { name: 'Name', value: product.name },
       { name: 'SKU', value: product.sku },
@@ -528,7 +587,10 @@ export class ItemDetailDesktopComponent implements OnInit {
       { name: 'Reviews', value: product.reviews?.toString() || '' },
       { name: 'Tax', value: product.tax },
       { name: 'Date Added', value: product.date_added },
-      { name: 'Collection', value: this.mapCollectionToString(product.collection) },
+      {
+        name: 'Collection',
+        value: this.mapCollectionToString(product.collection),
+      },
       { name: 'Number of Pieces', value: product.number_of_pieces },
       { name: 'Is Powered', value: product.is_powered?.toString() || '' },
       { name: 'Wood Type', value: product.wood_type },
@@ -539,29 +601,52 @@ export class ItemDetailDesktopComponent implements OnInit {
       { name: 'Manufacture ID', value: product.manufacture_id || '' },
       { name: 'Group', value: product.group }, // Add group information if available
       { name: 'Taxes', value: product.tax },
-      { name: 'Supplier Lead Time', value: product.lead_time.supplier_lead_time || '' },
-      { name: 'Replacement Lead Time', value: product.lead_time.replacement_lead_time || '' },
+      {
+        name: 'Supplier Lead Time',
+        value: product.lead_time.supplier_lead_time || '',
+      },
+      {
+        name: 'Replacement Lead Time',
+        value: product.lead_time.replacement_lead_time || '',
+      },
       { name: 'Color', value: product.color },
       { name: 'Finish', value: product.finish },
       { name: 'Primary Material', value: product.material.primary_material },
-      { name: 'Secondary Material', value: product.material.secondary_material },
-      { name: 'Assembly Required', value: product.assembly.assembly_required?.toString() || '' },
-      { name: 'Assembly Required Level', value: product.assembly.assembly_required_level },
-      { name: 'Assembly Instructions URL', value: product.assembly.assembly_instructions_url },
+      {
+        name: 'Secondary Material',
+        value: product.material.secondary_material,
+      },
+      {
+        name: 'Assembly Required',
+        value: product.assembly.assembly_required?.toString() || '',
+      },
+      {
+        name: 'Assembly Required Level',
+        value: product.assembly.assembly_required_level,
+      },
+      {
+        name: 'Assembly Instructions URL',
+        value: product.assembly.assembly_instructions_url,
+      },
       { name: 'Recommended Use', value: product.recommended.recommended_use },
       { name: 'Recommended Room', value: product.recommended.recommended_room },
-      { name: 'Recommended Location', value: product.recommended.recommended_location },
-
+      {
+        name: 'Recommended Location',
+        value: product.recommended.recommended_location,
+      },
     ];
 
-    return attributes;
+    return [...attributes, ...dimensions];
   }
 
   checkout() {
-    this.router.navigateByUrl("/" + this.bizService.getBizId() + "/cart");
+    this.router.navigateByUrl('/' + this.bizService.getBizId() + '/cart');
   }
   addProductToCart() {
-    const product = { ...this.product, pricing: { ...this.item_detail, product: this.product.id } };
+    const product = {
+      ...this.product,
+      pricing: { ...this.item_detail, product: this.product.id },
+    };
     this.userInfoService.addItemCart(product);
   }
   removeItemToCart() {
@@ -582,17 +667,18 @@ export class ItemDetailDesktopComponent implements OnInit {
     }
   }
   imageClicked(img: any, index: Number) {
-
     this.current_image = img.image;
 
     this.current_image_index = index;
   }
   initializeSlider() {
     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
-    this.overflowWidth = `calc(${this.totalPages * 100}% + ${this.totalPages *
-      10}px)`;
-    this.cardWidth = `calc((${100 / this.totalPages}% - ${this.cardsPerPage *
-      10}px) / ${this.cardsPerPage})`;
+    this.overflowWidth = `calc(${this.totalPages * 100}% + ${
+      this.totalPages * 10
+    }px)`;
+    this.cardWidth = `calc((${100 / this.totalPages}% - ${
+      this.cardsPerPage * 10
+    }px) / ${this.cardsPerPage})`;
   }
 
   getCardsPerPage() {
@@ -605,8 +691,8 @@ export class ItemDetailDesktopComponent implements OnInit {
   }
 
   populatePagePosition() {
-    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${10 *
-      (this.currentPage - 1)}px)`;
+    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${
+      10 * (this.currentPage - 1)
+    }px)`;
   }
-
 }

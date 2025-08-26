@@ -470,7 +470,7 @@
                       *ngFor="let spec of attributeArray"
                       style="border-bottom: 1px solid grey; white-space: nowrap"
                     >
-                      {{ spec.name }}
+                      {{ spec?.name }}
                     </th>
                   </tr>
                 </thead>
@@ -481,7 +481,7 @@
                       style="font-size: large; white-space: nowrap"
                     >
                       <span *ngIf="!spec.value">-</span>
-                      {{ spec.value }}{{ spec?.unit }}
+                      {{ spec?.value }}{{ spec?.unit }}
                     </td>
                   </tr>
                 </tbody>
