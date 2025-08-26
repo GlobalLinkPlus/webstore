@@ -163,7 +163,6 @@ export class HomeRoutingComponent implements OnInit {
 
     this.bizService.setBizId(this.route.snapshot.params.biz_id)
     this.route.data.subscribe(res => {
-      console.log(res)
       this.bizService.setBizDetail(res.bizInfo[0])
 
     })
