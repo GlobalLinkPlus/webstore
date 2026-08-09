@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-confirm-order',
@@ -13,6 +14,11 @@ export class ConfirmOrderComponent implements OnInit {
 
 
   public cartItems:any[]=[]
+
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
   cart_summary: any={
     currency:'$',
@@ -30,7 +36,8 @@ export class ConfirmOrderComponent implements OnInit {
     private apiService: ApiService,
     private bizService: BizService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService
     ) {
     this.cartItems= this.userInfoService.getCartItems();
    }
@@ -40,7 +47,11 @@ export class ConfirmOrderComponent implements OnInit {
     this.userInfoService.clearCartItems();
     this.apiService.getOrderInfo({id:this.route.snapshot.params.order_id}).subscribe(res=>{
       this.order_detail=res
-    },err=>{});
+    },err=>{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load order details' });
+    });
+
+    this.type = this.bizService.getBizType();
   }
  
   reduceProductCount(item: any){

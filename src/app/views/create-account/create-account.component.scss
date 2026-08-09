@@ -1,0 +1,91 @@
+.toolbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.round-input {
+    border-radius: 15px !important;
+    height: 50px;
+    padding-left: 20px;
+    border: 1px solid #C1C7D6;
+}
+
+.round-input:focus {
+    border: 2px solid #C1C7D6;
+}
+
+.round-input:focus-visible {
+    outline: none;
+    border: 2px solid #C1C7D6;
+}
+
+.login-button {
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    color: #fff;
+    font-size: large;
+    padding: auto;
+    font-weight: 500;
+    border-radius: 10px;
+
+
+}
+
+
+.login-button:hover {
+    border: none;
+    outline: none;
+}
+
+.login-button:focus {
+    border: none;
+    outline: none;
+}
+
+.login-button:focus-visible {
+    border: none;
+    outline: none;
+}
+
+@media (max-width: 991.98px) {
+    .toolbar {
+        height: 0px;
+    }
+
+
+}
+
+@media (min-width: 991.98px) {
+    .toolbar {
+        position: relative;
+
+    }
+
+    .promotion-text {
+        padding-left: 40px;
+        font-size: medium;
+        text-decoration: none;
+        color: white;
+    }
+
+    .promotion-text-right {
+        padding-right: 40px;
+        font-size: medium;
+        text-decoration: none;
+        color: white;
+    }
+}

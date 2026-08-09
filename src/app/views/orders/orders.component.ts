@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-orders',
@@ -20,28 +21,41 @@ export class OrdersComponent implements OnInit {
   show_pending_orders = false;
   show_progress_orders = false;
   show_completed_orders = false;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
 
 
   constructor(
     private apiService: ApiService,
     private userInfoService: UserInfoService,
-    public bizService: BizService
+    public bizService: BizService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
 
     this.apiService.getOrders({"status":"Pending","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-      this.ordersPending=res;
-    },err=>{});
+      this.ordersPending = res.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load pending orders' });
+    });
 
     this.apiService.getOrders({"status":"Acknowledged","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-      this.ordersProgress=res;
-    },err=>{});
+      this.ordersProgress = res.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load orders in progress' });
+    });
 
     this.apiService.getOrders({"status":"Completed","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-     this.ordersCompleted=res;
-    },err=>{});
+      this.ordersCompleted = res.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load completed orders' });
+    });
+
+    this.type = this.bizService.getBizType();
   }
 
   getProductsTotalPrice(price,quantity){

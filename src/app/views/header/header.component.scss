@@ -7,6 +7,62 @@
     box-shadow: none !important;
 }
 
+
+*{
+    font-family: 'sofia' !important;
+  }
+  
+  .toolbar {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 600;
+      width: 100%;
+    }
+  
+  
+    .content {
+      padding:0px;
+    }
+  
+  
+    .spacer {
+      flex: 1;
+    }
+  
+  
+    @media (max-width: 991.98px) { 
+      .toolbar{
+          height: 0px;
+      }
+  
+   
+  }
+  @media (min-width: 991.98px) {
+    .toolbar{
+          position: relative;
+      
+      }
+      
+      .promotion-text{
+        padding-left: 40px;
+        font-size: medium;
+        text-decoration: none;
+        color: white;
+      }
+      .promotion-text-right{
+        padding-right: 40px;
+        font-size: medium;
+        text-decoration: none;
+        color:  white;
+      }
+  }
+
 @media (max-width: 991.98px) {
     .navbar {
         background-color: white;
@@ -22,7 +78,6 @@
 
 @media (min-width: 991.98px) {
     .navbar {
-        margin-top: 40px;
         background-color: white;
     }
 
@@ -37,9 +92,69 @@
 
 }
 
+.hamburger-menu{
+    margin-left: 10px; 
+    display: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.hamburger-line{
+    width: 30px; 
+    border: 2px solid rgb(0, 0, 0); 
+    margin-top: 3px !important; 
+    margin-bottom: 3px !important;
+}
+
+.navbar-brand-mobile {
+    display: none;
+}
+
+.modal-body-side-nav{
+    display: none;
+}
+
+@media (max-width: 580px){
+    .input-group {
+        display: none;
+    }
+    .account-menu {
+        display: none;
+    }
+
+    .hamburger-menu{
+        display: flex;
+    }
+
+    .header-container-mobile{
+        padding-top: 0px !important;
+    }
+
+    .navbar-collapse{
+        display: none;
+    }
+
+    .navbar-brand-mobile {
+        display: flex;
+        margin-left: 25px;
+    }
+
+    .modal-body-side-nav{
+        display: flex;
+        flex-direction: column;
+        // height: 100vh;
+        overflow-y: scroll;
+    }
+}
+
 @media (max-width: 991.98px) {
     .navbar-brand {
         display: none;
+    }
+
+    .header-container-mobile{
+        padding-top: 0px !important;
     }
 
     .search-bar-icon {
@@ -131,9 +246,7 @@
         margin-top: 35px;
         position: absolute;
         text-align: center;
-        width: calc(100% + 296px);
         justify-content: center;
-        margin-left: -296px;
         // padding-left:0%;
         // padding-right:5%;
     }
@@ -346,3 +459,124 @@
 ._16q98ey4_6101 {
     stroke-width: 1px;
 }
+
+.modal-side-nav {
+    // General modal side nav styles.
+  }
+  
+  .right-side-nav {
+    // Specific styles for the right-side modal navigation.
+  }
+  
+  .fade-side-nav {
+    // Specific styles for fade animations on the side navigation.
+  }
+  
+  .modal-dialog-side-nav {
+    // Styles for the modal dialog within the side nav.
+  }
+  
+  .modal-content-side-nav {
+    background-color: white; /* This matches the inline style in your HTML */
+    /* Other modal content styles */
+  }
+  
+  .modal-header-side-nav {
+    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    padding-top: 20px;
+    font-size: large;
+    background-color: white; /* This matches the inline style in your HTML */
+    display: flex; /* In media query */
+    /* Other modal header styles */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 400.98px) {
+    .modal-side-nav.left-side-nav.fade-side-nav .modal-dialog-side-nav {
+      left: -100%;
+    }
+   
+    .modal-side-nav.right-side-nav.fade-side-nav .modal-dialog-side-nav {
+      right: -100%;
+    }
+  
+    .modal-side-nav .modal-dialog-side-nav {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 400.98px) and (max-width: 991.98px) { 
+    .modal-side-nav.left-side-nav.fade-side-nav .modal-dialog-side-nav {
+      left: -320px;
+    }
+   
+    .modal-side-nav.right-side-nav.fade-side-nav .modal-dialog-side-nav {
+      right: -320px;
+    }
+  
+    .modal-side-nav .modal-dialog-side-nav {
+      width: 320px;
+    }
+  }
+  
+  @media (min-width: 991.98px) { 
+    .modal-header-side-nav {
+      display: none;
+    }
+  }
+  @media (max-width: 991.98px) {
+    .modal-header-side-nav {
+      display: flex;
+      background-color: white;
+    }
+    .modal-side-nav .modal-dialog-side-nav {
+      position: fixed;
+      margin: auto;
+      height: 100%;
+      transform: translate3d(0%, 0, 0);
+    }
+    .modal-side-nav .modal-content-side-nav {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .modal-side-nav .modal-body-side-nav {
+      padding: 15px 15px 80px;
+      min-height: 100%;
+      background: white;
+    }
+    .modal-side-nav.left-side-nav.fade-side-nav .modal-dialog-side-nav {
+      transition: opacity 0.1s linear, left 0.1s ease-out;
+      min-height: 1000px;
+      top: 0px;
+      z-index: 10000;
+    }
+    .modal-side-nav.left-side-nav.fade-side-nav.show .modal-dialog-side-nav {
+      left: 0;
+    }
+    .modal-side-nav.right-side-nav.fade-side-nav .modal-dialog-side-nav {
+      transition: opacity 0.1s linear, right 0.1s ease-out;
+      min-height: 1000px;
+      top: 0px;
+      z-index: 10000;
+    }
+    .modal-side-nav.right-side-nav.fade-side-nav.show .modal-dialog-side-nav {
+      right: 0;
+    }
+    .modal-content-side-nav {
+      border-radius: 0;
+      border: none;
+    }
+    .modal-header-side-nav {
+      border-bottom-color: #eeeeee;
+      background-color: #fafafa;
+    }
+    .container-side-nav {
+      padding-top: 2rem;
+    }
+    .btn-side-nav {
+      margin-bottom: 2rem;
+    }
+  }
+  

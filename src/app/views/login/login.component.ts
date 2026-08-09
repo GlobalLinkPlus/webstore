@@ -13,7 +13,9 @@ import { Location } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  submitted:boolean=false;
+  submitted: boolean = false;
+  inputType: string = 'password';
+  showPassword: boolean = false;
   constructor(
     private apiService: ApiService,
     private formBuilder: FormBuilder,
@@ -21,27 +23,36 @@ export class LoginComponent implements OnInit {
     private userInfoService: UserInfoService,
     public bizService: BizService,
     private location: Location
-    ) { }
+  ) { }
+
+  
 
   ngOnInit(): void {
-    this.loginForm=this.formBuilder.group({
-      email:['',[Validators.required]],
-      password:['',[Validators.required]]
-
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      webstore: ['', Validators.required]
     });
   }
-  submitLogin(){
-    this.submitted=true;
-    this.apiService.login(this.loginForm.value).subscribe(res=>{
-      this.submitted=false;
-      if(res.token){
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.inputType = this.showPassword ? 'text' : 'password';
+  }
+  
+  submitLogin() {
+    this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
+    this.submitted = true;
+    this.apiService.login(this.loginForm.value).subscribe(async res => {
+      this.submitted = false;
+      if (res.token) {
         this.userInfoService.saveUserInfo(res);
-        // this.router.navigateByUrl(this.bizService.getBizId())
-        this.location.back();
+        
+          this.router.navigate([`/${this.bizService.getBizId()}`]);
 
       }
-    },err=>{
-      this.submitted=false;
+    }, err => {
+      this.submitted = false;
     });
   }
 

@@ -1,0 +1,174 @@
+<div
+  class="footer"
+  style="
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #f5f5f5;
+  "
+>
+  <div
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    "
+  >
+    <div style="flex: 1; margin-left: 10px">
+      <div style="font-weight: bold; width: fit-content">Categories</div>
+      <div
+        *ngFor="let cat of categories"
+        style="cursor: pointer; width: fit-content; white-space: nowrap"
+        (click)="changeCategory(cat.name)"
+      >
+        {{ cat.name }}
+      </div>
+      <div style="cursor: pointer">& More</div>
+    </div>
+    <div style="flex: 1; margin-left: 10px" *ngIf="type !== catalog">
+      <div style="font-weight: bold">Account</div>
+      <div
+        *ngIf="!userInfoService.isLoggedIn()"
+        (click)="login()"
+        style="cursor: pointer; white-space: nowrap"
+      >
+        Log In
+      </div>
+      <div
+        *ngIf="userInfoService.isLoggedIn()"
+        (click)="logout()"
+        style="cursor: pointer; white-space: nowrap"
+      >
+        Log Out
+      </div>
+      <div
+        style="cursor: pointer"
+        *ngIf="type === customer && !userInfoService.isLoggedIn()"
+      >
+        Register
+      </div>
+      <div *ngIf="userInfoService.isLoggedIn()" style="cursor: pointer">
+        Profile
+      </div>
+      <div
+        *ngIf="userInfoService.isLoggedIn()"
+        style="cursor: pointer; white-space: nowrap"
+      >
+        Order History
+      </div>
+      <div
+        *ngIf="userInfoService.isLoggedIn()"
+        routerLink="/{{ bizService.getBizId() }}/my-orders"
+        style="cursor: pointer"
+      >
+        Orders
+      </div>
+    </div>
+    <div style="flex: 1; margin-left: 10px">
+      <div style="font-weight: bold; white-space: nowrap">About Us</div>
+      <div
+        *ngIf="footerData?.about_us"
+        routerLink="/{{ bizService.getBizId() }}/about"
+        style="cursor: pointer; white-space: nowrap"
+      >
+        About Us
+      </div>
+      <div
+        *ngIf="footerData?.return_policy"
+        routerLink="/{{ bizService.getBizId() }}/policies"
+        style="cursor: pointer"
+        fragment="return_policy"
+      >
+        Returns
+      </div>
+      <div
+        *ngIf="footerData?.warranty_policy"
+        style="cursor: pointer"
+        routerLink="/{{ bizService.getBizId() }}/policies"
+        fragment="warranty_policy"
+      >
+        Warranty
+      </div>
+      <div
+        *ngIf="footerData?.shipping_policy"
+        style="cursor: pointer; white-space: nowrap"
+        routerLink="/{{ bizService.getBizId() }}/policies"
+        fragment="shipping_policy"
+      >
+        Shipping Policy
+      </div>
+      <div
+        *ngIf="footerData?.privacy_policy"
+        style="cursor: pointer; white-space: nowrap"
+        routerLink="/{{ bizService.getBizId() }}/policies"
+        fragment="privacy_policy"
+      >
+        Privacy Policy
+      </div>
+      <div
+        *ngIf="footerData?.faq"
+        style="cursor: pointer"
+        routerLink="/{{ bizService.getBizId() }}/faqs"
+      >
+        FAQ
+      </div>
+      <div *ngIf="footerData?.careers" style="cursor: pointer">Careers</div>
+    </div>
+    <div *ngIf="footerData?.contact_us" style="flex: 1; margin-left: 10px">
+      <div style="font-weight: bold; white-space: nowrap">Contact Us</div>
+      <div
+        routerLink="/{{ bizService.getBizId() }}/contact-us"
+        style="cursor: pointer; white-space: nowrap"
+      >
+        Contact Us
+      </div>
+    </div>
+    <div
+      class="footer-icons"
+      style="
+        flex: 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+      "
+    >
+      <div
+        *ngFor="let social of socials"
+        style="margin-left: 10px; cursor: pointer"
+      >
+        <a
+          href="https://{{ social.url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i
+            class="fa-brands fa-{{ social?.name?.toLowerCase() }}"
+            style="font-size: 28px; color: black"
+          ></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-top: #c1c7d6 1px solid;
+      padding-top: 15px;
+    "
+  >
+    <div>{{ bizService.getBizName() }}</div>
+    <div
+      *ngIf="footerData?.privacy_policy"
+      style="cursor: pointer"
+      [routerLink]="['/', bizService.getBizId(), 'policies']"
+      fragment="policies"
+    >
+      Terms of Use | Privacy Policy
+    </div>
+  </div>
+</div>

@@ -1,42 +1,113 @@
-<header>
+<main
+  style="
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    overflow-x: hidden;
+  "
+>
+  <header>
     <app-header></app-header>
-</header>
-<main class="container-fluid">
-    <div class="row main-content">
-        <div class="col-sm-12 col-lg-12">
-            <div class="main-card" style="padding:20px;">
-                <div class="row">
-                    <div class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2">
-                        <p class="mb-0 h5 "
-                            *ngIf="(subcategory=='' || subcategory==null) && (category!='' || category!=null)"> <a
-                                href="/{{bizService.getBizId()}}/products/{{category}}"
-                                style="text-decoration: none; font-size: 16px;" class="text-color-inherit">{{category|
-                                titleCase}}</a></p>
-                        <p style="font-size: 16px;" class="mb-0 h5 "
-                            *ngIf="(subcategory!='' && subcategory!=null)  && (category!='' || category!=null)"> <a
-                                href="/{{bizService.getBizId()}}/products/{{category}}"
-                                style="text-decoration: none; font-size: 16px;" class="text-color-inherit">{{category |
-                                titleCase}}</a> / <a
-                                href="/{{bizService.getBizId()}}/products/{{category}}/{{subcategory}}"
-                                style="text-decoration: none; font-size: 16px;" class="text-color-inherit">{{subcategory
-                                | titleCase}}</a></p>
-                    </div>
+  </header>
+  <div class="row main-content" style="margin-top: 30px">
+    <div class="col-sm-12 col-lg-12">
+      <div class="main-card" style="padding: 20px">
+        <div class="row">
+          <div
+            class="d-flex align-items-center justify-content-between cart-items-header mb-3 px-2"
+          >
+            <p
+              class="mb-0 h5"
+              *ngIf="
+                (subcategory == '' || subcategory == null) &&
+                (category != '' || category != null)
+              "
+            >
+              <a
+                href="/{{ bizService.getBizId() }}/products/{{ category }}"
+                style="text-decoration: none; font-size: 16px"
+                class="text-color-inherit"
+                >{{ category | titleCase }}</a
+              >
+            </p>
+            <p
+              style="font-size: 16px"
+              class="mb-0 h5"
+              *ngIf="
+                subcategory != '' &&
+                subcategory != null &&
+                (category != '' || category != null)
+              "
+            >
+              <a
+                href="/{{ bizService.getBizId() }}/products/{{ category }}"
+                style="text-decoration: none; font-size: 16px"
+                class="text-color-inherit"
+                >{{ category | titleCase }}</a
+              >
+              /
+              <a
+                href="/{{ bizService.getBizId() }}/products/{{ category }}/{{
+                  subcategory
+                }}"
+                style="text-decoration: none; font-size: 16px"
+                class="text-color-inherit"
+                >{{ subcategory | titleCase }}</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-7 col-lg-7" style="padding-right: 30px">
+            <div class="carousel-container">
+              <div class="carousel">
+                <img
+                  *ngIf="images[currentIndex]"
+                  [src]="images[currentIndex].url"
+                  [alt]="images[currentIndex].name"
+                  decoding="async"
+                  class="carousel-image"
+                />
+              </div>
+
+              <div class="thumbnail-navigation">
+                <button class="button" (click)="prevImage()">&#10094;</button>
+                <div class="thumbnails">
+                  <div
+                    *ngFor="let image of images; let i = index"
+                    (click)="setCurrentIndex(i)"
+                    class="thumbnail"
+                  >
+                    <img
+                      *ngIf="!image.error"
+                      [src]="image.url"
+                      [alt]="image.title"
+                      [class.active]="i === currentIndex"
+                      (error)="image.error = true"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-7 col-lg-7" style="padding-right: 30px;">
-                        <p-galleria [(value)]="images" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
-                            [responsiveOptions]="responsiveOptions" [numVisible]="5" [numScroll]="1" [showIndicators]="false"
+                <button class="button" (click)="nextImage()">&#10095;</button>
+              </div>
+            </div>
+
+            <!-- <p-galleria [(activeIndex)]="activeIndex" [(value)]="images" [(autoPlay)]="autoPlay"
+                            [circular]="true" [showItemNavigators]="false" [responsiveOptions]="responsiveOptions"
+                            [numVisible]="5" [numScroll]="1" [showIndicators]="false"
                             [containerStyle]="{ 'max-width': '640px' }">
                             <ng-template pTemplate="item" let-item>
-                                <img [src]="item.image" style="width: 100%;" />
+                                <img [(src)]="item.url" loading="lazy" style="width: 100%; max-height: 640px;" />
                             </ng-template>
                             <ng-template pTemplate="thumbnail" let-item>
                                 <div class="grid grid-nogutter justify-content-center">
-                                    <img [src]="item.image" style="display: block; height: 50px; width: 75px;" />
+                                    <img [(src)]="item.url" style="display: block; height: 50px; width: 75px;" />
                                 </div>
                             </ng-template>
-                        </p-galleria>
-                        <!-- <div class="row">
+                        </p-galleria> -->
+            <!-- <div class="row">
                             <div style="width:100%; height: fit-content; object-fit: contain;"
                                 [ngStyle]="getImageContainerStyle()" #imageContainer>
                                 <img [src]="current_image" width="100%" id="main-image" class="large-product-image" />
@@ -83,191 +154,349 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
-                    <div class="col-sm-5 col-lg-5">
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-12">
-                                <span class="text-muted">
-                                    SKU:{{product.sku}}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <span class="product-name">{{product.name}}</span>
-                        </div>
-                        <div class="row" style="padding-top: 20px;">
-                            <div class="col-sm-12 col-lg-12">
-                                <!-- <span style="font-size: large;">See more by <a><u>{{channel_detail.name}}</u></a></span> -->
-                                <div class="product-rating">
-                                    <!-- <app-star-rate-bar [rate]=product.rating [label]="product.reviews"
+          </div>
+          <div class="col-sm-5 col-lg-5">
+            <div class="row">
+              <div
+                class="col-sm-12 col-lg-12"
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span class="text-muted"> SKU:{{ product?.sku }} </span>
+                <select
+                  name=""
+                  id=""
+                  (change)="onBaseComboChange($event.target.value)"
+                  *ngIf="variations.length > 0"
+                  style="
+                    min-width: 100px;
+                    border-radius: 15px;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                  "
+                >
+                  <option value="" style="font-size: 10px">
+                    Select variation
+                  </option>
+                  <option
+                    *ngFor="let variation of variations"
+                    [value]="variation.additional_features.base_combo"
+                  >
+                    {{ variation.additional_features.base_combo }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <span class="product-name">{{ product?.name }}</span>
+            </div>
+            <div class="row" style="padding-top: 20px">
+              <div class="col-sm-12 col-lg-12">
+                <!-- <span style="font-size: large;">See more by <a><u>{{channel_detail.name}}</u></a></span> -->
+                <div class="product-rating">
+                  <!-- <app-star-rate-bar [rate]=product.rating [label]="product.reviews"
                                         [size]=24></app-star-rate-bar> -->
-                                    <ngb-rating [(rate)]="product.rating"></ngb-rating>
-                                </div>
-                            </div>
-                        </div>
+                  <!-- <ngb-rating [(rate)]="productRating"></ngb-rating> -->
+                </div>
+              </div>
+            </div>
 
-                        <div class="row">
-                            <div class="" style="color: red; padding-top: 10px;">
-                                MSRP: $ {{msrp}}
-                            </div>
-                            <div *ngIf="userInfoService.isLoggedIn()" class="product-price">
-                                $ {{item_detail.first_cost}}
-                            </div>
-                            <small *ngIf="!userInfoService.isLoggedIn()"
-                                style="font-size: 15px;font-weight: 500;text-decoration: underline;"><a
-                                    routerLink="/{{bizService.getBizName()}}/login"><u style="color: black;">Login for Pricing</u></a></small>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12" style="margin-top: 30px !important;">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <span style="font-weight:700;">Select Variation</span>
-                                    </div>
-                                    <div class="col-sm-4" style="text-align: right;">
-                                        <i class="fa-solid fa-plus"
-                                            style="font-family: fontAwesome;font-size: larger;"></i>
-                                    </div>
-                                    <!-- <div class="col-sm-12">
+            <div class="row">
+              <div
+                *ngIf="type !== catalog"
+                style="color: red; padding-top: 10px"
+              >
+                MSRP: {{ item_detail.currency }} {{ msrp }}
+              </div>
+              <div
+                *ngIf="userInfoService.isLoggedIn() && type !== customer"
+                class="product-price"
+              >
+                {{ item_detail.currency }} {{ item_detail.first_cost }}
+              </div>
+              <div *ngIf="type === customer" class="product-price">
+                {{ item_detail.currency }} {{ item_detail.first_cost }}
+              </div>
+              <small
+                *ngIf="
+                  !userInfoService.isLoggedIn() &&
+                  type !== catalog &&
+                  type !== customer
+                "
+                style="
+                  font-size: 15px;
+                  font-weight: 500;
+                  text-decoration: underline;
+                "
+                ><a routerLink="/{{ bizService.getBizName() }}/login"
+                  ><u style="color: black">Login for Pricing</u></a
+                ></small
+              >
+            </div>
+            <div class="row">
+              <div class="col-sm-12" style="margin-top: 30px !important">
+                <div class="row">
+                  <div class="col-sm-4" style="text-align: right"></div>
+                  <!-- <div class="col-sm-12">
                                         <select>
                                             <option *ngFor="let variation of variations" [value]="variation.id" >{{variation.name}} {{variation.color}}</option>
                                         </select>
                                     </div> -->
-                                    <div class="col-sm-12">
-                                        <hr>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-12 col-lg-12">
-                                            <div class="cart-buttons">
+                  <div class="col-sm-12">
+                    <hr />
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="col-sm-12 col-lg-12">
+                      <div class="cart-buttons">
+                        <div
+                          class="item-count"
+                          *ngIf="type !== catalog"
+                          style="
+                            border: 2px solid rgb(90, 90, 90);
+                            border-radius: 30px;
+                            width: fit-content;
+                            padding: 0px;
+                            display: flex;
+                            height: 35px;
+                          "
+                        >
+                          <span
+                            style="
+                              padding-left: 15px;
+                              cursor: pointer;
+                              padding-right: 10px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-size: medium;
+                            "
+                            (click)="reduceProductCount()"
+                            ><i
+                              class="fa fa-minus"
+                              style="
+                                font-family: 'Font Awesome 6 Free' !important;
+                              "
+                            ></i
+                          ></span>
+                          <span
+                            style="
+                              padding-left: 10px;
+                              padding-right: 10px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-weight: 500;
+                              font-size: large;
+                              border-right: 2px solid rgb(90, 90, 90);
+                              border-left: 2px solid black;
+                              width: 50px;
+                              text-align: center;
+                            "
+                            >{{ product?.product_count }}</span
+                          >
+                          <span
+                            style="
+                              padding-left: 10px;
+                              cursor: pointer;
+                              padding-right: 15px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-size: medium;
+                            "
+                            (click)="increaseProductCount()"
+                          >
+                            <i
+                              class="fa fa-plus"
+                              style="
+                                font-family: 'Font Awesome 6 Free' !important;
+                              "
+                            ></i
+                          ></span>
+                        </div>
 
-
-                                                <div class="item-count"
-                                                    style="border: 2px solid rgb(90, 90, 90); border-radius:30px;width: fit-content;padding:0px;display: flex;height: 35px;">
-                                                    <span
-                                                        style="padding-left: 15px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-size: medium;"
-                                                        (click)="reduceProductCount()"><i class="fa fa-minus"
-                                                            style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
-                                                    <span
-                                                        style="padding-left: 10px;padding-right: 10px;display: flex;align-items: center;justify-content: center; font-weight: 500; font-size: large;border-right:2px solid rgb(90, 90, 90); border-left:2px solid black;width:50px;text-align: center;">{{product.product_count}}</span>
-                                                    <span
-                                                        style="padding-left: 10px;padding-right: 15px;display: flex;align-items: center;justify-content: center; font-size: medium;"
-                                                        (click)="increaseProductCount()"> <i class="fa fa-plus"
-                                                            style=" font-family: 'Font Awesome 6 Free' !important;"></i></span>
-                                                </div>
-
-                                                <button *ngIf="!userInfoService.isItemInCart(product)"
-                                                    class="btn  buy-now-button"
-                                                    [ngStyle]="{'background-color': bizService.get_background_color()}"
-                                                    (click)="addItemToCart()"><i class="fa-solid fa-plus"
-                                                        style=" font-family: 'Font Awesome 6 Free' !important;"></i><span
-                                                        style="padding-left: 10px;">Add to Cart</span></button>
-                                                <!-- <div class="row">
+                        <button
+                          *ngIf="
+                            !userInfoService.isItemInCart(product) &&
+                            type !== catalog
+                          "
+                          class="btn buy-now-button"
+                          [ngStyle]="{
+                            'background-color':
+                              bizService.get_background_color()
+                          }"
+                          (click)="addProductToCart()"
+                        >
+                          <i
+                            class="fa-solid fa-plus"
+                            style="
+                              font-family: 'Font Awesome 6 Free' !important;
+                            "
+                          ></i
+                          ><span style="padding-left: 10px">Add to Cart</span>
+                        </button>
+                        <!-- <div class="row">
                                                     <div class="col-sm-12"> -->
-                                                <button *ngIf="userInfoService.isItemInCart(product)"
-                                                    class="btn  checkout-button"
-                                                    [ngStyle]="{'background-color': bizService.get_background_color()}"
-                                                    (click)="checkout()">Proceed to Checkout</button>
-                                                <!-- </div>
+                        <button
+                          *ngIf="
+                            userInfoService.isItemInCart(product) &&
+                            type !== catalog
+                          "
+                          class="btn checkout-button"
+                          [ngStyle]="{
+                            'background-color':
+                              bizService.get_background_color()
+                          }"
+                          (click)="checkout()"
+                        >
+                          Proceed to Checkout
+                        </button>
+                        <!-- </div>
                                                     <div class="col-sm-12"> -->
 
-                                                <!-- </div>   
+                        <!-- </div>   
                                                 </div> -->
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-lg-12">
-                                            <button *ngIf="userInfoService.isItemInCart(product)"
-                                                class="btn  remove-button" style="margin-top: 10px;"
-                                                (click)="removeItemToCart()"><i class="fa fa-trash"
-                                                    style=" font-family: 'Font Awesome 6 Free' !important;"></i><span
-                                                    style="padding-left: 10px;">Remove</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 mt-3">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span style="font-weight:700;">Description</span>
-                                    </div>
-
-
-                                    <div class="col-sm-12">
-                                        {{product.description}}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 mt-3">
-                                <div class="row">
-                                    <div class="col-sm-8" (click)="setShowFeatures()" style="cursor: pointer;">
-                                        <span style="font-weight:700;">Feature</span>
-                                    </div>
-                                    <div (click)="setShowFeatures()" style="cursor: pointer;" class="col-sm-4" style="text-align: right;">
-                                        <i *ngIf="show_features===false" class="fa-solid fa-plus"
-                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
-                                        <i *ngIf="show_features===true" class="fa-solid fa-minus"
-                                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <hr>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <ul style="padding-right: 12px;" *ngIf="show_features===true">
-                                            <li *ngFor="let item of featuresArray" style="color: #525252;">{{item}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-
-
+                      </div>
                     </div>
-                </div>
-
-                <div class="row" style="position: relative;margin-top: 20px;">
-                    <div style="font-weight:600;font-size: large;">
-                        Data
+                    <div class="col-sm-12 col-lg-12">
+                      <button
+                        *ngIf="userInfoService.isItemInCart(product)"
+                        class="btn remove-button"
+                        style="margin-top: 10px"
+                        (click)="removeItemToCart()"
+                      >
+                        <i
+                          class="fa fa-trash"
+                          style="font-family: 'Font Awesome 6 Free' !important"
+                        ></i
+                        ><span style="padding-left: 10px">Remove</span>
+                      </button>
                     </div>
-                    <span style="position: absolute;right:0;width: fit-content;margin-top: 5px;"><i
-                            class="fa-solid fa-minus" style="font-family: fontAwesome;font-size: larger;"></i></span>
+                  </div>
                 </div>
+              </div>
+
+              <div class="col-sm-12 mt-3">
                 <div class="row">
-                    <div class="col-lg-12 col-sm-12 col-12 ">
+                  <div class="col-sm-12">
+                    <span style="font-weight: 700">Description</span>
+                  </div>
 
-                        <div class="table-responsive">
-                            <table datatable class="table table-borderless" id="printTable">
-                                <thead style="background: white;">
-                                    <tr>
-
-                                        <th *ngFor="let  spec of attributeArray"
-                                            style="border-bottom: 1px solid grey ; white-space: nowrap;">{{spec.name}}</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-
-                                        <td *ngFor="let  spec of attributeArray" style="font-size:large; white-space: nowrap;">
-                                            {{spec.value}}{{spec?.unit}}
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                  <div class="col-sm-12">
+                    {{ product?.description }}
+                  </div>
                 </div>
+              </div>
+
+              <div class="col-sm-12 mt-3">
+                <div class="row">
+                  <div style="display: flex">
+                    <div
+                      class="col-sm-8"
+                      (click)="setShowFeatures()"
+                      style="cursor: pointer"
+                    >
+                      <span style="font-weight: 700">Features</span>
+                    </div>
+                    <div
+                      (click)="setShowFeatures()"
+                      style="cursor: pointer"
+                      class="col-sm-4"
+                      style="text-align: right"
+                    >
+                      <i
+                        *ngIf="show_features === false"
+                        class="fa-solid fa-plus"
+                        style="
+                          font-family: fontAwesome;
+                          font-size: larger;
+                          cursor: pointer;
+                        "
+                      ></i>
+                      <i
+                        *ngIf="show_features === true"
+                        class="fa-solid fa-minus"
+                        style="
+                          font-family: fontAwesome;
+                          font-size: larger;
+                          cursor: pointer;
+                        "
+                      ></i>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <hr />
+                  </div>
+                  <div class="col-sm-12">
+                    <ul
+                      style="padding-right: 12px"
+                      *ngIf="show_features === true"
+                    >
+                      <li
+                        *ngFor="let item of featuresArray"
+                        style="color: #525252"
+                      >
+                        {{ item }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
+        <div class="row" style="position: relative; margin-top: 20px">
+          <div style="font-weight: 600; font-size: large">Data</div>
+          <span
+            style="
+              position: absolute;
+              right: 0;
+              width: fit-content;
+              margin-top: 5px;
+            "
+            ><i
+              class="fa-solid fa-minus"
+              style="font-family: fontAwesome; font-size: larger"
+            ></i
+          ></span>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-12">
+            <div class="table-responsive">
+              <table datatable class="table table-borderless" id="printTable">
+                <thead style="background: white">
+                  <tr>
+                    <th
+                      *ngFor="let spec of attributeArray"
+                      style="border-bottom: 1px solid grey; white-space: nowrap"
+                    >
+                      {{ spec?.name }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      *ngFor="let spec of attributeArray"
+                      style="font-size: large; white-space: nowrap"
+                    >
+                      <span *ngIf="!spec.value">-</span>
+                      {{ spec?.value }}{{ spec?.unit }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <footer style="padding-top: 20px; bottom: 0; width: 100%">
+    <app-customer-footer></app-customer-footer>
+  </footer>
 </main>
-<footer style="padding-top: 20px; bottom: 0; width: 100%;">
-
-    <app-footer></app-footer>
-</footer>

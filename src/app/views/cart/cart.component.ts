@@ -14,9 +14,13 @@ export class CartComponent implements OnInit {
 
 
   public cartItems:any[]=[]
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
   cart_summary: any={
-    currency:'$',
+    currency:'',
     subtotal:0,
     freight_cost:0,
     estimated_tax:0,
@@ -31,10 +35,15 @@ export class CartComponent implements OnInit {
     private router: Router
     ) {
     this.cartItems= this.userInfoService.getCartItems();
+
+    if(this.cartItems.length>=1){
+      this.cart_summary.currency=this.cartItems[0].pricing.currency;
+    }
    }
 
   ngOnInit(): void {
     this.calculateCartCost();
+    this.type = this.bizService.getBizType();
   }
  
   reduceProductCount(item: any){
@@ -76,7 +85,7 @@ export class CartComponent implements OnInit {
     if(this.cartItems.length<1)
     return
   
-    if(this.userInfoService.isLoggedIn()){
+    if(this.userInfoService.isLoggedIn() || this.type===this.customer){
       this.router.navigateByUrl("/"+this.bizService.getBizId()+"/shipping-detail")
     }else{
      

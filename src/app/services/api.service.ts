@@ -32,8 +32,40 @@ export class ApiService {
     return this.http.get(BASE_URL + 'webstore/?name=' + name);
   }
 
+
+
+  getAboutUsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
+  }
+
+  getSocialsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'socials/?webstore_id=' + id);
+  }
+
+  getProductVariations(id): Observable<any> {
+    return this.http.get(BASE_URL + 'variations/?product=' + id);
+  }
+
+  getReturnPolicyDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'return-policy/?webstore_id=' + id);
+  }
+
+  getFaqsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'faqs/?webstore_id=' + id);
+  }
+
   validateCustomerEmail(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(
+      map(this.extractData));
+  }
+
+  processPayment(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore_payment/payment_stripe/', data).pipe(
+      map(this.extractData));
+  }
+
+  processMpesaPayment(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'payment_request/', data).pipe(
       map(this.extractData));
   }
 
@@ -48,7 +80,7 @@ export class ApiService {
 
 
   login(data: any): Observable<any> {
-    return this.http.post(BASE_URL + 'login/', data).pipe(
+    return this.http.post(BASE_URL + 'webstore/login', data).pipe(
       map(this.extractData));
   }
 
@@ -68,6 +100,11 @@ export class ApiService {
   }
   getProducts(search): Observable<any> {
     return this.http.get(BASE_URL + 'channel_products/' + search).pipe(
+      map(this.extractData));
+  }
+
+  getProductsPage(url: string): Observable<any> {
+    return this.http.get(url).pipe(
       map(this.extractData));
   }
 
@@ -103,6 +140,11 @@ export class ApiService {
   }
   addCustomerLocation(data): Observable<any> {
     return this.http.post(BASE_URL + 'customer/location/', data).pipe(
+      map(this.extractData));
+  }
+
+  contactUs(data): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore/contact_us/', data).pipe(
       map(this.extractData));
   }
 

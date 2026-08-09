@@ -1,0 +1,79 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ApiService } from 'src/app/services/api.service';
+import { BizService } from 'src/app/services/biz.service';
+import { UserInfoService } from 'src/app/services/user-info.service';
+import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.component';
+import { MessageService } from 'primeng/api';
+
+@Component({
+  selector: 'app-customer-footer',
+  templateUrl: './customer-footer.component.html',
+  styleUrls: ['./customer-footer.component.scss']
+})
+export class CustomerFooterComponent implements OnInit {
+  categories: any[] = [];
+  socials: any[] = [];
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  footerData: any;
+  type: string;
+
+  constructor(
+    private router: Router, 
+    public bizService: BizService, 
+    private apiService: ApiService,
+    public userInfoService: UserInfoService,
+    private dialogService: DialogService,
+    private messageService: MessageService
+    ) { }
+
+  ngOnInit(): void {
+    this.apiService.getProductCategory('').subscribe(res => {
+      if (res)
+        this.categories = res.splice(0, 7);
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load categories' });
+    });
+    this.type = this.bizService.getBizType();
+    this.footerData = this.bizService.get_footer_data();
+    this.getSocials(this.bizService.get_company_id());
+  }
+
+  openContactUsModal() {
+    const ref = this.dialogService.open(ContactUsModalComponent, {
+      header: 'Contact Us',
+      width: '410px',
+      modal:true,
+      closable: true,
+    });
+  }
+
+  getSocials(id) {
+    this.apiService.getSocialsDetails(id).subscribe(res => {
+      if (res) {
+        this.socials = res;
+      }
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load social links' });
+    });
+  }
+
+  changeCategory(category) {
+    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/products/" + category);
+  }
+
+  logout() {
+    this.userInfoService.signOut();
+    this.router.navigateByUrl(this.bizService.getBizId());
+
+  }
+
+
+  login() {
+    this.router.navigateByUrl(this.bizService.getBizId() + "/login");
+  }
+
+}

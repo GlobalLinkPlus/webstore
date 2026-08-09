@@ -30,6 +30,19 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { ContactUsModalComponent } from './views/contact-us-modal/contact-us-modal.component';
+import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
+import { CustomerFooterComponent } from './views/customer-footer/customer-footer.component';
+import { CreateAccountComponent } from './views/create-account/create-account.component';
+import { FaqsComponent } from './views/faqs/faqs.component';
+import { AccordionModule } from 'primeng/accordion';
+import { ContactUsComponent } from './views/contact-us/contact-us.component';
+import { CompanyPolicyComponent } from './views/company-policy/company-policy.component';
+import { AboutComponent } from './views/about/about.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AlertComponent } from './views/alert/alert.component';
 
 @NgModule({
   declarations: [  
@@ -55,6 +68,14 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
     DynamicSizeDirective,
     SpinLoaderComponent,
     ForgotPasswordComponent,
+    ContactUsModalComponent,
+    CustomerFooterComponent,
+    CreateAccountComponent,
+    FaqsComponent,
+    ContactUsComponent,
+    CompanyPolicyComponent,
+    AboutComponent,
+    AlertComponent,
      ],
   imports: [
     CommonModule,
@@ -64,13 +85,20 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
     HomeRoutingModule,
     NgbModule,
     GalleriaModule,
-    CarouselModule
+    CarouselModule,
+    AccordionModule,
+    ToastModule,
+    GoogleMapsModule,
   ],
   exports:[
     SpinLoaderComponent
   ],
   providers: [
- 
+    MessageService,
+    DialogService,
+    ToastModule,
+    AccordionModule,
+    GoogleMapsModule,
   ],
   entryComponents:[
     ],

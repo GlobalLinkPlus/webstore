@@ -1,0 +1,52 @@
+.alert-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alert-box {
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Success alert (green border and text) */
+.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #155724;
+}
+
+/* Error alert (red border and text) */
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #721c24;
+}
+
+/* Warning alert (orange border and text) */
+.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #856404;
+}
+
+.alert-box p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.alert-box button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
