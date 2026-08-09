@@ -63,8 +63,10 @@
             <div class="carousel-container">
               <div class="carousel">
                 <img
+                  *ngIf="images[currentIndex]"
                   [src]="images[currentIndex].url"
                   [alt]="images[currentIndex].name"
+                  decoding="async"
                   class="carousel-image"
                 />
               </div>
@@ -83,6 +85,8 @@
                       [alt]="image.title"
                       [class.active]="i === currentIndex"
                       (error)="image.error = true"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>

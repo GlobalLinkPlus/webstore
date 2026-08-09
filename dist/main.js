@@ -322,6 +322,9 @@ class ApiService {
     getProducts(search) {
         return this.http.get(BASE_URL + 'channel_products/' + search).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
+    getProductsPage(url) {
+        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
+    }
     getProductDetail(id) {
         return this.http.get(BASE_URL + 'channel_products/' + id + "/").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(this.extractData));
     }
@@ -684,7 +687,7 @@ class HomeRoutingComponent {
     ngOnInit() {
         this.bizService.setBizId(this.route.snapshot.params.biz_id);
         this.route.data.subscribe(res => {
-            this.bizService.setBizDetail(res.bizInfo[0]);
+            this.bizService.setBizDetail(res.bizInfo);
         });
         this.loginForm = this.formBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],

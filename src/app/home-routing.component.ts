@@ -163,7 +163,7 @@ export class HomeRoutingComponent implements OnInit {
 
     this.bizService.setBizId(this.route.snapshot.params.biz_id)
     this.route.data.subscribe(res => {
-      this.bizService.setBizDetail(res.bizInfo[0])
+      this.bizService.setBizDetail(res.bizInfo)
 
     })
     this.loginForm = this.formBuilder.group({

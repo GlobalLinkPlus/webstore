@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.component';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-customer-footer',
@@ -25,14 +26,17 @@ export class CustomerFooterComponent implements OnInit {
     public bizService: BizService, 
     private apiService: ApiService,
     public userInfoService: UserInfoService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private messageService: MessageService
     ) { }
 
   ngOnInit(): void {
     this.apiService.getProductCategory('').subscribe(res => {
       if (res)
         this.categories = res.splice(0, 7);
-    }, err => { });
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load categories' });
+    });
     this.type = this.bizService.getBizType();
     this.footerData = this.bizService.get_footer_data();
     this.getSocials(this.bizService.get_company_id());
@@ -52,7 +56,9 @@ export class CustomerFooterComponent implements OnInit {
       if (res) {
         this.socials = res;
       }
-    }, err => { });
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load social links' });
+    });
   }
 
   changeCategory(category) {

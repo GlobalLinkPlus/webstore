@@ -24,12 +24,12 @@
 
       <div class="navbar-brand" style="min-width: 280px;z-index: 1040;">
         <a class="logo" routerLink="/{{bizService.getBizName()}}">
-          <img src="{{bizService.get_company_logo()}}" style="height:50px" />
+          <img src="{{bizService.get_company_logo()}}" style="height:50px" decoding="async" />
         </a>
       </div>
       <div class="navbar-brand-mobile" style="min-width: 200px;z-index: 1040; margin-right: 20px;">
         <a class="logo" routerLink="/{{bizService.getBizName()}}">
-          <img src="{{bizService.get_company_logo()}}" style="height:50px" />
+          <img src="{{bizService.get_company_logo()}}" style="height:50px" decoding="async" />
         </a>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: relative;">
@@ -81,7 +81,7 @@
                             tabindex="-1" *ngIf="pdt.product.sub_category==sub.id">
                             <img
                             [src]="pdt.product.images[0].image" *ngIf="pdt.product.images.length!=0" width="32px"
-                            height="32px" 
+                            height="32px" loading="lazy" decoding="async"
                           />
                             <span style="padding-left: 10px;">{{pdt.product.name}}</span></a>
                         </ng-container>

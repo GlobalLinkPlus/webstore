@@ -29,7 +29,7 @@
       >
         <ng-template pTemplate="item" let-item>
           <img
-            [src]="item?.url"
+            [src]="item?.image"
             loading="lazy"
             style="width: 100%; display: block"
           />
@@ -102,6 +102,7 @@
                         sectionOneProduct.product.image_urls[0].url
                       "
                       loading="lazy"
+                      decoding="async"
                       [src]="sectionOneProduct.product.image_urls[0].url"
                       style="border-radius: 10%; max-height: 255px"
                       class="card-img-top object-fit-cover"
@@ -391,6 +392,7 @@
                         sectionTwoProduct.product.image_urls[0].url
                       "
                       loading="lazy"
+                      decoding="async"
                       [src]="sectionTwoProduct.product.image_urls[0].url"
                       style="border-radius: 10%; max-height: 255px"
                       class="card-img-top object-fit-cover"

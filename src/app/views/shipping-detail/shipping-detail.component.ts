@@ -189,7 +189,7 @@ export class ShippingDetailComponent implements OnInit {
           product_data: {
             name: item.name,
             description: item.description,
-            images: item.image_urls.url,
+            images: item.image_urls.map((image) => image.url),
           },
         },
       });

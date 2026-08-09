@@ -128,8 +128,7 @@ export class HomeComponent implements OnInit {
     this.type = this.bizService.getBizType();
 
     this.getHomeSectionItems();
-    // this.sliders = JSON.parse(this.bizService.get_sliders());
-    this.sliders = this.jsonParseUntilUnescaped((this.bizService.get_sliders()??'[]'));
+    this.sliders = this.bizService.get_sliders() ?? [];
     this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
 
     if (this.sliders.length > 1) {
@@ -166,16 +165,6 @@ export class HomeComponent implements OnInit {
     // });
   }
 
-  jsonParseUntilUnescaped(escapedJson) {
-    const parsedJson = JSON.parse(escapedJson)
-    const stringifiedParsedJson = parsedJson.toString();
-  
-    if (stringifiedParsedJson.includes('\"')) {
-        return this.jsonParseUntilUnescaped(stringifiedParsedJson )
-    }
-  
-    return parsedJson;
-  }
   getHomeSectionItems() {
     this.loading = true;
     this.apiService.getHomeSectionItems(this.bizService.get_company_id()).subscribe(res => {

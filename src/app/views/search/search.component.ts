@@ -7,6 +7,7 @@ import { UserInfoService } from 'src/app/services/user-info.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-search',
@@ -17,6 +18,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   products = [];
   categories = [];
   collections = [];
+  nextPageUrl: string | null = null;
+  loadingMore = false;
   sub_category = ''
   type='';
   category = ''
@@ -51,7 +54,8 @@ export class SearchComponent implements OnInit, OnDestroy {
     private bizService: BizService,
     private route: ActivatedRoute,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private messageService: MessageService
   ) {
 
     this.searchBarService.onSearch.subscribe({
@@ -184,14 +188,18 @@ export class SearchComponent implements OnInit, OnDestroy {
       res => {
         this.categories = res;
       },
-      err => { }
+      err => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load categories' });
+      }
     )
     this.apiService.getCollections('').subscribe(
       res => {
         this.collections = res;
 
       },
-      err => { }
+      err => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load collections' });
+      }
     )
   }
 
@@ -213,12 +221,15 @@ export class SearchComponent implements OnInit, OnDestroy {
     // let q;
     // this.color? q='&?color=' + this.color:'';
     this.apiService.getProducts('').subscribe(res => {
-      this.products = res;
+      this.products = res.results;
+      this.nextPageUrl = res.next;
       const channel = this.bizService.get_channel();
       if(this.type===this.business && channel){
-        this.products = res.filter(product=>product.channel === channel);
+        this.products = res.results.filter(product=>product.channel === channel);
       }
-    }, err => { });
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load products' });
+    });
   }
   searchProducts(q: string) {
     if (this.color && q) q = 'product__color=' + this.color + '&' + q;
@@ -227,8 +238,30 @@ export class SearchComponent implements OnInit, OnDestroy {
     // this.color ? q = 'color=' + this.color + '&' + q : q;
 
     this.apiService.getProducts('?' + q).subscribe(res => {
-      this.products = res;
-    }, err => { })
+      this.products = res.results;
+      this.nextPageUrl = res.next;
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load products' });
+    })
+  }
+
+  loadMore() {
+    if (!this.nextPageUrl || this.loadingMore) return;
+
+    this.loadingMore = true;
+    this.apiService.getProductsPage(this.nextPageUrl).subscribe(res => {
+      this.loadingMore = false;
+      let newProducts = res.results;
+      const channel = this.bizService.get_channel();
+      if (this.type === this.business && channel) {
+        newProducts = newProducts.filter(product => product.channel === channel);
+      }
+      this.products = [...this.products, ...newProducts];
+      this.nextPageUrl = res.next;
+    }, err => {
+      this.loadingMore = false;
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load more products' });
+    });
   }
 
   ngOnDestroy() {

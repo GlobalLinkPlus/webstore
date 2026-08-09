@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
+import { MessageService } from 'primeng/api';
 
 interface AboutUsDetails {
   id: string;
@@ -23,7 +24,8 @@ export class AboutComponent implements OnInit {
 
   constructor(
     public bizService: BizService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,9 @@ export class AboutComponent implements OnInit {
   getAboutUsDetails(id) {
     this.apiService.getAboutUsDetails(id).subscribe(res => {
       this.aboutUsDetails = res;
-    }, err => { });
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load About Us details' });
+    });
   }
 
 }

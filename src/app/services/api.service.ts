@@ -103,6 +103,11 @@ export class ApiService {
       map(this.extractData));
   }
 
+  getProductsPage(url: string): Observable<any> {
+    return this.http.get(url).pipe(
+      map(this.extractData));
+  }
+
   getProductDetail(id: any): Observable<any> {
     return this.http.get(BASE_URL + 'channel_products/' + id + "/").pipe(
       map(this.extractData));

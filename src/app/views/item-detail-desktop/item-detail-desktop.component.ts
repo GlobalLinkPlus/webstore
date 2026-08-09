@@ -14,6 +14,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { MessageService } from 'primeng/api';
 
 interface Material {
   primary_material: string;
@@ -254,7 +255,7 @@ export class ItemDetailDesktopComponent implements OnInit {
   // }
   msrp = '';
   featuresArray = [];
-  images: any[];
+  images: any[] = [];
 
   channel_detail = {
     name: '',
@@ -345,7 +346,8 @@ export class ItemDetailDesktopComponent implements OnInit {
     public bizService: BizService,
     public userInfoService: UserInfoService,
     public rateConfig: NgbRatingConfig,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private messageService: MessageService
   ) {
     rateConfig.max = 5;
     rateConfig.readonly = !userInfoService.isLoggedIn();
@@ -439,7 +441,9 @@ export class ItemDetailDesktopComponent implements OnInit {
           (res) => {
             this.variations = res;
           },
-          (err) => {}
+          (err) => {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load product variations' });
+          }
         );
 
         // this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
@@ -460,7 +464,7 @@ export class ItemDetailDesktopComponent implements OnInit {
         } catch (err) {}
       },
       (err) => {
-        console.log('[ERROR]>>>', err);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load product details' });
       }
     );
 

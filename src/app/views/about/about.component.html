@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div *ngIf="item.image_url" style="max-width: 500px; max-height: 500px; flex: 1; display:  flex; justify-content: center; align-items: center;">
-                    <img src="{{item.image_url}}" class="card-img-top object-fit-cover" alt="">
+                    <img src="{{item.image_url}}" class="card-img-top object-fit-cover" alt="" loading="lazy" decoding="async">
                 </div>
             </div>
 

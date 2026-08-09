@@ -8,6 +8,7 @@ import { UserInfoService } from 'src/app/services/user-info.service';
 import { SearchComponent } from '../search/search.component';
 import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.component';
 import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
@@ -51,7 +52,8 @@ export class HeaderComponent implements OnInit {
     private searchBarService: SearchBarService,
     public bizService: BizService,
     private apiService: ApiService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -62,19 +64,23 @@ export class HeaderComponent implements OnInit {
     });
 
     this.apiService.getProducts('').subscribe(res => {
-      this.products = res;
+      this.products = res.results;
     }, err => {
-
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load products' });
     });
 
     this.apiService.getProductCategory('').subscribe(res => {
       if (res)
         this.categories = res.splice(0, 7);
-    }, err => { });
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load categories' });
+    });
 
     this.apiService.getProductSubCategory('').subscribe(res => {
       this.sub_categories = res;
-    }, err => { }, ()=>{});
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load subcategories' });
+    });
 
     this.checkRightHeaderLink()
 
@@ -112,20 +118,16 @@ export class HeaderComponent implements OnInit {
 
   changeCategory(category) {
     this.router.navigateByUrl("/" + this.bizService.getBizName() + "/products/" + category)
-    this.searchComponent.color = ''
-    // this.ngAfterViewInit();
-    // if(this.searchComponent){
-    //   this.searchComponent.ngAfterViewInit();
-    // }
+    if (this.searchComponent) {
+      this.searchComponent.color = ''
+    }
   }
 
   changeSubCategory(category, sub_categories) {
     this.router.navigateByUrl("/" + this.bizService.getBizName() + "/products/" + category +'/' + sub_categories)
-    this.searchComponent.color = ''
-    // this.ngAfterViewInit();
-    // if(this.searchComponent){
-    //   this.searchComponent.ngAfterViewInit();
-    // }
+    if (this.searchComponent) {
+      this.searchComponent.color = ''
+    }
   }
 
 

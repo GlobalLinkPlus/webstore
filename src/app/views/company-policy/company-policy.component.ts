@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
+import { MessageService } from 'primeng/api';
 
 interface PolicyDetails {
   id: string;
@@ -20,7 +21,11 @@ interface PolicyDetails {
 export class CompanyPolicyComponent implements OnInit {
   policyDetails: PolicyDetails[] = [];
 
-  constructor(private apiService: ApiService, private bizService: BizService) {}
+  constructor(
+    private apiService: ApiService,
+    private bizService: BizService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.getPolicyDetails(this.bizService.get_company_id());
@@ -31,7 +36,9 @@ export class CompanyPolicyComponent implements OnInit {
       (res) => {
         if (res) this.policyDetails = res;
       },
-      (err) => {}
+      (err) => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load policy details' });
+      }
     );
   }
 }
