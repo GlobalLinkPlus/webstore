@@ -10114,7 +10114,7 @@ function HomeComponent_ng_template_6_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 26);
 } if (rf & 2) {
     const item_r7 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r7 == null ? null : item_r7.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r7 == null ? null : item_r7.url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function HomeComponent_a_12_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 27);
@@ -14198,12 +14198,12 @@ class SearchComponent {
         if (subcategory != null) {
             this.sub_category = subcategory;
             this.category = category;
-            this.searchProducts("product__sub_category__name=" + subcategory);
+            this.searchProducts("sub_category=" + subcategory);
         }
         else if (category != null) {
             this.sub_category = '';
             this.category = category;
-            this.searchProducts("product__category__name=" + category);
+            this.searchProducts("category=" + category);
         }
         else if (partner_id != null) {
             this.sub_category = '';
@@ -14213,7 +14213,7 @@ class SearchComponent {
         else if (collection != null) {
             this.sub_category = '';
             this.category = '';
-            this.searchProducts("product__collection__name=" + collection);
+            this.searchProducts("collection=" + collection);
         }
         else {
             this.getProducts();
@@ -14265,12 +14265,12 @@ class SearchComponent {
         if (subcategory != null) {
             this.sub_category = subcategory;
             this.category = category;
-            this.searchProducts("product__sub_category__name=" + subcategory);
+            this.searchProducts("sub_category=" + subcategory);
         }
         else if (category != null) {
             this.sub_category = '';
             this.category = category;
-            this.searchProducts("product__category__name=" + category);
+            this.searchProducts("category=" + category);
         }
         else if (partner_id != null) {
             this.sub_category = '';
@@ -14280,7 +14280,7 @@ class SearchComponent {
         else if (collection != null) {
             this.sub_category = '';
             this.category = '';
-            this.searchProducts("product__collection__name=" + collection);
+            this.searchProducts("collection=" + collection);
         }
         else {
             this.getProducts();
@@ -14327,9 +14327,9 @@ class SearchComponent {
     }
     searchProducts(q) {
         if (this.color && q)
-            q = 'product__color=' + this.color + '&' + q;
+            q = 'color=' + this.color + '&' + q;
         if (this.color && !q)
-            q = 'product__color=' + this.color;
+            q = 'color=' + this.color;
         // this.color ? q = 'color=' + this.color + '&' + q : q;
         this.apiService.getProducts('?' + q).subscribe(res => {
             this.products = res.results;

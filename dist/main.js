@@ -145,7 +145,16 @@ class BizService {
         sessionStorage.setItem('webstore_link', data.webstore_link ? data.webstore_link : '');
         sessionStorage.setItem('company', data.company ? data.company : '');
         sessionStorage.setItem('footer_data', JSON.stringify(((_a = data === null || data === void 0 ? void 0 : data.footer_data) === null || _a === void 0 ? void 0 : _a.footer_data) ? data.footer_data.footer_data : ''));
-        sessionStorage.setItem('sliders', JSON.stringify(data.sliders ? data.sliders : ''));
+        let sliders = data.sliders;
+        if (typeof sliders === 'string') {
+            try {
+                sliders = JSON.parse(sliders);
+            }
+            catch (e) {
+                sliders = [];
+            }
+        }
+        sessionStorage.setItem('sliders', JSON.stringify(sliders ? sliders : []));
         if (data.type === 'b2b')
             sessionStorage.setItem('type', 'business');
         if (data.type === 'b2c')
@@ -227,7 +236,16 @@ class BizService {
         return sessionStorage.getItem('company');
     }
     get_sliders() {
-        return JSON.parse(sessionStorage.getItem('sliders'));
+        const raw = sessionStorage.getItem('sliders');
+        if (!raw)
+            return [];
+        try {
+            const parsed = JSON.parse(raw);
+            return typeof parsed === 'string' ? JSON.parse(parsed) : parsed;
+        }
+        catch (e) {
+            return [];
+        }
     }
 }
 BizService.ɵfac = function BizService_Factory(t) { return new (t || BizService)(); };

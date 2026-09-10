@@ -93,11 +93,11 @@ export class SearchComponent implements OnInit, OnDestroy {
     if (subcategory != null) {
       this.sub_category = subcategory;
       this.category = category;
-      this.searchProducts("product__sub_category__name=" + subcategory)
+      this.searchProducts("sub_category=" + subcategory)
     } else if (category != null) {
       this.sub_category = '';
       this.category = category;
-      this.searchProducts("product__category__name=" + category)
+      this.searchProducts("category=" + category)
     } else if (partner_id != null) {
       this.sub_category = '';
       this.category = '';
@@ -105,7 +105,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     } else if (collection != null) {
       this.sub_category = '';
       this.category = '';
-      this.searchProducts("product__collection__name=" + collection)
+      this.searchProducts("collection=" + collection)
     } else {
       this.getProducts();
     }
@@ -165,11 +165,11 @@ export class SearchComponent implements OnInit, OnDestroy {
     if (subcategory != null) {
       this.sub_category = subcategory;
       this.category = category;
-      this.searchProducts("product__sub_category__name=" + subcategory)
+      this.searchProducts("sub_category=" + subcategory)
     } else if (category != null) {
       this.sub_category = '';
       this.category = category;
-      this.searchProducts("product__category__name=" + category)
+      this.searchProducts("category=" + category)
     } else if (partner_id != null) {
       this.sub_category = '';
       this.category = '';
@@ -177,7 +177,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     } else if (collection != null) {
       this.sub_category = '';
       this.category = '';
-      this.searchProducts("product__collection__name=" + collection)
+      this.searchProducts("collection=" + collection)
     } else {
       this.getProducts();
     }
@@ -232,8 +232,8 @@ export class SearchComponent implements OnInit, OnDestroy {
     });
   }
   searchProducts(q: string) {
-    if (this.color && q) q = 'product__color=' + this.color + '&' + q;
-    if (this.color && !q) q = 'product__color=' + this.color;
+    if (this.color && q) q = 'color=' + this.color + '&' + q;
+    if (this.color && !q) q = 'color=' + this.color;
 
     // this.color ? q = 'color=' + this.color + '&' + q : q;
 

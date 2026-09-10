@@ -100,10 +100,15 @@ export class BizService {
         data?.footer_data?.footer_data ? data.footer_data.footer_data : ''
       )
     );
-    sessionStorage.setItem(
-      'sliders',
-      JSON.stringify(data.sliders ? data.sliders : '')
-    );
+    let sliders = data.sliders;
+    if (typeof sliders === 'string') {
+      try {
+        sliders = JSON.parse(sliders);
+      } catch (e) {
+        sliders = [];
+      }
+    }
+    sessionStorage.setItem('sliders', JSON.stringify(sliders ? sliders : []));
     if (data.type === 'b2b') sessionStorage.setItem('type', 'business');
     if (data.type === 'b2c') sessionStorage.setItem('type', 'customer');
     if (data.type === 'catalogue') sessionStorage.setItem('type', 'catalog');
@@ -192,6 +197,13 @@ export class BizService {
     return sessionStorage.getItem('company');
   }
   public get_sliders(): any {
-    return JSON.parse(sessionStorage.getItem('sliders'));
+    const raw = sessionStorage.getItem('sliders');
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      return typeof parsed === 'string' ? JSON.parse(parsed) : parsed;
+    } catch (e) {
+      return [];
+    }
   }
 }
