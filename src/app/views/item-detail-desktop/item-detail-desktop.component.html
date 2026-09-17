@@ -204,7 +204,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row" *ngIf="type !== catalog">
               <div
                 *ngIf="type !== catalog"
                 style="color: red; padding-top: 10px"
@@ -212,13 +212,13 @@
                 MSRP: {{ item_detail.currency }} {{ msrp }}
               </div>
               <div
-                *ngIf="userInfoService.isLoggedIn() && type !== customer"
+                *ngIf="userInfoService.isLoggedIn() && type !== customer && type !== catalog"
                 class="product-price"
               >
-                {{ item_detail.currency }} {{ item_detail.first_cost }}
+                {{ item_detail.currency }} {{ item_detail.pricing_details?.total_cost | number:'1.2-2' }}
               </div>
               <div *ngIf="type === customer" class="product-price">
-                {{ item_detail.currency }} {{ item_detail.first_cost }}
+                {{ item_detail.currency }} {{ item_detail.pricing_details?.total_cost | number:'1.2-2' }}
               </div>
               <small
                 *ngIf="
@@ -237,7 +237,11 @@
               >
             </div>
             <div class="row">
-              <div class="col-sm-12" style="margin-top: 30px !important">
+              <div
+                class="col-sm-12"
+                style="margin-top: 30px !important"
+                *ngIf="type !== catalog"
+              >
                 <div class="row">
                   <div class="col-sm-4" style="text-align: right"></div>
                   <!-- <div class="col-sm-12">
@@ -361,9 +365,11 @@
                                                 </div> -->
                       </div>
                     </div>
-                    <div class="col-sm-12 col-lg-12">
+                    <div
+                      class="col-sm-12 col-lg-12"
+                      *ngIf="userInfoService.isItemInCart(product) && type !== catalog"
+                    >
                       <button
-                        *ngIf="userInfoService.isItemInCart(product)"
                         class="btn remove-button"
                         style="margin-top: 10px"
                         (click)="removeItemToCart()"

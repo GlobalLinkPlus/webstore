@@ -23,9 +23,12 @@ export class AppComponent implements OnInit{
  ngOnInit() {
   this.titleService.setTitle(this.bizService.get_meta_title());
   this.metaService.addTags([
-    {name: 'keywords', content: 'your keywords content'},
     {name: 'description', content: this.bizService.get_meta_description()},
   ]);
+  const keywords = this.bizService.get_keywords();
+  if (keywords.length) {
+    this.metaService.addTag({name: 'keywords', content: keywords.join(', ')});
+  }
   this.ngxFavicon.setFavicon(this.bizService.get_favicon_image());
   // this.ngxFavicon.setFavicon("https://static.vecteezy.com/system/resources/thumbnails/003/171/355/small/objective-lens-icon-with-six-rainbow-colors-vector.jpg");
   this.domInjectorService.injectApiKey();

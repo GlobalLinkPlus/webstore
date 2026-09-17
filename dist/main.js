@@ -144,6 +144,7 @@ class BizService {
         sessionStorage.setItem('favicon_image', data.favicon_image ? data.favicon_image : '');
         sessionStorage.setItem('webstore_link', data.webstore_link ? data.webstore_link : '');
         sessionStorage.setItem('company', data.company ? data.company : '');
+        sessionStorage.setItem('keywords', JSON.stringify(Array.isArray(data.keywords) ? data.keywords : []));
         sessionStorage.setItem('footer_data', JSON.stringify(((_a = data === null || data === void 0 ? void 0 : data.footer_data) === null || _a === void 0 ? void 0 : _a.footer_data) ? data.footer_data.footer_data : ''));
         let sliders = data.sliders;
         if (typeof sliders === 'string') {
@@ -234,6 +235,18 @@ class BizService {
     }
     get_company() {
         return sessionStorage.getItem('company');
+    }
+    get_keywords() {
+        const raw = sessionStorage.getItem('keywords');
+        if (!raw)
+            return [];
+        try {
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+        }
+        catch (e) {
+            return [];
+        }
     }
     get_sliders() {
         const raw = sessionStorage.getItem('sliders');
@@ -552,9 +565,12 @@ class AppComponent {
     ngOnInit() {
         this.titleService.setTitle(this.bizService.get_meta_title());
         this.metaService.addTags([
-            { name: 'keywords', content: 'your keywords content' },
             { name: 'description', content: this.bizService.get_meta_description() },
         ]);
+        const keywords = this.bizService.get_keywords();
+        if (keywords.length) {
+            this.metaService.addTag({ name: 'keywords', content: keywords.join(', ') });
+        }
         this.ngxFavicon.setFavicon(this.bizService.get_favicon_image());
         // this.ngxFavicon.setFavicon("https://static.vecteezy.com/system/resources/thumbnails/003/171/355/small/objective-lens-icon-with-six-rainbow-colors-vector.jpg");
         this.domInjectorService.injectApiKey();

@@ -160,6 +160,13 @@
           </button>
 
         </div>
+        <div class="row" style="margin-left: 10px;">
+          <button type="button" style="width: fit-content;border-radius: 20px;" class="btn btn-outline-secondary"
+            (click)="clearFilters()">
+            Clear
+          </button>
+
+        </div>
 
         <div class="cart-items-wrapper mb-5 pb-5">
           <div class="d-flex align-items-center justify-content-between cart-items-header  mb-3 px-2">
@@ -210,7 +217,7 @@
                       <small style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
                     </div>
                     <!-- *ngIf="userInfoService.isLoggedIn()" -->
-                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.first_cost}}</p>
+                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.pricing_details?.total_cost | number:'1.2-2'}}</p>
                   </div>
                 </div>
                 <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -220,14 +227,6 @@
                     <i class="bi bi-star-fill text-warning"></i>
                     <small class="text-muted">{{item.product.rating}}| {{item.product.reviews}} <span
                         style="padding-left: 10px;">reviews</span></small>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <div class="" style="width: 100%; display: flex; justify-content: space-between;">
-                      <!-- mid_banner_image -->
-                      <p class="h5 mb-0">{{item.currency}}{{item.first_cost}}</p>
-                      <small style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
-                    </div>
-                    <!-- *ngIf="userInfoService.isLoggedIn()" -->
                   </div>
                 </div>
                 <div *ngIf="type===customer" style="padding-top: 15px;" class="card-body px-2">
@@ -241,7 +240,7 @@
                     </div>
                   </div>
                   <p class="h5 mb-0">
-                    {{item.currency}}{{item.first_cost}}</p>
+                    {{item.currency}}{{item.pricing_details?.total_cost | number:'1.2-2'}}</p>
                 </div>
               </div>
             </div>

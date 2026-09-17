@@ -132,11 +132,14 @@ export class HeaderComponent implements OnInit {
 
 
   searchClick() {
+    const query = this.searchForm.value.search;
     if (!(this.router.url.split('/')[2] === 'products')) {
-      this.router.navigateByUrl(this.bizService.getBizId() + "/products");
+      this.router.navigateByUrl(this.bizService.getBizId() + "/products").then(() => {
+        this.searchBarService.search(query);
+      });
+    } else {
+      this.searchBarService.search(query);
     }
-    this.searchBarService.search(this.searchForm.value.search)
-
   }
 
   logout() {

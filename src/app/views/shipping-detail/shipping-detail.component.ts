@@ -97,7 +97,7 @@ export class ShippingDetailComponent implements OnInit {
         id: this.cartItems[i].id,
         quantity: this.cartItems[i].product_count,
         channel: this.cartItems[i].channel,
-        amount: +this.cartItems[i].pricing.first_cost,
+        amount: +this.cartItems[i].pricing.pricing_details?.total_cost,
         channel_price: 619.4456515037593,
         location: '315c2df1-7362-4af0-9840-d3fdd749cef3',
       });
@@ -131,7 +131,7 @@ export class ShippingDetailComponent implements OnInit {
       let item = this.cartItems[i];
       this.cart_summary.subtotal =
         this.cart_summary.subtotal +
-        parseFloat(item.pricing.first_cost) * item.product_count;
+        parseFloat(item.pricing.pricing_details?.total_cost) * item.product_count;
       this.cart_summary.freight_cost =
         this.cart_summary.freight_cost +
         parseFloat(item.pricing.freight_cost) * item.product_count;
@@ -185,7 +185,7 @@ export class ShippingDetailComponent implements OnInit {
         quantity: item.product_count,
         price_data: {
           currency: item.pricing.currency === '$' ? 'USD' : '',
-          unit_amount: +item.pricing.first_cost * 100,
+          unit_amount: +item.pricing.pricing_details?.total_cost * 100,
           product_data: {
             name: item.name,
             description: item.description,

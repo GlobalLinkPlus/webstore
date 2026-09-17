@@ -125,9 +125,19 @@
                   </div>
                 </div>
       
-                <!-- <div class="row" style="margin-top: 50px;">
-                  <span><u>Add Gift Card/Promo Code</u></span>
-                </div> -->
+                <div class="row" style="margin-top: 50px;">
+                  <span *ngIf="!appliedPromoCode" style="cursor: pointer;" (click)="togglePromoInput()"><u>Add Gift Card/Promo Code</u></span>
+                  <div *ngIf="appliedPromoCode" style="display: flex; align-items: center; justify-content: space-between;">
+                    <span>Promo code <strong>{{appliedPromoCode}}</strong> applied</span>
+                    <span style="cursor: pointer; color: #C1C7D6;" (click)="removePromoCode()"><u>Remove</u></span>
+                  </div>
+                  <div *ngIf="showPromoInput && !appliedPromoCode" style="display: flex; column-gap: 10px; margin-top: 10px; width: 100%;">
+                    <input type="text" class="form-control" placeholder="Enter code" style="border-radius: 15px;"
+                      [(ngModel)]="promoCode" [ngModelOptions]="{standalone: true}" (keyup.enter)="applyPromoCode()">
+                    <button type="button" class="btn submit-now-button" style="white-space: nowrap;"
+                      (click)="applyPromoCode()">Apply</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>          

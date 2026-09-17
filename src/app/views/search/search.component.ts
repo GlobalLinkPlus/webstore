@@ -1,12 +1,11 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { SearchBarService } from 'src/app/services/search-bar.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { filter, take } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -61,30 +60,20 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.searchBarService.onSearch.subscribe({
       next: (query: string) => {
 
-        this.searchProducts("?search=" + query);
+        this.searchProducts("search=" + query);
       }
     })
   }
 
   ngOnInit(): void {
     this.initialize()
-    this.searchFilter()
     this.type = this.bizService.getBizType();
+    this.routeSubscription = this.route.params.subscribe(() => {
+      this.searchFilter();
+    });
   }
 
   searchFilter() {
-    const navigationEndSubscription = this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd), take(1))
-      .subscribe((event: NavigationEnd) => {
-
-        // Call your method when the URL changes
-        // this.ngAfterViewInit();
-        this.searchFilter();
-        if (navigationEndSubscription) {
-          navigationEndSubscription.unsubscribe();
-        }
-      });
-
     let partner_id = this.route.snapshot.params.partner_id;
     let collection = this.route.snapshot.params.collection;
     let category = this.route.snapshot.params.category;
@@ -109,6 +98,16 @@ export class SearchComponent implements OnInit, OnDestroy {
     } else {
       this.getProducts();
     }
+  }
+
+  clearFilters() {
+    this.color = '';
+    this.colors.forEach(option => option.selected = false);
+    this.category = '';
+    this.sub_category = '';
+    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/products").then(() => {
+      this.getProducts();
+    });
   }
 
   changeCategory(category) {
@@ -265,8 +264,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Unsubscribe to avoid memory leaks
-    // this.routeSubscription.unsubscribe();
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
   }
 
 }

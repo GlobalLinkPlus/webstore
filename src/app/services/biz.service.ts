@@ -95,6 +95,10 @@ export class BizService {
     );
     sessionStorage.setItem('company', data.company ? data.company : '');
     sessionStorage.setItem(
+      'keywords',
+      JSON.stringify(Array.isArray(data.keywords) ? data.keywords : [])
+    );
+    sessionStorage.setItem(
       'footer_data',
       JSON.stringify(
         data?.footer_data?.footer_data ? data.footer_data.footer_data : ''
@@ -195,6 +199,16 @@ export class BizService {
 
   public get_company(): string {
     return sessionStorage.getItem('company');
+  }
+  public get_keywords(): string[] {
+    const raw = sessionStorage.getItem('keywords');
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
   }
   public get_sliders(): any {
     const raw = sessionStorage.getItem('sliders');

@@ -64,7 +64,7 @@
                         </div>
                         <!-- *ngIf="userInfoService.isLoggedIn()" -->
                         <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                          {{sectionOneProduct.currency}}{{sectionOneProduct.first_cost}}</p>
+                          {{sectionOneProduct.currency}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                       </div>
                     </div>
                     <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -84,7 +84,7 @@
                         </div>
                       </div>
                       <p class="h5 mb-0">
-                        {{sectionOneProduct.currency}}{{sectionOneProduct.first_cost}}</p>
+                        {{sectionOneProduct.currency}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                     </div>
                   </div>
                 </div>
@@ -172,7 +172,7 @@
                       </div>
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                        {{sectionTwoProduct.currency}}{{sectionTwoProduct.first_cost}}</p>
+                        {{sectionTwoProduct.currency}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                     </div>
                   </div>
                   <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -192,7 +192,7 @@
                       </div>
                     </div>
                     <p class="h5 mb-0">
-                      {{sectionTwoProduct.currency}}{{sectionTwoProduct.first_cost}}</p>
+                      {{sectionTwoProduct.currency}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                   </div>
                 </div>
               </div>

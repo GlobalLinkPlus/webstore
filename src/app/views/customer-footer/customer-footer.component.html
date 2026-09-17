@@ -47,8 +47,9 @@
       <div
         style="cursor: pointer"
         *ngIf="type === customer && !userInfoService.isLoggedIn()"
+        (click)="login()"
       >
-        Register
+        Create Account
       </div>
       <div *ngIf="userInfoService.isLoggedIn()" style="cursor: pointer">
         Profile

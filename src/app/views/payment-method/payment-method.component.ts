@@ -34,6 +34,11 @@ export class PaymentMethodComponent implements OnInit {
     estimated_tax:'0',
     total_cost:'0'
   };
+
+  showPromoInput = false;
+  promoCode = '';
+  appliedPromoCode = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
@@ -83,10 +88,13 @@ export class PaymentMethodComponent implements OnInit {
     this.cart_summary.subtotal=0;
     this.cart_summary.total_cost=0;
     this.cart_summary.freight_cost=0;
-    
+    if(this.cartItems.length){
+      this.cart_summary.currency=this.cartItems[0].pricing.currency;
+    }
+
     for(var i=0;i<this.cartItems.length;i++){
       let item=this.cartItems[i]
-      this.cart_summary.subtotal=this.cart_summary.subtotal+parseFloat(item.pricing.first_cost)*item.product_count;
+      this.cart_summary.subtotal=this.cart_summary.subtotal+parseFloat(item.pricing.pricing_details?.total_cost)*item.product_count;
       this.cart_summary.freight_cost=this.cart_summary.freight_cost+parseFloat(item.pricing.freight_cost)*item.product_count;
       this.cart_summary.total_cost=parseFloat(((this.cart_summary.subtotal+this.cart_summary.freight_cost)).toFixed(2));
       this.cart_summary.subtotal=this.cart_summary.total_cost;
@@ -94,6 +102,21 @@ export class PaymentMethodComponent implements OnInit {
     // this.apiService.calculateCartCosts(this.userInfoService.getCartItems()).subscribe(res=>{
     //   this.cart_summary=res;
     // },err=>{});
+  }
+
+  togglePromoInput(){
+    this.showPromoInput = !this.showPromoInput;
+  }
+
+  applyPromoCode(){
+    if(!this.promoCode.trim()) return;
+    this.appliedPromoCode = this.promoCode.trim();
+  }
+
+  removePromoCode(){
+    this.appliedPromoCode = '';
+    this.promoCode = '';
+    this.showPromoInput = false;
   }
 
 }

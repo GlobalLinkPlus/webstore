@@ -185,7 +185,7 @@
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
                         {{ sectionOneProduct.currency
-                        }}{{ sectionOneProduct.first_cost }}
+                        }}{{ sectionOneProduct.pricing_details?.total_cost | number:'1.2-2' }}
                       </p>
                     </div>
                   </div>
@@ -240,7 +240,7 @@
                     </div>
                     <p class="h5 mb-0">
                       {{ sectionOneProduct.currency
-                      }}{{ sectionOneProduct.first_cost }}
+                      }}{{ sectionOneProduct.pricing_details?.total_cost | number:'1.2-2' }}
                     </p>
                   </div>
                 </div>
@@ -475,7 +475,7 @@
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
                         {{ sectionTwoProduct.currency
-                        }}{{ sectionTwoProduct.first_cost }}
+                        }}{{ sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2' }}
                       </p>
                     </div>
                   </div>
@@ -530,7 +530,7 @@
                     </div>
                     <p class="h5 mb-0">
                       {{ sectionTwoProduct.currency
-                      }}{{ sectionTwoProduct.first_cost }}
+                      }}{{ sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2' }}
                     </p>
                   </div>
                 </div>
