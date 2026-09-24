@@ -97,7 +97,7 @@ export class ShippingDetailComponent implements OnInit {
         id: this.cartItems[i].id,
         quantity: this.cartItems[i].product_count,
         channel: this.cartItems[i].channel,
-        amount: +this.cartItems[i].pricing.pricing_details?.total_cost,
+        amount: this.unitPrice(this.cartItems[i]),
         channel_price: 619.4456515037593,
         location: '315c2df1-7362-4af0-9840-d3fdd749cef3',
       });
@@ -122,24 +122,23 @@ export class ShippingDetailComponent implements OnInit {
     // },err=>{})
   }
 
-  calculateCartCost() {
-    this.cart_summary.subtotal = 0;
-    this.cart_summary.total_cost = 0;
-    this.cart_summary.freight_cost = 0;
+  // unit price from pricing_details.total_cost; may be a string like "1,299.00" or missing, never NaN
+  private unitPrice(item: any): number {
+    const raw = item?.pricing?.pricing_details?.total_cost;
+    return parseFloat(String(raw ?? '').replace(/,/g, '')) || 0;
+  }
 
-    for (var i = 0; i < this.cartItems.length; i++) {
-      let item = this.cartItems[i];
-      this.cart_summary.subtotal =
-        this.cart_summary.subtotal +
-        parseFloat(item.pricing.pricing_details?.total_cost) * item.product_count;
-      this.cart_summary.freight_cost =
-        this.cart_summary.freight_cost +
-        parseFloat(item.pricing.freight_cost) * item.product_count;
-      this.cart_summary.total_cost = parseFloat(
-        (this.cart_summary.subtotal + this.cart_summary.freight_cost).toFixed(2)
-      );
-      this.cart_summary.subtotal = this.cart_summary.total_cost;
+  calculateCartCost() {
+    let subtotal = 0;
+    // TODO: re-add freight and estimated tax to the totals later
+    for (const item of this.cartItems) {
+      subtotal += this.unitPrice(item) * (Number(item.product_count) || 0);
     }
+
+    this.cart_summary.subtotal = parseFloat(subtotal.toFixed(2));
+    this.cart_summary.freight_cost = 0;
+    this.cart_summary.estimated_tax = 0;
+    this.cart_summary.total_cost = this.cart_summary.subtotal;
     // this.apiService.calculateCartCosts(this.userInfoService.getCartItems()).subscribe(res=>{
     //   this.cart_summary=res;
     // },err=>{});
@@ -185,7 +184,7 @@ export class ShippingDetailComponent implements OnInit {
         quantity: item.product_count,
         price_data: {
           currency: item.pricing.currency === '$' ? 'USD' : '',
-          unit_amount: +item.pricing.pricing_details?.total_cost * 100,
+          unit_amount: Math.round(this.unitPrice(item) * 100),
           product_data: {
             name: item.name,
             description: item.description,
