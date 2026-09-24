@@ -32,7 +32,8 @@ import { ToastModule } from 'primeng/toast';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule 
+    NgbModule,
+    ToastModule
 
   ],
   providers: [
@@ -40,7 +41,6 @@ import { ToastModule } from 'primeng/toast';
     LoginModalService,
     MessageService,
     DialogService,
-    ToastModule,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
