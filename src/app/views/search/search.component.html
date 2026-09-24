@@ -217,7 +217,7 @@
                       <small style="font-size: 15px;font-weight: 500;">MSRP {{item.currency}}{{item.msrp}}</small>
                     </div>
                     <!-- *ngIf="userInfoService.isLoggedIn()" -->
-                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{item.currency}}{{item.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                    <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">{{ item.is_priced ? item.currency + (item.price | number:'1.2-2') : 'Price unavailable' }}</p>
                   </div>
                 </div>
                 <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -240,7 +240,7 @@
                     </div>
                   </div>
                   <p class="h5 mb-0">
-                    {{item.currency}}{{item.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                    {{ item.is_priced ? item.currency + (item.price | number:'1.2-2') : 'Price unavailable' }}</p>
                 </div>
               </div>
             </div>

@@ -215,10 +215,10 @@
                 *ngIf="userInfoService.isLoggedIn() && type !== customer && type !== catalog"
                 class="product-price"
               >
-                {{ item_detail.currency }} {{ item_detail.pricing_details?.total_cost | number:'1.2-2' }}
+                {{ item_detail.is_priced ? item_detail.currency + ' ' + (item_detail.price | number:'1.2-2') : 'Price unavailable' }}
               </div>
               <div *ngIf="type === customer" class="product-price">
-                {{ item_detail.currency }} {{ item_detail.pricing_details?.total_cost | number:'1.2-2' }}
+                {{ item_detail.is_priced ? item_detail.currency + ' ' + (item_detail.price | number:'1.2-2') : 'Price unavailable' }}
               </div>
               <small
                 *ngIf="
@@ -332,6 +332,7 @@
                             'background-color':
                               bizService.get_background_color()
                           }"
+                          [disabled]="!canAddToCart()"
                           (click)="addProductToCart()"
                         >
                           <i
@@ -342,6 +343,12 @@
                           ></i
                           ><span style="padding-left: 10px">Add to Cart</span>
                         </button>
+                        <div
+                          *ngIf="!userInfoService.isItemInCart(product) && type !== catalog && addToCartBlockedReason()"
+                          style="color: #b02a37; padding-top: 8px; font-size: 14px"
+                        >
+                          {{ addToCartBlockedReason() }}
+                        </div>
                         <!-- <div class="row">
                                                     <div class="col-sm-12"> -->
                         <button

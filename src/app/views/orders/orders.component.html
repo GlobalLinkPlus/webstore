@@ -54,7 +54,7 @@
                                                         </td> -->
 
                                                         <td class="text-bolds">{{item.order_no}}</td>
-                                                        <td>{{item.amount}}</td>
+                                                        <td>{{(item.total_amount || item.amount)}}</td>
                                                         <td>{{shippingItemsFormat(item.products)}}</td>
                                                         <td>{{item.created| date:'dd-MM-yyyy'}}</td>
                                                     </tr>
@@ -128,7 +128,7 @@
                                                                             <div class="form-group">
                                                                                 <label>Unit Amount</label>
                                                                                 <input disabled type="text"
-                                                                                    [value]="item.amount"
+                                                                                    [value]="(item.total_amount || item.amount)"
                                                                                     placeholder="$7876"
                                                                                     class="round-input">
                                                                             </div>
@@ -169,7 +169,7 @@
                                                                         </div>
                                                                         <div class="row"
                                                                             style="text-align: center;font-size: x-large;">
-                                                                            <span>{{item.amount}}</span>
+                                                                            <span>{{(item.total_amount || item.amount)}}</span>
                                                                         </div>
                                                                         <div class="row"
                                                                             style="text-align: center;font-size: x-large;">
@@ -282,7 +282,7 @@
                                                         </td> -->
 
                                                         <td class="text-bolds">{{item.order_no}}</td>
-                                                        <td>{{item.amount}}</td>
+                                                        <td>{{(item.total_amount || item.amount)}}</td>
                                                         <td>{{shippingItemsFormat(item.products)}}</td>
                                                         <td>{{item.created| date:'dd-MM-yyyy'}}</td>
                                                     </tr>
@@ -356,7 +356,7 @@
                                                                             <div class="form-group">
                                                                                 <label>Unit Amount</label>
                                                                                 <input disabled type="text"
-                                                                                    [value]="item.amount"
+                                                                                    [value]="(item.total_amount || item.amount)"
                                                                                     placeholder="$7876"
                                                                                     class="round-input">
                                                                             </div>
@@ -397,7 +397,7 @@
                                                                         </div>
                                                                         <div class="row"
                                                                             style="text-align: center;font-size: x-large;">
-                                                                            <span>{{item.amount}}</span>
+                                                                            <span>{{(item.total_amount || item.amount)}}</span>
                                                                         </div>
                                                                         <div class="row"
                                                                             style="text-align: center;font-size: x-large;">
@@ -510,7 +510,7 @@
                                                         </td> -->
 
                                                         <td class="text-bolds">{{item.order_no}}</td>
-                                                        <td>{{item.amount}}</td>
+                                                        <td>{{(item.total_amount || item.amount)}}</td>
                                                         <td>{{shippingItemsFormat(item.products)}}</td>
                                                         <td>{{item.created| date:'dd-MM-yyyy'}}</td>
                                                     </tr>
@@ -584,7 +584,7 @@
                                                                             <div class="form-group">
                                                                                 <label>Unit Amount</label>
                                                                                 <input disabled type="text"
-                                                                                    [value]="item.amount"
+                                                                                    [value]="(item.total_amount || item.amount)"
                                                                                     placeholder="$7876"
                                                                                     class="round-input">
                                                                             </div>
@@ -625,7 +625,7 @@
                                                                         </div>
                                                                         <div class="row"
                                                                             style="text-align: center;font-size: x-large;">
-                                                                            <span>{{item.amount}}</span>
+                                                                            <span>{{(item.total_amount || item.amount)}}</span>
                                                                         </div>
                                                                         <div class="row"
                                                                             style="text-align: center;font-size: x-large;">

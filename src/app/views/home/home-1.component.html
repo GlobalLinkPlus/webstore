@@ -64,7 +64,7 @@
                         </div>
                         <!-- *ngIf="userInfoService.isLoggedIn()" -->
                         <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                          {{bizService.get_currency_symbol()}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                          {{ sectionOneProduct.is_priced ? bizService.get_currency_symbol() + (sectionOneProduct.price | number:'1.2-2') : 'Price unavailable' }}</p>
                       </div>
                     </div>
                     <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -84,7 +84,7 @@
                         </div>
                       </div>
                       <p class="h5 mb-0">
-                        {{bizService.get_currency_symbol()}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                        {{ sectionOneProduct.is_priced ? bizService.get_currency_symbol() + (sectionOneProduct.price | number:'1.2-2') : 'Price unavailable' }}</p>
                     </div>
                   </div>
                 </div>
@@ -172,7 +172,7 @@
                       </div>
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                        {{bizService.get_currency_symbol()}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                        {{ sectionTwoProduct.is_priced ? bizService.get_currency_symbol() + (sectionTwoProduct.price | number:'1.2-2') : 'Price unavailable' }}</p>
                     </div>
                   </div>
                   <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -192,7 +192,7 @@
                       </div>
                     </div>
                     <p class="h5 mb-0">
-                      {{bizService.get_currency_symbol()}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                      {{ sectionTwoProduct.is_priced ? bizService.get_currency_symbol() + (sectionTwoProduct.price | number:'1.2-2') : 'Price unavailable' }}</p>
                   </div>
                 </div>
               </div>

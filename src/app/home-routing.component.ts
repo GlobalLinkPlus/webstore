@@ -5,6 +5,8 @@ import { ApiService } from './services/api.service';
 import { BizService } from './services/biz.service';
 import { LoginModalService } from './services/login-modal.service';
 import { UserInfoService } from './services/user-info.service';
+import { CheckoutService } from './services/checkout.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -155,6 +157,8 @@ export class HomeRoutingComponent implements OnInit {
     private renderer: Renderer2,
     private loginModalService: LoginModalService,
     private router: Router,
+    private checkoutService: CheckoutService,
+    private messageService: MessageService,
   ) {
 
   }
@@ -263,6 +267,7 @@ export class HomeRoutingComponent implements OnInit {
       }
     }, err => {
       this.submitted = false;
+      this.messageService.add({ severity: 'error', summary: 'Login failed', detail: this.checkoutService.loginErrorMessage(err), life: 6000 });
     });
   }
 }

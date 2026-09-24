@@ -46,6 +46,9 @@
               <button class="btn  login-button" (click)="submitLogin()"
                 [ngStyle]="{'background-color': bizService.get_background_color()}">Login</button>
             </div>
+            <div class="row" *ngIf="loginError" style="margin-top: 15px; padding-left: 10px; padding-right: 10px;">
+              <span style="color: #b02a37; font-size: 14px;">{{loginError}}</span>
+            </div>
             <div class="row" style="margin-top: 20px; display: block;">
               <span>Don't have an Account</span>
               <span style="float: right; width: fit-content; cursor: pointer;"

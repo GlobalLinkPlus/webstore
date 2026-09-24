@@ -1,3 +1,4 @@
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,13 +17,16 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   inputType: string = 'password';
   showPassword: boolean = false;
+  // shown under the Login button when the server refuses the login (this page has no toast host)
+  loginError = '';
   constructor(
     private apiService: ApiService,
     private formBuilder: FormBuilder,
     private router: Router,
     private userInfoService: UserInfoService,
     public bizService: BizService,
-    private location: Location
+    private location: Location,
+    private checkoutService: CheckoutService
   ) { }
 
   
@@ -47,6 +51,7 @@ export class LoginComponent implements OnInit {
   submitLogin() {
     this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
     this.submitted = true;
+    this.loginError = '';
     this.apiService.login(this.loginForm.value).subscribe(async res => {
       this.submitted = false;
       if (res.token) {
@@ -57,6 +62,7 @@ export class LoginComponent implements OnInit {
       }
     }, err => {
       this.submitted = false;
+      this.loginError = this.checkoutService.loginErrorMessage(err);
     });
   }
 

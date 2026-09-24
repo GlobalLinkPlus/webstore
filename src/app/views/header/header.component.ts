@@ -100,11 +100,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.searchResults = results.slice(0, this.searchMaxResults);
     });
 
-    this.apiService.getProducts('').subscribe(res => {
-      this.products = res.results;
-    }, err => {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load products' });
-    });
+    // the header is rebuilt on every page: reuse the shared list (5 minutes) instead of refetching it each time
+    const productsKey = this.bizService.get_company_id() + '|' + this.bizService.get_channel();
+    const cachedProducts = this.apiService.getCachedAllProducts(productsKey, 5 * 60 * 1000);
+    if (cachedProducts) {
+      this.products = cachedProducts.results;
+    } else {
+      this.apiService.getProducts('').subscribe(res => {
+        this.products = res.results;
+        this.apiService.setCachedAllProducts(productsKey, res);
+      }, err => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load products' });
+      });
+    }
 
     this.apiService.getProductCategory('').subscribe(res => {
       if (res)

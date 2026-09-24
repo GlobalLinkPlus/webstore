@@ -44,8 +44,6 @@ export class SearchComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
   // latest product list request; cancelled when a newer one starts so a slow, older response can't overwrite it
   private productsSub: Subscription;
-  // last unfiltered product list; static so it survives the component being re-created on navigation
-  private static unfilteredCache: { key: string; results: any[]; next: string } | null = null;
 
 
 
@@ -227,15 +225,15 @@ export class SearchComponent implements OnInit, OnDestroy {
     const cacheKey = this.bizService.get_company_id() + '|' + channel;
 
     // stale-while-revalidate: show the last unfiltered list right away, then refresh it
-    const cached = SearchComponent.unfilteredCache;
-    if (cached && cached.key === cacheKey) {
+    const cached = this.apiService.getCachedAllProducts(cacheKey);
+    if (cached) {
       this.products = applyChannel(cached.results);
       this.nextPageUrl = cached.next;
     }
 
     this.productsSub?.unsubscribe();
     this.productsSub = this.apiService.getProducts('').subscribe(res => {
-      SearchComponent.unfilteredCache = { key: cacheKey, results: res.results, next: res.next };
+      this.apiService.setCachedAllProducts(cacheKey, res);
       this.products = applyChannel(res.results);
       this.nextPageUrl = res.next;
     }, err => {

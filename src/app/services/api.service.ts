@@ -98,6 +98,19 @@ export class ApiService {
     return this.http.get(BASE_URL + 'subcategory/' + search).pipe(
       map(this.extractData));
   }
+  // the plain "all products" list, shared by the header and the products page so neither
+  // has to wait for (or repeat) the slow request
+  private allProducts: { key: string; at: number; results: any[]; next: string } | null = null;
+
+  getCachedAllProducts(key: string, maxAgeMs: number = Infinity) {
+    const cached = this.allProducts;
+    return cached && cached.key === key && Date.now() - cached.at <= maxAgeMs ? cached : null;
+  }
+
+  setCachedAllProducts(key: string, res: any) {
+    this.allProducts = { key, at: Date.now(), results: res.results || [], next: res.next };
+  }
+
   getProducts(search): Observable<any> {
     return this.http.get(BASE_URL + 'channel_products/' + search).pipe(
       map(this.extractData));
@@ -167,6 +180,11 @@ export class ApiService {
   }
   calculateCartCosts(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'cart-calculation/', data).pipe(
+      map(this.extractData));
+  }
+  // b2c guests order without an account; sent with the company id, never a token
+  createGuestOrder(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore/guest-checkout/', data).pipe(
       map(this.extractData));
   }
   createNewOrder(data: any): Observable<any> {

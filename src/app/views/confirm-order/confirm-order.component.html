@@ -90,9 +90,10 @@
                         <div class="row" style="margin-top: 15px;">
                           <div style=" display:inline-block">
                             <span > Order Subtotal</span>
-                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal}}</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal | number:'1.2-2'}}</span>
                           </div>	
                         </div>
+                        <!-- TODO: restore Freight Cost later (it is not part of the order total)
                         <div class="row">
                           <div style=" display:inline-block">
                             <span > Freight Cost</span>
@@ -100,10 +101,11 @@
                           </div>
                           
                         </div>
+                        -->
                         <div class="row">
                           <div style=" display:inline-block">
-                            <span > Estimated Tax</span>
-                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax}}</span>
+                            <span > Tax</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax | number:'1.2-2'}}</span>
                           </div>
                           
                         </div>
@@ -113,7 +115,7 @@
                         <div class="row" style="margin-top: 20px;">
                           <div style=" display:inline-block">
                             <span >Total</span>
-                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost}}</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost | number:'1.2-2'}}</span>
                           </div>
                           
                         </div>

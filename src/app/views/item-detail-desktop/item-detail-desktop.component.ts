@@ -227,7 +227,8 @@ export class ItemDetailDesktopComponent implements OnInit, OnDestroy {
   catalog = 'catalog';
   type: string;
 
-  item_detail = {
+  // the channel_products detail row (price, is_priced, in_stock, stock, currency, ...)
+  item_detail: any = {
     retail_cost: '',
     first_cost: '',
   };
@@ -437,12 +438,7 @@ export class ItemDetailDesktopComponent implements OnInit, OnDestroy {
     this.currentIndex = 0;
     window.scrollTo(0, 0);
 
-    this.channelSub = this.apiService.getChannelsDetails(id).subscribe(
-      (res) => {
-        this.channel_detail = res[0];
-      },
-      (err) => {}
-    );
+    // product/channels/<id> no longer exists (404), so channel_detail is no longer loaded
 
     this.productSub = this.apiService.getProductDetail(id).subscribe(
       (res) => {
@@ -465,14 +461,17 @@ export class ItemDetailDesktopComponent implements OnInit, OnDestroy {
         );
         this.attributeArray = this.generateAttributeArray(res.product);
 
-        this.apiService.getProductVariations(this.product.id).subscribe(
-          (res) => {
-            this.variations = res;
-          },
-          (err) => {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load product variations' });
-          }
-        );
+        // variations need a token: guests would get a 401, so they simply see none
+        if (this.userInfoService.isLoggedIn()) {
+          this.apiService.getProductVariations(this.product.id).subscribe(
+            (res) => {
+              this.variations = res;
+            },
+            (err) => {
+              this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load product variations' });
+            }
+          );
+        }
 
         // this.apiService.getProductVideo("?product=" + this.product.id).subscribe(
         //   res => {
@@ -672,7 +671,20 @@ export class ItemDetailDesktopComponent implements OnInit, OnDestroy {
   checkout() {
     this.router.navigateByUrl('/' + this.bizService.getBizId() + '/cart');
   }
+  // can this product be bought? unpriced or out-of-stock products cannot be added
+  canAddToCart(): boolean {
+    return !!this.item_detail && this.item_detail.is_priced !== false && this.item_detail.in_stock !== false;
+  }
+
+  addToCartBlockedReason(): string {
+    if (!this.item_detail) return '';
+    if (this.item_detail.is_priced === false) return 'This product is not available for sale.';
+    if (this.item_detail.in_stock === false) return 'Out of stock';
+    return '';
+  }
+
   addProductToCart() {
+    if (!this.canAddToCart()) return;
     const product = {
       ...this.product,
       pricing: { ...this.item_detail, product: this.product.id },
@@ -691,6 +703,9 @@ export class ItemDetailDesktopComponent implements OnInit, OnDestroy {
     }
   }
   increaseProductCount() {
+    // never let the quantity go past the units on hand
+    const stock = this.item_detail && typeof this.item_detail.stock === 'number' ? this.item_detail.stock : Infinity;
+    if (this.product.product_count >= stock) return;
     this.product.product_count = this.product.product_count + 1;
     if (this.userInfoService.isItemInCart(this.product)) {
       this.userInfoService.updateItemCart(this.product);

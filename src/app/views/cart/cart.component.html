@@ -36,6 +36,9 @@
                           <span style="font-weight: 400;font-size: large;"><a [routerLink]="['/', bizService.getBizName(), 'product', item.id]"
                               style="text-decoration: none; font-size: x-large;">{{item.name}}</a></span>
                         </div>
+                        <div class="row" *ngIf="stockNote(item)">
+                          <span style="color: #b02a37; font-size: 14px;">{{stockNote(item)}}</span>
+                        </div>
                         <div class="row">
                           <app-star-rate-bar [rate]=item.rating [label]="item.reviews" [size]=24></app-star-rate-bar>
 
@@ -49,9 +52,9 @@
                       </div>
                       <div class="col-sm-3 col-lg-3">
                         <div class="row item-price">
-                          <span *ngIf="userInfoService.isLoggedIn() || type===customer" style="font-size: xx-large;font-weight: 400;">
-                            {{item.pricing.currency}}{{item.pricing.pricing_details?.total_cost | number:'1.2-2'}}</span>
-                          <span *ngIf="!(userInfoService.isLoggedIn() || type===customer)"
+                          <span *ngIf="checkoutService.showPrices" style="font-size: xx-large;font-weight: 400;">
+                            {{cart_summary.currency}}{{unitPriceFor(item) | number:'1.2-2'}}</span>
+                          <span *ngIf="!checkoutService.showPrices"
                             style="font-size: medium; font-weight: 400; cursor: pointer;"
                             (click)="openLogin()"><u>Login for pricing</u></span>
                         </div>
@@ -102,38 +105,40 @@
                     <div class="row" style="margin-top: 15px;">
                       <div style=" display:inline-block">
                         <span> Order Subtotal</span>
-                        <span *ngIf="userInfoService.isLoggedIn() || type===customer"
-                          style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal}}</span>
-                        <span *ngIf="!(userInfoService.isLoggedIn() || type===customer)"
+                        <span *ngIf="checkoutService.showPrices"
+                          style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal | number:'1.2-2'}}</span>
+                        <span *ngIf="!checkoutService.showPrices"
                           style="float: right; cursor: pointer;" (click)="openLogin()"><u>Login for pricing</u></span>
                       </div>
                     </div>
-                    <!-- TODO: restore Freight Cost and Estimated Tax later
+                    <!-- TODO: restore Freight Cost later (it is not part of the order total)
                     <div class="row">
                       <div style=" display:inline-block">
                         <span> Freight Cost</span>
-                        <span *ngIf="userInfoService.isLoggedIn()"
+                        <span *ngIf="checkoutService.showPrices"
                           style="float: right;">{{cart_summary.currency}}{{cart_summary.freight_cost}}</span>
                       </div>
 
                     </div>
-                    <div class="row">
+                    -->
+                    <div class="row" *ngIf="checkoutService.showPrices && quote">
                       <div style=" display:inline-block">
-                        <span> Estimated Tax</span>
-                        <span *ngIf="userInfoService.isLoggedIn()"
-                          style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax}}</span>
+                        <span> Tax</span>
+                        <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax | number:'1.2-2'}}</span>
                       </div>
 
                     </div>
-                    -->
                     <div class="row" style="margin-top: 15px;">
                       <div class="line"></div>
                     </div>
                     <div class="row" style="margin-top: 20px;">
                       <div style=" display:inline-block">
                         <span>Total</span>
-                        <span *ngIf="userInfoService.isLoggedIn() || type===customer"
-                          style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost}}</span>
+                        <span *ngIf="checkoutService.showPrices"
+                          style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost | number:'1.2-2'}}</span>
+                      </div>
+                      <div *ngIf="checkoutService.showPrices && quoteFailed" style="font-size: 13px; color: #6c757d; padding-top: 6px;">
+                        Tax is calculated at checkout.
                       </div>
 
                     </div>
