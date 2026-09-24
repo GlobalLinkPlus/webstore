@@ -46,7 +46,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="accordion-item" hoverActivatedAccordion>
+                <div class="accordion-item" hoverActivatedAccordion *ngIf="userInfoService.isLoggedIn()">
                   <h2 class="accordion-header" id="flush-headingTwo">
                     <button class="accordion-button collapsed" type="button" data-trigger="hover"
                       data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"

@@ -191,15 +191,18 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load categories' });
       }
     )
-    this.apiService.getCollections('').subscribe(
-      res => {
-        this.collections = res;
+    // collections need a token: guests would only get a 401 (and an error toast on every visit)
+    if (this.userInfoService.isLoggedIn()) {
+      this.apiService.getCollections('').subscribe(
+        res => {
+          this.collections = res;
 
-      },
-      err => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load collections' });
-      }
-    )
+        },
+        err => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load collections' });
+        }
+      )
+    }
   }
 
   // ngAfterViewInit() {
