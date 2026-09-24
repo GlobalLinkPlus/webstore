@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
     this.inputType = this.showPassword ? 'text' : 'password';
   }
   
+  requestCustomer() {
+    this.router.navigate([`/${this.bizService.getBizName()}/contact-us`]);
+  }
+
   submitLogin() {
     this.loginForm.get('webstore').setValue(this.bizService.get_company_id());
     this.submitted = true;

@@ -178,13 +178,13 @@
                             margin-right: 10px;
                           "
                           >MSRP <br />
-                          {{ sectionOneProduct.currency
+                          {{ bizService.get_currency_symbol()
                           }}{{ sectionOneProduct.msrp }}</small
                         >
                       </div>
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                        {{ sectionOneProduct.currency
+                        {{ bizService.get_currency_symbol()
                         }}{{ sectionOneProduct.pricing_details?.total_cost | number:'1.2-2' }}
                       </p>
                     </div>
@@ -233,13 +233,13 @@
                             color: #c1c7d6;
                             text-decoration: line-through;
                           "
-                          >MSRP {{ sectionOneProduct.currency
+                          >MSRP {{ bizService.get_currency_symbol()
                           }}{{ sectionOneProduct.msrp }}</small
                         >
                       </div>
                     </div>
                     <p class="h5 mb-0">
-                      {{ sectionOneProduct.currency
+                      {{ bizService.get_currency_symbol()
                       }}{{ sectionOneProduct.pricing_details?.total_cost | number:'1.2-2' }}
                     </p>
                   </div>
@@ -468,13 +468,13 @@
                             margin-right: 10px;
                           "
                           >MSRP <br />
-                          {{ sectionTwoProduct.currency
+                          {{ bizService.get_currency_symbol()
                           }}{{ sectionTwoProduct.msrp }}</small
                         >
                       </div>
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                        {{ sectionTwoProduct.currency
+                        {{ bizService.get_currency_symbol()
                         }}{{ sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2' }}
                       </p>
                     </div>
@@ -523,13 +523,13 @@
                             color: #c1c7d6;
                             text-decoration: line-through;
                           "
-                          >MSRP {{ sectionTwoProduct.currency
+                          >MSRP {{ bizService.get_currency_symbol()
                           }}{{ sectionTwoProduct.msrp }}</small
                         >
                       </div>
                     </div>
                     <p class="h5 mb-0">
-                      {{ sectionTwoProduct.currency
+                      {{ bizService.get_currency_symbol()
                       }}{{ sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2' }}
                     </p>
                   </div>

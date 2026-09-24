@@ -54,13 +54,15 @@ export class CartComponent implements OnInit {
     if(item.product_count>1){
       item.product_count=item.product_count-1;
       this.userInfoService.updateItemCart(item);
+      this.calculateCartCost();
     }
     
   }
   increaseProductCount(item: any){
       item.product_count=item.product_count+1;
       this.userInfoService.updateItemCart(item);
-    
+      this.calculateCartCost();
+
   }
 
   removeItem(item: any){
@@ -70,17 +72,23 @@ export class CartComponent implements OnInit {
 
   }
   calculateCartCost(){
-    this.cart_summary.subtotal=0;
-    this.cart_summary.total_cost=0;
-    this.cart_summary.freight_cost=0;
-    
-    for(var i=0;i<this.cartItems.length;i++){
-      let item=this.cartItems[i]
-      this.cart_summary.subtotal=this.cart_summary.subtotal+parseFloat(item.pricing.pricing_details?.total_cost)*item.product_count;
-      this.cart_summary.freight_cost=this.cart_summary.freight_cost+parseFloat(item.pricing.freight_cost)*item.product_count;
-      this.cart_summary.total_cost=parseFloat(((this.cart_summary.subtotal+this.cart_summary.freight_cost)).toFixed(2));
-      this.cart_summary.subtotal=this.cart_summary.total_cost;
+    let subtotal=0;
+    // TODO: re-add freight and estimated tax to the totals later
+    // let freight=0;
+
+    for(const item of this.cartItems){
+      const count=Number(item.product_count)||0;
+      // price fields may be strings like "1,299.00"; strip separators before parsing
+      const unitPrice=parseFloat(String(item.pricing?.pricing_details?.total_cost ?? '').replace(/,/g,''))||0;
+      // const unitFreight=parseFloat(String(item.pricing?.freight_cost ?? '').replace(/,/g,''))||0;
+      subtotal+=unitPrice*count;
+      // freight+=unitFreight*count;
     }
+
+    this.cart_summary.subtotal=parseFloat(subtotal.toFixed(2));
+    this.cart_summary.freight_cost=0;
+    this.cart_summary.estimated_tax=0;
+    this.cart_summary.total_cost=this.cart_summary.subtotal;
     // this.apiService.calculateCartCosts(this.cartItems).subscribe(res=>{
     //   this.cart_summary=res;
     // },err=>{});
@@ -98,6 +106,10 @@ export class CartComponent implements OnInit {
     this.appliedPromoCode = '';
     this.promoCode = '';
     this.showPromoInput = false;
+  }
+
+  openLogin(){
+    this.loginModalService.open();
   }
 
   checkout(){

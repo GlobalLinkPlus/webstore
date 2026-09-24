@@ -29,6 +29,10 @@ export class BizService {
   public setBizDetail(data: any): void {
     sessionStorage.setItem('company_id', data.id ? data.id : '');
     sessionStorage.setItem(
+      'currency_symbol',
+      data.currency_symbol ? data.currency_symbol : ''
+    );
+    sessionStorage.setItem(
       'company_logo',
       data.company_logo ? data.company_logo : ''
     );
@@ -151,6 +155,10 @@ export class BizService {
 
   public get_footer_data(): any {
     return JSON.parse(sessionStorage.getItem('footer_data'));
+  }
+
+  public get_currency_symbol(): string {
+    return sessionStorage.getItem('currency_symbol') || '';
   }
 
   public get_company_id(): string {

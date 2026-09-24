@@ -76,4 +76,8 @@ export class CustomerFooterComponent implements OnInit {
     this.router.navigateByUrl(this.bizService.getBizId() + "/login");
   }
 
+  requestCustomer() {
+    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/contact-us");
+  }
+
 }

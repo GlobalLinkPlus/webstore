@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
-import { SearchBarService } from 'src/app/services/search-bar.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -43,13 +42,16 @@ export class SearchComponent implements OnInit, OnDestroy {
     { label: 'Purple', value: 'Purple', selected: false },
   ];
   private routeSubscription: Subscription;
+  // latest product list request; cancelled when a newer one starts so a slow, older response can't overwrite it
+  private productsSub: Subscription;
+  // last unfiltered product list; static so it survives the component being re-created on navigation
+  private static unfilteredCache: { key: string; results: any[]; next: string } | null = null;
 
 
 
   constructor(
     private apiService: ApiService,
     public userInfoService: UserInfoService,
-    private searchBarService: SearchBarService,
     private bizService: BizService,
     private route: ActivatedRoute,
     private router: Router,
@@ -57,12 +59,6 @@ export class SearchComponent implements OnInit, OnDestroy {
     private messageService: MessageService
   ) {
 
-    this.searchBarService.onSearch.subscribe({
-      next: (query: string) => {
-
-        this.searchProducts("search=" + query);
-      }
-    })
   }
 
   ngOnInit(): void {
@@ -105,9 +101,15 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.colors.forEach(option => option.selected = false);
     this.category = '';
     this.sub_category = '';
-    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/products").then(() => {
+    const target = "/" + this.bizService.getBizName() + "/products";
+    if (this.router.url.split('?')[0] === target) {
+      // already on /products: navigation is a no-op and the route subscription won't fire
       this.getProducts();
-    });
+    } else {
+      // navigating changes the route params, and the route subscription in ngOnInit
+      // calls searchFilter() -> getProducts(); fetching here too would request twice
+      this.router.navigateByUrl(target);
+    }
   }
 
   changeCategory(category) {
@@ -219,13 +221,23 @@ export class SearchComponent implements OnInit, OnDestroy {
   getProducts() {
     // let q;
     // this.color? q='&?color=' + this.color:'';
-    this.apiService.getProducts('').subscribe(res => {
-      this.products = res.results;
+    const channel = this.bizService.get_channel();
+    const applyChannel = (results: any[]) =>
+      this.type === this.business && channel ? results.filter(product => product.channel === channel) : results;
+    const cacheKey = this.bizService.get_company_id() + '|' + channel;
+
+    // stale-while-revalidate: show the last unfiltered list right away, then refresh it
+    const cached = SearchComponent.unfilteredCache;
+    if (cached && cached.key === cacheKey) {
+      this.products = applyChannel(cached.results);
+      this.nextPageUrl = cached.next;
+    }
+
+    this.productsSub?.unsubscribe();
+    this.productsSub = this.apiService.getProducts('').subscribe(res => {
+      SearchComponent.unfilteredCache = { key: cacheKey, results: res.results, next: res.next };
+      this.products = applyChannel(res.results);
       this.nextPageUrl = res.next;
-      const channel = this.bizService.get_channel();
-      if(this.type===this.business && channel){
-        this.products = res.results.filter(product=>product.channel === channel);
-      }
     }, err => {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load products' });
     });
@@ -236,7 +248,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     // this.color ? q = 'color=' + this.color + '&' + q : q;
 
-    this.apiService.getProducts('?' + q).subscribe(res => {
+    this.productsSub?.unsubscribe();
+    this.productsSub = this.apiService.getProducts('?' + q).subscribe(res => {
       this.products = res.results;
       this.nextPageUrl = res.next;
     }, err => {
@@ -267,6 +280,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     if (this.routeSubscription) {
       this.routeSubscription.unsubscribe();
     }
+    this.productsSub?.unsubscribe();
   }
 
 }

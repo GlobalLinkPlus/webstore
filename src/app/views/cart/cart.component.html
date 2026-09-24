@@ -25,12 +25,15 @@
                     [ngStyle]="item.id==cartItems[0].id?{'margin-top':'0px'}:{'margin-top':'30px'}">
                     <div class="row">
                       <div class="col-sm-3 col-lg-3" style="overflow:hidden;">
-                        <a [routerLink]="['/product',item.id]"><img [src]="item.image_urls[0].url" width="200px"
-                            height="200px" loading="lazy" decoding="async" /></a>
+                        <a [routerLink]="['/', bizService.getBizName(), 'product', item.id]"><img *ngIf="item.image_urls?.length>0 && item.image_urls[0]?.url"
+                            [src]="item.image_urls[0].url" width="200px"
+                            height="200px" loading="lazy" decoding="async" />
+                          <div *ngIf="!(item.image_urls?.length>0 && item.image_urls[0]?.url)"
+                            style="width:200px;height:200px;background:#f1f1f1;"></div></a>
                       </div>
                       <div class="col-sm-6 col-lg-6">
                         <div class="row">
-                          <span style="font-weight: 400;font-size: large;"><a [routerLink]="['/product',item.id]"
+                          <span style="font-weight: 400;font-size: large;"><a [routerLink]="['/', bizService.getBizName(), 'product', item.id]"
                               style="text-decoration: none; font-size: x-large;">{{item.name}}</a></span>
                         </div>
                         <div class="row">
@@ -46,8 +49,11 @@
                       </div>
                       <div class="col-sm-3 col-lg-3">
                         <div class="row item-price">
-                          <span *ngIf="userInfoService.isLoggedIn()" style="font-size: xx-large;font-weight: 400;">
+                          <span *ngIf="userInfoService.isLoggedIn() || type===customer" style="font-size: xx-large;font-weight: 400;">
                             {{item.pricing.currency}}{{item.pricing.pricing_details?.total_cost | number:'1.2-2'}}</span>
+                          <span *ngIf="!(userInfoService.isLoggedIn() || type===customer)"
+                            style="font-size: medium; font-weight: 400; cursor: pointer;"
+                            (click)="openLogin()"><u>Login for pricing</u></span>
                         </div>
                         <div class="row" style="margin-top: 10px;">
                           <div class="col-sm-12 col-lg-12">
@@ -96,10 +102,13 @@
                     <div class="row" style="margin-top: 15px;">
                       <div style=" display:inline-block">
                         <span> Order Subtotal</span>
-                        <span *ngIf="userInfoService.isLoggedIn()"
+                        <span *ngIf="userInfoService.isLoggedIn() || type===customer"
                           style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal}}</span>
+                        <span *ngIf="!(userInfoService.isLoggedIn() || type===customer)"
+                          style="float: right; cursor: pointer;" (click)="openLogin()"><u>Login for pricing</u></span>
                       </div>
                     </div>
+                    <!-- TODO: restore Freight Cost and Estimated Tax later
                     <div class="row">
                       <div style=" display:inline-block">
                         <span> Freight Cost</span>
@@ -116,13 +125,14 @@
                       </div>
 
                     </div>
+                    -->
                     <div class="row" style="margin-top: 15px;">
                       <div class="line"></div>
                     </div>
                     <div class="row" style="margin-top: 20px;">
                       <div style=" display:inline-block">
                         <span>Total</span>
-                        <span *ngIf="userInfoService.isLoggedIn()"
+                        <span *ngIf="userInfoService.isLoggedIn() || type===customer"
                           style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost}}</span>
                       </div>
 

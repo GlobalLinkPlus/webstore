@@ -125,7 +125,7 @@ import { UserInfoService } from './services/user-info.service';
               </div>
               <div class="row" style="margin-top: 20px; display: block;">
                 <span >Don't have an Account</span>
-                <span style="float: right; width: fit-content;" [ngStyle]="{'color': bizService.get_background_color()}">Request to Become a Customer</span>
+                <span style="float: right; width: fit-content; cursor: pointer;" [ngStyle]="{'color': bizService.get_background_color()}" (click)="requestCustomer()">Request to be a Customer</span>
               </div>
             </div>
           </div>
@@ -208,6 +208,11 @@ export class HomeRoutingComponent implements OnInit {
     }
 
 
+  }
+
+  requestCustomer(): void {
+    this.closeModal();
+    this.router.navigate([`/${this.bizService.getBizName()}/contact-us`]);
   }
 
   closeModalClicked(event: Event) {

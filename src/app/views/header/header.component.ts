@@ -1,21 +1,22 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
-import { SearchBarService } from 'src/app/services/search-bar.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { SearchComponent } from '../search/search.component';
 import { ContactUsModalComponent } from '../contact-us-modal/contact-us-modal.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
+import { of, Subscription } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   @ViewChild(SearchComponent) searchComponent: SearchComponent;
   searchForm: FormGroup;
   categories: any[] = [];
@@ -27,6 +28,15 @@ export class HeaderComponent implements OnInit {
   catalog = "catalog";
   isSticky: boolean = false;
   products = [];
+
+  // search-as-you-type dropdown
+  searchResults: any[] = [];
+  searchOpen = false;
+  searchLoading = false;
+  searchTerm = '';
+  private readonly searchDebounceMs = 300;
+  private readonly searchMaxResults = 8;
+  private searchSub: Subscription;
   url = '/' + this.bizService.getBizId();
   rightHeaderLink;
 
@@ -49,7 +59,7 @@ export class HeaderComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     public userInfoService: UserInfoService,
-    private searchBarService: SearchBarService,
+    private elementRef: ElementRef,
     public bizService: BizService,
     private apiService: ApiService,
     private dialogService: DialogService,
@@ -61,6 +71,33 @@ export class HeaderComponent implements OnInit {
 
     this.searchForm = this.formBuilder.group({
       search: [''],
+    });
+
+    // debounce keystrokes; switchMap cancels the previous request when a newer term arrives
+    this.searchSub = this.searchForm.get('search').valueChanges.pipe(
+      map((value: string) => (value || '').trim()),
+      debounceTime(this.searchDebounceMs),
+      distinctUntilChanged(),
+      switchMap((term: string) => {
+        this.searchTerm = term;
+        if (!term) {
+          this.searchLoading = false;
+          return of(null);
+        }
+        this.searchLoading = true;
+        this.searchOpen = true;
+        return this.apiService.getProducts('?search=' + encodeURIComponent(term)).pipe(
+          catchError(() => of(null))
+        );
+      })
+    ).subscribe((res: any) => {
+      this.searchLoading = false;
+      let results: any[] = res && res.results ? res.results : [];
+      const channel = this.bizService.get_channel();
+      if (this.bizService.getBizType() === 'business' && channel) {
+        results = results.filter(item => item.channel === channel);
+      }
+      this.searchResults = results.slice(0, this.searchMaxResults);
     });
 
     this.apiService.getProducts('').subscribe(res => {
@@ -131,14 +168,36 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  // search is no longer tied to the products page; results show in the dropdown
   searchClick() {
-    const query = this.searchForm.value.search;
-    if (!(this.router.url.split('/')[2] === 'products')) {
-      this.router.navigateByUrl(this.bizService.getBizId() + "/products").then(() => {
-        this.searchBarService.search(query);
-      });
-    } else {
-      this.searchBarService.search(query);
+    this.searchOpen = true;
+  }
+
+  closeSearch() {
+    this.searchOpen = false;
+  }
+
+  searchThumbnail(item: any): string {
+    const images = item && item.product && item.product.image_urls;
+    return images && images.length > 0 && images[0] ? images[0].url : '';
+  }
+
+  selectSearchResult(item: any) {
+    this.closeSearch();
+    this.router.navigateByUrl("/" + this.bizService.getBizName() + "/product/" + item.id);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const wrapper = this.elementRef.nativeElement.querySelector('.search-wrapper');
+    if (wrapper && !wrapper.contains(event.target as Node)) {
+      this.closeSearch();
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.searchSub) {
+      this.searchSub.unsubscribe();
     }
   }
 

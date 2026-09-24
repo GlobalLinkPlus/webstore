@@ -48,8 +48,9 @@
             </div>
             <div class="row" style="margin-top: 20px; display: block;">
               <span>Don't have an Account</span>
-              <span style="float: right; width: fit-content;"
-                [ngStyle]="{'color': bizService.get_background_color()}">Request to Become a Customer</span>
+              <span style="float: right; width: fit-content; cursor: pointer;"
+                [ngStyle]="{'color': bizService.get_background_color()}"
+                (click)="requestCustomer()">Request to be a Customer</span>
             </div>
           </div>
         </div>

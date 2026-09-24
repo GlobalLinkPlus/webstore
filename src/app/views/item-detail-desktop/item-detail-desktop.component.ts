@@ -6,6 +6,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -15,6 +16,7 @@ import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { NgbRatingModule, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 interface Material {
   primary_material: string;
@@ -216,7 +218,7 @@ interface Product {
   styleUrls: ['./item-detail-desktop.component.scss'],
   providers: [NgbRatingConfig],
 })
-export class ItemDetailDesktopComponent implements OnInit {
+export class ItemDetailDesktopComponent implements OnInit, OnDestroy {
   category;
   subcategory;
   show_features = false;
@@ -385,7 +387,7 @@ export class ItemDetailDesktopComponent implements OnInit {
 
   async onBaseComboChange(selectedBaseCombo: string): Promise<void> {
     if (!selectedBaseCombo) {
-      this.ngOnInit();
+      this.loadProduct(this.route.snapshot.params.id);
       return;
     }
     const variation = this.variations.find(
@@ -403,29 +405,55 @@ export class ItemDetailDesktopComponent implements OnInit {
   }
 
   async setActiveIndex(images: any) {
-    this.activeIndex = await Math.floor(Math.random() * (images.length - 1));
+    this.activeIndex = await Math.floor(Math.random() * Math.max(images.length - 1, 0));
   }
+  private routeSub: Subscription;
+  private channelSub: Subscription;
+  private productSub: Subscription;
+
   ngOnInit() {
+    // the component is reused when navigating between products (e.g. from the search
+    // dropdown), so reload whenever the :id param changes instead of reading it once
+    this.routeSub = this.route.paramMap.subscribe((params) => {
+      this.loadProduct(params.get('id'));
+    });
+    this.type = this.bizService.getBizType();
+  }
+
+  ngOnDestroy() {
+    this.routeSub?.unsubscribe();
+    this.channelSub?.unsubscribe();
+    this.productSub?.unsubscribe();
+  }
+
+  loadProduct(id: string) {
     // this.cardsPerPage = this.getCardsPerPage();
     // this.initializeSlider();
 
-    this.apiService.getChannelsDetails(this.route.snapshot.params.id).subscribe(
+    // drop anything still in flight for the previous product and clear its leftovers
+    this.channelSub?.unsubscribe();
+    this.productSub?.unsubscribe();
+    this.variations = [];
+    this.currentIndex = 0;
+    window.scrollTo(0, 0);
+
+    this.channelSub = this.apiService.getChannelsDetails(id).subscribe(
       (res) => {
         this.channel_detail = res[0];
       },
       (err) => {}
     );
 
-    this.apiService.getProductDetail(this.route.snapshot.params.id).subscribe(
+    this.productSub = this.apiService.getProductDetail(id).subscribe(
       (res) => {
         this.product = res.product;
         this.msrp = res.msrp;
         this.item_detail = res;
-        this.images = res.product.image_urls;
+        this.images = res.product.image_urls || [];
         this.productRating = res.product.rating || 0;
         this.product['product_count'] = 1;
         this.totalCards = 14;
-        this.current_image = this.product.image_urls[0].url;
+        this.current_image = this.product.image_urls?.[0]?.url || '';
         this.setActiveIndex(this.images);
         this.featuresArray = Object.values(res.product.features).filter(
           (value) => {
@@ -467,8 +495,6 @@ export class ItemDetailDesktopComponent implements OnInit {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load product details' });
       }
     );
-
-    this.type = this.bizService.getBizType();
   }
 
   mapCollectionToString(data) {
@@ -587,8 +613,8 @@ export class ItemDetailDesktopComponent implements OnInit {
       { name: 'Country', value: product.country }, // Add country information if available
       { name: 'Category', value: product.category_details.name },
       { name: 'Sub Category', value: product.sub_category_details.name },
-      { name: 'Rating', value: product.rating?.toString() || '' },
-      { name: 'Reviews', value: product.reviews?.toString() || '' },
+      // { name: 'Rating', value: product.rating?.toString() || '' },
+      // { name: 'Reviews', value: product.reviews?.toString() || '' },
       { name: 'Tax', value: product.tax },
       { name: 'Date Added', value: product.date_added },
       {

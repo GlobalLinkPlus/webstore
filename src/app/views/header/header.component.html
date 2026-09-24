@@ -33,17 +33,29 @@
         </a>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: relative;">
-        <form class="d-flex flex-fill" style="justify-content: center; z-index: 1000; margin-right: 10px;" role="search"
+        <form class="d-flex flex-fill search-wrapper" style="justify-content: center; z-index: 1000; margin-right: 10px; position: relative;" role="search"
           [formGroup]="searchForm">
           <div class="input-group">
 
             <input style="padding-left:20px; border-color: #C1C7D6; border-left: 1px solid #C1C7D6;"
               formControlName="search" type="text" class="form-control bg-transparent search-bar-input rounded-pill"
               placeholder="Search ..." aria-label="search" aria-describedby="basic-addon1"
+              autocomplete="off" (focus)="searchClick()" (keydown.escape)="closeSearch()"
               (keydown.enter)="searchClick()">
             <span style="margin-left: -70px; border: none;"
               class="input-group-text bg-transparent  search-bar-icon rounded-pill" id="basic-addon1"
               (click)="searchClick()"><i class="bi bi-search"></i></span>
+          </div>
+          <!-- same width/centering as .input-group (width: 100%, max-width: 800px) -->
+          <div class="search-dropdown" *ngIf="searchOpen && searchTerm">
+            <div class="search-dropdown-status" *ngIf="searchLoading && searchResults.length === 0">Searching...</div>
+            <div class="search-dropdown-status" *ngIf="!searchLoading && searchResults.length === 0">No products found</div>
+            <div class="search-dropdown-item" *ngFor="let item of searchResults" (click)="selectSearchResult(item)">
+              <img *ngIf="searchThumbnail(item)" [src]="searchThumbnail(item)" alt="" width="44" height="44"
+                loading="lazy" decoding="async" />
+              <div *ngIf="!searchThumbnail(item)" class="search-dropdown-noimg"></div>
+              <span class="search-dropdown-name">{{item.product.name}}</span>
+            </div>
           </div>
         </form>
         <div class="top-menu" style="padding-top: 70px; width: 100%;">

@@ -60,11 +60,11 @@
                               routerLink="login"><u style="color: black;">Login for<br /> Pricing</u></a></small>
                           <!-- mid_banner_image -->
                           <small style="font-size: 15px;font-weight: 500;margin-right: 10px;">MSRP <br />
-                            {{sectionOneProduct.currency}}{{sectionOneProduct.msrp}}</small>
+                            {{bizService.get_currency_symbol()}}{{sectionOneProduct.msrp}}</small>
                         </div>
                         <!-- *ngIf="userInfoService.isLoggedIn()" -->
                         <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                          {{sectionOneProduct.currency}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                          {{bizService.get_currency_symbol()}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                       </div>
                     </div>
                     <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -80,11 +80,11 @@
                         <div class="" style="width: 100%; display: flex; justify-content: space-between;">
                           <small
                             style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
-                            {{sectionOneProduct.currency}}{{sectionOneProduct.msrp}}</small>
+                            {{bizService.get_currency_symbol()}}{{sectionOneProduct.msrp}}</small>
                         </div>
                       </div>
                       <p class="h5 mb-0">
-                        {{sectionOneProduct.currency}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                        {{bizService.get_currency_symbol()}}{{sectionOneProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                     </div>
                   </div>
                 </div>
@@ -168,11 +168,11 @@
                             routerLink="login"><u style="color: black;">Login for<br /> Pricing</u></a></small>
                         <!-- mid_banner_image -->
                         <small style="font-size: 15px;font-weight: 500;margin-right: 10px;">MSRP <br />
-                          {{sectionTwoProduct.currency}}{{sectionTwoProduct.msrp}}</small>
+                          {{bizService.get_currency_symbol()}}{{sectionTwoProduct.msrp}}</small>
                       </div>
                       <!-- *ngIf="userInfoService.isLoggedIn()" -->
                       <p class="h5 mb-0" *ngIf="userInfoService.isLoggedIn()">
-                        {{sectionTwoProduct.currency}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                        {{bizService.get_currency_symbol()}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                     </div>
                   </div>
                   <div *ngIf="type===catalog" style="padding-top: 15px;" class="card-body px-2">
@@ -188,11 +188,11 @@
                       <div class="" style="width: 100%; display: flex; justify-content: space-between;">
                         <small
                           style="font-size: 13px;font-weight: 500;margin-right: 10px; color: #C1C7D6; text-decoration: line-through;">MSRP
-                          {{sectionTwoProduct.currency}}{{sectionTwoProduct.msrp}}</small>
+                          {{bizService.get_currency_symbol()}}{{sectionTwoProduct.msrp}}</small>
                       </div>
                     </div>
                     <p class="h5 mb-0">
-                      {{sectionTwoProduct.currency}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
+                      {{bizService.get_currency_symbol()}}{{sectionTwoProduct.pricing_details?.total_cost | number:'1.2-2'}}</p>
                   </div>
                 </div>
               </div>
