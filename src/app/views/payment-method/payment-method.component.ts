@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-payment-method',
@@ -21,6 +22,10 @@ export class PaymentMethodComponent implements OnInit {
     id:"1",
     name:"America Express"
   }]
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
   cart_summary: any={
     currency:'$',
@@ -29,13 +34,19 @@ export class PaymentMethodComponent implements OnInit {
     estimated_tax:'0',
     total_cost:'0'
   };
+
+  showPromoInput = false;
+  promoCode = '';
+  appliedPromoCode = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     public  userInfoService: UserInfoService,
     public bizService: BizService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
 
@@ -56,23 +67,34 @@ export class PaymentMethodComponent implements OnInit {
     this.paymentForm.patchValue({order_id:this.route.snapshot.params.order_id})
     this.calculateCartCost();
 
-    this.apiService.getPaymentMethods().subscribe(res=>{this.payment_methods=res},err=>{});
-    this.apiService.getCreditCardTypes().subscribe(res=>{this.credit_card_types=res},err=>{});
+    this.apiService.getPaymentMethods().subscribe(res=>{this.payment_methods=res},err=>{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load payment methods' });
+    });
+    this.apiService.getCreditCardTypes().subscribe(res=>{this.credit_card_types=res},err=>{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load credit card types' });
+    });
+
+    this.type = this.bizService.getBizType();
   }
   submitForm(){
     this.apiService.addOrderPaymentMethod(this.paymentForm.value).subscribe(res=>{
       this.router.navigateByUrl("/"+this.bizService.getBizId()+'/confirm-order/'+this.route.snapshot.params.order_id);
-    },err=>{})
+    },err=>{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to submit payment method' });
+    })
   }
 
   calculateCartCost(){
     this.cart_summary.subtotal=0;
     this.cart_summary.total_cost=0;
     this.cart_summary.freight_cost=0;
-    
+    if(this.cartItems.length){
+      this.cart_summary.currency=this.cartItems[0].pricing.currency;
+    }
+
     for(var i=0;i<this.cartItems.length;i++){
       let item=this.cartItems[i]
-      this.cart_summary.subtotal=this.cart_summary.subtotal+parseFloat(item.pricing.first_cost)*item.product_count;
+      this.cart_summary.subtotal=this.cart_summary.subtotal+parseFloat(item.pricing.pricing_details?.total_cost)*item.product_count;
       this.cart_summary.freight_cost=this.cart_summary.freight_cost+parseFloat(item.pricing.freight_cost)*item.product_count;
       this.cart_summary.total_cost=parseFloat(((this.cart_summary.subtotal+this.cart_summary.freight_cost)).toFixed(2));
       this.cart_summary.subtotal=this.cart_summary.total_cost;
@@ -80,6 +102,21 @@ export class PaymentMethodComponent implements OnInit {
     // this.apiService.calculateCartCosts(this.userInfoService.getCartItems()).subscribe(res=>{
     //   this.cart_summary=res;
     // },err=>{});
+  }
+
+  togglePromoInput(){
+    this.showPromoInput = !this.showPromoInput;
+  }
+
+  applyPromoCode(){
+    if(!this.promoCode.trim()) return;
+    this.appliedPromoCode = this.promoCode.trim();
+  }
+
+  removePromoCode(){
+    this.appliedPromoCode = '';
+    this.promoCode = '';
+    this.showPromoInput = false;
   }
 
 }

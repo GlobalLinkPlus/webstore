@@ -1,0 +1,32 @@
+<main style="min-height: 100vh; display: flex; flex-direction: column; max-width: 100vw; overflow-x: hidden;">
+    <header>
+        <app-header></app-header>
+    </header>
+    <div style="margin-top: 200px; flex: 1;" class="main-content">
+        <div class="col-sm-12 mt-3 faqs-container" style="padding-left: 100px; padding-right: 100px;">
+            <div style="font-size: 24px; font-weight: bold;">Frequently Asked Questions</div>
+            <div *ngFor="let item of faqsDetails; let i=index" class="row">
+                <div style="display: flex;">
+                    <div (click)="setShowFeatures(i)" class="col-sm-8" style="cursor: pointer; margin-top: 10px;">
+                        <span style="font-weight:700;">{{item.title}}</span>
+                    </div>
+                    <div style="cursor: pointer;" class="col-sm-4" style="text-align: right;">
+                        <i *ngIf="show_features!==i" class="fa-solid fa-plus" (click)="setShowFeatures(i)"
+                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
+                        <i *ngIf="show_features===i" class="fa-solid fa-minus" (click)="setShowFeatures(-1)"
+                            style="font-family: fontAwesome;font-size: larger;cursor: pointer;"></i>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+                <div style="padding-left: 30px;" class="col-sm-12" *ngIf="show_features===i">
+                    {{item.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="padding-top: 20px; bottom: 0; width: 100%; margin-top: 30px;">
+        <app-customer-footer></app-customer-footer>
+    </footer>
+</main>

@@ -13,6 +13,9 @@ import { BizInfoResolver } from './services/biz-info-resolver';
 import { LoginModalService } from './services/login-modal.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule 
+    NgbModule,
+    ToastModule
 
   ],
   providers: [
     BizInfoResolver,
     LoginModalService,
+    MessageService,
+    DialogService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

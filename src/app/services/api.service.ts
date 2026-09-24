@@ -32,8 +32,40 @@ export class ApiService {
     return this.http.get(BASE_URL + 'webstore/?name=' + name);
   }
 
+
+
+  getAboutUsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'about-us/?webstore_id=' + id);
+  }
+
+  getSocialsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'socials/?webstore_id=' + id);
+  }
+
+  getProductVariations(id): Observable<any> {
+    return this.http.get(BASE_URL + 'variations/?product=' + id);
+  }
+
+  getReturnPolicyDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'return-policy/?webstore_id=' + id);
+  }
+
+  getFaqsDetails(id): Observable<any> {
+    return this.http.get(BASE_URL + 'faqs/?webstore_id=' + id);
+  }
+
   validateCustomerEmail(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'webstore/password/reset/email', data).pipe(
+      map(this.extractData));
+  }
+
+  processPayment(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore_payment/payment_stripe/', data).pipe(
+      map(this.extractData));
+  }
+
+  processMpesaPayment(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'payment_request/', data).pipe(
       map(this.extractData));
   }
 
@@ -48,7 +80,7 @@ export class ApiService {
 
 
   login(data: any): Observable<any> {
-    return this.http.post(BASE_URL + 'login/', data).pipe(
+    return this.http.post(BASE_URL + 'webstore/login', data).pipe(
       map(this.extractData));
   }
 
@@ -66,8 +98,26 @@ export class ApiService {
     return this.http.get(BASE_URL + 'subcategory/' + search).pipe(
       map(this.extractData));
   }
+  // the plain "all products" list, shared by the header and the products page so neither
+  // has to wait for (or repeat) the slow request
+  private allProducts: { key: string; at: number; results: any[]; next: string } | null = null;
+
+  getCachedAllProducts(key: string, maxAgeMs: number = Infinity) {
+    const cached = this.allProducts;
+    return cached && cached.key === key && Date.now() - cached.at <= maxAgeMs ? cached : null;
+  }
+
+  setCachedAllProducts(key: string, res: any) {
+    this.allProducts = { key, at: Date.now(), results: res.results || [], next: res.next };
+  }
+
   getProducts(search): Observable<any> {
     return this.http.get(BASE_URL + 'channel_products/' + search).pipe(
+      map(this.extractData));
+  }
+
+  getProductsPage(url: string): Observable<any> {
+    return this.http.get(url).pipe(
       map(this.extractData));
   }
 
@@ -106,6 +156,11 @@ export class ApiService {
       map(this.extractData));
   }
 
+  contactUs(data): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore/contact_us/', data).pipe(
+      map(this.extractData));
+  }
+
   getTopSellers(): Observable<any> {
     return this.http.get(BASE_URL + 'channels/').pipe(
       map(this.extractData));
@@ -125,6 +180,11 @@ export class ApiService {
   }
   calculateCartCosts(data: any): Observable<any> {
     return this.http.post(BASE_URL + 'cart-calculation/', data).pipe(
+      map(this.extractData));
+  }
+  // b2c guests order without an account; sent with the company id, never a token
+  createGuestOrder(data: any): Observable<any> {
+    return this.http.post(BASE_URL + 'webstore/guest-checkout/', data).pipe(
       map(this.extractData));
   }
   createNewOrder(data: any): Observable<any> {

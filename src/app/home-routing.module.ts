@@ -5,13 +5,17 @@ import { CartComponent } from './views/cart/cart.component';
 import { ConfirmOrderComponent } from './views/confirm-order/confirm-order.component';
 import { HomeComponent } from './views/home/home.component';
 import { ItemDetailDesktopComponent } from './views/item-detail-desktop/item-detail-desktop.component';
-import { ItemDetailComponent } from './views/item-detail/item-detail.component';
 import { LoginComponent } from './views/login/login.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { PaymentMethodComponent } from './views/payment-method/payment-method.component';
 import { SearchComponent } from './views/search/search.component';
 import { ShippingDetailComponent } from './views/shipping-detail/shipping-detail.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { CreateAccountComponent } from './views/create-account/create-account.component';
+import { FaqsComponent } from './views/faqs/faqs.component';
+import { CompanyPolicyComponent } from './views/company-policy/company-policy.component';
+import { AboutComponent } from './views/about/about.component';
+import { ContactUsComponent } from './views/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -75,6 +79,26 @@ const routes: Routes = [
     component:AccountComponent
   },
   {
+    path:'faqs',
+    component:FaqsComponent
+  },
+  {
+    path:'policies',
+    component:CompanyPolicyComponent
+  },
+  {
+    path:'about',
+    component:AboutComponent
+  },
+  {
+    path:'contact-us',
+    component:ContactUsComponent
+  },
+  {
+    path:'create-account',
+    component:CreateAccountComponent
+  },
+  {
     path:'my-orders',
     component:OrdersComponent
   },
@@ -89,7 +113,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes),
+    // RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }),
+  ],
   exports: [RouterModule]
 })
 export class HomeRoutingModule { }

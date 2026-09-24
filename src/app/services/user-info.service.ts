@@ -111,7 +111,7 @@ export class UserInfoService {
     if (cart) {
        let items: any[]=JSON.parse(cart);
        for(var i=0;i<items.length;i++){
-         if(items[i].id==item.id){
+         if(items[i].id==item?.id){
            return true;
          }
        }       

@@ -1,0 +1,7 @@
+<div class="alert-container">
+  <div *ngFor="let alert of alerts" [ngClass]="alert.type" class="alert-box">
+    <p>{{ alert.message }}</p>
+    <button (click)="removeAlert(alert.id)">X</button>
+  </div>
+</div>
+

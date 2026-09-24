@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   };
 
   loading = false;
+  itemNavigators = true;
 
 
 
@@ -50,8 +51,12 @@ export class HomeComponent implements OnInit {
   currentPage: number = 1;
   pagePosition: string = "0%";
   cardsPerPage: number;
+  type: string;
   totalPages: number;
   overflowWidth: string;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
   cardWidth: string;
   containerWidth: number;
   primarySliderIndex: number;
@@ -120,10 +125,17 @@ export class HomeComponent implements OnInit {
     // this.getTopSellerProducts();
 
     // this.getTopProducts();
+    this.type = this.bizService.getBizType();
 
     this.getHomeSectionItems();
-    this.sliders = JSON.parse(this.bizService.get_sliders());
+    this.sliders = this.bizService.get_sliders() ?? [];
     this.primarySliderIndex = this.sliders.findIndex(obj => obj.primary === "True");
+
+    if (this.sliders.length > 1) {
+      this.itemNavigators = true;
+    } else {
+      this.itemNavigators = false;
+    }
 
     this.sectionCarouselResponsiveOptions = [
       {
@@ -152,14 +164,25 @@ export class HomeComponent implements OnInit {
     //   this.images.push(item.image);
     // });
   }
+
   getHomeSectionItems() {
     this.loading = true;
     this.apiService.getHomeSectionItems(this.bizService.get_company_id()).subscribe(res => {
       this.loading = false;
-      this.section_one = res.section_one;
-      this.section_two = res.section_two;
-      this.sectionOneProducts = res.section_one.products
+      if(res){
+        this.section_one = res.section_one;
+        this.section_two = res.section_two;
+        this.sectionOneProducts = res.section_one.products
+      }
+      
+      const channel = this.bizService.get_channel();
+      if(this.type===this.business && channel){
+        this.sectionOneProducts = res.section_one.products.filter(product=>product.product.channel === channel);
+      }
       this.sectionTwoProducts = res.section_two.products
+      if(this.type===this.business && channel){
+        this.sectionTwoProducts = res.section_two.products.filter(product=>product.product.channel === channel);
+      }
     }, err => {
       this.loading = false;
       console.log("[ERROR]>>>", err);

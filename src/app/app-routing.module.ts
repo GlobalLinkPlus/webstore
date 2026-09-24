@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeRoutingComponent } from './home-routing.component';
 import { BizInfoResolver } from './services/biz-info-resolver';
@@ -30,8 +30,13 @@ const routes: Routes = [
   // }
 ];
 
+const routerOptions: ExtraOptions = {
+  anchorScrolling: 'enabled',
+  scrollOffset: [0, 200]
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

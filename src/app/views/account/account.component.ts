@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-account',
@@ -80,15 +81,18 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private apiService:ApiService,
-    private userInfoService: UserInfoService
+    private userInfoService: UserInfoService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
 
-  
+
     this.apiService.getCustomerDetail(this.userInfoService.getCustomerId()).subscribe(res=>{
       this.customer_detail=res;
-    },err=>{});
+    },err=>{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load account details' });
+    });
   }
 
   joinName(first_name,last_name): string{

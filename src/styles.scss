@@ -47,17 +47,18 @@
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
+  height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-  background: whitesmoke;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: #525252;
   border-radius: 20px;
-  border: 3px solid whitesmoke;
+  border: 1px solid whitesmoke;
 }
 
 /* Importing Bootstrap SCSS file. */
@@ -86,4 +87,35 @@ ngb-carousel .wrapper>img {
   bottom: 0;
   right: 0;
   width: 100%;
+}
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+button:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr auto; /* One row for the main content, one for the footer */
+}
+
+main {
+  overflow-y: auto; /* Enable vertical scroll if content exceeds viewport height */
+}
+
+footer {
+  margin-top: auto; /* Push the footer to the bottom */
 }

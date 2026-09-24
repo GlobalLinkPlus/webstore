@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { BizService } from 'src/app/services/biz.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-orders',
@@ -20,28 +21,35 @@ export class OrdersComponent implements OnInit {
   show_pending_orders = false;
   show_progress_orders = false;
   show_completed_orders = false;
+  customer = "customer";
+  business = "business";
+  catalog = "catalog";
+  type: string;
 
 
 
   constructor(
     private apiService: ApiService,
     private userInfoService: UserInfoService,
-    public bizService: BizService
+    public bizService: BizService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
 
-    this.apiService.getOrders({"status":"Pending","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-      this.ordersPending=res;
-    },err=>{});
+    // one call for every status (the token identifies the shopper), then sorted into the three groups.
+    // A new order has status "New", which none of the per-status calls used to return.
+    this.apiService.getOrders({}).subscribe(res=>{
+      const orders = (res || []).sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+      this.ordersCompleted = orders.filter(order => order.status === 'Completed');
+      this.ordersPending = orders.filter(order => order.status === 'New' || order.status === 'Pending');
+      // Acknowledged and any other status in flight
+      this.ordersProgress = orders.filter(order => this.ordersCompleted.indexOf(order) === -1 && this.ordersPending.indexOf(order) === -1);
+    }, err => {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load your orders' });
+    });
 
-    this.apiService.getOrders({"status":"Acknowledged","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-      this.ordersProgress=res;
-    },err=>{});
-
-    this.apiService.getOrders({"status":"Completed","customer":this.userInfoService.getCustomerId()}).subscribe(res=>{
-     this.ordersCompleted=res;
-    },err=>{});
+    this.type = this.bizService.getBizType();
   }
 
   getProductsTotalPrice(price,quantity){

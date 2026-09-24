@@ -90,9 +90,10 @@
                         <div class="row" style="margin-top: 15px;">
                           <div style=" display:inline-block">
                             <span > Order Subtotal</span>
-                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal}}</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.subtotal | number:'1.2-2'}}</span>
                           </div>	
                         </div>
+                        <!-- TODO: restore Freight Cost later (it is not part of the order total)
                         <div class="row">
                           <div style=" display:inline-block">
                             <span > Freight Cost</span>
@@ -100,10 +101,11 @@
                           </div>
                           
                         </div>
+                        -->
                         <div class="row">
                           <div style=" display:inline-block">
-                            <span > Estimated Tax</span>
-                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax}}</span>
+                            <span > Tax</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.estimated_tax | number:'1.2-2'}}</span>
                           </div>
                           
                         </div>
@@ -113,7 +115,7 @@
                         <div class="row" style="margin-top: 20px;">
                           <div style=" display:inline-block">
                             <span >Total</span>
-                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost}}</span>
+                            <span style="float: right;">{{cart_summary.currency}}{{cart_summary.total_cost | number:'1.2-2'}}</span>
                           </div>
                           
                         </div>
@@ -125,9 +127,19 @@
                   </div>
                 </div>
       
-                <!-- <div class="row" style="margin-top: 50px;">
-                  <span><u>Add Gift Card/Promo Code</u></span>
-                </div> -->
+                <div class="row" style="margin-top: 50px;">
+                  <span *ngIf="!appliedPromoCode" style="cursor: pointer;" (click)="togglePromoInput()"><u>Add Gift Card/Promo Code</u></span>
+                  <div *ngIf="appliedPromoCode" style="display: flex; align-items: center; justify-content: space-between;">
+                    <span>Promo code <strong>{{appliedPromoCode}}</strong> applied</span>
+                    <span style="cursor: pointer; color: #C1C7D6;" (click)="removePromoCode()"><u>Remove</u></span>
+                  </div>
+                  <div *ngIf="showPromoInput && !appliedPromoCode" style="display: flex; column-gap: 10px; margin-top: 10px; width: 100%;">
+                    <input type="text" class="form-control" placeholder="Enter code" style="border-radius: 15px;"
+                      [(ngModel)]="promoCode" [ngModelOptions]="{standalone: true}" (keyup.enter)="applyPromoCode()">
+                    <button type="button" class="btn submit-now-button" style="white-space: nowrap;"
+                      (click)="applyPromoCode()">Apply</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>          
@@ -138,6 +150,5 @@
  
   </main>
   <footer style="padding-top: 20px;">
-  
-    <app-footer></app-footer>
+    <app-customer-footer></app-customer-footer>
   </footer>
